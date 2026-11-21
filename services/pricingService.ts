@@ -33,6 +33,21 @@ export async function getPricingConfig(): Promise<PricingConfig> {
   return DEFAULT_PRICING_CONFIG;
 }
 
+export async function updatePricingConfig(config: Partial<PricingConfig>): Promise<boolean> {
+  try {
+    await connectToDatabase();
+    await PricingConfigModel.findOneAndUpdate(
+      {},
+      { $set: config },
+      { upsert: true, new: true }
+    );
+    return true;
+  } catch (error) {
+    console.error("MongoDB update pricing error:", error);
+    return false;
+  }
+}
+
 export function getStarterPackage(): StarterPackage {
   return DEFAULT_STARTER_PACKAGE;
 }

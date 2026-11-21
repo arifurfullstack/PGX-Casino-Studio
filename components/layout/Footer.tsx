@@ -1,9 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Mail, Phone, Send } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
+
   return (
     <footer id="contact" className="relative pt-12 pb-8 border-t border-purple-900/40 bg-[#030107]">
       {/* Top golden accent line */}

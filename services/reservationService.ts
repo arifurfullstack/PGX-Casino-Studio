@@ -98,28 +98,48 @@ export async function getReservationById(reservationId: string): Promise<Reserva
 }
 
 export async function getAllReservations(): Promise<Reservation[]> {
-  await connectToDatabase();
-  const docs = await ReservationModel.find().sort({ createdAt: -1 }).lean();
+  try {
+    await connectToDatabase();
+    const docs = await ReservationModel.find().sort({ createdAt: -1 }).lean();
 
-  return docs.map((doc) => ({
-    id: (doc._id as unknown as string).toString(),
-    reservationId: doc.reservationId,
-    inquiryId: doc.inquiryId,
-    customerName: doc.customerName,
-    customerEmail: doc.customerEmail,
-    customerPhone: doc.customerPhone,
-    selectedDesignName: doc.selectedDesignName,
-    selectedAddons: doc.selectedAddons,
-    originalPackagePrice: doc.originalPackagePrice,
-    discountPercent: doc.discountPercent,
-    discountedPrice: doc.discountedPrice,
-    reservationFee: doc.reservationFee,
-    remainingBalance: doc.remainingBalance,
-    paymentStatus: doc.paymentStatus,
-    status: doc.status,
-    startTime: doc.startTime.toISOString(),
-    expiresAt: doc.expiresAt.toISOString(),
-    createdAt: doc.createdAt?.toISOString(),
-    updatedAt: doc.updatedAt?.toISOString(),
-  }));
+    return docs.map((doc) => ({
+      id: (doc._id as unknown as string).toString(),
+      reservationId: doc.reservationId,
+      inquiryId: doc.inquiryId,
+      customerName: doc.customerName,
+      customerEmail: doc.customerEmail,
+      customerPhone: doc.customerPhone,
+      selectedDesignName: doc.selectedDesignName,
+      selectedAddons: doc.selectedAddons,
+      originalPackagePrice: doc.originalPackagePrice,
+      discountPercent: doc.discountPercent,
+      discountedPrice: doc.discountedPrice,
+      reservationFee: doc.reservationFee,
+      remainingBalance: doc.remainingBalance,
+      paymentStatus: doc.paymentStatus,
+      status: doc.status,
+      startTime: doc.startTime.toISOString(),
+      expiresAt: doc.expiresAt.toISOString(),
+      createdAt: doc.createdAt?.toISOString(),
+      updatedAt: doc.updatedAt?.toISOString(),
+    }));
+  } catch (error) {
+    console.warn("MongoDB get all reservations error:", error);
+    return [];
+  }
+}
+
+export async function updateReservationStatus(
+  reservationId: string,
+  status: ReservationStatus,
+  paymentStatus?: PaymentStatus
+): Promise<boolean> {
+  await connectToDatabase();
+  const updateData: { status: ReservationStatus; paymentStatus?: PaymentStatus } = { status };
+  if (paymentStatus) {
+    updateData.paymentStatus = paymentStatus;
+  }
+
+  const res = await ReservationModel.updateOne({ reservationId }, { $set: updateData });
+  return res.modifiedCount > 0;
 }

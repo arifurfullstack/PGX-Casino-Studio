@@ -9,6 +9,7 @@ import MobileNav from "./MobileNav";
 
 export default function Header() {
   const pathname = usePathname();
+  if (pathname?.startsWith("/admin")) return null;
   const isDemoPage = pathname.startsWith("/designs/") && pathname !== "/designs";
 
   return (

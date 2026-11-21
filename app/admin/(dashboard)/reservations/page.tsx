@@ -1,0 +1,42 @@
+import { Clock, ShieldCheck } from "lucide-react";
+import { getAllReservations } from "@/services/reservationService";
+import ReservationsTable from "@/components/admin/reservations/ReservationsTable";
+
+export const dynamic = "force-dynamic";
+
+export default async function AdminReservationsPage() {
+  const reservations = await getAllReservations();
+  const activeCount = reservations.filter((r) => r.status === "active").length;
+  const lockedValue = reservations
+    .filter((r) => r.status === "active")
+    .reduce((sum, r) => sum + r.discountedPrice, 0);
+
+  return (
+    <div className="space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-purple-900/40">
+        <div>
+          <div className="flex items-center gap-2">
+            <Clock size={20} className="text-[#FFD700]" />
+            <h1 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+              5-Day Price Locks &amp; Reservations
+            </h1>
+          </div>
+          <p className="text-xs text-gray-400 mt-1">
+            Monitor $500 reservation holdings, 120-hour price lock countdowns, and record agreement sign-offs or refunds.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3 text-xs">
+          <span className="px-3 py-1.5 rounded-lg bg-purple-950/80 border border-purple-500/30 text-purple-200">
+            Active Holds: <strong className="text-[#FFD700]">{activeCount}</strong>
+          </span>
+          <span className="px-3 py-1.5 rounded-lg bg-emerald-950/80 border border-emerald-500/30 text-emerald-200">
+            Locked Value: <strong className="text-white">${lockedValue.toLocaleString()} USD</strong>
+          </span>
+        </div>
+      </div>
+
+      <ReservationsTable initialReservations={reservations} />
+    </div>
+  );
+}
