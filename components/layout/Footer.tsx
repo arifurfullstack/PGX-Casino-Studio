@@ -17,10 +17,11 @@ export default function Footer() {
           <div className="lg:col-span-5 space-y-3">
             <div className="relative w-44 sm:w-52 h-12 sm:h-14">
               <Image
-                src="/images/alli-logo-clean.png"
+                src="/images/all-i-gaming-logo-official.png"
                 alt={SITE_CONFIG.name}
                 fill
                 className="object-contain object-left"
+                unoptimized
               />
             </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-sm">

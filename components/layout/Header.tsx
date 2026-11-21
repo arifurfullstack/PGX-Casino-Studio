@@ -13,11 +13,12 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <div className="relative w-36 sm:w-48 h-10 sm:h-12">
             <Image
-              src="/images/alli-logo-clean.png"
+              src="/images/all-i-gaming-logo-official.png"
               alt={SITE_CONFIG.name}
               fill
               className="object-contain object-left"
               priority
+              unoptimized
             />
           </div>
         </Link>
