@@ -11,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://casino.pgxsportslounge.com"),
   title: "All I Gaming — Casino Platforms & Solutions",
   description:
     "Own your online casino starting at $15,000! Turnkey setup, premium casino designs, slots, game tables, and 24/7 support.",

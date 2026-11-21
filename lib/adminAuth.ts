@@ -1,7 +1,10 @@
 import { cookies } from "next/headers";
 
 const ADMIN_COOKIE_NAME = "aig_admin_session";
-const EXPECTED_SECRET = process.env.ADMIN_SESSION_SECRET || "aig_sec_2026_super_secret_token";
+const EXPECTED_SECRET =
+  process.env.ADMIN_SESSION_SECRET ||
+  process.env.JWT_SECRET ||
+  "aig_sec_2026_super_secret_token";
 const EXPECTED_PASSWORD = process.env.ADMIN_PASSWORD || "alligaming2026!";
 
 export async function isAdminAuthenticated(): Promise<boolean> {
