@@ -220,13 +220,13 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
                 <div
                   key={game.id}
                   onClick={() => setActiveModalGame(game.name)}
-                  className="group relative rounded-xl overflow-hidden border border-purple-600/50 hover:border-yellow-400 bg-[#090214] aspect-[146/105] cursor-pointer shadow-[0_0_12px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all"
+                  className="group relative rounded-xl overflow-hidden border border-purple-600/50 hover:border-yellow-400 bg-[#090214] aspect-[146/103] cursor-pointer shadow-[0_0_12px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all"
                 >
                   <Image
                     src={game.image}
                     alt={game.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-fill group-hover:scale-105 transition-transform duration-300"
                   />
 
                   {/* Favorite Button */}
