@@ -17,10 +17,11 @@ export const SITE_CONFIG = {
   },
   navItems: [
     { label: "Home", href: "/" },
-    { label: "Casino Designs", href: "/#designs" },
-    { label: "Packages", href: "/#packages" },
-    { label: "How It Works", href: "/#how-it-works" },
-    { label: "Features", href: "/#features" },
-    { label: "Contact Us", href: "/#contact" },
+    { label: "Casino Designs", href: "/designs" },
+    { label: "Packages", href: "/packages" },
+    { label: "Add-On Modules", href: "/modules" },
+    { label: "How It Works", href: "/how-it-works" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ] as NavItem[],
 };

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,9 +28,21 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning className={`dark ${inter.variable}`}>
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#030108] text-white antialiased font-sans selection:bg-purple-600 selection:text-white"
+        className="min-h-screen bg-[#030108] text-white antialiased font-sans selection:bg-purple-600 selection:text-white flex flex-col justify-between"
       >
-        {children}
+        {/* Background ambient neon ribbons and glow effects */}
+        <div className="fixed inset-0 pointer-events-none z-0">
+          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-purple-700/15 rounded-full blur-[140px]" />
+          <div className="absolute top-20 right-[-10%] w-[600px] h-[600px] bg-fuchsia-600/12 rounded-full blur-[160px]" />
+          <div className="absolute top-[38%] left-[-10%] w-[700px] h-[700px] bg-violet-600/12 rounded-full blur-[180px]" />
+          <div className="absolute bottom-[15%] right-1/4 w-[800px] h-[500px] bg-purple-700/15 rounded-full blur-[160px]" />
+        </div>
+
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </div>
       </body>
     </html>
   );

@@ -64,7 +64,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
               <Link
-                href="/#designs"
+                href="/designs"
                 className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] rounded-lg shadow-[0_0_22px_rgba(255,215,0,0.45)] hover:shadow-[0_0_30px_rgba(255,215,0,0.7)] hover:brightness-110 transition-all duration-300"
               >
                 <span>Browse Casino Designs</span>
@@ -72,7 +72,7 @@ export default function HeroSection() {
               </Link>
 
               <Link
-                href="/#contact"
+                href="/contact"
                 className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white bg-purple-950/60 hover:bg-purple-900/70 rounded-lg border border-purple-500/60 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.25)] hover:border-purple-400"
               >
                 <Send size={14} className="text-purple-300" />

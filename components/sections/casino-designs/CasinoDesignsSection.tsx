@@ -23,7 +23,7 @@ export default function CasinoDesignsSection({ designs }: CasinoDesignsSectionPr
           </div>
 
           <Link
-            href="/#designs"
+            href="/designs"
             className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#FFD700] hover:text-[#FFE57F] transition-colors"
           >
             <span>View All ({designs.length}) Designs</span>

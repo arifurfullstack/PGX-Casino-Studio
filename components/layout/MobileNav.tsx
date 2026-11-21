@@ -39,7 +39,7 @@ export default function MobileNav({ items }: MobileNavProps) {
 
             <div className="pt-3 flex flex-col gap-2.5">
               <Link
-                href="/#designs"
+                href="/designs"
                 onClick={() => setIsOpen(false)}
                 className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] rounded-md shadow-[0_0_15px_rgba(255,215,0,0.4)]"
               >
