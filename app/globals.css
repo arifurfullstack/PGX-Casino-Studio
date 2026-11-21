@@ -1,132 +1,372 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: var(--font-sans);
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
-    --color-chart-5: var(--chart-5);
-    --color-chart-4: var(--chart-4);
-    --color-chart-3: var(--chart-3);
-    --color-chart-2: var(--chart-2);
-    --color-chart-1: var(--chart-1);
-    --color-ring: var(--ring);
-    --color-input: var(--input);
-    --color-border: var(--border);
-    --color-destructive: var(--destructive);
-    --color-accent-foreground: var(--accent-foreground);
-    --color-accent: var(--accent);
-    --color-muted-foreground: var(--muted-foreground);
-    --color-muted: var(--muted);
-    --color-secondary-foreground: var(--secondary-foreground);
-    --color-secondary: var(--secondary);
-    --color-primary-foreground: var(--primary-foreground);
-    --color-primary: var(--primary);
-    --color-popover-foreground: var(--popover-foreground);
-    --color-popover: var(--popover);
-    --color-card-foreground: var(--card-foreground);
-    --color-card: var(--card);
-    --color-foreground: var(--foreground);
-    --color-background: var(--background);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
-}
-
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+  --casino-bg: #050510;
+  --casino-bg-card: rgba(15, 10, 40, 0.8);
+  --casino-bg-card-solid: #0f0a28;
+  --casino-gold: #FFD700;
+  --casino-gold-dark: #B8860B;
+  --casino-gold-light: #FFF3B0;
+  --casino-purple: #8B5CF6;
+  --casino-purple-light: #A855F7;
+  --casino-purple-deep: #2D1B69;
+  --casino-purple-dark: #1a0e3d;
+  --casino-text: #FFFFFF;
+  --casino-text-muted: #9CA3AF;
+  --casino-text-dim: #6B7280;
+  --casino-border-purple: rgba(139, 92, 246, 0.4);
+  --casino-border-gold: rgba(255, 215, 0, 0.3);
+  --casino-glow-purple: rgba(139, 92, 246, 0.3);
+  --casino-glow-gold: rgba(255, 215, 0, 0.2);
 }
 
-.dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+/* ---- Base ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-    }
-  body {
-    @apply bg-background text-foreground;
-    }
-  button:not(:disabled), [role="button"]:not(:disabled) {
-    cursor: pointer;
-    }
-  html {
-    @apply font-sans;
-    }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--casino-bg);
+  color: var(--casino-text);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ---- Gold gradient text ---- */
+.text-gold-gradient {
+  background: linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gold {
+  color: var(--casino-gold);
+}
+
+/* ---- Glow effects ---- */
+.glow-purple {
+  box-shadow: 0 0 20px var(--casino-glow-purple), 0 0 40px rgba(139, 92, 246, 0.15);
+}
+
+.glow-purple-intense {
+  box-shadow: 0 0 30px var(--casino-glow-purple), 0 0 60px rgba(139, 92, 246, 0.2), 0 0 100px rgba(139, 92, 246, 0.1);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px var(--casino-glow-gold), 0 0 40px rgba(255, 215, 0, 0.1);
+}
+
+.border-glow-purple {
+  border: 1px solid var(--casino-border-purple);
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.2), inset 0 0 15px rgba(139, 92, 246, 0.05);
+}
+
+.border-glow-purple:hover {
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.3), inset 0 0 20px rgba(139, 92, 246, 0.08);
+}
+
+/* ---- Gradient borders ---- */
+.border-gold-gradient {
+  position: relative;
+}
+
+.border-gold-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--casino-gold), transparent);
+}
+
+.border-gold-gradient::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--casino-gold), transparent);
+}
+
+/* ---- Radial glow backgrounds ---- */
+.bg-radial-purple {
+  background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 60%);
+}
+
+.bg-radial-purple-center {
+  background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+}
+
+/* ---- Buttons ---- */
+.btn-gold {
+  background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(180deg, #FFE44D 0%, #FFB800 100%);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-outline-white {
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn-outline-white:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  color: var(--casino-gold);
+  font-weight: 600;
+  border: 1.5px solid var(--casino-gold);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn-outline-gold:hover {
+  background: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+.btn-sm-gold {
+  background: linear-gradient(180deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.btn-sm-gold:hover {
+  background: linear-gradient(180deg, #FFE44D 0%, #FFB800 100%);
+}
+
+.btn-sm-outline {
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.btn-sm-outline:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---- Casino design card ---- */
+.casino-card {
+  background: linear-gradient(180deg, rgba(20, 10, 50, 0.9) 0%, rgba(10, 5, 30, 0.95) 100%);
+  border: 1px solid var(--casino-border-purple);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.casino-card:hover {
+  border-color: rgba(139, 92, 246, 0.7);
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ---- Section separator ---- */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.section-title-decorated {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.section-title-decorated::before,
+.section-title-decorated::after {
+  content: '◆';
+  color: var(--casino-gold);
+  font-size: 10px;
+}
+
+/* ---- Feature icon wrapper ---- */
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--casino-gold);
+}
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--casino-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--casino-purple-deep);
+  border-radius: 3px;
+}
+
+/* ---- Animated purple glow behind hero ---- */
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ---- Gold star price text ---- */
+.price-text {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E0E0E0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+/* ---- Starter package ---- */
+.starter-package {
+  background: linear-gradient(135deg, rgba(15, 10, 40, 0.95) 0%, rgba(20, 12, 50, 0.9) 100%);
+  position: relative;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+/* ---- Add-on badge ---- */
+.addon-badge {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid var(--casino-border-purple);
+  border-radius: 8px;
+  padding: 8px 12px;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.addon-badge:hover {
+  background: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.6);
+}
+
+/* ---- CTA section ---- */
+.cta-section {
+  background: linear-gradient(135deg, rgba(45, 27, 105, 0.6) 0%, rgba(139, 92, 246, 0.2) 50%, rgba(45, 27, 105, 0.6) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* ---- Step connector ---- */
+.step-connector {
+  color: var(--casino-gold);
+  font-size: 1.5rem;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+/* ---- How it works card ---- */
+.how-card {
+  background: rgba(15, 10, 40, 0.6);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+/* ---- Footer ---- */
+.footer-section {
+  background: #030308;
+  position: relative;
+}
+
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--casino-gold), transparent);
 }

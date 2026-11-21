@@ -1,30 +1,32 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-mono",
-})
+  variable: "--font-sans",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  title: "All I Gaming — Casino Platforms & Solutions",
+  description:
+    "Own your online casino starting at $15,000! Turnkey setup, premium casino designs, slots, game tables, and 24/7 support.",
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
-    >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+    <html lang="en" className={`dark ${inter.variable}`}>
+      <body className="min-h-screen bg-[#030108] text-white antialiased font-sans selection:bg-purple-600 selection:text-white">
+        {children}
       </body>
     </html>
-  )
+  );
 }
