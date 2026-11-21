@@ -10,7 +10,7 @@ const STAGES = [
     number: 1,
     title: "Architecture & Design Look Selected",
     status: "completed",
-    timeline: "Days 1–2",
+    timeline: "Days 1–3",
     description: "Selection of 1 of 12 casino themes, optional expansion modules (Live Dealer, Sportsbook, Poker), and price lock reservation.",
     items: [
       "Theme selection verified & locked",
@@ -22,7 +22,7 @@ const STAGES = [
     number: 2,
     title: "Commercial Agreement & Contract",
     status: "in_progress",
-    timeline: "Days 3–5",
+    timeline: "Days 4–7",
     description: "Formal contract execution, $500 reservation holding credited to initial invoice, and commercial terms sign-off.",
     items: [
       "B2B software licensing agreement review",
@@ -34,7 +34,7 @@ const STAGES = [
     number: 3,
     title: "Custom Brand Identity & Domain Mapping",
     status: "upcoming",
-    timeline: "Days 6–8",
+    timeline: "Days 8–14",
     description: "Operator's custom logo, color scheme, domain registration, SSL certificates, and cloud infrastructure setup.",
     items: [
       "Custom brand logo and vector graphics deployment",
@@ -46,7 +46,7 @@ const STAGES = [
     number: 4,
     title: "Games Aggregation & Payment Integration",
     status: "upcoming",
-    timeline: "Days 9–12",
+    timeline: "Days 15–22",
     description: "Pragmatic Play, Evolution Gaming, and certified slot providers aggregation with crypto (USDT/BTC) and fiat gateway integration.",
     items: [
       "500+ Casino slots & table games hookup",
@@ -58,7 +58,7 @@ const STAGES = [
     number: 5,
     title: "Quality Audit, Training & Production Launch",
     status: "upcoming",
-    timeline: "Days 13–14",
+    timeline: "Days 23–30",
     description: "End-to-end sandbox testing, admin backoffice operator training, and live casino launch to players.",
     items: [
       "99.99% SLA stress & load verification",
@@ -113,7 +113,7 @@ export default async function CustomerMilestonesPage() {
           <div className="h-full bg-gradient-to-r from-emerald-400 to-[#FFD700] w-[20%] rounded-full shadow-[0_0_12px_#FFD700]" />
         </div>
         <p className="text-[11px] text-gray-400">
-          Estimated total turnaround from agreement completion to production launch: <strong>14 Business Days</strong>.
+          Estimated total turnaround from agreement completion to production launch: <strong>21–30 Business Days</strong>.
         </p>
       </div>
 

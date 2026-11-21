@@ -26,7 +26,7 @@ export default async function DesignsPage() {
             Choose Your <span className="text-[#FFD700]">Casino Design</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-            Select from 12 pre-built, production-ready casino frontend themes. Launch with live dealer tables, sportsbook, and slot integration in under 14 days.
+            Select from 12 pre-built, production-ready casino frontend themes. Launch with live dealer tables, sportsbook, and slot integration in 21–30 days.
           </p>
         </div>
 

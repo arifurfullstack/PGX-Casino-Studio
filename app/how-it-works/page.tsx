@@ -12,6 +12,7 @@ const STEPS = [
     title: "Choose Your Casino Design",
     subtitle: "Frontend Theme & Aesthetic",
     icon: Monitor,
+    turnaround: "1–2 days",
     description: "Browse our catalog of 12 luxury online casino themes (Royal Prestige, Neon Vegas, Emerald Club, etc.). Each design comes with responsive desktop and mobile layouts.",
     deliverables: [
       "Full responsive Next.js frontend source code",
@@ -24,6 +25,7 @@ const STEPS = [
     title: "Customize Your Package",
     subtitle: "Modules & Payment Integrations",
     icon: Layers,
+    turnaround: "3–5 days",
     description: "Start with our $15,000 USD core package (table games & slots) and add expansion modules anytime (Live Dealer, Sportsbook, Poker, or Sweepstakes).",
     deliverables: [
       "Custom domain and cloud hosting deployment",
@@ -34,8 +36,9 @@ const STEPS = [
   {
     step: "03",
     title: "Launch & Operate",
-    subtitle: "7-14 Days Turnkey Handover",
+    subtitle: "21–30 Days Turnkey Handover",
     icon: Send,
+    turnaround: "21–30 days",
     description: "Our engineering team deploys your casino cluster on private high-availability servers. We provide full admin backoffice training and ongoing 24/7 technical support.",
     deliverables: [
       "Comprehensive player management backoffice",
@@ -62,7 +65,7 @@ export default function HowItWorksPage() {
             How It <span className="text-[#FFD700]">Works</span>
           </h1>
           <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-            From initial theme selection to live player bets in under 14 days. Our streamlined turnkey delivery eliminates development headaches and technical risk.
+            From initial theme selection to live player bets in 21–30 days. Our streamlined turnkey delivery eliminates development headaches and technical risk.
           </p>
         </div>
 
@@ -106,7 +109,7 @@ export default function HowItWorksPage() {
                 <div className="pt-2">
                   <div className="flex items-center gap-2 text-xs text-gray-400">
                     <Clock size={13} className="text-purple-400" />
-                    <span>Average turnaround: 3-5 days</span>
+                    <span>Average turnaround: {s.turnaround}</span>
                   </div>
                 </div>
               </div>

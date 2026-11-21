@@ -9,7 +9,7 @@ export const metadata = {
 const STATS = [
   { label: "Uptime SLA", value: "99.99%", desc: "Enterprise cloud hosting" },
   { label: "Turnkey Themes", value: "12+", desc: "Customizable high-converting UI" },
-  { label: "Delivery Time", value: "7-14 Days", desc: "Fast-track launch schedule" },
+  { label: "Delivery Time", value: "21-30 Days", desc: "Turnkey launch schedule" },
   { label: "Global Reach", value: "40+ Countries", desc: "Multi-currency & crypto ready" },
 ];
 
