@@ -83,13 +83,13 @@ export default function HeroSection() {
 
           {/* Right Visual: Cards, Laptop, Roulette, Dice */}
           <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-[560px] aspect-[545/380] sm:aspect-auto">
+            <div className="relative w-full max-w-[620px] aspect-[1468/700]">
               <Image
-                src="/images/hero-cluster-hd.png"
+                src="/images/hero-showcase-full.png"
                 alt="Casino software platform preview with laptop, chips, cards, roulette and dice"
-                width={560}
-                height={390}
-                className="w-full h-auto object-contain drop-shadow-[0_0_35px_rgba(168,85,247,0.45)]"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain drop-shadow-[0_0_35px_rgba(168,85,247,0.35)]"
                 priority
               />
             </div>

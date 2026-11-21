@@ -15,13 +15,14 @@ export default function Footer() {
           
           {/* Col 1: Brand Info */}
           <div className="lg:col-span-5 space-y-3">
-            <Image
-              src="/images/alli-logo-hd.png"
-              alt={SITE_CONFIG.name}
-              width={180}
-              height={40}
-              className="h-9 sm:h-10 w-auto object-contain"
-            />
+            <div className="relative w-44 sm:w-52 h-12 sm:h-14">
+              <Image
+                src="/images/alli-logo-clean.png"
+                alt={SITE_CONFIG.name}
+                fill
+                className="object-contain object-left"
+              />
+            </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-sm">
               All I Gaming provides premium turnkey B2B online casino software solutions. Choose your design, customize optional modules, and launch your branded casino.
             </p>

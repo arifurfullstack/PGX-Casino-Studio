@@ -11,12 +11,12 @@ export default function Header() {
         
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-32 sm:w-40 h-9 sm:h-11">
+          <div className="relative w-36 sm:w-48 h-10 sm:h-12">
             <Image
               src="/images/alli-logo-clean.png"
               alt={SITE_CONFIG.name}
               fill
-              className="object-contain"
+              className="object-contain object-left"
               priority
             />
           </div>
