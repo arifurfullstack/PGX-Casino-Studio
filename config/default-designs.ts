@@ -10,7 +10,7 @@ export const DEFAULT_CASINO_DESIGNS: CasinoDesign[] = [
     status: "active",
     order: 1,
     previewImages: [
-      { id: "rp-1", title: "Homepage Layout", url: "/images/card-royal-prestige-art.png", order: 1 },
+      { id: "rp-1", title: "Full Showcase", url: "/images/royal-prestige-full-stage.png", order: 1 },
       { id: "rp-2", title: "Slots Lobby", url: "/images/design-royal-prestige.png", order: 2 },
     ],
   },

@@ -10,23 +10,23 @@ interface CasinoPreviewStageProps {
 }
 
 const FEATURED_GAMES = [
-  { id: "sweet-bonanza", name: "Sweet Bonanza", image: "/images/game-sweet-bonanza.png", rtp: "96.5%" },
-  { id: "gates-of-olympus", name: "Gates of Olympus", image: "/images/game-gates-of-olympus.png", rtp: "96.5%" },
-  { id: "sugar-rush", name: "Sugar Rush", image: "/images/game-sugar-rush.png", rtp: "96.5%" },
-  { id: "big-bass-bonanza", name: "Big Bass Bonanza", image: "/images/game-big-bass-bonanza.png", rtp: "96.7%" },
-  { id: "buffalo-king", name: "Buffalo King", image: "/images/game-buffalo-king.png", rtp: "96.0%" },
-  { id: "book-of-dead", name: "Book of Dead", image: "/images/game-book-of-dead.png", rtp: "96.2%" },
-  { id: "fortune-dragon", name: "Fortune Dragon", image: "/images/game-fortune-dragon.png", rtp: "96.8%" },
-  { id: "hot-fruits", name: "Hot Fruits", image: "/images/game-hot-fruits.png", rtp: "97.1%" },
-  { id: "jokers-jewels", name: "Joker's Jewels", image: "/images/game-jokers-jewels.png", rtp: "96.5%" },
-  { id: "wolf-gold", name: "Wolf Gold", image: "/images/game-wolf-gold.png", rtp: "96.0%" },
+  { id: "sweet-bonanza", name: "Sweet Bonanza", image: "/images/game-sweet-bonanza.png" },
+  { id: "gates-of-olympus", name: "Gates of Olympus", image: "/images/game-gates-of-olympus.png" },
+  { id: "sugar-rush", name: "Sugar Rush", image: "/images/game-sugar-rush.png" },
+  { id: "big-bass-bonanza", name: "Big Bass Bonanza", image: "/images/game-big-bass-bonanza.png" },
+  { id: "buffalo-king", name: "Buffalo King", image: "/images/game-buffalo-king.png" },
+  { id: "book-of-dead", name: "Book of Dead", image: "/images/game-book-of-dead.png" },
+  { id: "fortune-dragon", name: "Fortune Dragon", image: "/images/game-fortune-dragon.png" },
+  { id: "hot-fruits", name: "Hot Fruits", image: "/images/game-hot-fruits.png" },
+  { id: "jokers-jewels", name: "Joker's Jewels", image: "/images/game-jokers-jewels.png" },
+  { id: "wolf-gold", name: "Wolf Gold", image: "/images/game-wolf-gold.png" },
 ];
 
 const CATEGORIES = [
-  { id: "slots", label: "Slots", image: "/images/cat-slots.png" },
-  { id: "live", label: "Live Dealer Casino", image: "/images/cat-live.png" },
-  { id: "sports", label: "Sportsbook", image: "/images/cat-sports.png" },
-  { id: "poker", label: "Poker Platform", image: "/images/cat-poker.png" },
+  { id: "slots", label: "Slots", image: "/images/demo-cat-slots.png" },
+  { id: "live", label: "Live Dealer Casino", image: "/images/demo-cat-live.png" },
+  { id: "sports", label: "Sportsbook", image: "/images/demo-cat-sports.png" },
+  { id: "poker", label: "Poker Platform", image: "/images/demo-cat-poker.png" },
 ];
 
 export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) {
@@ -45,8 +45,8 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
   const previewList = design.previewImages || [];
 
   return (
-    <div className="flex-1 rounded-2xl bg-[#030007] border-2 border-purple-500/50 shadow-[0_0_35px_rgba(168,85,247,0.35)] overflow-hidden flex flex-col">
-      {/* 1. Multi-PNG Suite Switcher Bar (if previews exist) */}
+    <div className="w-full flex-1 rounded-2xl bg-[#030007] border-2 border-purple-500/50 shadow-[0_0_35px_rgba(168,85,247,0.35)] overflow-hidden flex flex-col">
+      {/* 1. Multi-PNG Suite Switcher Bar */}
       {previewList.length > 0 && (
         <div className="flex items-center gap-1.5 px-3 py-2 bg-[#06010d] border-b border-purple-900/50 overflow-x-auto text-[11px]">
           <span className="text-gray-400 font-bold uppercase text-[10px] tracking-wider px-1.5 flex items-center gap-1 shrink-0">
@@ -82,11 +82,11 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
       )}
 
       {/* 2. Casino Simulation Header */}
-      <div className="bg-[#0b0114]/95 border-b border-purple-900/60 px-4 py-2.5 flex items-center justify-between gap-4">
+      <div className="bg-[#0b0114]/95 border-b border-purple-900/60 px-3 sm:px-4 py-2.5 flex items-center justify-between gap-3 sm:gap-4">
         <div className="flex items-center gap-2">
-          <Crown size={18} className="text-yellow-400 fill-yellow-400" />
+          <Crown size={18} className="text-yellow-400 fill-yellow-400 shrink-0" />
           <div>
-            <div className="text-xs font-black uppercase tracking-wider text-yellow-400 flex items-center gap-1">
+            <div className="text-xs sm:text-sm font-black uppercase tracking-wider text-yellow-400 flex items-center gap-1">
               <span>{design.name}</span>
             </div>
             <p className="text-[9px] uppercase tracking-widest text-purple-300 font-semibold">Casino</p>
@@ -138,24 +138,25 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
         </div>
       </div>
 
-      {/* 3. Main Stage Content: Switch between uploaded PNG Preview and Live Simulation */}
+      {/* 3. Main Stage Content */}
       {selectedPreviewUrl ? (
-        <div className="relative w-full aspect-[16/10] bg-[#0c0218] overflow-hidden flex items-center justify-center p-4">
+        <div className="relative w-full aspect-[794/597] bg-[#0c0218] overflow-hidden flex items-center justify-center p-2">
           <Image
             src={selectedPreviewUrl}
             alt={design.name}
             fill
             className="object-contain"
             unoptimized
+            priority
           />
         </div>
       ) : (
         <>
           {/* Casino Hero Interactive Banner */}
-          <div className="relative w-full aspect-[1548/440] bg-[#0c0218] overflow-hidden group">
+          <div className="relative w-full aspect-[781/197] bg-[#0c0218] overflow-hidden group">
             <Image
-              src="/images/casino-demo-hero-royal-hd.png"
-              alt="Casino Hero Banner"
+              src="/images/demo-hero-banner-clean.png"
+              alt="Welcome to Royal Prestige Casino"
               fill
               className="object-cover"
               priority
@@ -176,12 +177,12 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
             </button>
           </div>
 
-          {/* Category Cards */}
-          <div className="p-3 sm:p-4 grid grid-cols-2 lg:grid-cols-4 gap-2.5">
+          {/* 4 Category Quick-Select Cards */}
+          <div className="p-2.5 sm:p-3.5 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5">
             {CATEGORIES.map((cat) => (
               <div
                 key={cat.id}
-                className="relative rounded-xl overflow-hidden border border-purple-500/40 hover:border-yellow-400/80 shadow-[0_0_12px_rgba(168,85,247,0.2)] aspect-[174/60] cursor-pointer group transition-all"
+                className="relative rounded-xl overflow-hidden border border-purple-500/40 hover:border-yellow-400 shadow-[0_0_12px_rgba(168,85,247,0.2)] aspect-[180/75] cursor-pointer group transition-all"
                 onClick={() => setActiveTab(cat.label)}
               >
                 <Image
@@ -194,63 +195,64 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
             ))}
           </div>
 
-          {/* Featured Games Grid */}
-          <div className="px-3 sm:px-4 pb-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="w-1 h-4 bg-yellow-400 rounded-full" />
-                <h3 className="text-sm font-black uppercase tracking-wider text-white">
-                  Featured Games
-                </h3>
-              </div>
-              <button
-                type="button"
-                className="text-[11px] font-bold text-yellow-400 hover:underline flex items-center gap-1"
-              >
-                <span>View All Games</span>
-                <span>→</span>
-              </button>
+          {/* Featured Games Section Header */}
+          <div className="px-3 sm:px-4 pt-1 pb-2 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <span className="w-1 h-3.5 bg-yellow-400 rounded-full" />
+              <h3 className="text-xs sm:text-sm font-bold tracking-wider text-white">
+                Featured Games
+              </h3>
             </div>
+            <button
+              type="button"
+              className="text-[11px] font-semibold text-yellow-400 hover:text-yellow-300 flex items-center gap-1 transition-colors"
+            >
+              <span>View All Games</span>
+              <span className="text-xs">→</span>
+            </button>
+          </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-2.5">
-              {FEATURED_GAMES.map((game) => {
-                const isFav = favorites.includes(game.id);
-                return (
-                  <div
-                    key={game.id}
-                    onClick={() => setActiveModalGame(game.name)}
-                    className="group relative rounded-xl overflow-hidden border border-purple-600/40 hover:border-yellow-400/80 bg-[#090214] aspect-[140/80] cursor-pointer shadow-[0_0_10px_rgba(168,85,247,0.15)] hover:shadow-[0_0_18px_rgba(255,215,0,0.4)] transition-all"
+          {/* 10-Game Grid (2 rows x 5 columns) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-2.5 px-3 sm:px-4 pb-4">
+            {FEATURED_GAMES.map((game) => {
+              const isFav = favorites.includes(game.id);
+              return (
+                <div
+                  key={game.id}
+                  onClick={() => setActiveModalGame(game.name)}
+                  className="group relative rounded-xl overflow-hidden border border-purple-600/50 hover:border-yellow-400 bg-[#090214] aspect-[146/105] cursor-pointer shadow-[0_0_12px_rgba(168,85,247,0.2)] hover:shadow-[0_0_20px_rgba(255,215,0,0.5)] transition-all"
+                >
+                  <Image
+                    src={game.image}
+                    alt={game.name}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+
+                  {/* Favorite Button */}
+                  <button
+                    type="button"
+                    onClick={(e) => toggleFavorite(game.id, e)}
+                    className="absolute top-1.5 right-1.5 z-10 w-5 h-5 rounded-full bg-black/60 flex items-center justify-center text-purple-200 hover:text-red-400 transition-colors"
                   >
-                    <Image
-                      src={game.image}
-                      alt={game.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    <Heart
+                      size={11}
+                      className={isFav ? "text-red-500 fill-red-500" : ""}
                     />
+                  </button>
 
-                    <button
-                      type="button"
-                      onClick={(e) => toggleFavorite(game.id, e)}
-                      className="absolute top-1.5 right-1.5 z-10 w-5 h-5 rounded-full bg-black/60 flex items-center justify-center text-purple-200 hover:text-red-400 transition-colors"
-                    >
-                      <Heart
-                        size={11}
-                        className={isFav ? "text-red-500 fill-red-500" : ""}
-                      />
-                    </button>
-
-                    <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 p-1">
-                      <div className="w-7 h-7 rounded-full bg-yellow-400 text-black flex items-center justify-center shadow-[0_0_10px_rgba(255,215,0,0.8)]">
-                        <Play size={12} className="fill-black ml-0.5" />
-                      </div>
-                      <span className="text-[9px] font-bold uppercase text-yellow-300 tracking-wider">
-                        Instant Play
-                      </span>
+                  {/* Hover Play Demo Overlay */}
+                  <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-1 p-1">
+                    <div className="w-7 h-7 rounded-full bg-yellow-400 text-black flex items-center justify-center shadow-[0_0_10px_rgba(255,215,0,0.8)]">
+                      <Play size={12} className="fill-black ml-0.5" />
                     </div>
+                    <span className="text-[9px] font-bold uppercase text-yellow-300 tracking-wider">
+                      Instant Play
+                    </span>
                   </div>
-                );
-              })}
-            </div>
+                </div>
+              );
+            })}
           </div>
         </>
       )}

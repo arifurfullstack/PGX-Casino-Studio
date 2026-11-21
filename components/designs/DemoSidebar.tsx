@@ -62,7 +62,7 @@ export default function DemoSidebar({ design }: DemoSidebarProps) {
   const totalPrice = basePrice + addonsTotal;
 
   return (
-    <aside className="w-full lg:w-72 xl:w-80 shrink-0 space-y-4">
+    <aside className="w-full lg:w-72 xl:w-80 shrink-0 space-y-4 lg:sticky lg:top-24">
       <div className="rounded-2xl bg-[#090214] border border-purple-500/40 p-4 sm:p-5 shadow-[0_0_25px_rgba(168,85,247,0.25)] space-y-4">
         
         {/* Title */}
