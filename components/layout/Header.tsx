@@ -6,12 +6,12 @@ import MobileNav from "./MobileNav";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#04010a]/85 border-b border-purple-900/40">
-      <div className="max-w-[1060px] mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full backdrop-blur-md bg-[#04010a]/90 border-b border-purple-900/40">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
         
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative w-28 sm:w-32 h-8 sm:h-9">
+          <div className="relative w-32 sm:w-40 h-9 sm:h-11">
             <Image
               src="/images/alli-logo-clean.png"
               alt={SITE_CONFIG.name}
@@ -23,12 +23,12 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-5 text-xs font-semibold text-gray-300">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-semibold text-gray-300">
           {SITE_CONFIG.navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="hover:text-[#FFD700] transition-colors"
+              className="hover:text-[#FFD700] transition-colors py-1"
             >
               {item.label}
             </Link>
@@ -39,10 +39,10 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/#designs"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] rounded-md shadow-[0_0_15px_rgba(255,215,0,0.35)] hover:shadow-[0_0_20px_rgba(255,215,0,0.6)] hover:brightness-110 transition-all duration-300"
+            className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] rounded-lg shadow-[0_0_18px_rgba(255,215,0,0.35)] hover:shadow-[0_0_24px_rgba(255,215,0,0.6)] hover:brightness-110 transition-all duration-300"
           >
             <span>Explore Designs</span>
-            <ArrowRight size={13} className="stroke-[2.5]" />
+            <ArrowRight size={14} className="stroke-[2.5]" />
           </Link>
 
           <MobileNav items={SITE_CONFIG.navItems} />

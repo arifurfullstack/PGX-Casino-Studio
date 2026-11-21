@@ -23,22 +23,21 @@
   --casino-glow-gold: rgba(255, 215, 0, 0.2);
 }
 
-/* ---- Base ---- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  *, ::before, ::after {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  background: var(--casino-bg);
-  color: var(--casino-text);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  overflow-x: hidden;
+  body {
+    background: var(--casino-bg);
+    color: var(--casino-text);
+    font-family: var(--font-sans), system-ui, sans-serif;
+    overflow-x: hidden;
+  }
 }
 
 /* ---- Gold gradient text ---- */
