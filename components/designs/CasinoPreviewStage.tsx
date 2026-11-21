@@ -121,20 +121,10 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
           >
             <Search size={13} />
           </button>
-          <button
-            type="button"
-            onClick={() => alert("Simulation: Player Login Dialog")}
-            className="px-2.5 py-1 rounded-md text-[11px] font-semibold text-gray-200 border border-purple-600/60 hover:bg-purple-900/40"
-          >
-            Login
-          </button>
-          <button
-            type="button"
-            onClick={() => alert("Simulation: Player Registration Dialog")}
-            className="px-3 py-1 rounded-md text-[11px] font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110"
-          >
-            Register
-          </button>
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/40 text-[10px] sm:text-[11px] font-bold text-yellow-400 uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+            <span>Turnkey Demo</span>
+          </span>
         </div>
       </div>
 
