@@ -68,7 +68,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone size={16} className="text-[#FFD700] shrink-0" />
-                <span>{SITE_CONFIG.contact.whatsapp} (WhatsApp)</span>
+                <a
+                  href={`https://wa.me/${SITE_CONFIG.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  {SITE_CONFIG.contact.whatsapp} (WhatsApp)
+                </a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Send size={16} className="text-[#FFD700] shrink-0" />

@@ -93,7 +93,7 @@ export default async function CustomerMilestonesPage() {
         </div>
 
         <a
-          href="https://wa.me/15550192834?text=Hello%20All%20I%20Gaming%2C%20I%20have%20a%20question%20about%20my%20onboarding%20milestones."
+          href="https://wa.me/14167256556?text=Hello%20All%20I%20Gaming%2C%20I%20have%20a%20question%20about%20my%20onboarding%20milestones."
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 transition-all shadow-[0_0_12px_rgba(255,215,0,0.3)] self-start sm:self-auto"

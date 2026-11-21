@@ -11,7 +11,7 @@ export const SITE_CONFIG = {
   startingPriceFormatted: "$15,000 USD",
   contact: {
     email: "contact@alligaming.com",
-    whatsapp: "+1 (555) 019-2834",
+    whatsapp: "+1 (416) 725-6556",
     telegram: "@AllIGamingOfficial",
     supportHours: "24/7 Global Business Inquiries",
   },

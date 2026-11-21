@@ -100,7 +100,7 @@ export default function PortalSidebar({ user }: PortalSidebarProps) {
       {/* Footer / VIP Account Manager */}
       <div className="p-4 border-t border-purple-900/40 space-y-2">
         <a
-          href="https://wa.me/15550192834?text=Hello%20All%20I%20Gaming%2C%20I%20am%20in%20my%20B2B%20Client%20Portal%20and%20would%20like%20assistance."
+          href="https://wa.me/14167256556?text=Hello%20All%20I%20Gaming%2C%20I%20am%20in%20my%20B2B%20Client%20Portal%20and%20would%20like%20assistance."
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-semibold text-emerald-400 hover:bg-emerald-950/30 border border-emerald-500/20 transition-colors"

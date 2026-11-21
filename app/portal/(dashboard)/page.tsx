@@ -205,14 +205,14 @@ export default async function CustomerPortalOverviewPage() {
               Your turnkey platform deployment is backed by 24/7 dedicated engineering and commercial support.
             </p>
             <div className="p-3 rounded-lg bg-purple-950/30 border border-purple-900/50 text-[11px] text-gray-300 space-y-1">
-              <p>⚡ <strong>Direct WhatsApp:</strong> +1 (555) 019-2834</p>
+              <p>⚡ <strong>Direct WhatsApp:</strong> +1 (416) 725-6556</p>
               <p>✈️ <strong>Telegram:</strong> @AllIGamingOfficial</p>
               <p>📧 <strong>Email:</strong> vip@alligaming.com</p>
             </div>
           </div>
 
           <a
-            href="https://wa.me/15550192834?text=Hello%20All%20I%20Gaming%2C%20I%20am%20reviewing%20my%20B2B%20Client%20Portal."
+            href="https://wa.me/14167256556?text=Hello%20All%20I%20Gaming%2C%20I%20am%20reviewing%20my%20B2B%20Client%20Portal."
             target="_blank"
             rel="noreferrer"
             className="w-full py-2.5 px-3 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 text-center transition-all shadow-[0_0_12px_rgba(255,215,0,0.3)]"

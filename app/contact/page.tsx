@@ -64,7 +64,14 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
                   <Phone size={18} className="text-yellow-400 shrink-0 mt-0.5" />
                   <div>
                     <p className="text-gray-400 text-[11px]">WhatsApp Business</p>
-                    <span className="text-white font-medium">{SITE_CONFIG.contact.whatsapp}</span>
+                    <a
+                      href={`https://wa.me/${SITE_CONFIG.contact.whatsapp.replace(/[^0-9]/g, "")}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-white hover:text-yellow-400 transition-colors font-medium"
+                    >
+                      {SITE_CONFIG.contact.whatsapp}
+                    </a>
                   </div>
                 </li>
 
