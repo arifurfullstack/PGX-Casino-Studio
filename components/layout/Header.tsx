@@ -3,13 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowLeft, Send } from "lucide-react";
+import { ArrowLeft, Send, User } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
 import MobileNav from "./MobileNav";
 
 export default function Header() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/admin")) return null;
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) return null;
   const isDemoPage = pathname.startsWith("/designs/") && pathname !== "/designs";
 
   return (
@@ -58,7 +58,16 @@ export default function Header() {
         </nav>
 
         {/* Right CTA Button & Mobile Nav */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <Link
+            href="/portal"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/40 hover:bg-purple-900/60 rounded-lg border border-purple-500/30 transition-all"
+            title="B2B Client Portal"
+          >
+            <User size={13} className="text-[#FFD700]" />
+            <span>Client Portal</span>
+          </Link>
+
           {isDemoPage ? (
             <Link
               href="/designs"

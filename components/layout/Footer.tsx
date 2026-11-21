@@ -8,7 +8,7 @@ import { SITE_CONFIG } from "@/config/site-config";
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname?.startsWith("/admin")) return null;
+  if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) return null;
 
   return (
     <footer id="contact" className="relative pt-12 pb-8 border-t border-purple-900/40 bg-[#030107]">

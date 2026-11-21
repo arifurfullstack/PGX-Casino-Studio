@@ -10,6 +10,7 @@ import {
   MessageSquare,
   Clock,
   DollarSign,
+  Users,
   ExternalLink,
   LogOut,
   Menu,
@@ -41,6 +42,12 @@ const navItems = [
     href: "/admin/reservations",
     label: "Reservations & Holds",
     icon: Clock,
+    exact: false,
+  },
+  {
+    href: "/admin/customers",
+    label: "Customers",
+    icon: Users,
     exact: false,
   },
   {
