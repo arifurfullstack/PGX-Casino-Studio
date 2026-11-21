@@ -59,7 +59,7 @@ export const DEFAULT_ADDON_MODULES: AddonModule[] = [
     slug: "sweepstakes",
     price: 25000,
     description: "Dual-currency social gaming compliant sweepstakes engine",
-    iconKey: "sparkles",
+    iconKey: "coins",
     isEnabled: true,
     order: 4,
   },

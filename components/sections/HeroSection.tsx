@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Send, Monitor, Layers, Gamepad2, Settings2, ShieldCheck } from "lucide-react";
+import { ArrowRight, Send, Crown, Layers, Dices, Coins, ShieldCheck } from "lucide-react";
 
 const highlights = [
   {
-    icon: Monitor,
+    icon: Crown,
     title: "Premium Casino Designs",
     subtitle: "Modern, High-Converting Looks",
   },
@@ -14,12 +14,12 @@ const highlights = [
     subtitle: "Branded & Ready to Launch",
   },
   {
-    icon: Gamepad2,
+    icon: Dices,
     title: "Casino Games Included",
     subtitle: "Slots & Game Tables",
   },
   {
-    icon: Settings2,
+    icon: Coins,
     title: "Scalable & Flexible",
     subtitle: "Add More Modules Anytime",
   },
@@ -41,7 +41,7 @@ export default function HeroSection() {
           {/* Left Text Column */}
           <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/30 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-[#FFD700] animate-pulse" />
+              <Crown size={13} className="text-[#FFD700]" />
               <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#FFD700]">
                 B2B Turnkey Casino Solutions
               </p>

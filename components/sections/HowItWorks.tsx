@@ -1,23 +1,23 @@
-import { Monitor, Layers, Send } from "lucide-react";
+import { Crown, Coins, ShieldCheck } from "lucide-react";
 
 const steps = [
   {
     num: "1",
     title: "Choose a Design",
     desc: "Pick from our premium ready-made casino looks.",
-    icon: Monitor,
+    icon: Crown,
   },
   {
     num: "2",
     title: "Customize Your Package",
     desc: "Start with the $15,000 package and select optional modules.",
-    icon: Layers,
+    icon: Coins,
   },
   {
     num: "3",
     title: "Submit & Reserve",
     desc: "Submit your selection or lock a 5% discount with $500 reservation.",
-    icon: Send,
+    icon: ShieldCheck,
   },
 ];
 

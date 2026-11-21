@@ -1,20 +1,20 @@
-import { Rocket, ShieldCheck, Sparkles, MonitorSmartphone, Globe2, Headphones } from "lucide-react";
+import { Timer, Crown, Dices, MonitorSmartphone, Globe, Headset } from "lucide-react";
 
 const features = [
   {
-    icon: Rocket,
-    title: "Fast Setup",
+    icon: Timer,
+    title: "Fast Turnkey Setup",
     desc: "Get online quickly and start operating.",
   },
   {
-    icon: ShieldCheck,
-    title: "Your Brand",
+    icon: Crown,
+    title: "100% Your Brand",
     desc: "Fully branded with your name, logo & domain.",
   },
   {
-    icon: Sparkles,
-    title: "Proven Games",
-    desc: "Popular casino slots and game tables.",
+    icon: Dices,
+    title: "Certified Games",
+    desc: "Popular casino slots and live game tables.",
     badge: "777",
   },
   {
@@ -23,14 +23,14 @@ const features = [
     desc: "Optimized for desktop, mobile and tablet.",
   },
   {
-    icon: Globe2,
+    icon: Globe,
     title: "Global Ready",
     desc: "Support for multiple currencies and regions.",
   },
   {
-    icon: Headphones,
-    title: "Ongoing Support",
-    desc: "Technical assistance and platform updates.",
+    icon: Headset,
+    title: "Dedicated B2B Support",
+    desc: "Technical assistance and platform onboarding.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default function Features() {
             return (
               <div
                 key={idx}
-                className="group flex flex-col items-center text-center p-4 rounded-xl bg-[#0e0422]/70 border border-purple-800/30 hover:border-purple-500/70 hover:bg-purple-950/30 transition-all duration-300"
+                className="group flex flex-col items-center text-center p-4 rounded-xl bg-[#0e0422]/70 border border-purple-800/30 hover:border-[#FFD700]/60 hover:bg-purple-950/30 transition-all duration-300"
               >
                 <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-purple-950/70 border border-purple-500/30 text-[#FFD700] mb-2.5 group-hover:scale-110 transition-transform">
                   <Icon size={20} className="stroke-[2]" />

@@ -1,4 +1,4 @@
-import { CheckCircle2, Video, Trophy, Spade, Sparkles } from "lucide-react";
+import { CheckCircle2, Video, Trophy, Spade, Coins, Ticket } from "lucide-react";
 import { StarterPackage, AddonModule } from "@/types";
 
 interface StarterPackageSectionProps {
@@ -10,7 +10,8 @@ const ICON_MAP = {
   video: Video,
   trophy: Trophy,
   spade: Spade,
-  sparkles: Sparkles,
+  coins: Coins,
+  ticket: Ticket,
 };
 
 export default function StarterPackageSection({
@@ -79,7 +80,7 @@ export default function StarterPackageSection({
               {/* 4 Badges Grid */}
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-2 pt-1">
                 {addons.map((mod) => {
-                  const Icon = ICON_MAP[mod.iconKey as keyof typeof ICON_MAP] || Sparkles;
+                  const Icon = ICON_MAP[mod.iconKey as keyof typeof ICON_MAP] || Coins;
                   return (
                     <div
                       key={mod.id}

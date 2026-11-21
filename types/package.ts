@@ -19,7 +19,7 @@ export interface AddonModule {
   slug: string;
   price: number;
   description?: string;
-  iconKey: "video" | "trophy" | "spade" | "sparkles" | "gamepad" | "shield";
+  iconKey: "video" | "trophy" | "spade" | "coins" | "ticket" | "dices" | "crown";
   isEnabled: boolean;
   order: number;
 }
