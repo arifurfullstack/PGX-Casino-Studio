@@ -21,7 +21,10 @@ export default async function Home() {
   ]);
 
   return (
-    <div className="relative min-h-screen bg-[#04010a] text-white overflow-hidden">
+    <div
+      suppressHydrationWarning
+      className="relative min-h-screen bg-[#04010a] text-white overflow-hidden"
+    >
       {/* Background ambient neon ribbons and glow effects */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-purple-700/15 rounded-full blur-[140px]" />
