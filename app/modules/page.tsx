@@ -13,7 +13,7 @@ const MODULES = [
     title: "Live Dealer Casino",
     price: "$10,000 USD",
     icon: Video,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&h=400&fit=crop&crop=faces",
+    image: "/images/module-live-dealer.png",
     description: "Real human croupiers broadcasting 24/7 in 4K resolution. Support for Live Roulette, Blackjack, Baccarat, and interactive game shows.",
     features: [
       "Low-latency ultra HD video streaming",
@@ -27,7 +27,7 @@ const MODULES = [
     title: "Global Sportsbook Engine",
     price: "$10,000 USD",
     icon: Trophy,
-    image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=600&h=400&fit=crop",
+    image: "/images/module-sportsbook.png",
     description: "Complete turnkey sportsbook covering 60+ sports, 50,000+ live monthly events, automated odds management, and instant bet settlement.",
     features: [
       "Football, Basketball, Tennis, Cricket & Esports",
@@ -41,7 +41,7 @@ const MODULES = [
     title: "Multiplayer Poker Platform",
     price: "$20,000 USD",
     icon: Sparkles,
-    image: "https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=600&h=400&fit=crop",
+    image: "/images/module-poker.png",
     description: "Independent or pooled multiplayer poker network. Fully responsive client with anti-collusion and anti-bot algorithms.",
     features: [
       "Texas Hold'em, Omaha, Short Deck & Sit & Go",
@@ -55,7 +55,7 @@ const MODULES = [
     title: "Sweepstakes & Social Gaming",
     price: "$25,000 USD",
     icon: Dices,
-    image: "https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&h=400&fit=crop",
+    image: "/images/module-sweepstakes.png",
     description: "Launch in regulated North American markets under the dual-currency promotional sweepstakes model (Gold Coins & Sweeps Coins).",
     features: [
       "Dual virtual currency wallet (GC / SC)",
@@ -107,8 +107,15 @@ export default function ModulesPage() {
                     <span className="text-base font-black text-yellow-400">{mod.price}</span>
                   </div>
 
-                  <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-purple-900/50">
-                    <Image src={mod.image} alt={mod.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                  <div className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden border border-purple-500/40 bg-[#07010e]">
+                    <Image
+                      src={mod.image}
+                      alt={mod.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      unoptimized
+                    />
                   </div>
 
                   <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">{mod.description}</p>
