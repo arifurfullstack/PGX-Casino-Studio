@@ -15,15 +15,15 @@ export default function CTABanner() {
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             
-            {/* Left Visual: Aces Cards & Gold Chips Stack */}
+            {/* Left Visual: 4 Aces, Crown & Casino Chips */}
             <div className="md:col-span-3 flex justify-center md:justify-start">
-              <div className="relative w-[180px] sm:w-[220px] h-[95px] sm:h-[115px]">
+              <div className="relative w-[200px] sm:w-[240px] h-[113px] sm:h-[135px] rounded-xl overflow-hidden shadow-[0_0_30px_rgba(168,85,247,0.7)]">
                 <Image
-                  src="/images/cta-cluster-hd.png"
-                  alt="Casino playing cards and gold chips"
+                  src="/images/cta-aces-crown-ai.jpg"
+                  alt="4 Aces royal crown and casino chips"
                   fill
-                  sizes="220px"
-                  className="object-contain drop-shadow-[0_0_25px_rgba(168,85,247,0.6)]"
+                  sizes="240px"
+                  className="object-cover object-center scale-110"
                 />
               </div>
             </div>
