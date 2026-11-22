@@ -1,40 +1,109 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { CasinoDesign } from "@/types";
-import CasinoDesignCard from "./CasinoDesignCard";
+"use client";
 
-interface CasinoDesignsSectionProps {
-  designs: CasinoDesign[];
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
+
+interface DesignItem {
+  id: string;
+  name: string;
+  slug: string;
+  image: string;
 }
 
-export default function CasinoDesignsSection({ designs }: CasinoDesignsSectionProps) {
-  return (
-    <section id="designs" className="py-8 sm:py-12 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header matching mockup */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 sm:mb-8 pb-2">
-          <div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-              CHOOSE YOUR CASINO DESIGN
-            </h2>
-          </div>
+const featuredDesigns: DesignItem[] = [
+  {
+    id: "ruby",
+    name: "Ruby Casino",
+    slug: "ruby-casino",
+    image: "/images/ruby.jpg",
+  },
+  {
+    id: "ocean",
+    name: "Ocean Casino",
+    slug: "ocean-casino",
+    image: "/images/ocean.jpg",
+  },
+  {
+    id: "mystic",
+    name: "Mystic Casino",
+    slug: "mystic-casino",
+    image: "/images/mystic.jpg",
+  },
+  {
+    id: "prestige",
+    name: "Prestige Gold",
+    slug: "prestige-gold",
+    image: "/images/prestige.jpg",
+  },
+];
 
-          <Link
-            href="/designs"
-            className="group inline-flex items-center gap-1.5 text-xs sm:text-sm font-black text-[#FFD700] hover:text-[#FFE57F] transition-colors tracking-wide"
-          >
+export default function CasinoDesignsSection() {
+  const getDemoLink = (name: string, slug: string) =>
+    `https://wa.me/14167256538?text=${encodeURIComponent(
+      `Hi Royal Casino Club, please share the live demo of the ${name} design.`
+    )}`;
+
+  const getSelectLink = (name: string, slug: string) =>
+    `/select-design?design=${slug}`;
+
+  return (
+    <section id="designs" className="py-10 sm:py-14 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="flourish font-philosopher text-[clamp(1.6rem,4vw,2.4rem)] font-bold uppercase italic leading-tight tracking-wide">
+            <span>
+              Choose your <span className="gold-text">casino design</span>
+            </span>
+          </h2>
+
+          <Link href="/designs" className="btn btn-gold mx-auto mt-6">
             <span>View All Designs</span>
-            <ArrowRight
-              size={15}
-              className="group-hover:translate-x-1.5 transition-transform stroke-[3]"
-            />
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        {/* 12 Themed Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {designs.map((design) => (
-            <CasinoDesignCard key={design.id} design={design} />
+        {/* 4 Featured Design Cards */}
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {featuredDesigns.map((design) => (
+            <div
+              key={design.id}
+              className="panel panel-gold overflow-hidden transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className="relative aspect-[406/166] w-full overflow-hidden bg-[#150726]">
+                <Image
+                  src={design.image}
+                  alt={`${design.name} design`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 300px"
+                  className="object-cover transition-transform duration-500 hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#150726] to-transparent pointer-events-none" />
+              </div>
+
+              <h3 className="px-3 pt-3 text-center text-xl font-bold text-white font-philosopher">
+                {design.name}
+              </h3>
+
+              <div className="flex flex-wrap justify-center gap-2 px-3 pb-4 pt-3">
+                <a
+                  href={getDemoLink(design.name, design.slug)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-neon btn-sm text-xs font-semibold"
+                >
+                  <span>View Demo</span>
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+
+                <Link
+                  href={getSelectLink(design.name, design.slug)}
+                  className="btn btn-gold btn-sm text-xs font-bold"
+                >
+                  <span>Select Design</span>
+                </Link>
+              </div>
+            </div>
           ))}
         </div>
       </div>

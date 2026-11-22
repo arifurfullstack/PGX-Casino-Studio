@@ -4,15 +4,16 @@ export interface NavItem {
 }
 
 export const SITE_CONFIG = {
-  name: "ALL I GAMING",
-  legalName: "All I Gaming Platform Solutions Ltd.",
+  name: "Royal Casino Club",
+  legalName: "Royal Casino Club — Online Casino Solutions",
   description:
-    "Leading B2B turnkey online casino platform marketplace. Choose your casino design, customize optional modules, and launch your gaming brand.",
+    "Royal Casino Club provides premium turnkey online casino software solutions, empowering operators to launch customized, high-converting casinos worldwide.",
   startingPriceFormatted: "$15,000 USD",
   contact: {
-    email: "contact@alligaming.com",
-    whatsapp: "+1 (416) 725-6556",
-    telegram: "@AllIGamingOfficial",
+    email: "contact@royalcasinoclub.com",
+    whatsapp: "+1 (416) 725-6538",
+    whatsappLink: "https://wa.me/14167256538",
+    telegram: "@RoyalCasinoClubOfficial",
     supportHours: "24/7 Global Business Inquiries",
   },
   navItems: [

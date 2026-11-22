@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Cinzel } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -17,9 +18,36 @@ const cinzel = Cinzel({
   display: "swap",
 });
 
+const philosopher = localFont({
+  src: [
+    {
+      path: "../public/fonts/philosopher-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/philosopher-regular-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/philosopher-bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/philosopher-bold-italic.woff2",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  variable: "--font-philosopher",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://casino.pgxsportslounge.com"),
-  title: "All I Gaming — Casino Platforms & Solutions",
+  title: "Royal Casino Club — Online Casino Solutions",
   description:
     "Own your online casino starting at $15,000! Turnkey setup, premium casino designs, slots, game tables, and 24/7 support.",
   icons: {
@@ -33,10 +61,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`dark ${inter.variable} ${cinzel.variable}`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`dark ${inter.variable} ${cinzel.variable} ${philosopher.variable}`}
+    >
       <body
         suppressHydrationWarning
-        className="min-h-screen bg-[#030108] text-white antialiased font-sans selection:bg-purple-600 selection:text-white flex flex-col justify-between"
+        className="min-h-screen bg-[#07020d] text-white antialiased font-sans selection:bg-purple-600 selection:text-white flex flex-col justify-between"
       >
         {/* Background ambient neon ribbons and glow effects */}
         <div className="fixed inset-0 pointer-events-none z-0">

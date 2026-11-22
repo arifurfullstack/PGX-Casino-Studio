@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Mail, Phone, Send } from "lucide-react";
+import { Mail, Phone, Crown } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
 
 export default function Footer() {
@@ -11,139 +10,130 @@ export default function Footer() {
   if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) return null;
 
   return (
-    <footer id="contact" className="relative pt-12 pb-8 border-t border-purple-900/40 bg-[#030107]">
-      {/* Top golden accent line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-[#FFD700]/50 to-transparent" />
+    <footer className="border-t border-gold/50 bg-[#07020d]">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-8 pt-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[auto_1.5fr_1fr_1fr_1.6fr] lg:px-8">
+        
+        {/* Brand Logo & Tagline */}
+        <Link
+          aria-label="Royal Casino Club home"
+          className="relative flex shrink-0 flex-col items-start whitespace-nowrap leading-none group"
+          href="/"
+        >
+          <Crown className="gold-icon absolute -top-4 left-[3.1rem] h-6 w-6" aria-hidden="true" />
+          <span className="gold-text font-script text-[3.4rem]">Royal</span>
+          <span className="gold-text font-display font-bold italic -mt-2 ml-9 text-2xl">Casino Club</span>
+          <span className="mt-2 text-[10px] font-semibold uppercase tracking-[.28em] text-white/80">
+            - Online Casino Solutions -
+          </span>
+        </Link>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        {/* 4 Column Layout matching mockup */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-8 border-b border-purple-950/60">
-          
-          {/* Col 1: Brand Info */}
-          <div className="lg:col-span-4 space-y-3">
-            <div className="relative w-44 sm:w-52 h-12 sm:h-14">
-              <Image
-                src="/images/all-i-gaming-logo-official.png"
-                alt={SITE_CONFIG.name}
-                fill
-                className="object-contain object-left"
-                unoptimized
-              />
-            </div>
-            <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
-              All I Gaming provides premier turnkey online casino software solutions, empowering operators to launch customized, high-converting gaming brands worldwide.
-            </p>
-            <p className="text-[10px] text-[#FFD700]/80">
-              *B2B software marketplace. We do not operate gambling activities.
-            </p>
-          </div>
+        {/* Description */}
+        <p className="text-[15px] leading-relaxed text-muted lg:border-l lg:border-line lg:pl-6">
+          Royal Casino Club provides premium turnkey online casino software solutions, empowering operators to launch customized, high-converting casinos worldwide.
+        </p>
 
-          {/* Col 2: Quick Links */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Quick Links
-            </h4>
-            <ul className="space-y-2 text-xs text-gray-300">
-              <li>
-                <Link href="/" className="hover:text-[#FFD700] transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/designs" className="hover:text-[#FFD700] transition-colors">
-                  Casino Designs
-                </Link>
-              </li>
-              <li>
-                <Link href="/modules" className="hover:text-[#FFD700] transition-colors">
-                  Add-On Modules
-                </Link>
-              </li>
-              <li>
-                <Link href="/packages" className="hover:text-[#FFD700] transition-colors">
-                  Starter Packages
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Company */}
-          <div className="lg:col-span-2 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Company
-            </h4>
-            <ul className="space-y-2 text-xs text-gray-300">
-              <li>
-                <Link href="/how-it-works" className="hover:text-[#FFD700] transition-colors">
-                  How It Works
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-[#FFD700] transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-[#FFD700] transition-colors">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/portal" className="hover:text-[#FFD700] transition-colors">
-                  Client Portal
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Get in Touch */}
-          <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-black uppercase tracking-wider text-white">
-              Get in Touch
-            </h4>
-            <ul className="space-y-2.5 text-xs text-gray-300">
-              <li className="flex items-center gap-2.5">
-                <Mail size={15} className="text-[#FFD700] shrink-0" />
-                <a href={`mailto:${SITE_CONFIG.contact.email}`} className="hover:text-white transition-colors">
-                  {SITE_CONFIG.contact.email}
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone size={15} className="text-[#FFD700] shrink-0" />
-                <a
-                  href={`https://wa.me/${SITE_CONFIG.contact.whatsapp.replace(/[^0-9]/g, "")}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  {SITE_CONFIG.contact.whatsapp} (WhatsApp)
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Send size={15} className="text-[#FFD700] shrink-0" />
-                <Link href="/select-design" className="text-[#FFD700] font-bold hover:underline">
-                  Reserve A Casino ($500 Hold)
-                </Link>
-              </li>
-            </ul>
-          </div>
-
+        {/* Quick Links */}
+        <div className="lg:border-l lg:border-line lg:pl-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide">Quick links</h4>
+          <ul className="mt-3 space-y-1.5 text-[15px] text-muted">
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#top">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#designs">
+                Casino Designs
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#addons">
+                Add-On Modules
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#packages">
+                Packages
+              </Link>
+            </li>
+          </ul>
         </div>
 
-        {/* Bottom Copyright & Terms matching mockup */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-gray-400">
-          <p>© 2026 {SITE_CONFIG.name}. All Rights Reserved.</p>
-          <div className="flex items-center gap-3">
-            <Link href="/about" className="hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-            <span className="text-gray-700">|</span>
-            <Link href="/about" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-          </div>
+        {/* Company Links */}
+        <div className="lg:border-l lg:border-line lg:pl-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide">Company</h4>
+          <ul className="mt-3 space-y-1.5 text-[15px] text-muted">
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#how-it-works">
+                How It Works
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#about">
+                About Us
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/#contact">
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-gold transition-colors" href="/portal">
+                Client Portal
+              </Link>
+            </li>
+          </ul>
         </div>
 
+        {/* Get in Touch */}
+        <div className="lg:border-l lg:border-line lg:pl-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide">Get in touch</h4>
+          <ul className="mt-3 space-y-2 text-[15px]">
+            <li className="flex items-center gap-2.5">
+              <Mail className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+              <a href="mailto:contact@royalcasinoclub.com" className="break-all hover:text-gold transition-colors">
+                contact@royalcasinoclub.com
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+              <a
+                href="https://wa.me/14167256538?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20know%20more."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gold transition-colors"
+              >
+                +1 (416) 725-6538 (WhatsApp)
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Crown className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
+              <a
+                href="https://wa.me/14167256538?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20reserve%20a%20casino."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-gold hover:underline"
+              >
+                Reserve A Casino ($500 Hold)
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      {/* Sub Footer Bar */}
+      <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 border-t border-gold/30 px-4 py-5 sm:px-6 lg:px-8 text-sm text-muted">
+        <span>© 2026 {SITE_CONFIG.name}. All Rights Reserved.</span>
+        <a
+          href="https://www.huipper.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-gold transition-colors"
+        >
+          Website by Huipper
+        </a>
       </div>
     </footer>
   );

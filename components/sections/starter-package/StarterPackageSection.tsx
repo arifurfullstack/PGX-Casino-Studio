@@ -1,112 +1,143 @@
+"use client";
+
+import Image from "next/image";
 import { CheckCircle2, Video, Trophy, Spade, Gift, Crown } from "lucide-react";
-import { StarterPackage, AddonModule } from "@/types";
+import { SITE_CONFIG } from "@/config/site-config";
 
-interface StarterPackageSectionProps {
-  packageData: StarterPackage;
-  addons: AddonModule[];
-}
+const addonModules = [
+  {
+    name: "Live Dealer Tables",
+    icon: Video,
+    query: "Live Dealer Tables",
+  },
+  {
+    name: "Poker Platform",
+    icon: Spade,
+    query: "Poker Platform",
+  },
+  {
+    name: "Sportsbook",
+    icon: Trophy,
+    query: "Sportsbook",
+  },
+  {
+    name: "Sweepstakes & Social",
+    icon: Gift,
+    query: "Sweepstakes & Social",
+  },
+];
 
-const ICON_MAP = {
-  video: Video,
-  trophy: Trophy,
-  spade: Spade,
-  coins: Gift,
-  ticket: Gift,
-};
+export default function StarterPackageSection() {
+  const getWhatsAppLink = (moduleName: string) =>
+    `https://wa.me/14167256538?text=${encodeURIComponent(
+      `Hi Royal Casino Club, I'd like to add the ${moduleName} module to my casino.`
+    )}`;
 
-export default function StarterPackageSection({
-  packageData,
-  addons,
-}: StarterPackageSectionProps) {
   return (
-    <section id="packages" className="py-6 sm:py-10 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Luminous Box with Neon Purple Double Border & Intense Glow */}
-        <div className="relative rounded-3xl p-6 sm:p-8 lg:p-10 bg-gradient-to-br from-[#13032b]/95 via-[#0b021d]/90 to-[#180336]/95 neon-box-purple overflow-hidden">
-          
-          {/* Subtle Top & Bottom Gold Ambient Accents */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-90" />
-          <div className="absolute bottom-0 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-transparent via-[#FFD700] to-transparent opacity-90" />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            
-            {/* Left Column: Price & Starter Package Info */}
-            <div className="lg:col-span-4 space-y-2.5 text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#FFD700]/15 border border-[#FFD700]/40 text-[10px] sm:text-xs font-black uppercase tracking-[0.2em] text-[#FFD700]">
-                <Crown size={13} className="text-[#FFD700]" />
-                <span>{packageData.subtitle || "STARTER PACKAGE"}</span>
-              </div>
-
-              <div className="text-4xl sm:text-5xl font-black text-[#FFD700] drop-shadow-[0_0_25px_rgba(255,215,0,0.6)] tracking-tight">
-                ${packageData.basePrice.toLocaleString()} <span className="text-xl sm:text-2xl font-bold text-gray-200">{packageData.currency}</span>
-              </div>
-
-              <h2 className="text-base sm:text-lg font-black text-white pt-0.5">
-                {packageData.title || "Launch Your Own Branded Online Casino"}
-              </h2>
-
-              <p className="text-xs sm:text-sm text-gray-300 leading-relaxed max-w-sm font-normal">
-                {packageData.description || "A complete casino website with your chosen design, including casino slots and game tables."}
-              </p>
+    <section id="packages" className="py-8 sm:py-12 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="panel grid gap-8 p-6 lg:grid-cols-[1.3fr_1fr_1.15fr] lg:gap-0 lg:p-7">
+          {/* Col 1: Crown Image & Pricing Overview */}
+          <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:items-center sm:text-left lg:pr-6">
+            <div className="relative h-auto w-28 shrink-0">
+              <Image
+                src="/images/crown.jpg"
+                alt="Royal Casino Club Crown"
+                width={240}
+                height={288}
+                className="float h-auto w-28 shrink-0 mix-blend-lighten"
+                style={{
+                  maskImage: "radial-gradient(closest-side, #000 62%, transparent 100%)",
+                  WebkitMaskImage: "radial-gradient(closest-side, #000 62%, transparent 100%)",
+                }}
+              />
             </div>
 
-            {/* Middle Column: Included Checklist */}
-            <div className="lg:col-span-4 space-y-3.5 text-left lg:border-l lg:border-purple-900/50 lg:pl-8">
-              <p className="text-xs font-black uppercase tracking-[0.15em] text-[#FFD700]">
-                INCLUDED:
+            <div>
+              <p className="inline-flex items-center gap-1.5 rounded-md border border-[#f5c451]/80 px-2.5 py-0.5 text-sm font-bold uppercase italic text-[#f5c451]">
+                <Crown className="h-4 w-4 fill-[#f5c451]" /> Starter Package
               </p>
-              <ul className="space-y-2.5">
-                {packageData.includes.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5">
-                    <CheckCircle2
-                      size={17}
-                      className="text-[#FFD700] fill-[#FFD700] text-black shrink-0 mt-0.5"
-                    />
-                    <div className="text-xs sm:text-sm text-gray-200 leading-tight">
-                      <span className="font-semibold text-white">{item.title}</span>
-                      {item.sub && (
-                        <span className="block text-[11px] text-gray-400 mt-0.5">
-                          {item.sub}
-                        </span>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
+
+              <p className="mt-2 font-display font-bold italic leading-none">
+                <span className="gold-text text-[clamp(2.6rem,6vw,3.4rem)]">$15,000</span>{" "}
+                <span className="text-xl text-white/90">USD</span>
+              </p>
+
+              <h3 className="mt-2 text-[1.35rem] font-bold leading-tight text-white font-philosopher">
+                Launch Your Own Branded Online Casino
+              </h3>
+
+              <p className="mt-2 text-sm text-white/70">
+                A complete casino website with your chosen design, including casino slots and game tables.
+              </p>
             </div>
+          </div>
 
-            {/* Right Column: Available Add-On Modules */}
-            <div className="lg:col-span-4 space-y-3.5 text-left lg:border-l lg:border-purple-900/50 lg:pl-8">
-              <p className="text-xs font-black uppercase tracking-[0.15em] text-[#FFD700]">
-                AVAILABLE ADD-ON MODULES:
-              </p>
+          {/* Col 2: What's Included */}
+          <div className="border-line lg:border-l lg:px-7">
+            <h3 className="text-lg font-bold uppercase text-[#f5c451]">Included:</h3>
+            <ul className="mt-3 space-y-2.5 text-sm sm:text-base">
+              <li className="flex gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#f5c451]" />
+                <span className="font-semibold leading-snug text-white">
+                  Your selected casino design
+                </span>
+              </li>
+              <li className="flex gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#f5c451]" />
+                <span className="font-semibold leading-snug text-white">
+                  Online casino slots
+                </span>
+              </li>
+              <li className="flex gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#f5c451]" />
+                <span className="font-semibold leading-snug text-white">
+                  Casino game tables
+                  <span className="block text-xs font-normal text-white/60">
+                    (e.g. Blackjack, Roulette, Baccarat, etc.)
+                  </span>
+                </span>
+              </li>
+              <li className="flex gap-2.5">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#f5c451]" />
+                <span className="font-semibold leading-snug text-white">
+                  Your casino branding
+                  <span className="block text-xs font-normal text-white/60">
+                    (logo, colors, and domain setup)
+                  </span>
+                </span>
+              </li>
+            </ul>
+          </div>
 
-              {/* 4 Badges Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-2.5 pt-1">
-                {addons.map((mod) => {
-                  const Icon = ICON_MAP[mod.iconKey as keyof typeof ICON_MAP] || Gift;
-                  return (
-                    <div
-                      key={mod.id}
-                      className="group flex flex-col items-center justify-center p-3 rounded-2xl bg-gradient-to-b from-[#24064a] to-[#120326] border border-purple-500/60 shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:border-[#FFD700]/80 hover:shadow-[0_0_20px_rgba(255,215,0,0.4)] transition-all duration-300 text-center cursor-pointer min-h-[82px]"
+          {/* Col 3: Available Add-On Modules */}
+          <div id="addons" className="border-line lg:border-l lg:pl-7">
+            <h3 className="text-lg font-bold uppercase text-[#f5c451]">
+              Available add-on modules:
+            </h3>
+
+            <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+              {addonModules.map((mod, idx) => {
+                const Icon = mod.icon;
+                return (
+                  <li key={idx}>
+                    <a
+                      href={getWhatsAppLink(mod.query)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="panel flex h-full min-h-[92px] flex-col items-center justify-center gap-1.5 !rounded-xl px-1.5 py-3 text-center text-[13px] font-semibold leading-tight transition hover:-translate-y-1 hover:border-[#f5c451]"
                     >
-                      <Icon
-                        size={20}
-                        className="text-[#FFD700] mb-1.5 group-hover:scale-110 transition-transform"
-                      />
-                      <span className="text-[10px] font-bold text-white leading-tight">
-                        {mod.name}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
+                      <Icon className="gold-icon h-5 w-5 shrink-0" />
+                      <span className="text-white">{mod.name}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
 
-              <p className="text-[10px] text-gray-400 leading-relaxed font-normal">
-                Add more features to expand your casino. Additional modules are priced separately based on your requirements.
-              </p>
-            </div>
-
+            <p className="mt-3 text-xs text-white/70">
+              Optional modules quoted separately. Message us on WhatsApp to add them to your casino.
+            </p>
           </div>
         </div>
       </div>

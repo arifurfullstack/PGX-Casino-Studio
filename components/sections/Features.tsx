@@ -1,4 +1,6 @@
-import { Zap, ShieldCheck, Dices, Monitor, Globe, Headphones } from "lucide-react";
+"use client";
+
+import { Zap, Sparkles, Dices, Monitor, Globe, Headphones } from "lucide-react";
 
 const features = [
   {
@@ -7,15 +9,14 @@ const features = [
     desc: "Get online quickly and start operating.",
   },
   {
-    icon: ShieldCheck,
+    icon: Sparkles,
     title: "Your Brand",
-    desc: "Fully branded with your name, logo & domain.",
+    desc: "Fully tailored with your name, colors, and identity.",
   },
   {
     icon: Dices,
     title: "Proven Games",
-    desc: "Popular casino slots and game tables.",
-    badge: "777",
+    desc: "High-performing slots and popular table games.",
   },
   {
     icon: Monitor,
@@ -36,48 +37,40 @@ const features = [
 
 export default function Features() {
   return (
-    <section id="features" className="py-8 sm:py-14 relative overflow-hidden">
-      {/* Luminous Curved Neon Purple Archway */}
-      <div className="curved-neon-arc mb-4 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        
-        {/* Section Heading */}
-        <div className="space-y-1">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black uppercase tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
-            FEATURES &amp; BENEFITS
+    <section className="py-10 sm:py-14 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="flourish font-philosopher text-[clamp(1.6rem,4vw,2.4rem)] font-bold uppercase italic leading-tight tracking-wide">
+            <span>
+              Features &amp; <span className="gold-text">benefits</span>
+            </span>
           </h2>
         </div>
 
-        {/* 6 Features Row matching mockup */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 pt-2">
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feat, idx) => {
             const Icon = feat.icon;
             return (
               <div
                 key={idx}
-                className="group flex flex-col items-center text-center p-4 rounded-2xl bg-gradient-to-b from-[#160430]/90 to-[#0b021d]/90 border border-purple-800/40 hover:border-[#FFD700]/70 hover:shadow-[0_0_15px_rgba(255,215,0,0.3)] transition-all duration-300 min-h-[145px] justify-center"
+                className="group panel panel-interactive cursor-pointer p-6 text-center hover:-translate-y-1.5"
               >
-                <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-purple-950/80 border border-purple-500/40 text-[#FFD700] mb-2.5 group-hover:scale-110 transition-transform">
-                  <Icon size={20} className="stroke-[2.2]" />
-                  {feat.badge && (
-                    <span className="absolute -top-1.5 -right-1.5 text-[8px] font-black bg-[#FFD700] text-black px-1 rounded shadow-sm">
-                      {feat.badge}
-                    </span>
-                  )}
-                </div>
+                <div className="panel-sheen" aria-hidden="true" />
+                <div className="panel-rim" aria-hidden="true" />
+                <span className="relative mx-auto grid h-12 w-12 place-items-center rounded-xl border border-[#d58cff]/90 bg-[#2a0a4a] shadow-[0_0_14px_rgba(190,90,255,0.45)] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:border-[#f5ce6e] group-hover:bg-[#38105d] group-hover:shadow-[0_0_22px_rgba(245,196,81,0.5),inset_0_0_12px_rgba(245,196,81,0.2)]">
+                  <Icon className="lucide gold-icon h-6 w-6 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105" />
+                </span>
 
-                <p className="text-xs font-black text-white leading-tight">
+                <h3 className="relative mt-4 text-xl font-bold text-white font-philosopher transition-colors duration-500 ease-out group-hover:text-[#ffe28a]">
                   {feat.title}
-                </p>
-                <p className="text-[10px] text-gray-300 leading-tight mt-1 font-normal">
+                </h3>
+                <p className="relative mt-1 text-sm text-white/70 transition-colors duration-500 ease-out group-hover:text-white/95">
                   {feat.desc}
                 </p>
               </div>
             );
           })}
         </div>
-
       </div>
     </section>
   );
