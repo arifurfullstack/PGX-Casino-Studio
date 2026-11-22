@@ -11,6 +11,7 @@ import {
   Clock,
   DollarSign,
   Users,
+  Settings,
   ExternalLink,
   LogOut,
   Menu,
@@ -54,6 +55,12 @@ const navItems = [
     href: "/admin/pricing",
     label: "Pricing & Modules",
     icon: DollarSign,
+    exact: false,
+  },
+  {
+    href: "/admin/settings",
+    label: "Gateways & Email",
+    icon: Settings,
     exact: false,
   },
 ];

@@ -1,4 +1,5 @@
 import { getAllActiveDesigns } from "@/services/casinoService";
+import { getPublicPaymentConfig } from "@/services/integrationService";
 import ReservationFlow from "@/components/reservation/ReservationFlow";
 import { Crown } from "lucide-react";
 
@@ -13,7 +14,10 @@ interface SelectDesignPageProps {
 
 export default async function SelectDesignPage({ searchParams }: SelectDesignPageProps) {
   const { design, total, addons } = await searchParams;
-  const designs = await getAllActiveDesigns();
+  const [designs, paymentConfig] = await Promise.all([
+    getAllActiveDesigns(),
+    getPublicPaymentConfig(),
+  ]);
 
   return (
     <main className="min-h-screen pt-8 sm:pt-12 pb-20 bg-[#04010a] text-white">
@@ -41,6 +45,7 @@ export default async function SelectDesignPage({ searchParams }: SelectDesignPag
           initialDesignSlug={design}
           initialTotal={total ? parseInt(total, 10) : 15000}
           initialAddons={addons}
+          paymentConfig={paymentConfig}
         />
 
       </div>

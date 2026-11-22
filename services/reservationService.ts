@@ -181,3 +181,12 @@ export async function checkAndExpireReservations(): Promise<ExpirationCheckResul
     expiredReservationIds,
   };
 }
+
+export function getExpiringReservationsCount(reservations: Reservation[]): number {
+  const now = Date.now();
+  return reservations.filter((r) => {
+    if (r.status !== "active") return false;
+    const diff = new Date(r.expiresAt).getTime() - now;
+    return diff > 0 && diff <= 24 * 60 * 60 * 1000;
+  }).length;
+}

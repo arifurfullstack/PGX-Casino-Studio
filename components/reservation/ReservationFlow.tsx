@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { Lock } from "lucide-react";
-import { CasinoDesign, TimelineOption } from "@/types";
+import { CasinoDesign, TimelineOption, PublicPaymentConfig } from "@/types";
 import { submitInquiryAction, createReservationAction } from "@/app/actions/inquiryActions";
 import ReservationOfferModal from "./ReservationOfferModal";
+import ReservationCheckoutModal from "./ReservationCheckoutModal";
 import ReservationConfirmedView from "./ReservationConfirmedView";
 import InquiryConfirmedView from "./InquiryConfirmedView";
 import ReservationSummaryCard from "./ReservationSummaryCard";
@@ -14,13 +15,34 @@ interface ReservationFlowProps {
   initialDesignSlug?: string;
   initialTotal?: number;
   initialAddons?: string;
+  paymentConfig?: PublicPaymentConfig;
 }
+
+const FALLBACK_PAYMENT_CONFIG: PublicPaymentConfig = {
+  activeGateway: "crypto",
+  crypto: {
+    enabled: true,
+    mode: "test",
+    merchantName: "All I Gaming Holding Desk",
+    usdtTrc20Address: "TYDny59kU75P6B8s75X97P73Lq92RkL41q",
+    usdtErc20Address: "0x71C8364860D4e022f3E9D58E2E5B1b4f494A49e7",
+    btcAddress: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+    instructions: "Send exactly 500 USDT (TRC20 or ERC20) or equivalent BTC. Submit your Transaction Hash (TxID) below for instant verification.",
+  },
+  stripe: {
+    enabled: false,
+    mode: "test",
+    publishableKey: "",
+    currency: "usd",
+  },
+};
 
 export default function ReservationFlow({
   designs,
   initialDesignSlug = "royal-prestige",
   initialTotal = 15000,
   initialAddons = "",
+  paymentConfig = FALLBACK_PAYMENT_CONFIG,
 }: ReservationFlowProps) {
   const [selectedSlug, setSelectedSlug] = useState(initialDesignSlug);
   const [brandName, setBrandName] = useState("");
@@ -35,6 +57,7 @@ export default function ReservationFlow({
 
   const [inquiryData, setInquiryData] = useState<{ id: string; ref: string } | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [viewState, setViewState] = useState<"form" | "inquiry_confirmed" | "reservation_active">("form");
   const [reservationDetails, setReservationDetails] = useState<{
@@ -108,9 +131,9 @@ export default function ReservationFlow({
         remainingBalance: res.remainingBalance || Math.round(packageTotal * 0.95) - 500,
         expiresAt: res.expiresAt || new Date(Date.now() + 5 * 24 * 3600 * 1000).toISOString(),
       });
-      setViewState("reservation_active");
+      setIsCheckoutOpen(true);
     } else {
-      alert(res.error || "Failed to activate reservation.");
+      alert(res.error || "Failed to initialize reservation checkout.");
     }
   };
 
@@ -337,6 +360,24 @@ export default function ReservationFlow({
         onContinueWithoutReserving={handleContinueWithoutReserving}
         loading={loading}
       />
+
+      {/* Reservation Checkout & Terms Modal */}
+      {reservationDetails && (
+        <ReservationCheckoutModal
+          isOpen={isCheckoutOpen}
+          onClose={() => setIsCheckoutOpen(false)}
+          design={selectedDesign}
+          packageTotal={packageTotal}
+          customerName={fullName}
+          customerEmail={email}
+          reservationId={reservationDetails.reservationId}
+          paymentConfig={paymentConfig}
+          onPaymentSuccess={() => {
+            setIsCheckoutOpen(false);
+            setViewState("reservation_active");
+          }}
+        />
+      )}
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import { CustomerInquiryModel } from "@/models";
 import { CustomerInquiry, TimelineOption, InquiryStatus } from "@/types";
+import { dispatchInquiryEmails } from "./emailService";
 
 export interface CreateInquiryInput {
   fullName: string;
@@ -30,7 +31,7 @@ export async function createCustomerInquiry(
     status: "new_inquiry",
   });
 
-  return {
+  const result: CustomerInquiry = {
     id: doc._id.toString(),
     referenceNumber: doc.referenceNumber,
     fullName: doc.fullName,
@@ -49,6 +50,13 @@ export async function createCustomerInquiry(
     createdAt: doc.createdAt.toISOString(),
     updatedAt: doc.updatedAt.toISOString(),
   };
+
+  // Dispatch transactional notification emails in background
+  dispatchInquiryEmails(result).catch((err) =>
+    console.error("[Inquiry Email Error]:", err)
+  );
+
+  return result;
 }
 
 export async function getAllInquiries(): Promise<CustomerInquiry[]> {
