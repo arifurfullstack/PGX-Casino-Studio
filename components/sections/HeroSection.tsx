@@ -100,18 +100,23 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right Visual: Dealer Model, Laptop, Cards, Chips & European Roulette */}
+          {/* Right Visual: AI Luxury Dealer — Laptop 777, Gold Chips, Roulette */}
           <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-[620px] aspect-[392/223] overflow-visible">
-              {/* Radial Purple Glow Behind Model */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/30 via-fuchsia-600/30 to-amber-500/20 rounded-full blur-3xl -z-10 pointer-events-none" />
-              
+            <div className="relative w-full max-w-[640px] aspect-[16/9] overflow-hidden rounded-2xl">
+              {/* Warm golden outer glow */}
+              <div className="absolute -inset-2 bg-gradient-to-br from-amber-500/25 via-fuchsia-600/20 to-purple-700/25 rounded-3xl blur-2xl -z-10 pointer-events-none" />
+
+              {/* Left-edge fade so image bleeds into dark background naturally */}
+              <div className="absolute inset-y-0 left-0 w-[30%] bg-gradient-to-r from-[#030108] to-transparent z-10 pointer-events-none" />
+              {/* Bottom-edge fade */}
+              <div className="absolute inset-x-0 bottom-0 h-[12%] bg-gradient-to-t from-[#030108] to-transparent z-10 pointer-events-none" />
+
               <Image
-                src="/images/hero-dealer-perfect.png"
-                alt="Casino software platform preview with glamorous dealer, software laptop, roulette, cards, and golden chips"
+                src="/images/hero-luxury-dealer-ai.jpg"
+                alt="Glamorous casino dealer with 777 slot laptop, gold coin stacks, ace cards and roulette wheel"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain drop-shadow-[0_0_35px_rgba(168,85,247,0.5)]"
+                className="object-cover object-center drop-shadow-[0_0_40px_rgba(168,85,247,0.6)]"
                 priority
               />
             </div>
