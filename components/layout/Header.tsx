@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ArrowLeft, ArrowRight, Crown, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Crown, UserRound } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
 import MobileNav from "./MobileNav";
 
@@ -76,13 +76,17 @@ export default function Header() {
         </nav>
 
         {/* Right CTA Action Buttons & Mobile Nav */}
-        <div className="flex items-center gap-3 lg:gap-3.5 relative z-10 shrink-0">
+        <div className="flex items-center gap-3 relative z-10 shrink-0">
           <Link
             href="/portal"
-            className="hidden lg:inline-flex btn-nav-portal px-4 py-1.5 text-xs lg:text-[13.5px] font-semibold tracking-wide"
+            className="group/portal hidden lg:inline-flex btn-nav-portal text-[13.5px]"
             title="B2B Client Portal"
           >
-            <User size={14} className="text-[#FFD700]" />
+            <UserRound
+              size={15}
+              strokeWidth={1.85}
+              className="text-[#f5c451] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/portal:scale-110"
+            />
             <span>Client Portal</span>
           </Link>
 
@@ -97,11 +101,18 @@ export default function Header() {
           ) : (
             <Link
               href="/select-design"
-              className="hidden lg:inline-flex btn-nav-gold px-4 sm:px-5 py-2 text-xs lg:text-[13.5px] font-black"
+              className="group/cta hidden lg:inline-flex btn-nav-gold text-[13.5px]"
             >
-              <Crown size={15} className="fill-black text-black stroke-[1.5]" />
+              <Crown
+                size={15}
+                className="fill-[#261100] text-[#261100] stroke-[1.75] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:scale-110"
+              />
               <span>Reserve A Casino</span>
-              <ArrowRight size={14} className="stroke-[3]" />
+              <ArrowRight
+                size={15}
+                strokeWidth={2.2}
+                className="text-[#261100] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/cta:translate-x-0.5"
+              />
             </Link>
           )}
 

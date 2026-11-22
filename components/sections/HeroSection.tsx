@@ -318,16 +318,19 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Subtitle Paragraph Description */}
+        {/* Tagline & Subtitle Paragraph Description */}
         <div
           className="absolute z-20 text-left"
           style={{
             left: "6.2%",
-            top: "58.8%",
-            width: "39%",
+            top: "54.8%",
+            width: "41%",
           }}
         >
-          <p className="text-gray-100 text-[15px] xl:text-[16.5px] font-normal leading-[1.38] tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+          <p className="text-[#ffd700] text-[12px] xl:text-[13.5px] 2xl:text-[15px] font-extrabold uppercase tracking-[0.05em] leading-snug mb-1.5 xl:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
+            WHITE-LABEL TURN KEY CASINO, NO LICENSE REQUIRED!
+          </p>
+          <p className="text-gray-100 text-[13.5px] xl:text-[15px] 2xl:text-[16.5px] font-normal leading-[1.38] tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             Choose Your Design, Launch with Casino Slots &amp; Game Tables,
             <br className="hidden sm:inline" />
             and Build Your Casino Brand with a Complete Platform Solution.
@@ -438,8 +441,13 @@ export default function HeroSection() {
             </div>
           </div>
 
+          {/* Tagline */}
+          <p className="text-[#ffd700] text-xs sm:text-sm font-extrabold uppercase tracking-[0.05em] leading-snug max-w-lg mt-2 mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
+            WHITE-LABEL TURN KEY CASINO, NO LICENSE REQUIRED!
+          </p>
+
           {/* Subtitle */}
-          <p className="text-gray-200 text-xs sm:text-sm font-medium leading-relaxed max-w-lg mt-2 mb-6">
+          <p className="text-gray-200 text-xs sm:text-sm font-medium leading-relaxed max-w-lg mb-6">
             Choose Your Design, Launch with Casino Slots &amp; Game Tables, and Build Your Casino Brand with a Complete Platform Solution.
           </p>
 

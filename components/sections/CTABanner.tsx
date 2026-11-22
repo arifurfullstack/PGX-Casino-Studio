@@ -7,8 +7,8 @@ import { Crown, ArrowRight } from "lucide-react";
 export default function CTABanner() {
   return (
     <section className="pb-16 pt-8 relative z-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="panel flex flex-col items-center gap-5 px-6 py-6 text-center lg:flex-row lg:gap-8 lg:py-4 lg:text-left">
+      <div className="mx-auto max-w-[1672px] px-4 sm:px-6 lg:px-12">
+        <div className="panel flex flex-col items-center gap-5 px-6 py-6 text-center lg:flex-row lg:gap-10 lg:px-10 lg:py-6 lg:text-left">
           <div className="relative h-auto w-56 shrink-0">
             <Image
               src="/images/cta-art.jpg"

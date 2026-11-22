@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Cinzel } from "next/font/google";
+import { Cabin, Cinzel } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const inter = Inter({
+const cabin = Cabin({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -64,7 +64,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`dark ${inter.variable} ${cinzel.variable} ${philosopher.variable}`}
+      className={`dark ${cabin.variable} ${cinzel.variable} ${philosopher.variable}`}
     >
       <body
         suppressHydrationWarning

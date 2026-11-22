@@ -11,7 +11,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-gold/50 bg-[#07020d]">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 pb-8 pt-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[auto_1.5fr_1fr_1fr_1.6fr] lg:px-8">
+      <div className="mx-auto grid max-w-[1672px] gap-8 px-4 pb-8 pt-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[auto_1.5fr_1fr_1fr_1.6fr] lg:px-12">
         
         {/* Brand Logo & Tagline */}
         <Link
@@ -115,7 +115,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="font-bold text-gold hover:underline"
               >
-                Reserve A Casino ($500 Hold)
+                Reserve A Casino ($1,000 USD Hold)
               </a>
             </li>
           </ul>
@@ -124,7 +124,7 @@ export default function Footer() {
       </div>
 
       {/* Sub Footer Bar */}
-      <div className="mx-auto flex max-w-7xl flex-wrap justify-between gap-2 border-t border-gold/30 px-4 py-5 sm:px-6 lg:px-8 text-sm text-muted">
+      <div className="mx-auto flex max-w-[1672px] flex-wrap justify-between gap-2 border-t border-gold/30 px-4 py-5 sm:px-6 lg:px-12 text-sm text-muted">
         <span>© 2026 {SITE_CONFIG.name}. All Rights Reserved.</span>
         <a
           href="https://www.huipper.com"
@@ -132,7 +132,7 @@ export default function Footer() {
           rel="noopener noreferrer"
           className="hover:text-gold transition-colors"
         >
-          Website by Huipper
+          Developed by Huipper
         </a>
       </div>
     </footer>
