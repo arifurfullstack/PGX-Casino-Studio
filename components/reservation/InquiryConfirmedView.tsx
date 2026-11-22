@@ -1,48 +1,98 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight } from "lucide-react";
-import { CasinoDesign } from "@/types";
+import gsap from "gsap";
+import { CheckCircle2, ArrowRight, Crown } from "lucide-react";
+import { CasinoDesign, AddonModule } from "@/types";
 
 interface InquiryConfirmedViewProps {
   selectedDesign: CasinoDesign;
   inquiryRef: string;
+  packageTotal?: number;
+  selectedModules?: AddonModule[];
 }
 
 export default function InquiryConfirmedView({
   selectedDesign,
   inquiryRef,
+  packageTotal,
+  selectedModules = [],
 }: InquiryConfirmedViewProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!cardRef.current) return;
+    const tween = gsap.fromTo(
+      cardRef.current,
+      { opacity: 0, y: 28, scale: 0.95 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.65, ease: "power3.out" }
+    );
+    return () => {
+      tween.kill();
+    };
+  }, []);
+
   return (
-    <div className="max-w-xl mx-auto rounded-3xl bg-[#090214] border border-purple-800/60 p-8 sm:p-10 text-center space-y-5 shadow-[0_0_35px_rgba(168,85,247,0.2)]">
-      <div className="w-14 h-14 rounded-full bg-green-500/20 text-green-400 mx-auto flex items-center justify-center">
-        <CheckCircle2 size={32} />
+    <div
+      ref={cardRef}
+      className="panel panel-gold relative max-w-xl mx-auto p-8 sm:p-10 text-center space-y-6 overflow-hidden"
+    >
+      <div className="panel-sheen" aria-hidden="true" />
+      <div className="panel-rim" aria-hidden="true" />
+
+      <div className="relative z-10 w-16 h-16 rounded-full border border-emerald-400/55 bg-emerald-500/15 text-emerald-400 mx-auto flex items-center justify-center shadow-[0_0_24px_rgba(52,211,153,0.3)]">
+        <CheckCircle2 size={34} />
       </div>
 
-      <div className="space-y-1">
-        <h2 className="text-2xl font-black text-white uppercase">Inquiry Received</h2>
-        <p className="text-xs font-bold text-yellow-400 uppercase tracking-wider">
+      <div className="relative z-10 space-y-1.5">
+        <div className="inline-flex items-center gap-1.5 rounded-full border border-[#f5c451]/45 bg-[#240942]/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#ffe28a]">
+          <Crown size={12} />
+          <span>Royal Casino Club VIP Desk</span>
+        </div>
+        <h2 className="font-philosopher text-3xl font-bold italic uppercase text-white">
+          Inquiry <span className="gold-text">Received</span>
+        </h2>
+        <p className="text-xs font-bold text-[#ffe28a] uppercase tracking-wider font-mono">
           Reference Number: {inquiryRef}
         </p>
       </div>
 
-      <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-        Your design inquiry for <strong className="text-white">{selectedDesign.name}</strong> has been logged in our enterprise portal. A sales coordinator will contact you to discuss custom options and quote finalization.
+      <p className="relative z-10 text-xs sm:text-sm text-white/75 leading-relaxed">
+        Your design inquiry for <strong className="text-white">{selectedDesign.name}</strong>
+        {selectedModules.length > 0 && (
+          <>
+            {" "}
+            with{" "}
+            <strong className="text-[#ffe28a]">
+              {selectedModules.map((m) => m.name).join(", ")}
+            </strong>
+          </>
+        )}{" "}
+        has been logged in our enterprise portal.
+        {packageTotal ? (
+          <>
+            {" "}
+            Estimated package total:{" "}
+            <strong className="text-white">${packageTotal.toLocaleString()} USD</strong>.
+          </>
+        ) : null}{" "}
+        A launch coordinator will contact you shortly to finalize your quote.
       </p>
 
-      <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div className="relative z-10 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
         <Link
           href={`/confirmation/submission?ref=${inquiryRef}`}
-          className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-[#FFD700] hover:brightness-110 flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(255,215,0,0.3)]"
+          className="btn-royal-gold shine w-full sm:w-auto px-6 py-3 text-xs sm:text-sm uppercase tracking-wider"
         >
           <span>View Official Inquiry Receipt</span>
-          <ArrowRight size={13} />
+          <ArrowRight size={14} />
         </Link>
         <Link
           href="/designs"
-          className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/60 border border-purple-800/50"
+          className="btn btn-neon w-full sm:w-auto text-xs font-semibold"
         >
-          Explore Themes
+          <span>Explore Themes</span>
         </Link>
       </div>
     </div>

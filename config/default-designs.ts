@@ -2,6 +2,53 @@ import { CasinoDesign } from "@/types";
 
 export const DEFAULT_CASINO_DESIGNS: CasinoDesign[] = [
   {
+    id: "imperial-crown-demo",
+    slug: "imperial-crown-demo",
+    name: "Imperial Crown (Demo)",
+    subtitle: "5-page interactive website UI showcase",
+    image: "/images/demo-imperial-crown/thumbnail.png",
+    tags: ["Luxury", "VIP", "Demo"],
+    status: "active",
+    order: 0,
+    previewImages: [
+      {
+        id: "ic-home",
+        title: "Homepage",
+        pagePath: "/",
+        url: "/images/demo-imperial-crown/homepage.png",
+        order: 1,
+      },
+      {
+        id: "ic-services",
+        title: "Services",
+        pagePath: "/services",
+        url: "/images/demo-imperial-crown/services.png",
+        order: 2,
+      },
+      {
+        id: "ic-pricing",
+        title: "Pricing",
+        pagePath: "/pricing",
+        url: "/images/demo-imperial-crown/pricing.png",
+        order: 3,
+      },
+      {
+        id: "ic-about",
+        title: "About",
+        pagePath: "/about",
+        url: "/images/demo-imperial-crown/about.png",
+        order: 4,
+      },
+      {
+        id: "ic-contact",
+        title: "Contact",
+        pagePath: "/contact",
+        url: "/images/demo-imperial-crown/contact.png",
+        order: 5,
+      },
+    ],
+  },
+  {
     id: "royal-prestige",
     slug: "royal-prestige",
     name: "Royal Prestige",

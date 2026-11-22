@@ -11,6 +11,9 @@ export interface ICasinoDesign extends Document {
     title: string;
     url: string;
     order: number;
+    pagePath?: string;
+    publicId?: string;
+    category?: string;
   }[];
   tags: string[];
   status: DesignStatus;
@@ -25,6 +28,9 @@ const PreviewImageSchema = new Schema(
     title: { type: String, required: true },
     url: { type: String, required: true },
     order: { type: Number, default: 0 },
+    pagePath: { type: String },
+    publicId: { type: String },
+    category: { type: String },
   },
   { _id: false }
 );

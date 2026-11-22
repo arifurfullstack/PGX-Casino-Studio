@@ -1,6 +1,7 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import { ReservationModel } from "@/models";
 import { Reservation, ReservationStatus, PaymentStatus } from "@/types";
+import { getPricingConfig } from "./pricingService";
 import {
   dispatchReservationExpiredEmails,
   dispatchAgreementCompletedEmails,
@@ -20,17 +21,21 @@ export interface CreateReservationInput {
 export async function createReservation(input: CreateReservationInput): Promise<Reservation> {
   await connectToDatabase();
 
-  const count = await ReservationModel.countDocuments();
+  const [count, pricingConfig] = await Promise.all([
+    ReservationModel.countDocuments(),
+    getPricingConfig(),
+  ]);
   const reservationId = `AIG-RES-${(count + 1).toString().padStart(5, "0")}`;
 
-  const discountPercent = 5;
+  const discountPercent = pricingConfig.reservationDiscountPercent;
   const discountAmount = Math.round((input.originalPackagePrice * discountPercent) / 100);
   const discountedPrice = input.originalPackagePrice - discountAmount;
-  const reservationFee = 500;
-  const remainingBalance = discountedPrice - reservationFee;
+  const reservationFee = pricingConfig.reservationFee;
+  const remainingBalance = Math.max(0, discountedPrice - reservationFee);
 
   const now = new Date();
-  const expiresAt = new Date(now.getTime() + 5 * 24 * 60 * 60 * 1000); // 5 days (120 hours)
+  const durationMs = pricingConfig.reservationDurationHours * 60 * 60 * 1000;
+  const expiresAt = new Date(now.getTime() + durationMs);
 
   const doc = await ReservationModel.create({
     reservationId,

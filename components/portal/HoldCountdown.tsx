@@ -25,7 +25,12 @@ export default function HoldCountdown({ expiresAt, className }: HoldCountdownPro
 
   if (!now) {
     return (
-      <span className={className || "px-3 py-1 rounded-full bg-amber-950/80 border border-amber-500/40 text-[11px] font-bold text-[#FFD700] self-start sm:self-auto"}>
+      <span
+        className={
+          className ||
+          "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/75 border border-[#f5c451]/55 text-xs sm:text-sm font-bold text-[#ffe28a] shadow-[0_0_16px_rgba(245,196,81,0.22)] self-start sm:self-auto tabular-nums"
+        }
+      >
         Calculating...
       </span>
     );
@@ -34,7 +39,12 @@ export default function HoldCountdown({ expiresAt, className }: HoldCountdownPro
   const diff = new Date(expiresAt).getTime() - now;
   if (diff <= 0) {
     return (
-      <span className={className || "px-3 py-1 rounded-full bg-red-950/80 border border-red-500/40 text-[11px] font-bold text-red-300 self-start sm:self-auto"}>
+      <span
+        className={
+          className ||
+          "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-950/80 border border-rose-500/50 text-xs sm:text-sm font-bold text-rose-200 self-start sm:self-auto"
+        }
+      >
         Hold Expired
       </span>
     );
@@ -44,8 +54,14 @@ export default function HoldCountdown({ expiresAt, className }: HoldCountdownPro
   const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
 
   return (
-    <span className={className || "px-3 py-1 rounded-full bg-amber-950/80 border border-amber-500/40 text-[11px] font-bold text-[#FFD700] self-start sm:self-auto"}>
-      {hours}h {mins}m left
+    <span
+      className={
+        className ||
+        "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/75 border border-[#f5c451]/65 text-xs sm:text-sm font-bold text-[#ffe28a] shadow-[0_0_18px_rgba(245,196,81,0.3)] self-start sm:self-auto tabular-nums"
+      }
+    >
+      <span className="w-2 h-2 rounded-full bg-[#f5c451] animate-pulse" />
+      {hours}h {mins}m remaining
     </span>
   );
 }

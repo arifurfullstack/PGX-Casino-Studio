@@ -5,6 +5,9 @@ export interface DesignPreviewImage {
   title: string;
   url: string;
   order: number;
+  pagePath?: string; // Simulated URL path in demo browser (e.g. "/", "/services", "/pricing")
+  publicId?: string; // Cloudinary public_id for cleanup
+  category?: string; // Optional preset label
 }
 
 export interface CasinoDesign {

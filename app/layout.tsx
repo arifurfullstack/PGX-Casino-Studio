@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
-import { Cabin, Cinzel } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Cabin, Cinzel, Great_Vibes } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { SITE_CONFIG } from "@/config/site-config";
 
 const cabin = Cabin({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-cabin",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -15,6 +17,13 @@ const cinzel = Cinzel({
   subsets: ["latin"],
   variable: "--font-cinzel",
   weight: ["400", "600", "700", "800", "900"],
+  display: "swap",
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  variable: "--font-script",
+  weight: ["400"],
   display: "swap",
 });
 
@@ -45,13 +54,66 @@ const philosopher = localFont({
   display: "swap",
 });
 
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://royalcasinoclub.com";
+
+export const viewport: Viewport = {
+  themeColor: "#07020d",
+  colorScheme: "dark",
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://casino.pgxsportslounge.com"),
-  title: "Royal Casino Club — Online Casino Solutions",
-  description:
-    "Own your online casino starting at $15,000! Turnkey setup, premium casino designs, slots, game tables, and 24/7 support.",
-  icons: {
-    icon: "/favicon.ico",
+  metadataBase: new URL(APP_URL),
+  applicationName: SITE_CONFIG.name,
+  title: {
+    default: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    template: `%s | ${SITE_CONFIG.name}`,
+  },
+  description: SITE_CONFIG.description,
+  keywords: [
+    "turnkey online casino",
+    "white-label casino",
+    "online casino software",
+    "launch online casino",
+    "casino platform solutions",
+    "Royal Casino Club",
+    "iGaming turnkey platform",
+    "live dealer casino",
+    "sportsbook software",
+  ],
+  authors: [{ name: SITE_CONFIG.name, url: APP_URL }],
+  creator: SITE_CONFIG.name,
+  publisher: SITE_CONFIG.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: SITE_CONFIG.name,
+    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Royal Casino Club — Launch Your Own Premium Online Casino Starting at $15,000",
+        type: "image/jpeg",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE_CONFIG.name} — ${SITE_CONFIG.tagline}`,
+    description: SITE_CONFIG.description,
+    images: ["/images/og-image.jpg"],
   },
 };
 
@@ -64,7 +126,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`dark ${cabin.variable} ${cinzel.variable} ${philosopher.variable}`}
+      className={`dark ${cabin.variable} ${cinzel.variable} ${philosopher.variable} ${greatVibes.variable}`}
     >
       <body
         suppressHydrationWarning

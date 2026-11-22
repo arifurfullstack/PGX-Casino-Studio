@@ -3,11 +3,12 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Save, ArrowLeft, Upload, Loader2 } from "lucide-react";
+import { Save, ArrowLeft, Upload, Loader2, Eye } from "lucide-react";
 import Link from "next/link";
 import { CasinoDesign, DesignPreviewImage, DesignStatus } from "@/types";
-import { saveDesignAction, uploadDesignImageAction } from "@/app/actions/designActions";
+import { saveDesignAction } from "@/app/actions/designActions";
 import MultiPngManager from "./MultiPngManager";
+import WebsiteDemoModal from "@/components/designs/WebsiteDemoModal";
 
 interface DesignFormProps {
   initialDesign?: CasinoDesign;
@@ -18,6 +19,8 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
   const router = useRouter();
   const [saving, setSaving] = useState(false);
   const [uploadingThumb, setUploadingThumb] = useState(false);
+  const [slugTouched, setSlugTouched] = useState(!isNew);
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   const [name, setName] = useState(initialDesign?.name || "");
   const [slug, setSlug] = useState(initialDesign?.slug || "");
@@ -32,7 +35,7 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
 
   const handleNameChange = (val: string) => {
     setName(val);
-    if (isNew && !slug) {
+    if (isNew && !slugTouched) {
       setSlug(
         val
           .toLowerCase()
@@ -43,28 +46,38 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
   };
 
   const handleThumbUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
 
     setUploadingThumb(true);
-    const reader = new FileReader();
-    reader.onload = async () => {
-      const base64 = reader.result as string;
-      const res = await uploadDesignImageAction(base64, "alli-gaming/thumbnails");
-      if (res.success && res.url) {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("folder", "alli-gaming/thumbnails");
+
+      const response = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const res = await response.json();
+
+      if (response.ok && res.success && res.url) {
         setImage(res.url);
       } else {
-        alert("Thumbnail upload failed: " + res.error);
+        alert("Thumbnail upload failed: " + (res.error || "Unknown error"));
       }
+    } catch (err) {
+      console.error(err);
+      alert("Thumbnail upload failed. Please try again.");
+    } finally {
       setUploadingThumb(false);
-    };
-    reader.readAsDataURL(files[0]);
-    e.target.value = "";
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !slug) {
+    if (!name.trim() || !slug.trim()) {
       alert("Name and slug are required.");
       return;
     }
@@ -76,9 +89,9 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
       .filter(Boolean);
 
     const res = await saveDesignAction({
-      slug,
-      name,
-      subtitle,
+      slug: slug.trim(),
+      name: name.trim(),
+      subtitle: subtitle.trim(),
       image,
       previewImages,
       tags,
@@ -96,10 +109,21 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
     }
   };
 
+  const draftDesign: CasinoDesign = {
+    id: initialDesign?.id || slug || "draft",
+    slug: slug || "preview",
+    name: name || "Untitled Theme",
+    subtitle,
+    image,
+    previewImages,
+    status,
+    order,
+  };
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Top Bar */}
-      <div className="flex items-center justify-between pb-4 border-b border-purple-900/40">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-purple-900/40">
         <Link
           href="/admin/designs"
           className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
@@ -108,14 +132,29 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
           <span>Back to Catalog</span>
         </Link>
 
-        <button
-          type="submit"
-          disabled={saving}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 shadow-[0_0_15px_rgba(255,215,0,0.35)] transition-all disabled:opacity-50"
-        >
-          {saving ? <Loader2 size={14} className="animate-spin" /> : <Save size={14} className="stroke-[2.5]" />}
-          <span>{isNew ? "Create Theme" : "Save Changes"}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setPreviewOpen(true)}
+            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-purple-200 bg-purple-950/60 hover:bg-purple-900 border border-purple-500/40 transition-all cursor-pointer"
+          >
+            <Eye size={14} />
+            <span>Preview Demo</span>
+          </button>
+
+          <button
+            type="submit"
+            disabled={saving}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 shadow-[0_0_15px_rgba(255,215,0,0.35)] transition-all disabled:opacity-50 cursor-pointer"
+          >
+            {saving ? (
+              <Loader2 size={14} className="animate-spin" />
+            ) : (
+              <Save size={14} className="stroke-[2.5]" />
+            )}
+            <span>{isNew ? "Create Theme" : "Save Changes"}</span>
+          </button>
+        </div>
       </div>
 
       {/* Main Grid: Details + Thumbnail */}
@@ -150,7 +189,10 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
                 required
                 disabled={!isNew}
                 value={slug}
-                onChange={(e) => setSlug(e.target.value)}
+                onChange={(e) => {
+                  setSlugTouched(true);
+                  setSlug(e.target.value);
+                }}
                 placeholder="e.g. royal-prestige"
                 className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs disabled:opacity-50 focus:outline-none focus:border-[#FFD700]"
               />
@@ -165,7 +207,7 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
               type="text"
               value={subtitle}
               onChange={(e) => setSubtitle(e.target.value)}
-              placeholder="e.g. Luxury Lion &amp; Gold VIP Experience"
+              placeholder="e.g. Luxury Lion & Gold VIP Experience"
               className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
             />
           </div>
@@ -229,16 +271,20 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
               />
             </div>
             <p className="text-[11px] text-gray-400">
-              Shown in the 12-grid catalog and quote builder.
+              Shown on the Homepage &amp; Catalog cards.
             </p>
           </div>
 
           <label className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-center text-purple-200 bg-purple-950/60 hover:bg-purple-900 border border-purple-500/40 cursor-pointer transition-all flex items-center justify-center gap-2">
-            {uploadingThumb ? <Loader2 size={13} className="animate-spin" /> : <Upload size={13} />}
-            <span>Upload New Thumbnail</span>
+            {uploadingThumb ? (
+              <Loader2 size={13} className="animate-spin" />
+            ) : (
+              <Upload size={13} />
+            )}
+            <span>{uploadingThumb ? "Uploading..." : "Upload New Thumbnail"}</span>
             <input
               type="file"
-              accept="image/*"
+              accept="image/png,image/jpeg,image/webp,image/avif"
               disabled={uploadingThumb}
               onChange={handleThumbUpload}
               className="hidden"
@@ -247,10 +293,18 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
         </div>
       </div>
 
-      {/* Multi-PNG Suite Manager */}
+      {/* Minimal Demo Website Pages Manager */}
       <MultiPngManager
         previewImages={previewImages}
         onChange={(images) => setPreviewImages(images)}
+        designSlug={slug}
+      />
+
+      {/* Live Admin Demo Preview Modal */}
+      <WebsiteDemoModal
+        design={previewOpen ? draftDesign : null}
+        onClose={() => setPreviewOpen(false)}
+        allowUnsavedAdminPreview={true}
       />
     </form>
   );

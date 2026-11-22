@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Crown, Monitor, Layers, Send, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 
 export const metadata = {
-  title: "How It Works | All I Gaming",
-  description: "Learn how to launch your branded online casino in 3 simple turnkey steps with All I Gaming.",
+  title: "How It Works",
+  description:
+    "Launch your branded white-label online casino in 3 simple turnkey steps — from theme selection to live players in 21–30 days.",
 };
 
 const STEPS = [

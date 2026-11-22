@@ -4,8 +4,9 @@ import ContactForm from "@/components/contact/ContactForm";
 import { getAllActiveDesigns } from "@/services/casinoService";
 
 export const metadata = {
-  title: "Contact Us & Request a Quote | All I Gaming",
-  description: "Request a custom quotation for your online casino platform. 24/7 B2B technical consultations.",
+  title: "Contact Us & Request a Quote",
+  description:
+    "Request a custom turnkey online casino quote from Royal Casino Club. 24/7 B2B consultations via WhatsApp, Telegram, or email.",
 };
 
 interface ContactPageProps {

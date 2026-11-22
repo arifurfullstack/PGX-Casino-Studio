@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { FileSpreadsheet, ArrowRight, Plus } from "lucide-react";
+import { FileSpreadsheet, ArrowRight, Plus, Sparkles } from "lucide-react";
 import { getCustomerSession } from "@/lib/customerAuth";
 import { getCustomerDashboardData } from "@/services/customerPortalService";
 
@@ -16,118 +16,137 @@ export default async function CustomerQuotesPage() {
   const inquiries = data?.inquiries || [];
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-purple-900/40">
-        <div>
-          <div className="flex items-center gap-2">
-            <FileSpreadsheet size={20} className="text-[#FFD700]" />
-            <h1 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
-              Saved Configurations &amp; Quotations
+    <div className="space-y-8">
+      {/* Luxury Page Header */}
+      <section className="js-portal-hero portal-panel p-7 sm:p-9 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div className="flex items-start gap-4">
+          <span className="portal-icon-medallion portal-icon-medallion-active w-14 h-14 rounded-2xl flex items-center justify-center shrink-0">
+            <FileSpreadsheet size={26} className="gold-icon" />
+          </span>
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#f5c451]">
+              Custom Casino Package Estimates
+            </p>
+            <h1 className="font-philosopher text-2xl sm:text-3xl xl:text-4xl font-bold italic text-white leading-tight mt-1">
+              Saved <span className="gold-text">Configurations</span> &amp; Quotations
             </h1>
+            <p className="text-sm sm:text-base text-white/70 mt-2 max-w-2xl">
+              Review all custom turnkey casino platform package valuations and module selections tailored for your gaming brand.
+            </p>
           </div>
-          <p className="text-xs text-gray-400 mt-1">
-            Review all custom casino platform package estimates generated for your gaming brand.
-          </p>
         </div>
 
         <Link
           href="/designs"
-          className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 transition-all shadow-[0_0_12px_rgba(255,215,0,0.3)] self-start sm:self-auto"
+          className="js-portal-cta btn-royal-gold shine px-6 py-3.5 text-[15px] font-extrabold shrink-0 self-start lg:self-auto"
         >
-          <Plus size={14} className="stroke-[2.5]" />
+          <Plus size={18} className="stroke-[2.75]" />
           <span>New Configuration</span>
         </Link>
-      </div>
+      </section>
 
       {/* Quotes List */}
       {inquiries.length === 0 ? (
-        <div className="p-8 rounded-xl bg-[#080214] border border-purple-900/40 text-center space-y-3">
-          <FileSpreadsheet size={32} className="mx-auto text-purple-400/60" />
-          <h2 className="text-sm font-bold text-white">No Quotations Saved Yet</h2>
-          <p className="text-xs text-gray-400 max-w-md mx-auto">
-            Browse our 12 turnkey casino designs and select optional expansion modules to calculate your custom platform price.
+        <section className="js-portal-panel portal-panel p-10 sm:p-14 text-center space-y-5">
+          <span className="js-portal-float portal-icon-medallion w-16 h-16 rounded-2xl mx-auto flex items-center justify-center">
+            <Sparkles size={28} className="gold-icon" />
+          </span>
+          <h2 className="font-philosopher text-2xl sm:text-3xl font-bold text-white">
+            No Quotations Saved Yet
+          </h2>
+          <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto leading-relaxed">
+            Browse our 12 turnkey casino designs and select optional expansion modules — Live Dealer, Sportsbook, Poker, or Sweepstakes — to calculate your custom platform investment.
           </p>
-          <Link
-            href="/designs"
-            className="inline-block mt-2 px-4 py-2 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700]"
-          >
-            Browse Casino Catalog →
-          </Link>
-        </div>
+          <div className="pt-2">
+            <Link
+              href="/designs"
+              className="js-portal-cta btn-royal-gold shine px-8 py-4 text-[15px] font-extrabold"
+            >
+              <span>Browse Casino Catalog</span>
+              <ArrowRight size={18} className="stroke-[2.75]" />
+            </Link>
+          </div>
+        </section>
       ) : (
-        <div className="space-y-4">
+        <div className="space-y-6">
           {inquiries.map((inq) => {
             return (
               <div
                 key={inq.id}
-                className="p-5 rounded-xl bg-[#080214] border border-purple-900/50 space-y-3 shadow-[0_0_15px_rgba(0,0,0,0.4)]"
+                className="js-portal-panel js-portal-card group portal-panel panel-interactive p-6 sm:p-8 space-y-6"
               >
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-purple-900/30">
-                  <div className="flex items-center gap-2">
-                    <span className="font-mono text-sm font-bold text-purple-300">
+                <div className="portal-card-spotlight" aria-hidden="true" />
+                <div className="panel-sheen" aria-hidden="true" />
+                <div className="panel-rim" aria-hidden="true" />
+
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 border-b border-[#d696ff]/20">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <span className="font-philosopher text-xl font-bold text-[#e5b8ff] tabular-nums">
                       {inq.referenceNumber}
                     </span>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-950 text-purple-200 border border-purple-500/30 uppercase">
+                    <span className="text-xs font-bold px-3.5 py-1 rounded-full bg-purple-950/90 text-[#ffe28a] border border-[#f5c451]/40 uppercase tracking-wider">
                       {inq.status.replace("_", " ")}
                     </span>
                   </div>
 
-                  <span className="text-[11px] text-gray-400">
+                  <span className="text-sm text-white/65 tabular-nums">
                     Submitted on {new Date(inq.createdAt).toLocaleDateString()}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-                  <div>
-                    <span className="text-[10px] text-gray-500 uppercase font-semibold">
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-5">
+                  <div className="p-4 rounded-2xl bg-[#0d031b]/75 border border-[#d696ff]/25">
+                    <span className="text-xs text-white/55 uppercase font-bold tracking-wider">
                       Casino Look Selected
                     </span>
-                    <p className="font-bold text-white mt-0.5">{inq.selectedDesignName}</p>
+                    <p className="font-philosopher text-lg sm:text-xl font-bold text-white mt-1">
+                      {inq.selectedDesignName}
+                    </p>
                     {inq.selectedAddonIds?.length > 0 ? (
-                      <p className="text-[11px] text-purple-300 mt-1">
+                      <p className="text-xs text-[#d58cff] font-semibold mt-1.5 capitalize">
                         Modules: {inq.selectedAddonIds.join(", ").replace(/-/g, " ")}
                       </p>
                     ) : (
-                      <p className="text-[11px] text-gray-500 mt-1">Standard Starter Package</p>
+                      <p className="text-xs text-white/55 mt-1.5">Standard Starter Package</p>
                     )}
                   </div>
 
-                  <div>
-                    <span className="text-[10px] text-gray-500 uppercase font-semibold">
+                  <div className="p-4 rounded-2xl bg-[#0d031b]/75 border border-[#d696ff]/25">
+                    <span className="text-xs text-white/55 uppercase font-bold tracking-wider">
                       Target Launch Timeline
                     </span>
-                    <p className="text-gray-300 mt-0.5 capitalize">
-                      {inq.intendedTimeline?.replace(/_/g, " ")}
+                    <p className="font-philosopher text-lg sm:text-xl font-bold text-white/90 mt-1 capitalize">
+                      {inq.intendedTimeline?.replace(/_/g, " ") || "Flexible"}
                     </p>
                   </div>
 
-                  <div>
-                    <span className="text-[10px] text-gray-500 uppercase font-semibold">
+                  <div className="p-4 rounded-2xl bg-amber-950/35 border border-[#f5c451]/45">
+                    <span className="text-xs text-[#ffe28a] uppercase font-bold tracking-wider">
                       Total Package Valuation
                     </span>
-                    <p className="text-base font-black text-[#FFD700] mt-0.5">
+                    <p className="font-philosopher text-2xl sm:text-3xl font-bold gold-text mt-1 tabular-nums">
                       ${inq.totalPrice.toLocaleString()} USD
                     </p>
                   </div>
                 </div>
 
                 {inq.projectRequirements && (
-                  <div className="p-2.5 rounded bg-[#04010a] border border-purple-900/30 text-[11px] text-gray-300">
-                    <strong className="text-gray-400">Custom Requirements:</strong> {inq.projectRequirements}
+                  <div className="relative z-10 p-4 rounded-2xl bg-[#090214]/85 border border-[#d696ff]/25 text-sm text-white/80 leading-relaxed">
+                    <strong className="text-[#ffe28a] font-bold">Custom Requirements:</strong>{" "}
+                    {inq.projectRequirements}
                   </div>
                 )}
 
-                <div className="pt-2 flex items-center justify-between">
-                  <span className="text-[11px] text-gray-500">
-                    Need revisions or custom module additions?
+                <div className="relative z-10 pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <span className="text-sm text-white/60">
+                    Need revisions or custom expansion module additions?
                   </span>
                   <Link
                     href={`/select-design?design=${inq.selectedDesignId}&total=${inq.totalPrice}`}
-                    className="inline-flex items-center gap-1 text-xs font-bold text-[#FFD700] hover:text-[#FFE57F] transition-colors"
+                    className="js-portal-cta btn-nav-portal inline-flex text-sm px-5 h-11 self-start sm:self-auto"
                   >
                     <span>Re-Configure or Reserve (5% Off)</span>
-                    <ArrowRight size={13} />
+                    <ArrowRight size={15} className="text-[#f5c451]" />
                   </Link>
                 </div>
               </div>

@@ -6,8 +6,9 @@ import ReservationReceiptView from "@/components/confirmation/ReservationReceipt
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Reservation Confirmed | All I Gaming Turnkey Marketplace",
-  description: "Official confirmation receipt for your 5-day casino platform reservation and 5% price lock.",
+  title: "Reservation Confirmed",
+  description:
+    "Official confirmation receipt for your Royal Casino Club turnkey platform reservation and 5-day price lock.",
 };
 
 interface ReservationConfirmationPageProps {

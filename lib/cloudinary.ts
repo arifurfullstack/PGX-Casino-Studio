@@ -37,6 +37,39 @@ export async function uploadToCloudinary(
 }
 
 /**
+ * Uploads a raw binary Buffer directly to Cloudinary via upload_stream
+ * (ideal for large full-page UI screenshots without base64 inflation).
+ */
+export async function uploadBufferToCloudinary(
+  buffer: Buffer,
+  folder = "alli-gaming/previews"
+): Promise<UploadResult> {
+  return new Promise((resolve, reject) => {
+    const stream = cloudinary.uploader.upload_stream(
+      {
+        folder,
+        resource_type: "image",
+        quality: "auto:good",
+        fetch_format: "auto",
+      },
+      (error, result) => {
+        if (error || !result) {
+          return reject(error || new Error("Cloudinary stream upload failed"));
+        }
+        resolve({
+          url: result.secure_url,
+          publicId: result.public_id,
+          width: result.width,
+          height: result.height,
+          format: result.format,
+        });
+      }
+    );
+    stream.end(buffer);
+  });
+}
+
+/**
  * Deletes an image from Cloudinary by public ID
  */
 export async function deleteFromCloudinary(publicId: string): Promise<boolean> {

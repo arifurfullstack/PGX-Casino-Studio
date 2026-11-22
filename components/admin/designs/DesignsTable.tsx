@@ -10,10 +10,11 @@ import {
   Search,
   Eye,
   EyeOff,
-  ImageIcon,
+  Monitor,
 } from "lucide-react";
 import { CasinoDesign, DesignStatus } from "@/types";
 import { toggleDesignStatusAction, deleteDesignAction } from "@/app/actions/designActions";
+import WebsiteDemoModal from "@/components/designs/WebsiteDemoModal";
 
 interface DesignsTableProps {
   initialDesigns: CasinoDesign[];
@@ -23,6 +24,7 @@ export default function DesignsTable({ initialDesigns }: DesignsTableProps) {
   const [designs, setDesigns] = useState(initialDesigns);
   const [search, setSearch] = useState("");
   const [loadingSlug, setLoadingSlug] = useState<string | null>(null);
+  const [demoPreviewDesign, setDemoPreviewDesign] = useState<CasinoDesign | null>(null);
 
   const filtered = designs.filter(
     (d) =>
@@ -85,7 +87,7 @@ export default function DesignsTable({ initialDesigns }: DesignsTableProps) {
             <tr>
               <th className="py-3 px-4">Design</th>
               <th className="py-3 px-4">Order</th>
-              <th className="py-3 px-4">PNG Suite</th>
+              <th className="py-3 px-4">Demo Pages</th>
               <th className="py-3 px-4">Status</th>
               <th className="py-3 px-4 text-right">Actions</th>
             </tr>
@@ -128,12 +130,17 @@ export default function DesignsTable({ initialDesigns }: DesignsTableProps) {
                       #{design.order ?? 0}
                     </td>
 
-                    {/* Multi-PNG Suite Badge */}
+                    {/* Demo Pages Badge */}
                     <td className="py-3 px-4">
-                      <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-purple-950 text-purple-300 border border-purple-500/30 text-[10px] font-medium">
-                        <ImageIcon size={11} />
-                        <span>{previewCount} Preview{previewCount === 1 ? "" : "s"}</span>
-                      </span>
+                      <button
+                        type="button"
+                        onClick={() => setDemoPreviewDesign(design)}
+                        title="Preview interactive demo modal"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-950 hover:bg-purple-900 text-purple-200 border border-purple-500/35 text-[10px] font-medium transition-colors cursor-pointer"
+                      >
+                        <Monitor size={11} className="text-[#FFD700]" />
+                        <span>{previewCount} {previewCount === 1 ? "Page" : "Pages"}</span>
+                      </button>
                     </td>
 
                     {/* Status Pill */}
@@ -165,10 +172,20 @@ export default function DesignsTable({ initialDesigns }: DesignsTableProps) {
                     {/* Actions */}
                     <td className="py-3 px-4 text-right">
                       <div className="inline-flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setDemoPreviewDesign(design)}
+                          title="Preview Protected Website Demo Modal"
+                          className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-purple-950/60 hover:bg-purple-900 text-purple-200 hover:text-white border border-purple-500/30 text-xs font-semibold transition-colors cursor-pointer"
+                        >
+                          <Monitor size={12} />
+                          <span>Demo</span>
+                        </button>
+
                         <Link
                           href={`/designs/${design.slug}`}
                           target="_blank"
-                          title="Open Live Demo in Storefront"
+                          title="Open Standalone Storefront Page"
                           className="p-1.5 rounded-lg bg-purple-950/60 hover:bg-purple-900 text-gray-300 hover:text-white border border-purple-500/30 transition-colors"
                         >
                           <ExternalLink size={13} />
@@ -179,7 +196,7 @@ export default function DesignsTable({ initialDesigns }: DesignsTableProps) {
                           className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 shadow-[0_0_10px_rgba(255,215,0,0.25)] transition-all"
                         >
                           <Edit size={12} className="stroke-[2.5]" />
-                          <span>Edit &amp; PNGs</span>
+                          <span>Edit</span>
                         </Link>
 
                         <button
@@ -199,6 +216,13 @@ export default function DesignsTable({ initialDesigns }: DesignsTableProps) {
           </tbody>
         </table>
       </div>
+
+      {/* Live Demo Modal Preview right from Admin Table */}
+      <WebsiteDemoModal
+        design={demoPreviewDesign}
+        onClose={() => setDemoPreviewDesign(null)}
+        allowUnsavedAdminPreview={true}
+      />
     </div>
   );
 }

@@ -6,8 +6,10 @@ export interface NavItem {
 export const SITE_CONFIG = {
   name: "Royal Casino Club",
   legalName: "Royal Casino Club — Online Casino Solutions",
+  tagline: "Launch Your Turnkey Online Casino",
+  url: process.env.NEXT_PUBLIC_APP_URL || "https://royalcasinoclub.com",
   description:
-    "Royal Casino Club provides premium turnkey online casino software solutions, empowering operators to launch customized, high-converting casinos worldwide.",
+    "Launch a turnkey white-label online casino from $15,000 — no license required. 12+ luxury designs, slots, live dealer & 24/7 VIP support.",
   startingPriceFormatted: "$15,000 USD",
   contact: {
     email: "contact@royalcasinoclub.com",

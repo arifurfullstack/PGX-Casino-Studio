@@ -3,8 +3,9 @@ import { CheckCircle2, Crown, ArrowRight, ShieldCheck } from "lucide-react";
 import { DEFAULT_STARTER_PACKAGE, DEFAULT_ADDON_MODULES } from "@/config/default-package";
 
 export const metadata = {
-  title: "Pricing & Packages | All I Gaming",
-  description: "Transparent turnkey casino package pricing. Starter package from $15,000 USD with slots and table games.",
+  title: "Turnkey Packages & Pricing",
+  description:
+    "Transparent turnkey online casino pricing starting at $15,000 USD with slots, table games, custom branding, and 24/7 VIP support.",
 };
 
 export default function PackagesPage() {

@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Search, Heart, Play, ChevronLeft, ChevronRight, Crown, Sparkles, Layers } from "lucide-react";
+import { Search, Heart, Play, ChevronLeft, ChevronRight, Crown, Sparkles, Layers, Maximize2 } from "lucide-react";
 import { CasinoDesign } from "@/types";
+import ProtectedDemoCanvas from "./ProtectedDemoCanvas";
+import WebsiteDemoModal from "./WebsiteDemoModal";
 
 interface CasinoPreviewStageProps {
   design: CasinoDesign;
@@ -33,7 +35,12 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
   const [activeTab, setActiveTab] = useState("Home");
   const [favorites, setFavorites] = useState<string[]>([]);
   const [activeModalGame, setActiveModalGame] = useState<string | null>(null);
-  const [selectedPreviewUrl, setSelectedPreviewUrl] = useState<string | null>(null);
+  const [selectedPreviewId, setSelectedPreviewId] = useState<string | null>(
+    design.previewImages && design.previewImages.length > 0
+      ? design.previewImages[0].id
+      : null
+  );
+  const [isWebsiteModalOpen, setIsWebsiteModalOpen] = useState(false);
 
   const toggleFavorite = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -42,35 +49,30 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
     );
   };
 
-  const previewList = design.previewImages || [];
+  const previewList = [...(design.previewImages || [])].sort(
+    (a, b) => (a.order ?? 0) - (b.order ?? 0)
+  );
+  const selectedPreview = previewList.find((p) => p.id === selectedPreviewId) || null;
 
   return (
-    <div className="w-full flex-1 rounded-2xl bg-[#030007] border-2 border-purple-500/50 shadow-[0_0_35px_rgba(168,85,247,0.35)] overflow-hidden flex flex-col">
+    <div
+      onContextMenu={(e) => e.preventDefault()}
+      className="demo-no-save w-full flex-1 rounded-2xl bg-[#030007] border-2 border-purple-500/50 shadow-[0_0_35px_rgba(168,85,247,0.35)] overflow-hidden flex flex-col"
+    >
       {/* 1. Multi-PNG Suite Switcher Bar */}
       {previewList.length > 0 && (
         <div className="flex items-center gap-1.5 px-3 py-2 bg-[#06010d] border-b border-purple-900/50 overflow-x-auto text-[11px]">
           <span className="text-gray-400 font-bold uppercase text-[10px] tracking-wider px-1.5 flex items-center gap-1 shrink-0">
             <Layers size={12} className="text-[#FFD700]" />
-            <span>Theme Views:</span>
+            <span>Demo Pages:</span>
           </span>
-          <button
-            onClick={() => setSelectedPreviewUrl(null)}
-            type="button"
-            className={`px-3 py-1 rounded-full font-bold transition-all shrink-0 ${
-              selectedPreviewUrl === null
-                ? "bg-gradient-to-b from-[#FFE259] to-[#FFA700] text-black shadow-[0_0_10px_rgba(255,215,0,0.4)]"
-                : "bg-purple-950/60 text-gray-300 hover:text-white"
-            }`}
-          >
-            Live Simulation
-          </button>
           {previewList.map((p) => (
             <button
               key={p.id}
-              onClick={() => setSelectedPreviewUrl(p.url)}
+              onClick={() => setSelectedPreviewId(p.id)}
               type="button"
-              className={`px-3 py-1 rounded-full font-bold transition-all shrink-0 ${
-                selectedPreviewUrl === p.url
+              className={`px-3 py-1 rounded-full font-bold transition-all shrink-0 cursor-pointer ${
+                selectedPreviewId === p.id
                   ? "bg-gradient-to-b from-[#FFE259] to-[#FFA700] text-black shadow-[0_0_10px_rgba(255,215,0,0.4)]"
                   : "bg-purple-950/60 text-gray-300 hover:text-white"
               }`}
@@ -78,6 +80,25 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
               {p.title}
             </button>
           ))}
+          <button
+            onClick={() => setSelectedPreviewId(null)}
+            type="button"
+            className={`px-3 py-1 rounded-full font-bold transition-all shrink-0 cursor-pointer ${
+              selectedPreviewId === null
+                ? "bg-gradient-to-b from-[#FFE259] to-[#FFA700] text-black shadow-[0_0_10px_rgba(255,215,0,0.4)]"
+                : "bg-purple-950/60 text-gray-300 hover:text-white"
+            }`}
+          >
+            Interactive Lobby
+          </button>
+          <button
+            onClick={() => setIsWebsiteModalOpen(true)}
+            type="button"
+            className="ml-auto inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#f5c451]/45 bg-[#1a0730] text-[#ffe28a] font-bold hover:bg-[#2a0c4a] shrink-0 cursor-pointer"
+          >
+            <Maximize2 size={11} />
+            <span>Full Browser Demo</span>
+          </button>
         </div>
       )}
 
@@ -98,12 +119,12 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
             <button
               key={tab}
               onClick={() => {
-                setSelectedPreviewUrl(null);
+                setSelectedPreviewId(null);
                 setActiveTab(tab);
               }}
               type="button"
               className={`py-1 transition-colors ${
-                activeTab === tab && !selectedPreviewUrl
+                activeTab === tab && !selectedPreviewId
                   ? "text-yellow-400 border-b border-yellow-400 font-bold"
                   : "hover:text-white"
               }`}
@@ -129,15 +150,14 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
       </div>
 
       {/* 3. Main Stage Content */}
-      {selectedPreviewUrl ? (
-        <div className="relative w-full aspect-[794/597] bg-[#0c0218] overflow-hidden flex items-center justify-center p-2">
-          <Image
-            src={selectedPreviewUrl}
-            alt={design.name}
-            fill
-            className="object-contain"
-            unoptimized
-            priority
+      {selectedPreview ? (
+        <div className="relative w-full max-h-[75vh] overflow-y-auto bg-[#0c0218]">
+          <ProtectedDemoCanvas
+            key={`${design.slug}-${selectedPreview.id}`}
+            designSlug={design.slug}
+            pageId={selectedPreview.id}
+            pageTitle={selectedPreview.title}
+            showWatermark={true}
           />
         </div>
       ) : (
@@ -279,6 +299,13 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
           </div>
         </div>
       )}
+
+      {/* Fullscreen Protected Website Demo Modal */}
+      <WebsiteDemoModal
+        design={isWebsiteModalOpen ? design : null}
+        initialPageId={selectedPreview?.id}
+        onClose={() => setIsWebsiteModalOpen(false)}
+      />
     </div>
   );
 }

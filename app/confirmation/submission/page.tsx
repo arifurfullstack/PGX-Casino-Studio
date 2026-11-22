@@ -6,8 +6,9 @@ import InquiryConfirmationView from "@/components/confirmation/InquiryConfirmati
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Inquiry Submitted | All I Gaming Turnkey Marketplace",
-  description: "Official submission receipt for your turnkey online casino platform quotation.",
+  title: "Inquiry Submitted",
+  description:
+    "Official submission receipt for your Royal Casino Club turnkey online casino platform quotation.",
 };
 
 interface InquiryConfirmationPageProps {

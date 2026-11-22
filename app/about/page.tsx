@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Crown, ShieldCheck, Server, Globe2, Users, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "About Us | All I Gaming Turnkey Solutions",
-  description: "Learn about All I Gaming, the premier B2B online casino software provider delivering robust turnkey iGaming infrastructure.",
+  title: "About Us",
+  description:
+    "Discover Royal Casino Club — B2B turnkey online casino software delivering luxury designs, certified games, and 99.99% uptime infrastructure.",
 };
 
 const STATS = [

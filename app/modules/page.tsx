@@ -3,8 +3,9 @@ import Link from "next/link";
 import { ArrowRight, Crown, Video, Trophy, Sparkles, Dices } from "lucide-react";
 
 export const metadata = {
-  title: "Add-On Modules | All I Gaming",
-  description: "Expand your casino platform with Live Dealer tables, Sportsbook odds engine, Poker tournament network, and Sweepstakes.",
+  title: "Add-On Modules",
+  description:
+    "Expand your online casino with Live Dealer tables, Sportsbook odds engine, Multiplayer Poker, and Sweepstakes add-on modules.",
 };
 
 const MODULES = [

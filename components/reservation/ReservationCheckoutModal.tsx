@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -14,7 +15,8 @@ import {
   AlertCircle,
   ExternalLink,
 } from "lucide-react";
-import { CasinoDesign, PublicPaymentConfig } from "@/types";
+import { CasinoDesign, PublicPaymentConfig, PricingConfig } from "@/types";
+import { DEFAULT_PRICING_CONFIG } from "@/config/default-package";
 import {
   initiateStripePaymentAction,
   submitCryptoPaymentAction,
@@ -25,6 +27,7 @@ interface ReservationCheckoutModalProps {
   onClose: () => void;
   design: CasinoDesign;
   packageTotal: number;
+  pricingConfig?: PricingConfig;
   customerName: string;
   customerEmail: string;
   reservationId: string;
@@ -37,12 +40,14 @@ export default function ReservationCheckoutModal({
   onClose,
   design,
   packageTotal,
+  pricingConfig = DEFAULT_PRICING_CONFIG,
   customerName,
   customerEmail,
   reservationId,
   paymentConfig,
   onPaymentSuccess,
 }: ReservationCheckoutModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"crypto" | "stripe" | "demo">("crypto");
   const [selectedCrypto, setSelectedCrypto] = useState<"trc20" | "erc20" | "btc">("trc20");
   const [txHash, setTxHash] = useState("");
@@ -51,12 +56,26 @@ export default function ReservationCheckoutModal({
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (!isOpen || !modalRef.current) return;
+    const tween = gsap.fromTo(
+      modalRef.current,
+      { opacity: 0, y: 28, scale: 0.94 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.48, ease: "back.out(1.25)" }
+    );
+    return () => {
+      tween.kill();
+    };
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
-  const discountAmount = Math.round((packageTotal * 5) / 100);
+  const discountPercent = pricingConfig.reservationDiscountPercent;
+  const discountAmount = Math.round((packageTotal * discountPercent) / 100);
   const discountedTotal = packageTotal - discountAmount;
-  const depositFee = 500;
-  const balanceOnContract = discountedTotal - depositFee;
+  const depositFee = pricingConfig.reservationFee;
+  const balanceOnContract = Math.max(0, discountedTotal - depositFee);
+  const holdDays = Math.max(1, Math.round(pricingConfig.reservationDurationHours / 24));
 
   const getAddress = () => {
     if (selectedCrypto === "trc20") return paymentConfig.crypto.usdtTrc20Address;
@@ -77,7 +96,9 @@ export default function ReservationCheckoutModal({
   const handleCryptoSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!termsAccepted) {
-      setErrorMessage("Please accept the 5-day refundable reservation holding terms before continuing.");
+      setErrorMessage(
+        `Please accept the ${holdDays}-day refundable reservation holding terms before continuing.`
+      );
       return;
     }
     if (!txHash.trim()) {
@@ -108,7 +129,9 @@ export default function ReservationCheckoutModal({
   // Initiate Stripe Checkout
   const handleStripeCheckout = async () => {
     if (!termsAccepted) {
-      setErrorMessage("Please accept the 5-day refundable reservation holding terms before continuing.");
+      setErrorMessage(
+        `Please accept the ${holdDays}-day refundable reservation holding terms before continuing.`
+      );
       return;
     }
 
@@ -134,7 +157,9 @@ export default function ReservationCheckoutModal({
   // Test Simulation Mode
   const handleSimulatePayment = async () => {
     if (!termsAccepted) {
-      setErrorMessage("Please accept the 5-day refundable reservation holding terms before continuing.");
+      setErrorMessage(
+        `Please accept the ${holdDays}-day refundable reservation holding terms before continuing.`
+      );
       return;
     }
     setLoading(true);
@@ -148,73 +173,89 @@ export default function ReservationCheckoutModal({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 bg-[#05010c]/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
     >
       <div
-        className="relative max-w-xl w-full rounded-3xl bg-gradient-to-b from-[#140428] via-[#0b0217] to-[#04010a] border-2 border-[#FFD700] p-5 sm:p-7 space-y-5 shadow-[0_0_60px_rgba(255,215,0,0.35)] my-auto"
+        ref={modalRef}
+        className="panel panel-gold relative max-w-xl w-full p-5 sm:p-7 space-y-5 my-auto overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
+        <div className="panel-sheen" aria-hidden="true" />
+
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1.5 rounded-full bg-purple-950/80 text-gray-400 hover:text-white transition-colors"
+          className="absolute top-4 right-4 z-20 p-2 rounded-full border border-purple-400/30 bg-[#1a0730]/85 text-white/60 hover:text-white hover:border-[#f5c451]/60 transition-colors"
           title="Close Checkout"
         >
           <X size={16} />
         </button>
 
         {/* Header */}
-        <div className="text-center space-y-1.5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-yellow-400/20 border border-yellow-400 text-yellow-400 text-[10px] font-black uppercase tracking-wider">
-            <Lock size={12} />
-            <span>Secure 5-Day Holding Checkout</span>
+        <div className="relative z-10 text-center space-y-1.5">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2a0a4a]/90 border border-[#f5c451]/60 text-[#ffe28a] text-[10px] font-bold uppercase tracking-[0.16em]">
+            <Lock size={12} className="text-[#ffd75e]" />
+            <span>Secure {holdDays}-Day Holding Checkout</span>
           </div>
-          <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white">
-            Reserve <span className="text-[#FFD700]">{design.name}</span>
+          <h2 className="font-philosopher text-2xl sm:text-3xl font-bold uppercase italic tracking-wide text-white">
+            Reserve <span className="gold-text">{design.name}</span>
           </h2>
-          <p className="text-[11px] sm:text-xs text-gray-300">
-            Booking Reference: <strong className="text-yellow-400 font-mono">{reservationId}</strong>
+          <p className="text-xs text-white/70">
+            Booking Reference:{" "}
+            <strong className="text-[#ffe28a] font-mono">{reservationId}</strong>
           </p>
         </div>
 
         {/* Financial Breakdown Table */}
-        <div className="rounded-xl bg-[#080214] border border-purple-900/60 p-3.5 space-y-2 text-xs">
-          <div className="flex justify-between items-center text-gray-400">
+        <div className="relative z-10 rounded-2xl bg-[#0e031d]/90 border border-purple-400/30 p-4 space-y-2 text-xs">
+          <div className="flex justify-between items-center text-white/60">
             <span>Standard Package Total:</span>
-            <span className="line-through">${packageTotal.toLocaleString()} USD</span>
+            <span className="line-through tabular-nums">
+              ${packageTotal.toLocaleString()} USD
+            </span>
           </div>
           <div className="flex justify-between items-center text-emerald-400 font-bold">
-            <span>Exclusive 5% Reservation Discount:</span>
-            <span>-${discountAmount.toLocaleString()} USD</span>
+            <span>Exclusive {discountPercent}% Reservation Discount:</span>
+            <span className="tabular-nums">-${discountAmount.toLocaleString()} USD</span>
           </div>
-          <div className="flex justify-between items-center py-1.5 border-y border-purple-900/60 font-black text-white">
+          <div className="flex justify-between items-center py-2 border-y border-purple-500/25 font-bold text-white">
             <span>Discounted Locked Price:</span>
-            <span className="text-yellow-400">${discountedTotal.toLocaleString()} USD</span>
+            <span className="font-philosopher text-lg italic gold-text tabular-nums">
+              ${discountedTotal.toLocaleString()} USD
+            </span>
           </div>
-          <div className="grid grid-cols-2 gap-2 pt-1 text-[11px]">
-            <div className="p-2 rounded-lg bg-purple-950/40 border border-purple-800/40">
-              <span className="text-gray-400 block text-[10px] uppercase">Holding Fee Today:</span>
-              <span className="text-sm font-black text-emerald-400">${depositFee} USD</span>
-              <span className="text-[10px] text-gray-400 block">100% Refundable</span>
+          <div className="grid grid-cols-2 gap-2.5 pt-1 text-[11px]">
+            <div className="p-2.5 rounded-xl bg-[#18062f]/80 border border-emerald-400/30">
+              <span className="text-white/60 block text-[10px] uppercase">
+                Holding Fee Today:
+              </span>
+              <span className="text-sm font-black text-emerald-400 tabular-nums">
+                ${depositFee.toLocaleString()} USD
+              </span>
+              <span className="text-[10px] text-white/50 block">100% Refundable</span>
             </div>
-            <div className="p-2 rounded-lg bg-purple-950/40 border border-purple-800/40">
-              <span className="text-gray-400 block text-[10px] uppercase">Balance on Handover:</span>
-              <span className="text-sm font-black text-yellow-400">${balanceOnContract.toLocaleString()} USD</span>
-              <span className="text-[10px] text-gray-400 block">Deposit Credited</span>
+            <div className="p-2.5 rounded-xl bg-[#18062f]/80 border border-[#f5c451]/35">
+              <span className="text-white/60 block text-[10px] uppercase">
+                Balance on Handover:
+              </span>
+              <span className="text-sm font-black text-[#ffe28a] tabular-nums">
+                ${balanceOnContract.toLocaleString()} USD
+              </span>
+              <span className="text-[10px] text-white/50 block">Deposit Credited</span>
             </div>
           </div>
         </div>
 
         {/* Payment Gateway Tabs */}
-        <div className="space-y-3">
-          <div className="flex items-center gap-1.5 p-1 rounded-xl bg-purple-950/50 border border-purple-900/50">
+        <div className="relative z-10 space-y-3">
+          <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-[#120424]/90 border border-purple-400/30">
             <button
               type="button"
               onClick={() => setActiveTab("crypto")}
-              className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "crypto"
-                  ? "bg-gradient-to-r from-amber-500 to-yellow-400 text-black shadow-md"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-gradient-to-b from-[#ffe27a] to-[#e69d12] text-[#261100] shadow-md"
+                  : "text-white/65 hover:text-white"
               }`}
             >
               <QrCode size={13} />
@@ -224,44 +265,44 @@ export default function ReservationCheckoutModal({
             <button
               type="button"
               onClick={() => setActiveTab("stripe")}
-              className={`flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+              className={`flex-1 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
                 activeTab === "stripe"
-                  ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md"
-                  : "text-gray-400 hover:text-white"
+                  ? "bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white shadow-md"
+                  : "text-white/65 hover:text-white"
               }`}
             >
               <CreditCard size={13} />
-              <span>Credit Card (Stripe)</span>
+              <span>Card (Stripe)</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab("demo")}
-              className={`py-1.5 px-2.5 rounded-lg text-[10px] font-bold transition-all ${
+              className={`py-2 px-3 rounded-xl text-[11px] font-bold transition-all ${
                 activeTab === "demo"
-                  ? "bg-white/20 text-white border border-white/40"
-                  : "text-gray-500 hover:text-gray-300"
+                  ? "bg-white/15 text-white border border-white/30"
+                  : "text-white/50 hover:text-white/80"
               }`}
             >
-              Test Demo
+              Demo
             </button>
           </div>
 
           {/* TAB 1: CRYPTO DETAILS */}
           {activeTab === "crypto" && (
-            <div className="p-4 rounded-xl bg-[#06010f] border border-purple-900/60 space-y-3">
+            <div className="p-4 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 space-y-3">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-gray-400 font-semibold">Select Network:</span>
+                <span className="text-white/70 font-semibold">Select Network:</span>
                 <div className="flex items-center gap-1">
                   {(["trc20", "erc20", "btc"] as const).map((net) => (
                     <button
                       key={net}
                       type="button"
                       onClick={() => setSelectedCrypto(net)}
-                      className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase transition-all ${
+                      className={`px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase transition-all ${
                         selectedCrypto === net
-                          ? "bg-[#FFD700] text-black"
-                          : "bg-purple-950/60 text-gray-400 hover:text-white"
+                          ? "bg-[#ffd75e] text-[#261100]"
+                          : "bg-purple-950/70 text-white/65 hover:text-white"
                       }`}
                     >
                       {net === "trc20" ? "USDT (TRC20)" : net === "erc20" ? "USDT (ERC20)" : "BTC"}
@@ -270,18 +311,19 @@ export default function ReservationCheckoutModal({
                 </div>
               </div>
 
-              {/* Wallet Address Box */}
-              <div className="space-y-1">
-                <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider flex items-center justify-between">
-                  <span>Transfer Exactly $500 USD To Address:</span>
-                  {copied && <span className="text-emerald-400 text-[10px]">Copied to clipboard!</span>}
+              <div className="space-y-1.5">
+                <label className="text-[10px] font-bold text-white/65 uppercase tracking-wider flex items-center justify-between">
+                  <span>Transfer Exactly ${depositFee.toLocaleString()} USD To Address:</span>
+                  {copied && <span className="text-emerald-400 text-[10px]">Copied!</span>}
                 </label>
-                <div className="flex items-center gap-2 p-2 rounded-lg bg-[#0e0420] border border-purple-600/40 font-mono text-xs text-yellow-300 break-all select-all">
-                  <span className="flex-1">{getAddress() || "Address not configured in Admin"}</span>
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#120424] border border-purple-400/35 font-mono text-xs text-[#ffe28a] break-all select-all">
+                  <span className="flex-1">
+                    {getAddress() || "Address not configured in Admin"}
+                  </span>
                   <button
                     type="button"
                     onClick={handleCopyAddress}
-                    className="p-1.5 rounded-md bg-purple-900/60 hover:bg-purple-800 text-white shrink-0 transition-colors"
+                    className="p-1.5 rounded-lg bg-purple-900/70 hover:bg-purple-800 text-white shrink-0 transition-colors"
                     title="Copy Address"
                   >
                     {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
@@ -289,36 +331,37 @@ export default function ReservationCheckoutModal({
                 </div>
               </div>
 
-              {/* TxHash Input Form */}
-              <form onSubmit={handleCryptoSubmit} className="space-y-3 pt-1">
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-gray-300 uppercase tracking-wider">
-                    Transaction Hash / TxID (Proof of Transfer) *
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    value={txHash}
-                    onChange={(e) => setTxHash(e.target.value)}
-                    placeholder="e.g. 8f6b1e32d5c4..."
-                    className="w-full px-3 py-2 rounded-lg bg-[#0e0420] border border-purple-600/40 text-xs font-mono text-white placeholder-gray-600 focus:outline-none focus:border-yellow-400"
-                  />
-                </div>
+              <form onSubmit={handleCryptoSubmit} className="space-y-2 pt-1">
+                <label className="text-[10px] font-bold text-white/80 uppercase tracking-wider block">
+                  Transaction Hash / TxID (Proof of Transfer) *
+                </label>
+                <input
+                  required
+                  type="text"
+                  value={txHash}
+                  onChange={(e) => setTxHash(e.target.value)}
+                  placeholder="e.g. 8f6b1e32d5c4..."
+                  className="input !min-h-[42px] !py-2 text-xs font-mono placeholder:text-white/35"
+                />
               </form>
             </div>
           )}
 
           {/* TAB 2: STRIPE DETAILS */}
           {activeTab === "stripe" && (
-            <div className="p-5 rounded-xl bg-[#06010f] border border-purple-900/60 text-center space-y-3">
-              <CreditCard size={32} className="mx-auto text-purple-400" />
-              <h3 className="text-sm font-bold text-white">Credit / Debit Card Checkout</h3>
-              <p className="text-xs text-gray-400 max-w-sm mx-auto">
-                Pay the 100% refundable <strong>$500 USD</strong> holding deposit with Visa, Mastercard, or American Express via Stripe.
+            <div className="p-5 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 text-center space-y-3">
+              <CreditCard size={30} className="mx-auto text-[#f5c451]" />
+              <h3 className="font-philosopher text-lg font-bold text-white">
+                Credit / Debit Card Checkout
+              </h3>
+              <p className="text-xs text-white/70 max-w-sm mx-auto">
+                Pay the 100% refundable{" "}
+                <strong className="text-white">${depositFee.toLocaleString()} USD</strong> holding
+                deposit with Visa, Mastercard, or American Express via Stripe.
               </p>
               {!paymentConfig.stripe.enabled && (
-                <p className="text-[11px] text-amber-400/90 font-medium">
-                  Note: Stripe card processing is currently in setup mode. Please use Crypto or contact our sales team.
+                <p className="text-[11px] text-[#ffe28a] font-medium">
+                  Stripe card processing is currently in setup mode. Use Crypto or Demo Simulation.
                 </p>
               )}
             </div>
@@ -326,17 +369,19 @@ export default function ReservationCheckoutModal({
 
           {/* TAB 3: DEMO TEST MODE */}
           {activeTab === "demo" && (
-            <div className="p-4 rounded-xl bg-[#06010f] border border-purple-900/60 space-y-2 text-center text-xs">
-              <p className="text-gray-300 font-semibold">Test &amp; Onboarding Simulation</p>
-              <p className="text-gray-500 text-[11px]">
-                Simulate an immediate $500 reservation confirmation without sending live funds to verify the 120-hour hold timer and email receipt.
+            <div className="p-4 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 space-y-1.5 text-center text-xs">
+              <p className="text-white font-semibold">Test &amp; Onboarding Simulation</p>
+              <p className="text-white/60 text-[11px]">
+                Simulate an immediate ${depositFee.toLocaleString()} reservation confirmation
+                without sending live funds to verify the {pricingConfig.reservationDurationHours}
+                -hour hold timer and receipt.
               </p>
             </div>
           )}
         </div>
 
-        {/* Mandatory Terms & Conditions Acceptance Checkbox */}
-        <label className="flex items-start gap-2.5 p-3 rounded-xl bg-purple-950/30 border border-purple-800/40 cursor-pointer select-none">
+        {/* Mandatory Terms Acceptance */}
+        <label className="relative z-10 flex items-start gap-2.5 p-3.5 rounded-2xl bg-[#150529]/80 border border-purple-400/30 cursor-pointer select-none">
           <input
             type="checkbox"
             checked={termsAccepted}
@@ -344,56 +389,72 @@ export default function ReservationCheckoutModal({
               setTermsAccepted(e.target.checked);
               if (e.target.checked) setErrorMessage(null);
             }}
-            className="mt-0.5 w-4 h-4 rounded bg-[#0e0420] border-purple-500 text-yellow-400 focus:ring-yellow-400 cursor-pointer"
+            className="mt-0.5 w-4 h-4 rounded accent-[#f5c451] cursor-pointer"
           />
-          <span className="text-[11px] text-gray-300 leading-relaxed">
-            I explicitly accept the <strong>5-Day Refundable Reservation Holding Terms</strong>. I understand that the $500 USD deposit locks my selected package price and 5% discount for 120 hours, is credited 100% toward my project invoice upon agreement execution, or is refunded in full if an agreement is not finalized.
+          <span className="text-[11px] text-white/75 leading-relaxed">
+            I explicitly accept the{" "}
+            <strong className="text-white">
+              {holdDays}-Day Refundable Reservation Holding Terms
+            </strong>
+            . The ${depositFee.toLocaleString()} USD deposit locks my package price and{" "}
+            {discountPercent}% discount for {pricingConfig.reservationDurationHours} hours, is
+            credited 100% toward my invoice upon agreement execution, or refunded in full.
           </span>
         </label>
 
         {errorMessage && (
-          <div className="p-2.5 rounded-lg bg-red-950/80 border border-red-500/50 text-red-200 text-xs flex items-center gap-2">
+          <div className="relative z-10 p-3 rounded-xl bg-red-950/80 border border-red-400/50 text-red-200 text-xs flex items-center gap-2">
             <AlertCircle size={15} className="shrink-0" />
             <span>{errorMessage}</span>
           </div>
         )}
 
         {/* Action Button */}
-        {activeTab === "crypto" && (
-          <button
-            type="button"
-            onClick={handleCryptoSubmit}
-            disabled={loading}
-            className="w-full py-3 px-6 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(255,215,0,0.4)] flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-          >
-            {loading ? <Loader2 size={16} className="animate-spin" /> : <ShieldCheck size={16} />}
-            <span>{loading ? "Recording Transfer..." : "Confirm $500 Crypto Deposit & Lock"}</span>
-          </button>
-        )}
+        <div className="relative z-10">
+          {activeTab === "crypto" && (
+            <button
+              type="button"
+              onClick={handleCryptoSubmit}
+              disabled={loading}
+              className="btn-royal-gold shine w-full py-3.5 px-6 text-xs sm:text-sm uppercase tracking-wider cursor-pointer disabled:opacity-50"
+            >
+              {loading ? <Loader2 size={16} className="animate-spin" /> : <ShieldCheck size={16} />}
+              <span>
+                {loading
+                  ? "Recording Transfer..."
+                  : `Confirm $${depositFee.toLocaleString()} Crypto Deposit & Lock`}
+              </span>
+            </button>
+          )}
 
-        {activeTab === "stripe" && (
-          <button
-            type="button"
-            onClick={handleStripeCheckout}
-            disabled={loading || !paymentConfig.stripe.enabled}
-            className="w-full py-3 px-6 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(147,51,234,0.4)] flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-          >
-            {loading ? <Loader2 size={16} className="animate-spin" /> : <ExternalLink size={16} />}
-            <span>{loading ? "Redirecting..." : "Pay $500 USD with Card (Stripe)"}</span>
-          </button>
-        )}
+          {activeTab === "stripe" && (
+            <button
+              type="button"
+              onClick={handleStripeCheckout}
+              disabled={loading || !paymentConfig.stripe.enabled}
+              className="btn btn-neon w-full !py-3.5 text-xs sm:text-sm uppercase tracking-wider cursor-pointer disabled:opacity-50"
+            >
+              {loading ? <Loader2 size={16} className="animate-spin" /> : <ExternalLink size={16} />}
+              <span>
+                {loading
+                  ? "Redirecting..."
+                  : `Pay $${depositFee.toLocaleString()} USD with Card (Stripe)`}
+              </span>
+            </button>
+          )}
 
-        {activeTab === "demo" && (
-          <button
-            type="button"
-            onClick={handleSimulatePayment}
-            disabled={loading}
-            className="w-full py-2.5 px-6 rounded-xl text-xs font-bold uppercase tracking-wider text-white bg-emerald-700 hover:bg-emerald-600 active:scale-[0.98] flex items-center justify-center gap-2 transition-all disabled:opacity-50"
-          >
-            {loading ? <Loader2 size={14} className="animate-spin" /> : <CheckCircle2 size={14} />}
-            <span>Simulate $500 Reservation (Demo Mode)</span>
-          </button>
-        )}
+          {activeTab === "demo" && (
+            <button
+              type="button"
+              onClick={handleSimulatePayment}
+              disabled={loading}
+              className="btn-royal-gold shine w-full py-3 px-6 text-xs uppercase tracking-wider cursor-pointer disabled:opacity-50"
+            >
+              {loading ? <Loader2 size={14} className="animate-spin" /> : <CheckCircle2 size={14} />}
+              <span>Simulate ${depositFee.toLocaleString()} Reservation (Demo Mode)</span>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

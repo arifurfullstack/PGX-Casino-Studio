@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Phone, Crown } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
+import BrandLogo from "./BrandLogo";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -13,19 +14,10 @@ export default function Footer() {
     <footer className="border-t border-gold/50 bg-[#07020d]">
       <div className="mx-auto grid max-w-[1672px] gap-8 px-4 pb-8 pt-12 sm:grid-cols-2 sm:px-6 lg:grid-cols-[auto_1.5fr_1fr_1fr_1.6fr] lg:px-12">
         
-        {/* Brand Logo & Tagline */}
-        <Link
-          aria-label="Royal Casino Club home"
-          className="relative flex shrink-0 flex-col items-start whitespace-nowrap leading-none group"
-          href="/"
-        >
-          <Crown className="gold-icon absolute -top-4 left-[3.1rem] h-6 w-6" aria-hidden="true" />
-          <span className="gold-text font-script text-[3.4rem]">Royal</span>
-          <span className="gold-text font-display font-bold italic -mt-2 ml-9 text-2xl">Casino Club</span>
-          <span className="mt-2 text-[10px] font-semibold uppercase tracking-[.28em] text-white/80">
-            - Online Casino Solutions -
-          </span>
-        </Link>
+        {/* Brand Logo */}
+        <div className="flex items-start lg:items-center">
+          <BrandLogo sizeClassName="w-40 sm:w-44 lg:w-[185px]" />
+        </div>
 
         {/* Description */}
         <p className="text-[15px] leading-relaxed text-muted lg:border-l lg:border-line lg:pl-6">
