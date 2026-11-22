@@ -1,4 +1,4 @@
-import { Crown, Mail, Phone, Send, MapPin, MessageSquare } from "lucide-react";
+import { Crown, Mail, Phone, Send, MessageSquare } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
 import ContactForm from "@/components/contact/ContactForm";
 

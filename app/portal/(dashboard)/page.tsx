@@ -3,7 +3,6 @@ import { redirect } from "next/navigation";
 import {
   Clock,
   CheckCircle2,
-  FileSpreadsheet,
   Milestone,
   ArrowRight,
   ShieldCheck,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react";
 import { getCustomerSession } from "@/lib/customerAuth";
 import { getCustomerDashboardData } from "@/services/customerPortalService";
+import HoldCountdown from "@/components/portal/HoldCountdown";
 
 export const dynamic = "force-dynamic";
 
@@ -24,14 +24,6 @@ export default async function CustomerPortalOverviewPage() {
 
   const data = await getCustomerDashboardData(session.email);
   const activeHold = data?.activeReservation;
-
-  const getRemainingTime = (expiresAtStr: string) => {
-    const diff = new Date(expiresAtStr).getTime() - Date.now();
-    if (diff <= 0) return "Hold Expired";
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    return `${hours}h ${mins}m left`;
-  };
 
   return (
     <div className="space-y-6">
@@ -79,9 +71,7 @@ export default async function CustomerPortalOverviewPage() {
                 Active 5-Day Price Lock ({activeHold.reservationId})
               </h2>
             </div>
-            <span className="px-3 py-1 rounded-full bg-amber-950/80 border border-amber-500/40 text-[11px] font-bold text-[#FFD700] self-start sm:self-auto">
-              {getRemainingTime(activeHold.expiresAt)}
-            </span>
+            <HoldCountdown expiresAt={activeHold.expiresAt} />
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 border-t border-purple-900/40 text-xs">

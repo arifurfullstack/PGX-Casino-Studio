@@ -1,15 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import {
   Clock,
-  CheckCircle,
-  AlertTriangle,
-  RotateCcw,
   Search,
-  DollarSign,
-  Mail,
-  Phone,
+  Download,
+  CheckCircle,
+  RotateCcw,
 } from "lucide-react";
 import { Reservation, ReservationStatus } from "@/types";
 import { updateReservationStatusAction } from "@/app/actions/adminReservationActions";
@@ -18,14 +15,29 @@ interface ReservationsTableProps {
   initialReservations: Reservation[];
 }
 
+function subscribeToClock(callback: () => void) {
+  const timer = setInterval(callback, 60000);
+  return () => clearInterval(timer);
+}
+
+function getNowSnapshot() {
+  return Date.now();
+}
+
+function getNowServerSnapshot() {
+  return 0;
+}
+
 export default function ReservationsTable({ initialReservations }: ReservationsTableProps) {
   const [reservations, setReservations] = useState(initialReservations);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<string>("all");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const now = useSyncExternalStore(subscribeToClock, getNowSnapshot, getNowServerSnapshot);
 
   const getRemainingTime = (expiresAtStr: string) => {
-    const diff = new Date(expiresAtStr).getTime() - Date.now();
+    if (!now) return { text: "Calculating...", isExpired: false };
+    const diff = new Date(expiresAtStr).getTime() - now;
     if (diff <= 0) return { text: "Expired", isExpired: true };
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -43,6 +55,51 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
     if (filter === "all") return true;
     return r.status === filter;
   });
+
+  const exportReservationsToCsv = () => {
+    const headers = [
+      "Reservation ID",
+      "Customer Name",
+      "Email",
+      "Phone",
+      "Design Name",
+      "Original Price",
+      "Discount %",
+      "Discounted Price",
+      "Reservation Fee",
+      "Remaining Balance",
+      "Payment Status",
+      "Status",
+      "Start Time",
+      "Expires At",
+    ];
+    const rows = filtered.map((r) => [
+      r.reservationId,
+      `"${r.customerName.replace(/"/g, '""')}"`,
+      r.customerEmail,
+      r.customerPhone,
+      `"${r.selectedDesignName.replace(/"/g, '""')}"`,
+      r.originalPackagePrice,
+      r.discountPercent,
+      r.discountedPrice,
+      r.reservationFee,
+      r.remainingBalance,
+      r.paymentStatus,
+      r.status,
+      r.startTime,
+      r.expiresAt,
+    ]);
+    const csvContent =
+      "data:text/csv;charset=utf-8," +
+      [headers.join(","), ...rows.map((row) => row.join(","))].join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `reservations_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   const handleUpdateStatus = async (
     reservationId: string,
@@ -82,15 +139,26 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
           ))}
         </div>
 
-        <div className="relative max-w-xs w-full">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search booking ID, customer, theme..."
-            className="w-full px-3 py-1.5 pl-8 rounded-lg bg-[#080214] border border-purple-500/30 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-[#FFD700]"
-          />
-          <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+        <div className="flex items-center gap-2">
+          <div className="relative max-w-xs w-full">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search booking ID, customer, theme..."
+              className="w-full px-3 py-1.5 pl-8 rounded-lg bg-[#080214] border border-purple-500/30 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-[#FFD700]"
+            />
+            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+          </div>
+
+          <button
+            onClick={exportReservationsToCsv}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-[#FFD700] bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all shrink-0"
+            title="Export filtered reservations to CSV"
+          >
+            <Download size={13} />
+            <span className="hidden sm:inline">Export CSV</span>
+          </button>
         </div>
       </div>
 

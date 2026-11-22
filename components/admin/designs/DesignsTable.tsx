@@ -10,8 +10,7 @@ import {
   Search,
   Eye,
   EyeOff,
-  Image as ImageIcon,
-  Check,
+  ImageIcon,
 } from "lucide-react";
 import { CasinoDesign, DesignStatus } from "@/types";
 import { toggleDesignStatusAction, deleteDesignAction } from "@/app/actions/designActions";

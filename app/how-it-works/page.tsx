@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Crown, Monitor, Layers, Send, ArrowRight, ShieldCheck, Clock, CheckCircle2 } from "lucide-react";
+import { Crown, Monitor, Layers, Send, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
 
 export const metadata = {
   title: "How It Works | All I Gaming",

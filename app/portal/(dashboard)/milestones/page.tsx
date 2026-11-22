@@ -1,7 +1,6 @@
 import { redirect } from "next/navigation";
-import { Milestone, CheckCircle2, Clock, Sparkles, ShieldCheck, ArrowRight, MessageSquare } from "lucide-react";
+import { Milestone, CheckCircle2, MessageSquare } from "lucide-react";
 import { getCustomerSession } from "@/lib/customerAuth";
-import { getCustomerDashboardData } from "@/services/customerPortalService";
 
 export const dynamic = "force-dynamic";
 
@@ -73,8 +72,6 @@ export default async function CustomerMilestonesPage() {
   if (!session) {
     redirect("/portal/login");
   }
-
-  const data = await getCustomerDashboardData(session.email);
 
   return (
     <div className="space-y-6">

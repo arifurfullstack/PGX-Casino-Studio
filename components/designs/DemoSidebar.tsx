@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Send, ArrowLeft, Check, Plus, TrendingUp } from "lucide-react";
-import { CasinoDesign } from "@/types";
+import { CasinoDesign, PricingConfig } from "@/types";
 
 interface AddonModule {
   id: string;
@@ -42,11 +42,14 @@ const AVAILABLE_ADDONS: AddonModule[] = [
 
 interface DemoSidebarProps {
   design: CasinoDesign;
+  pricingConfig?: PricingConfig;
 }
 
-export default function DemoSidebar({ design }: DemoSidebarProps) {
+export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps) {
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
-  const basePrice = 15000;
+  const basePrice = pricingConfig?.starterPackagePrice || 15000;
+  const companyGgr = pricingConfig?.ggrCompanyShare ?? 25;
+  const operatorGgr = pricingConfig?.ggrOperatorShare ?? 75;
 
   const toggleAddon = (id: string) => {
     setSelectedAddons((prev) =>
@@ -174,11 +177,11 @@ export default function DemoSidebar({ design }: DemoSidebarProps) {
             </div>
             <div>
               <p className="text-[11px] font-bold text-gray-200">GGR Share</p>
-              <p className="text-[10px] text-gray-400">Our Company: 25%</p>
+              <p className="text-[10px] text-gray-400">Our Company: {companyGgr}%</p>
             </div>
           </div>
           <div className="text-right">
-            <span className="text-xs font-black text-green-400">Your Share: 75%</span>
+            <span className="text-xs font-black text-green-400">Your Share: {operatorGgr}%</span>
           </div>
         </div>
 

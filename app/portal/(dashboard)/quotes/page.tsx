@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { FileSpreadsheet, ArrowRight, Clock, Plus, Layers, Sparkles } from "lucide-react";
+import { FileSpreadsheet, ArrowRight, Plus } from "lucide-react";
 import { getCustomerSession } from "@/lib/customerAuth";
 import { getCustomerDashboardData } from "@/services/customerPortalService";
 

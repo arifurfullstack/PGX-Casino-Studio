@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Clock, ShieldCheck, AlertCircle } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { Reservation } from "@/types";
+import HoldCountdown from "@/components/portal/HoldCountdown";
 
 interface OverviewActiveHoldsProps {
   reservations: Reservation[];
@@ -8,14 +9,6 @@ interface OverviewActiveHoldsProps {
 
 export default function OverviewActiveHolds({ reservations }: OverviewActiveHoldsProps) {
   const activeHolds = reservations.filter((r) => r.status === "active").slice(0, 5);
-
-  const getRemainingTime = (expiresAtStr: string) => {
-    const diff = new Date(expiresAtStr).getTime() - Date.now();
-    if (diff <= 0) return "Expired";
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    return `${hours}h ${mins}m left`;
-  };
 
   return (
     <div className="p-5 rounded-xl bg-[#080214] border border-purple-900/40">
@@ -42,9 +35,6 @@ export default function OverviewActiveHolds({ reservations }: OverviewActiveHold
       ) : (
         <div className="divide-y divide-purple-900/30">
           {activeHolds.map((res) => {
-            const timeLeft = getRemainingTime(res.expiresAt);
-            const isExpiringSoon = timeLeft.includes("h") && parseInt(timeLeft) < 24;
-
             return (
               <div
                 key={res.id}
@@ -67,16 +57,10 @@ export default function OverviewActiveHolds({ reservations }: OverviewActiveHold
                 </div>
 
                 <div className="sm:text-right shrink-0">
-                  <div
-                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold border ${
-                      isExpiringSoon
-                        ? "bg-amber-950/80 text-amber-300 border-amber-500/40"
-                        : "bg-purple-950/80 text-purple-200 border-purple-500/40"
-                    }`}
-                  >
-                    <Clock size={12} />
-                    <span>{timeLeft}</span>
-                  </div>
+                  <HoldCountdown
+                    expiresAt={res.expiresAt}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-bold border bg-purple-950/80 text-purple-200 border-purple-500/40"
+                  />
                 </div>
               </div>
             );

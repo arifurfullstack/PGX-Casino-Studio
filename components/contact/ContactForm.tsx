@@ -33,7 +33,7 @@ export default function ContactForm({ initialDesign, initialModule }: ContactFor
   const [companyName, setCompanyName] = useState("");
   const [selectedDesignId, setSelectedDesignId] = useState(initialDesign || "royal-prestige");
   const [timeline, setTimeline] = useState<TimelineOption>("immediately");
-  const [selectedAddons, setSelectedAddons] = useState<string[]>(initialModule ? [initialModule] : []);
+  const selectedAddons = initialModule ? [initialModule] : [];
   const [projectRequirements, setProjectRequirements] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ success: boolean; ref?: string; error?: string } | null>(null);
@@ -121,13 +121,37 @@ export default function ContactForm({ initialDesign, initialModule }: ContactFor
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Phone / WhatsApp *</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Phone Number *</label>
           <input
             required
             type="tel"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
             placeholder="+1 (555) 000-0000"
+            className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
+          />
+        </div>
+
+        <div className="space-y-1.5">
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">WhatsApp Number (Optional)</label>
+          <input
+            type="tel"
+            value={whatsappNumber}
+            onChange={(e) => setWhatsappNumber(e.target.value)}
+            placeholder="+1 (555) 000-0000"
+            className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="space-y-1.5">
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Company / Organization</label>
+          <input
+            type="text"
+            value={companyName}
+            onChange={(e) => setCompanyName(e.target.value)}
+            placeholder="Gaming Ventures Ltd."
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
           />
         </div>
@@ -146,6 +170,21 @@ export default function ContactForm({ initialDesign, initialModule }: ContactFor
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="space-y-1.5">
+        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">When Looking to Start?</label>
+        <select
+          value={timeline}
+          onChange={(e) => setTimeline(e.target.value as TimelineOption)}
+          className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white focus:outline-none focus:border-yellow-400"
+        >
+          <option value="immediately">Immediately</option>
+          <option value="within_30_days">Within 30 Days</option>
+          <option value="within_1_3_months">Within 1–3 Months</option>
+          <option value="within_3_6_months">Within 3–6 Months</option>
+          <option value="just_exploring">Just Exploring</option>
+        </select>
       </div>
 
       <div className="space-y-1.5">

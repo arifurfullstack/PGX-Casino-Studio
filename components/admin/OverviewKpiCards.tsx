@@ -1,4 +1,4 @@
-import { MessageSquare, Clock, Palette, DollarSign, TrendingUp, ShieldCheck } from "lucide-react";
+import { MessageSquare, Clock, Palette, DollarSign } from "lucide-react";
 
 interface OverviewKpiCardsProps {
   totalInquiries: number;

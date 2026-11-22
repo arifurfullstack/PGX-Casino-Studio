@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Save, ArrowLeft, Upload, Loader2, Sparkles } from "lucide-react";
+import { Save, ArrowLeft, Upload, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { CasinoDesign, DesignPreviewImage, DesignStatus } from "@/types";
 import { saveDesignAction, uploadDesignImageAction } from "@/app/actions/designActions";

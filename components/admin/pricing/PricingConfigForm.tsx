@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Save, Loader2, CheckCircle2, DollarSign, Clock, Percent, ShieldCheck } from "lucide-react";
+import { Save, Loader2, CheckCircle2, DollarSign, Percent } from "lucide-react";
 import { PricingConfig } from "@/types";
 import { updatePricingConfigAction } from "@/app/actions/pricingActions";
 

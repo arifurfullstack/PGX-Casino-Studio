@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Crown, ShieldCheck, Server, Globe2, Award, Users, ArrowRight } from "lucide-react";
+import { Crown, ShieldCheck, Server, Globe2, Users, ArrowRight } from "lucide-react";
 
 export const metadata = {
   title: "About Us | All I Gaming Turnkey Solutions",

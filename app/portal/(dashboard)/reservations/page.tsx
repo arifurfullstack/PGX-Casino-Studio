@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { Clock, ShieldCheck, CheckCircle2, RotateCcw, AlertTriangle, ArrowRight } from "lucide-react";
+import { Clock, ShieldCheck, ArrowRight } from "lucide-react";
 import { getCustomerSession } from "@/lib/customerAuth";
 import { getCustomerDashboardData } from "@/services/customerPortalService";
+import HoldCountdown from "@/components/portal/HoldCountdown";
 
 export const dynamic = "force-dynamic";
 
@@ -14,14 +15,6 @@ export default async function CustomerReservationsPage() {
 
   const data = await getCustomerDashboardData(session.email);
   const reservations = data?.reservations || [];
-
-  const getRemainingTime = (expiresAtStr: string) => {
-    const diff = new Date(expiresAtStr).getTime() - Date.now();
-    if (diff <= 0) return { text: "Expired", isExpired: true };
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    return { text: `${hours}h ${mins}m remaining`, isExpired: false };
-  };
 
   return (
     <div className="space-y-6">
@@ -66,7 +59,6 @@ export default async function CustomerReservationsPage() {
       ) : (
         <div className="space-y-4">
           {reservations.map((res) => {
-            const { text: timeText, isExpired } = getRemainingTime(res.expiresAt);
             const discountAmount = Math.round(res.originalPackagePrice * 0.05);
 
             return (
@@ -133,7 +125,7 @@ export default async function CustomerReservationsPage() {
 
                   <div className="text-right shrink-0">
                     {res.status === "active" ? (
-                      <span className="font-bold text-amber-300">{timeText}</span>
+                      <HoldCountdown expiresAt={res.expiresAt} className="text-xs font-bold text-amber-300" />
                     ) : (
                       <span className="text-gray-500 italic">Archived</span>
                     )}

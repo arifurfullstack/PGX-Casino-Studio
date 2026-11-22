@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Lock } from "lucide-react";
-import { CasinoDesign } from "@/types";
+import { CasinoDesign, TimelineOption } from "@/types";
 import { submitInquiryAction, createReservationAction } from "@/app/actions/inquiryActions";
 import ReservationOfferModal from "./ReservationOfferModal";
 import ReservationConfirmedView from "./ReservationConfirmedView";
@@ -30,6 +30,8 @@ export default function ReservationFlow({
   const [phone, setPhone] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [companyName, setCompanyName] = useState("");
+  const [intendedTimeline, setIntendedTimeline] = useState<TimelineOption>("immediately");
+  const [projectRequirements, setProjectRequirements] = useState("");
 
   const [inquiryData, setInquiryData] = useState<{ id: string; ref: string } | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -51,14 +53,20 @@ export default function ReservationFlow({
     e.preventDefault();
     setLoading(true);
 
+    const fullNotes = [
+      brandName ? `Brand: ${brandName}` : null,
+      domainPreference ? `Domain: ${domainPreference}` : null,
+      projectRequirements ? `Details: ${projectRequirements}` : null,
+    ].filter(Boolean).join(" | ");
+
     const res = await submitInquiryAction({
       fullName,
       email,
       phoneNumber: phone,
       whatsappNumber: whatsapp || phone,
       companyName,
-      intendedTimeline: "immediately",
-      projectRequirements: `Brand: ${brandName || "TBD"} | Domain: ${domainPreference || "TBD"}`,
+      intendedTimeline,
+      projectRequirements: fullNotes || "Turnkey Casino Setup",
       selectedDesignId: selectedDesign.id,
       selectedDesignName: selectedDesign.name,
       selectedAddonIds: addonIds,
@@ -212,7 +220,7 @@ export default function ReservationFlow({
 
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">
-                  Company / Organization
+                  Business / Company Name
                 </label>
                 <input
                   type="text"
@@ -241,7 +249,7 @@ export default function ReservationFlow({
 
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">
-                  WhatsApp / Phone *
+                  Phone Number *
                 </label>
                 <input
                   required
@@ -253,6 +261,52 @@ export default function ReservationFlow({
                 />
               </div>
             </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">
+                  WhatsApp Number (Optional)
+                </label>
+                <input
+                  type="tel"
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  placeholder="+1 (555) 0199"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">
+                  When Looking to Start? *
+                </label>
+                <select
+                  required
+                  value={intendedTimeline}
+                  onChange={(e) => setIntendedTimeline(e.target.value as TimelineOption)}
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white focus:outline-none focus:border-yellow-400"
+                >
+                  <option value="immediately">Immediately</option>
+                  <option value="within_30_days">Within 30 Days</option>
+                  <option value="within_1_3_months">Within 1–3 Months</option>
+                  <option value="within_3_6_months">Within 3–6 Months</option>
+                  <option value="just_exploring">Just Exploring</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">
+                Project Details / Requirements (Optional)
+              </label>
+              <textarea
+                rows={3}
+                value={projectRequirements}
+                onChange={(e) => setProjectRequirements(e.target.value)}
+                placeholder="Mention specific game providers, crypto/fiat payment preferences, target geography, or compliance needs..."
+                className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 resize-none"
+              />
+            </div>
           </div>
 
           <button
@@ -261,7 +315,7 @@ export default function ReservationFlow({
             className="w-full py-3.5 px-6 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(255,215,0,0.4)] flex items-center justify-center gap-2 transition-all disabled:opacity-50"
           >
             <Lock size={14} className="stroke-[2.5]" />
-            <span>{loading ? "Processing..." : "Submit Selection & View Reservation Offer"}</span>
+            <span>{loading ? "Processing..." : "Submit Selection"}</span>
           </button>
         </div>
 

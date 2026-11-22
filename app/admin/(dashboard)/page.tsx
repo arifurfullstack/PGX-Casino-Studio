@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Plus, Settings, Sparkles, ShieldCheck } from "lucide-react";
+import { Plus, Settings, ShieldCheck } from "lucide-react";
 import { getAllInquiries } from "@/services/inquiryService";
 import { getAllReservations } from "@/services/reservationService";
 import { getAllDesignsAdmin } from "@/services/casinoService";

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MessageSquare, User, Mail } from "lucide-react";
+import { ArrowRight, MessageSquare } from "lucide-react";
 import { CustomerInquiry } from "@/types";
 
 interface OverviewRecentInquiriesProps {

@@ -1,6 +1,43 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import { CustomerUserModel, CustomerInquiryModel, ReservationModel } from "@/models";
 
+interface CustomerUserDoc {
+  _id: { toString(): string };
+  email?: string;
+  fullName?: string;
+  companyName?: string;
+  phoneNumber?: string;
+  whatsappNumber?: string;
+  status?: string;
+  adminNotes?: string;
+  createdAt?: Date | string;
+}
+
+interface InquiryDoc {
+  _id: { toString(): string };
+  email?: string;
+  fullName?: string;
+  companyName?: string;
+  phoneNumber?: string;
+  whatsappNumber?: string;
+  adminNotes?: string;
+  totalPrice?: number;
+  referenceNumber?: string;
+  selectedDesignName?: string;
+  status?: string;
+  createdAt?: Date | string;
+}
+
+interface ReservationDoc {
+  customerEmail?: string;
+  reservationId?: string;
+  selectedDesignName?: string;
+  discountedPrice?: number;
+  status?: string;
+  expiresAt?: Date | string;
+  createdAt?: Date | string;
+}
+
 export interface AdminCustomerRecord {
   id: string;
   email: string;
@@ -48,7 +85,7 @@ export async function getAdminCustomersList(): Promise<AdminCustomerRecord[]> {
     const customerMap = new Map<string, AdminCustomerRecord>();
 
     // 1. Process registered portal users
-    for (const u of users as any[]) {
+    for (const u of (users as unknown as CustomerUserDoc[])) {
       const email = (u.email || "").toLowerCase().trim();
       if (!email) continue;
 
@@ -74,7 +111,7 @@ export async function getAdminCustomersList(): Promise<AdminCustomerRecord[]> {
     }
 
     // 2. Process inquiries
-    for (const inq of inquiries as any[]) {
+    for (const inq of (inquiries as unknown as InquiryDoc[])) {
       const email = (inq.email || "").toLowerCase().trim();
       if (!email) continue;
 
@@ -120,17 +157,17 @@ export async function getAdminCustomersList(): Promise<AdminCustomerRecord[]> {
 
     // 3. Process reservations
     const now = new Date();
-    for (const res of reservations as any[]) {
+    for (const res of (reservations as unknown as ReservationDoc[])) {
       const email = (res.customerEmail || "").toLowerCase().trim();
       if (!email) continue;
 
       const record = customerMap.get(email);
       if (record) {
         record.reservationsCount += 1;
-        const isHoldActive = res.status === "active" && res.expiresAt && new Date(res.expiresAt) > now;
-        if (isHoldActive) {
+        const isHoldActive = res.status === "active" && Boolean(res.expiresAt) && new Date(res.expiresAt as string | Date) > now;
+        if (isHoldActive && res.expiresAt) {
           record.hasActiveHold = true;
-          record.activeHoldExpiresAt = new Date(res.expiresAt).toISOString();
+          record.activeHoldExpiresAt = new Date(res.expiresAt as string | Date).toISOString();
         }
 
         record.reservations.push({
@@ -176,8 +213,9 @@ export async function updateCustomerStatusInDb(
     }
 
     return { success: true, message: `Account status updated to ${status}.` };
-  } catch (error: any) {
-    return { success: false, message: error.message || "Failed to update status." };
+  } catch (error: unknown) {
+    const errorMsg = error instanceof Error ? error.message : "Failed to update status.";
+    return { success: false, message: errorMsg };
   }
 }
 
@@ -195,7 +233,8 @@ export async function updateCustomerAdminNotesInDb(
     );
 
     return { success: true, message: "Admin notes updated." };
-  } catch (error: any) {
-    return { success: false, message: error.message || "Failed to update notes." };
+  } catch (error: unknown) {
+    const errorMsg = error instanceof Error ? error.message : "Failed to update notes.";
+    return { success: false, message: errorMsg };
   }
 }

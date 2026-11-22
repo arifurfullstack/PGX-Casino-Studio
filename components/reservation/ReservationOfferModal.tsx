@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, ShieldCheck, ArrowRight, X, Clock, DollarSign } from "lucide-react";
+import { Sparkles, ShieldCheck, ArrowRight, X, Clock } from "lucide-react";
 
 interface ReservationOfferModalProps {
   isOpen: boolean;

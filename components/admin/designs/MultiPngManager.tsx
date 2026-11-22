@@ -13,6 +13,7 @@ interface MultiPngManagerProps {
 
 export default function MultiPngManager({ previewImages, onChange }: MultiPngManagerProps) {
   const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState("");
   const [newTitle, setNewTitle] = useState("");
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,37 +21,51 @@ export default function MultiPngManager({ previewImages, onChange }: MultiPngMan
     if (!files || files.length === 0) return;
 
     setUploading(true);
+    const newItems: DesignPreviewImage[] = [];
+    let currentOrder = previewImages.length + 1;
+
     try {
-      const file = files[0];
-      const reader = new FileReader();
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        setUploadProgress(`Uploading ${i + 1} of ${files.length}...`);
 
-      reader.onload = async () => {
-        const base64 = reader.result as string;
+        const base64 = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = reject;
+          reader.readAsDataURL(file);
+        });
+
         const res = await uploadDesignImageAction(base64, "alli-gaming/previews");
-
         if (res.success && res.url) {
-          const newImage: DesignPreviewImage = {
+          newItems.push({
             id: `png_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`,
-            title: newTitle.trim() || file.name.replace(/\.[^/.]+$/, ""),
+            title:
+              files.length === 1 && newTitle.trim()
+                ? newTitle.trim()
+                : file.name.replace(/\.[^/.]+$/, ""),
             url: res.url,
-            order: previewImages.length + 1,
-          };
-
-          onChange([...previewImages, newImage]);
-          setNewTitle("");
+            order: currentOrder++,
+          });
         } else {
-          alert("Failed to upload image to Cloudinary: " + (res.error || "Unknown error"));
+          console.error(`Failed to upload ${file.name}:`, res.error);
         }
-        setUploading(false);
-      };
+      }
 
-      reader.readAsDataURL(file);
+      if (newItems.length > 0) {
+        onChange([...previewImages, ...newItems]);
+        setNewTitle("");
+      } else {
+        alert("Failed to upload image(s). Please try again.");
+      }
     } catch (err) {
       console.error(err);
       alert("Error processing upload.");
+    } finally {
       setUploading(false);
+      setUploadProgress("");
+      e.target.value = "";
     }
-    e.target.value = "";
   };
 
   const handleRemove = (id: string) => {
@@ -103,16 +118,17 @@ export default function MultiPngManager({ previewImages, onChange }: MultiPngMan
           {uploading ? (
             <>
               <Loader2 size={13} className="animate-spin" />
-              <span>Uploading...</span>
+              <span>{uploadProgress || "Uploading..."}</span>
             </>
           ) : (
             <>
               <Upload size={13} className="stroke-[2.5]" />
-              <span>Upload PNG Preview</span>
+              <span>Upload PNG Previews</span>
             </>
           )}
           <input
             type="file"
+            multiple
             accept="image/png,image/jpeg,image/webp"
             disabled={uploading}
             onChange={handleFileUpload}

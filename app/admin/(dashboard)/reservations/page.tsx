@@ -1,4 +1,4 @@
-import { Clock, ShieldCheck } from "lucide-react";
+import { Clock } from "lucide-react";
 import { getAllReservations } from "@/services/reservationService";
 import ReservationsTable from "@/components/admin/reservations/ReservationsTable";
 

@@ -5,13 +5,11 @@ import {
   Search,
   MessageSquare,
   Mail,
-  Phone,
   FileText,
-  CheckCircle2,
   X,
-  ExternalLink,
   Save,
   Loader2,
+  Download,
 } from "lucide-react";
 import { CustomerInquiry, InquiryStatus } from "@/types";
 import { updateInquiryStatusAction } from "@/app/actions/adminInquiryActions";
@@ -56,6 +54,49 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
     await updateInquiryStatusAction(id, newStatus);
   };
 
+  const exportInquiriesToCsv = () => {
+    const headers = [
+      "Reference",
+      "Full Name",
+      "Email",
+      "Phone",
+      "WhatsApp",
+      "Company",
+      "Design Name",
+      "Timeline",
+      "Total Price",
+      "Status",
+      "Date",
+      "Project Requirements",
+      "Admin Notes",
+    ];
+    const rows = filtered.map((i) => [
+      i.referenceNumber,
+      `"${i.fullName.replace(/"/g, '""')}"`,
+      i.email,
+      i.phoneNumber,
+      i.whatsappNumber || "",
+      `"${(i.companyName || "").replace(/"/g, '""')}"`,
+      `"${(i.selectedDesignName || "").replace(/"/g, '""')}"`,
+      i.intendedTimeline,
+      i.totalPrice,
+      i.status,
+      i.createdAt,
+      `"${(i.projectRequirements || "").replace(/"/g, '""')}"`,
+      `"${(i.adminNotes || "").replace(/"/g, '""')}"`,
+    ]);
+    const csvContent =
+      "data:text/csv;charset=utf-8," +
+      [headers.join(","), ...rows.map((row) => row.join(","))].join("\n");
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", `inquiries_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const openDetailsModal = (inq: CustomerInquiry) => {
     setSelectedInquiry(inq);
     setEditingNotes(inq.adminNotes || "");
@@ -92,15 +133,26 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
           ))}
         </div>
 
-        <div className="relative max-w-xs w-full">
-          <input
-            type="text"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search customer, ref, or theme..."
-            className="w-full px-3 py-1.5 pl-8 rounded-lg bg-[#080214] border border-purple-500/30 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-[#FFD700]"
-          />
-          <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+        <div className="flex items-center gap-2">
+          <div className="relative max-w-xs w-full">
+            <input
+              type="text"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search customer, ref, or theme..."
+              className="w-full px-3 py-1.5 pl-8 rounded-lg bg-[#080214] border border-purple-500/30 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-[#FFD700]"
+            />
+            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+          </div>
+
+          <button
+            onClick={exportInquiriesToCsv}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-[#FFD700] bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all shrink-0"
+            title="Export filtered inquiries to CSV"
+          >
+            <Download size={13} />
+            <span className="hidden sm:inline">Export CSV</span>
+          </button>
         </div>
       </div>
 

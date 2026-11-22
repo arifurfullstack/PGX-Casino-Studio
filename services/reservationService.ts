@@ -100,6 +100,8 @@ export async function getReservationById(reservationId: string): Promise<Reserva
 export async function getAllReservations(): Promise<Reservation[]> {
   try {
     await connectToDatabase();
+    // Auto-check and expire any reservations past 120h threshold
+    await checkAndExpireReservations();
     const docs = await ReservationModel.find().sort({ createdAt: -1 }).lean();
 
     return docs.map((doc) => ({
@@ -142,4 +144,40 @@ export async function updateReservationStatus(
 
   const res = await ReservationModel.updateOne({ reservationId }, { $set: updateData });
   return res.modifiedCount > 0;
+}
+
+export interface ExpirationCheckResult {
+  checkedCount: number;
+  expiredCount: number;
+  expiredReservationIds: string[];
+}
+
+export async function checkAndExpireReservations(): Promise<ExpirationCheckResult> {
+  await connectToDatabase();
+  const now = new Date();
+
+  const overdueReservations = await ReservationModel.find({
+    status: "active",
+    expiresAt: { $lte: now },
+  });
+
+  const expiredReservationIds: string[] = [];
+
+  for (const res of overdueReservations) {
+    if (res.status === "agreement_completed") {
+      continue;
+    }
+
+    res.status = "expired";
+    res.refundInitiatedAt = now;
+    await res.save();
+    expiredReservationIds.push(res.reservationId);
+    console.log(`[Auto-Expire Cron] Reservation ${res.reservationId} has expired. Refund initiated.`);
+  }
+
+  return {
+    checkedCount: overdueReservations.length,
+    expiredCount: expiredReservationIds.length,
+    expiredReservationIds,
+  };
 }

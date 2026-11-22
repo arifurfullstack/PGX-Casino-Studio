@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { getDesignBySlug, getAllActiveDesigns } from "@/services/casinoService";
+import { getPricingConfig } from "@/services/pricingService";
 import DemoSidebar from "@/components/designs/DemoSidebar";
 import CasinoPreviewStage from "@/components/designs/CasinoPreviewStage";
 
@@ -14,7 +15,10 @@ export async function generateStaticParams() {
 
 export default async function DesignDemoPage({ params }: DesignDemoPageProps) {
   const { slug } = await params;
-  const design = await getDesignBySlug(slug);
+  const [design, pricingConfig] = await Promise.all([
+    getDesignBySlug(slug),
+    getPricingConfig(),
+  ]);
 
   if (!design) {
     notFound();
@@ -25,7 +29,7 @@ export default async function DesignDemoPage({ params }: DesignDemoPageProps) {
       <div className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-3 sm:px-6 lg:px-8">
         {/* Main 2-Column Showcase: On mobile demo stage is top; on desktop sidebar is on the left */}
         <div className="flex flex-col-reverse lg:flex-row gap-5 xl:gap-7 items-start">
-          <DemoSidebar design={design} />
+          <DemoSidebar design={design} pricingConfig={pricingConfig} />
           <CasinoPreviewStage design={design} />
         </div>
       </div>
