@@ -369,3 +369,120 @@
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--casino-gold), transparent);
 }
+
+/* ============================================================
+   ULTRA-LUXURY FANCY CASINO DESIGN SYSTEM ENHANCEMENTS
+   ============================================================ */
+
+.font-display {
+  font-family: var(--font-cinzel), "Cinzel", "Times New Roman", Georgia, serif;
+}
+
+/* Metallic 3D Gold Embossed Heading Effect */
+.text-metallic-gold {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF3B0 15%, #FFE259 40%, #FFD700 65%, #D4AF37 85%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 25px rgba(255, 215, 0, 0.45));
+}
+
+/* Vibrant Dual-Layer Neon Borders */
+.neon-box-purple {
+  border: 2px solid rgba(217, 70, 239, 0.75);
+  box-shadow: 0 0 35px rgba(217, 70, 239, 0.35), 0 0 70px rgba(168, 85, 247, 0.2), inset 0 0 20px rgba(217, 70, 239, 0.15);
+}
+
+.neon-button-purple {
+  background: linear-gradient(180deg, #3b0764 0%, #1e0538 100%);
+  border: 1.5px solid #d946ef;
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.45), inset 0 0 10px rgba(217, 70, 239, 0.25);
+  transition: all 0.3s ease;
+}
+
+.neon-button-purple:hover {
+  background: linear-gradient(180deg, #581c87 0%, #2e0854 100%);
+  border-color: #f472b6;
+  box-shadow: 0 0 30px rgba(244, 114, 182, 0.65), inset 0 0 15px rgba(244, 114, 182, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Luminous Curved Neon Arc Section Bridge */
+.curved-neon-arc {
+  position: relative;
+  width: 100%;
+  height: 36px;
+  overflow: hidden;
+}
+
+.curved-neon-arc::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 3%;
+  right: 3%;
+  height: 72px;
+  border-radius: 50%;
+  border-top: 2px solid #c084fc;
+  box-shadow: 0 -4px 20px rgba(192, 132, 252, 0.7), 0 -8px 45px rgba(217, 70, 239, 0.4);
+}
+
+/* 12 Individual Casino Theme Cards Glow Styling */
+.theme-card-royal-prestige {
+  border-color: rgba(251, 191, 36, 0.7) !important;
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.35), inset 0 0 12px rgba(245, 158, 11, 0.1) !important;
+}
+
+.theme-card-neon-vegas {
+  border-color: rgba(236, 72, 153, 0.8) !important;
+  box-shadow: 0 0 25px rgba(236, 72, 153, 0.45), inset 0 0 15px rgba(236, 72, 153, 0.15) !important;
+}
+
+.theme-card-emerald-club {
+  border-color: rgba(52, 211, 153, 0.7) !important;
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.35), inset 0 0 12px rgba(16, 185, 129, 0.1) !important;
+}
+
+.theme-card-elite-casino {
+  border-color: rgba(239, 68, 68, 0.7) !important;
+  box-shadow: 0 0 22px rgba(239, 68, 68, 0.35), inset 0 0 12px rgba(239, 68, 68, 0.1) !important;
+}
+
+.theme-card-diamond-palace {
+  border-color: rgba(34, 211, 238, 0.75) !important;
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.4), inset 0 0 15px rgba(6, 182, 212, 0.15) !important;
+}
+
+.theme-card-cosmic-casino {
+  border-color: rgba(168, 85, 247, 0.75) !important;
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.4), inset 0 0 15px rgba(168, 85, 247, 0.15) !important;
+}
+
+.theme-card-golden-crown {
+  border-color: rgba(250, 204, 21, 0.8) !important;
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.4), inset 0 0 15px rgba(250, 204, 21, 0.15) !important;
+}
+
+.theme-card-lucky-spin {
+  border-color: rgba(74, 222, 128, 0.7) !important;
+  box-shadow: 0 0 22px rgba(34, 197, 94, 0.35), inset 0 0 12px rgba(34, 197, 94, 0.1) !important;
+}
+
+.theme-card-prestige-gold {
+  border-color: rgba(245, 158, 11, 0.7) !important;
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.35), inset 0 0 12px rgba(245, 158, 11, 0.1) !important;
+}
+
+.theme-card-ruby-casino {
+  border-color: rgba(244, 63, 94, 0.75) !important;
+  box-shadow: 0 0 25px rgba(244, 63, 94, 0.4), inset 0 0 15px rgba(244, 63, 94, 0.15) !important;
+}
+
+.theme-card-ocean-casino {
+  border-color: rgba(56, 189, 248, 0.75) !important;
+  box-shadow: 0 0 25px rgba(14, 165, 233, 0.4), inset 0 0 15px rgba(14, 165, 233, 0.15) !important;
+}
+
+.theme-card-mystic-casino {
+  border-color: rgba(217, 70, 239, 0.75) !important;
+  box-shadow: 0 0 25px rgba(217, 70, 239, 0.4), inset 0 0 15px rgba(217, 70, 239, 0.15) !important;
+}

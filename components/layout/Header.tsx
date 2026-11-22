@@ -61,28 +61,28 @@ export default function Header() {
         <div className="flex items-center gap-2.5 sm:gap-3">
           <Link
             href="/portal"
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/40 hover:bg-purple-900/60 rounded-lg border border-purple-500/30 transition-all"
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/40 hover:bg-purple-900/60 rounded-full border border-purple-500/30 transition-all"
             title="B2B Client Portal"
           >
-            <User size={13} className="text-[#FFD700]" />
+            <User size={12} className="text-[#FFD700]" />
             <span>Client Portal</span>
           </Link>
 
           {isDemoPage ? (
             <Link
               href="/designs"
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-gray-200 hover:text-white bg-purple-950/70 hover:bg-purple-900 rounded-lg border border-purple-500/50 transition-all shadow-[0_0_12px_rgba(168,85,247,0.25)]"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-gray-200 hover:text-white bg-purple-950/70 hover:bg-purple-900 rounded-full border border-purple-500/50 transition-all shadow-[0_0_12px_rgba(168,85,247,0.25)]"
             >
               <ArrowLeft size={13} />
               <span>Back to Designs</span>
             </Link>
           ) : (
             <Link
-              href="/contact"
-              className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] rounded-lg shadow-[0_0_18px_rgba(255,215,0,0.35)] hover:shadow-[0_0_24px_rgba(255,215,0,0.6)] hover:brightness-110 transition-all duration-300"
+              href="/select-design"
+              className="hidden sm:inline-flex items-center gap-2 px-4 sm:px-5 py-2 text-xs sm:text-sm font-bold text-white neon-button-purple rounded-full transition-all duration-300"
             >
-              <Send size={13} className="text-black stroke-[2.5]" />
-              <span>Request a Quote</span>
+              <Send size={13} className="text-[#FFD700] stroke-[2.5]" />
+              <span>Reserve A Casino</span>
             </Link>
           )}
 

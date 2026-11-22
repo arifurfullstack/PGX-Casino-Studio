@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Send, Crown, Layers, Dices, Coins, ShieldCheck } from "lucide-react";
+import { ArrowRight, Send, Crown, Layers, Dices, Coins, ShieldCheck, Sparkles } from "lucide-react";
 
 const highlights = [
   {
@@ -32,64 +32,86 @@ const highlights = [
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 overflow-hidden">
+    <section className="relative pt-6 sm:pt-10 lg:pt-14 pb-10 sm:pb-14 overflow-hidden">
+      {/* Opulent Grand Casino Ambient Background with Dark Vignette */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Image
+          src="/images/hero-casino-bokeh-4k.jpg"
+          alt="Luxury European Casino Grand Hall Chandelier Atmosphere"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center opacity-30 mix-blend-screen scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#030108] via-[#030108]/90 to-[#04010e]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#030108] via-transparent to-[#030108]" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Top Hero: Left Headline & Right Visual */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* Top Hero: Left Headline & Right Visual Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-4 sm:space-y-6 text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-950/60 border border-purple-500/30 backdrop-blur-sm">
-              <Crown size={13} className="text-[#FFD700]" />
-              <p className="text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] text-[#FFD700]">
-                B2B Turnkey Casino Solutions
+          <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-left">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-purple-950/70 border border-purple-500/40 backdrop-blur-md shadow-[0_0_15px_rgba(168,85,247,0.3)]">
+              <Sparkles size={13} className="text-[#FFD700]" />
+              <p className="text-[11px] sm:text-xs font-black uppercase tracking-[0.25em] text-[#FFD700]">
+                ONLINE CASINO SOLUTIONS
               </p>
             </div>
 
-            <div className="space-y-2">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black tracking-tight text-white uppercase leading-[1.1] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-                OWN YOUR ONLINE CASINO
+            {/* Giant Luxury Headlines with Cinzel 3D Gold Display */}
+            <div className="space-y-1">
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[42px] font-black tracking-wide text-white uppercase drop-shadow-[0_2px_12px_rgba(0,0,0,0.95)]">
+                OWN YOUR ONLINE
+              </span>
+
+              <h1 className="block font-display text-5xl sm:text-6xl md:text-7xl lg:text-[82px] font-black uppercase tracking-tight text-metallic-gold leading-[0.95] py-0.5">
+                CASINO
               </h1>
-              <p className="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-black italic tracking-wide text-[#FFD700] drop-shadow-[0_0_25px_rgba(255,215,0,0.6)] leading-[1.1]">
+
+              <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-black italic tracking-wide text-[#FFD700] drop-shadow-[0_0_25px_rgba(255,215,0,0.7)]">
                 STARTING AT $15,000!
-              </p>
+              </span>
             </div>
 
-            <div className="text-gray-300 text-sm sm:text-base leading-relaxed space-y-1 font-normal max-w-xl">
-              <p>Choose Your Design. Launch with Online Casino Slots &amp; Game Tables.</p>
-              <p className="text-gray-400">Build Your Global Casino Brand with All I Gaming platform solutions.</p>
-            </div>
+            <p className="text-gray-300 text-xs sm:text-sm md:text-base leading-relaxed max-w-xl font-medium">
+              Choose Your Design, Launch with Casino Slots &amp; Game Tables. Build Your Casino Brand with All I Gaming platform solutions.
+            </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Dual Pill Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
               <Link
                 href="/designs"
-                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] rounded-lg shadow-[0_0_22px_rgba(255,215,0,0.45)] hover:shadow-[0_0_30px_rgba(255,215,0,0.7)] hover:brightness-110 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-black text-black bg-gradient-to-r from-[#FFE259] to-[#FFA700] rounded-full shadow-[0_0_25px_rgba(255,215,0,0.5)] hover:shadow-[0_0_35px_rgba(255,215,0,0.8)] hover:brightness-110 active:scale-[0.98] transition-all duration-300"
               >
                 <span>Browse Casino Designs</span>
                 <ArrowRight size={16} className="stroke-[2.5]" />
               </Link>
 
               <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 text-xs sm:text-sm font-semibold text-white bg-purple-950/60 hover:bg-purple-900/70 rounded-lg border border-purple-500/60 transition-all duration-300 shadow-[0_0_15px_rgba(168,85,247,0.25)] hover:border-purple-400"
+                href="/select-design"
+                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3 sm:py-3.5 text-xs sm:text-sm font-black text-white neon-button-purple rounded-full active:scale-[0.98] transition-all duration-300 shadow-[0_0_25px_rgba(217,70,239,0.45)]"
               >
-                <Send size={14} className="text-purple-300" />
-                <span>Request a Quote</span>
+                <Send size={14} className="text-[#FFD700] stroke-[2.5]" />
+                <span>Reserve A Casino</span>
               </Link>
             </div>
           </div>
 
-          {/* Right Visual: Cards, Laptop, Roulette, Dice */}
-          <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-[620px] aspect-[1468/700]">
+          {/* Right Visual: Dealer Model, Laptop, Cards, Chips & European Roulette */}
+          <div className="lg:col-span-6 relative flex items-center justify-center lg:justify-end">
+            <div className="relative w-full max-w-[620px] aspect-[392/223] overflow-visible">
+              {/* Radial Purple Glow Behind Model */}
+              <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/30 via-fuchsia-600/30 to-amber-500/20 rounded-full blur-3xl -z-10 pointer-events-none" />
+              
               <Image
-                src="/images/hero-showcase-full.png"
-                alt="Casino software platform preview with laptop, chips, cards, roulette and dice"
+                src="/images/hero-dealer-perfect.png"
+                alt="Casino software platform preview with glamorous dealer, software laptop, roulette, cards, and golden chips"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain drop-shadow-[0_0_35px_rgba(168,85,247,0.35)]"
+                className="object-contain drop-shadow-[0_0_35px_rgba(168,85,247,0.5)]"
                 priority
               />
             </div>
@@ -97,7 +119,7 @@ export default function HeroSection() {
 
         </div>
 
-        {/* 5-Item Highlights Bar */}
+        {/* 5-Item Highlights Ribbon */}
         <div className="mt-10 sm:mt-14">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 bg-[#0a0319]/80 border border-purple-800/40 rounded-2xl p-3 sm:p-4 backdrop-blur-md shadow-[0_0_20px_rgba(88,28,135,0.25)]">
             {highlights.map((item, idx) => {
