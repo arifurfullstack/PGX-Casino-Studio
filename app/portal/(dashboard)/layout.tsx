@@ -20,8 +20,8 @@ export default async function CustomerPortalLayout({
     <div className="relative min-h-screen bg-[#07020d] text-white flex flex-col lg:flex-row overflow-x-clip">
       <PortalBackground />
       <PortalSidebar user={session} />
-      <main className="relative z-10 flex-1 min-w-0 px-5 py-6 sm:px-8 sm:py-8 lg:px-10 xl:px-12 xl:py-10 overflow-y-auto">
-        <div className="max-w-[1440px] w-full mx-auto">
+      <main className="relative z-10 flex-1 min-w-0 px-4 py-4 sm:px-6 sm:py-5 lg:px-7 lg:py-6 overflow-y-auto">
+        <div className="max-w-[1200px] w-full mx-auto">
           <PortalMotionShell>{children}</PortalMotionShell>
         </div>
       </main>

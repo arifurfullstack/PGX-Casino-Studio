@@ -28,7 +28,7 @@ export default function HoldCountdown({ expiresAt, className }: HoldCountdownPro
       <span
         className={
           className ||
-          "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/75 border border-[#f5c451]/55 text-xs sm:text-sm font-bold text-[#ffe28a] shadow-[0_0_16px_rgba(245,196,81,0.22)] self-start sm:self-auto tabular-nums"
+          "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/75 border border-[#f5c451]/45 text-xs font-bold text-[#ffe28a] self-start sm:self-auto tabular-nums"
         }
       >
         Calculating...
@@ -42,7 +42,7 @@ export default function HoldCountdown({ expiresAt, className }: HoldCountdownPro
       <span
         className={
           className ||
-          "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-950/80 border border-rose-500/50 text-xs sm:text-sm font-bold text-rose-200 self-start sm:self-auto"
+          "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-950/80 border border-rose-500/45 text-xs font-bold text-rose-200 self-start sm:self-auto"
         }
       >
         Hold Expired
@@ -57,10 +57,10 @@ export default function HoldCountdown({ expiresAt, className }: HoldCountdownPro
     <span
       className={
         className ||
-        "inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-950/75 border border-[#f5c451]/65 text-xs sm:text-sm font-bold text-[#ffe28a] shadow-[0_0_18px_rgba(245,196,81,0.3)] self-start sm:self-auto tabular-nums"
+        "inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950/75 border border-[#f5c451]/55 text-xs font-bold text-[#ffe28a] self-start sm:self-auto tabular-nums"
       }
     >
-      <span className="w-2 h-2 rounded-full bg-[#f5c451] animate-pulse" />
+      <span className="w-1.5 h-1.5 rounded-full bg-[#f5c451]" />
       {hours}h {mins}m remaining
     </span>
   );

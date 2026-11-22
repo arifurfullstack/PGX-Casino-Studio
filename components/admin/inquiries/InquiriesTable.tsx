@@ -116,16 +116,16 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
   return (
     <div className="space-y-4">
       {/* Search & Filter Tabs */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-2">
           {["all", "new_inquiry", "contacted", "reviewing_requirements", "agreement_completed"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all ${
+              className={`px-4 py-2 rounded-xl text-sm font-semibold capitalize transition-all cursor-pointer ${
                 activeTab === tab
                   ? "bg-purple-950 text-[#FFD700] border border-purple-500/50"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  : "text-gray-400 hover:text-white hover:bg-white/5 border border-transparent"
               }`}
             >
               {tab.replace("_", " ")}
@@ -133,45 +133,45 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="relative max-w-xs w-full">
+        <div className="flex items-center gap-3">
+          <div className="relative max-w-sm w-full">
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search customer, ref, or theme..."
-              className="w-full px-3 py-1.5 pl-8 rounded-lg bg-[#080214] border border-purple-500/30 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-[#FFD700]"
+              className="w-full px-4 py-2.5 pl-10 rounded-xl bg-[#080214] border border-purple-500/35 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#FFD700]"
             />
-            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
           </div>
 
           <button
             onClick={exportInquiriesToCsv}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-[#FFD700] bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#FFD700] bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all shrink-0 cursor-pointer"
             title="Export filtered inquiries to CSV"
           >
-            <Download size={13} />
+            <Download size={16} />
             <span className="hidden sm:inline">Export CSV</span>
           </button>
         </div>
       </div>
 
       {/* Inquiries Table */}
-      <div className="overflow-x-auto rounded-xl border border-purple-900/40 bg-[#080214]">
-        <table className="w-full text-left text-xs text-gray-300">
-          <thead className="bg-purple-950/40 text-[11px] font-bold uppercase tracking-wider text-gray-400 border-b border-purple-900/40">
+      <div className="overflow-x-auto rounded-2xl border border-purple-900/40 bg-[#080214] shadow-xl">
+        <table className="w-full text-left text-sm text-gray-300">
+          <thead className="bg-purple-950/45 text-xs font-bold uppercase tracking-wider text-gray-300 border-b border-purple-900/40">
             <tr>
-              <th className="py-3 px-4">Ref &amp; Date</th>
-              <th className="py-3 px-4">Customer</th>
-              <th className="py-3 px-4">Design &amp; Package</th>
-              <th className="py-3 px-4">Status</th>
-              <th className="py-3 px-4 text-right">Actions</th>
+              <th className="py-4 px-5">Ref &amp; Date</th>
+              <th className="py-4 px-5">Customer</th>
+              <th className="py-4 px-5">Design &amp; Package</th>
+              <th className="py-4 px-5">Status</th>
+              <th className="py-4 px-5 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-purple-900/20">
+          <tbody className="divide-y divide-purple-900/25">
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={5} className="py-8 text-center text-gray-500">
+                <td colSpan={5} className="py-12 text-center text-gray-400 text-sm">
                   No inquiries found matching your filters.
                 </td>
               </tr>
@@ -180,28 +180,28 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
                 const whatsappUrl = `https://wa.me/${(inq.whatsappNumber || inq.phoneNumber).replace(/[^0-9]/g, "")}`;
 
                 return (
-                  <tr key={inq.id} className="hover:bg-white/[0.02] transition-colors">
+                  <tr key={inq.id} className="hover:bg-white/[0.03] transition-colors">
                     {/* Reference & Date */}
-                    <td className="py-3 px-4">
-                      <p className="font-mono text-purple-300 font-bold">{inq.referenceNumber}</p>
-                      <p className="text-[10px] text-gray-500">
+                    <td className="py-4 px-5">
+                      <p className="font-mono text-purple-300 font-bold text-sm">{inq.referenceNumber}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">
                         {new Date(inq.createdAt).toLocaleDateString()}
                       </p>
                     </td>
 
                     {/* Customer Info */}
-                    <td className="py-3 px-4">
-                      <p className="font-bold text-white">{inq.fullName}</p>
-                      <p className="text-[11px] text-gray-400">{inq.email}</p>
+                    <td className="py-4 px-5">
+                      <p className="font-bold text-white text-sm">{inq.fullName}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">{inq.email}</p>
                       {inq.companyName && (
-                        <p className="text-[10px] text-[#FFD700]">{inq.companyName}</p>
+                        <p className="text-xs text-[#FFD700] mt-0.5">{inq.companyName}</p>
                       )}
                     </td>
 
                     {/* Theme & Value */}
-                    <td className="py-3 px-4">
-                      <p className="font-semibold text-white">{inq.selectedDesignName}</p>
-                      <p className="text-[11px] text-gray-400">
+                    <td className="py-4 px-5">
+                      <p className="font-semibold text-white text-sm">{inq.selectedDesignName}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">
                         ${inq.totalPrice.toLocaleString()} USD
                         {inq.selectedAddonIds?.length > 0 && (
                           <span className="text-purple-300"> (+{inq.selectedAddonIds.length} modules)</span>
@@ -210,11 +210,11 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
                     </td>
 
                     {/* Status Dropdown */}
-                    <td className="py-3 px-4">
+                    <td className="py-4 px-5">
                       <select
                         value={inq.status}
                         onChange={(e) => handleStatusChange(inq.id, e.target.value as InquiryStatus)}
-                        className="px-2 py-1 rounded bg-[#04010a] border border-purple-500/40 text-[11px] font-semibold text-gray-200 focus:outline-none focus:border-[#FFD700]"
+                        className="px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/40 text-xs font-semibold text-gray-200 focus:outline-none focus:border-[#FFD700]"
                       >
                         {statusOptions.map((opt) => (
                           <option key={opt.value} value={opt.value}>
@@ -225,30 +225,30 @@ export default function InquiriesTable({ initialInquiries }: InquiriesTableProps
                     </td>
 
                     {/* Contact & Details Action */}
-                    <td className="py-3 px-4 text-right">
-                      <div className="inline-flex items-center gap-1.5">
+                    <td className="py-4 px-5 text-right">
+                      <div className="inline-flex items-center gap-2">
                         <a
                           href={whatsappUrl}
                           target="_blank"
                           rel="noreferrer"
                           title="Chat on WhatsApp"
-                          className="p-1.5 rounded-lg bg-emerald-950 hover:bg-emerald-900 text-emerald-400 border border-emerald-500/30 transition-colors"
+                          className="p-2 rounded-xl bg-emerald-950 hover:bg-emerald-900 text-emerald-400 border border-emerald-500/35 transition-colors"
                         >
-                          <MessageSquare size={13} />
+                          <MessageSquare size={15} />
                         </a>
                         <a
                           href={`mailto:${inq.email}?subject=All I Gaming Proposal - ${inq.referenceNumber}`}
                           title="Send Email"
-                          className="p-1.5 rounded-lg bg-blue-950 hover:bg-blue-900 text-blue-400 border border-blue-500/30 transition-colors"
+                          className="p-2 rounded-xl bg-blue-950 hover:bg-blue-900 text-blue-400 border border-blue-500/35 transition-colors"
                         >
-                          <Mail size={13} />
+                          <Mail size={15} />
                         </a>
                         <button
                           onClick={() => openDetailsModal(inq)}
-                          title="View Full Notes &amp; Requirements"
-                          className="p-1.5 rounded-lg bg-purple-950 hover:bg-purple-900 text-[#FFD700] border border-purple-500/30 transition-colors"
+                          title="View Full Notes & Requirements"
+                          className="p-2 rounded-xl bg-purple-950 hover:bg-purple-900 text-[#FFD700] border border-purple-500/35 transition-colors cursor-pointer"
                         >
-                          <FileText size={13} />
+                          <FileText size={15} />
                         </button>
                       </div>
                     </td>

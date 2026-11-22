@@ -17,13 +17,13 @@ export default async function AdminEditDesignPage({ params }: AdminEditDesignPag
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-7">
       <div>
-        <h1 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+        <h1 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
           Edit Theme: {design.name}
         </h1>
-        <p className="text-xs text-gray-400 mt-1">
-          Update theme details, adjust display order, manage Cloudinary multi-PNG preview suite.
+        <p className="text-sm sm:text-base text-gray-400 mt-1.5">
+          Update theme details, display order, thumbnail, and protected demo website UI pages.
         </p>
       </div>
 

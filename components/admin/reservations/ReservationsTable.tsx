@@ -122,16 +122,16 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
   return (
     <div className="space-y-4">
       {/* Search & Filter Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div className="flex flex-wrap items-center gap-2">
           {["all", "active", "agreement_completed", "expired", "refunded"].map((tab) => (
             <button
               key={tab}
               onClick={() => setFilter(tab)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold capitalize transition-all ${
+              className={`px-4 py-2 rounded-xl text-sm font-semibold capitalize transition-all cursor-pointer ${
                 filter === tab
                   ? "bg-purple-950 text-[#FFD700] border border-purple-500/50"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  : "text-gray-400 hover:text-white hover:bg-white/5 border border-transparent"
               }`}
             >
               {tab.replace("_", " ")}
@@ -139,46 +139,46 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="relative max-w-xs w-full">
+        <div className="flex items-center gap-3">
+          <div className="relative max-w-sm w-full">
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search booking ID, customer, theme..."
-              className="w-full px-3 py-1.5 pl-8 rounded-lg bg-[#080214] border border-purple-500/30 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-[#FFD700]"
+              className="w-full px-4 py-2.5 pl-10 rounded-xl bg-[#080214] border border-purple-500/35 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-[#FFD700]"
             />
-            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
+            <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none" />
           </div>
 
           <button
             onClick={exportReservationsToCsv}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold text-[#FFD700] bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all shrink-0"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-[#FFD700] bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all shrink-0 cursor-pointer"
             title="Export filtered reservations to CSV"
           >
-            <Download size={13} />
+            <Download size={16} />
             <span className="hidden sm:inline">Export CSV</span>
           </button>
         </div>
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-xl border border-purple-900/40 bg-[#080214]">
-        <table className="w-full text-left text-xs text-gray-300">
-          <thead className="bg-purple-950/40 text-[11px] font-bold uppercase tracking-wider text-gray-400 border-b border-purple-900/40">
+      <div className="overflow-x-auto rounded-2xl border border-purple-900/40 bg-[#080214] shadow-xl">
+        <table className="w-full text-left text-sm text-gray-300">
+          <thead className="bg-purple-950/45 text-xs font-bold uppercase tracking-wider text-gray-300 border-b border-purple-900/40">
             <tr>
-              <th className="py-3 px-4">Booking &amp; Hold Time</th>
-              <th className="py-3 px-4">Customer</th>
-              <th className="py-3 px-4">Design Theme</th>
-              <th className="py-3 px-4">Financials (5% Lock)</th>
-              <th className="py-3 px-4">Status</th>
-              <th className="py-3 px-4 text-right">Actions</th>
+              <th className="py-4 px-5">Booking &amp; Hold Time</th>
+              <th className="py-4 px-5">Customer</th>
+              <th className="py-4 px-5">Design Theme</th>
+              <th className="py-4 px-5">Financials (5% Lock)</th>
+              <th className="py-4 px-5">Status</th>
+              <th className="py-4 px-5 text-right">Actions</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-purple-900/20">
+          <tbody className="divide-y divide-purple-900/25">
             {filtered.length === 0 ? (
               <tr>
-                <td colSpan={6} className="py-8 text-center text-gray-500">
+                <td colSpan={6} className="py-12 text-center text-gray-400 text-sm">
                   No reservations found.
                 </td>
               </tr>
@@ -188,12 +188,12 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                 const isWorking = updatingId === r.reservationId;
 
                 return (
-                  <tr key={r.id} className="hover:bg-white/[0.02] transition-colors">
+                  <tr key={r.id} className="hover:bg-white/[0.03] transition-colors">
                     {/* Booking & Hold Time */}
-                    <td className="py-3 px-4">
-                      <p className="font-mono text-purple-300 font-bold">{r.reservationId}</p>
-                      <div className="flex items-center gap-1 text-[11px] text-gray-400 mt-0.5">
-                        <Clock size={11} className={isExpired ? "text-red-400" : "text-[#FFD700]"} />
+                    <td className="py-4 px-5">
+                      <p className="font-mono text-purple-300 font-bold text-sm">{r.reservationId}</p>
+                      <div className="flex items-center gap-1.5 text-xs text-gray-400 mt-1">
+                        <Clock size={13} className={isExpired ? "text-red-400" : "text-[#FFD700]"} />
                         <span className={isExpired ? "text-red-400 font-semibold" : "text-gray-300"}>
                           {r.status === "active" ? timeText : r.status.replace("_", " ")}
                         </span>
@@ -201,38 +201,38 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                     </td>
 
                     {/* Customer */}
-                    <td className="py-3 px-4">
-                      <p className="font-bold text-white">{r.customerName}</p>
-                      <p className="text-[11px] text-gray-400">{r.customerEmail}</p>
-                      <p className="text-[10px] text-gray-500">{r.customerPhone}</p>
+                    <td className="py-4 px-5">
+                      <p className="font-bold text-white text-sm">{r.customerName}</p>
+                      <p className="text-xs text-gray-400 mt-0.5">{r.customerEmail}</p>
+                      <p className="text-xs text-gray-500 mt-0.5">{r.customerPhone}</p>
                     </td>
 
                     {/* Theme */}
-                    <td className="py-3 px-4">
-                      <p className="font-semibold text-white">{r.selectedDesignName}</p>
+                    <td className="py-4 px-5">
+                      <p className="font-semibold text-white text-sm">{r.selectedDesignName}</p>
                       {r.selectedAddons?.length > 0 && (
-                        <p className="text-[10px] text-purple-300">
+                        <p className="text-xs text-purple-300 mt-0.5">
                           +{r.selectedAddons.length} expansion modules
                         </p>
                       )}
                     </td>
 
                     {/* Financials Breakdown */}
-                    <td className="py-3 px-4">
-                      <div className="space-y-0.5 text-[11px]">
+                    <td className="py-4 px-5">
+                      <div className="space-y-0.5 text-xs">
                         <p className="text-gray-400">Total: ${r.originalPackagePrice.toLocaleString()}</p>
                         <p className="text-emerald-400 font-semibold">5% Off: -${Math.round(r.originalPackagePrice * 0.05).toLocaleString()}</p>
                         <p className="text-white font-bold">
                           Balance Due: ${r.remainingBalance.toLocaleString()}
                         </p>
-                        <p className="text-[10px] text-[#FFD700] font-mono">$500 fee paid</p>
+                        <p className="text-xs text-[#FFD700] font-mono">$500 fee paid</p>
                       </div>
                     </td>
 
                     {/* Status Pill */}
-                    <td className="py-3 px-4">
+                    <td className="py-4 px-5">
                       <span
-                        className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold border ${
+                        className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold border ${
                           r.status === "active"
                             ? "bg-purple-950 text-purple-300 border-purple-500/40"
                             : r.status === "agreement_completed"
@@ -247,34 +247,34 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                     </td>
 
                     {/* Actions */}
-                    <td className="py-3 px-4 text-right">
-                      <div className="inline-flex items-center gap-1.5">
+                    <td className="py-4 px-5 text-right">
+                      <div className="inline-flex items-center gap-2">
                         {r.status === "active" && (
                           <>
                             <button
                               onClick={() => handleUpdateStatus(r.reservationId, "agreement_completed")}
                               disabled={isWorking}
-                              className="px-2.5 py-1 rounded text-[11px] font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 transition-all flex items-center gap-1"
-                              title="Sign Agreement &amp; Credit $500 to Invoice"
+                              className="px-3 py-1.5 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 transition-all flex items-center gap-1.5 cursor-pointer"
+                              title="Sign Agreement & Credit $500 to Invoice"
                             >
-                              <CheckCircle size={11} className="stroke-[2.5]" />
+                              <CheckCircle size={13} className="stroke-[2.5]" />
                               <span>Complete</span>
                             </button>
 
                             <button
                               onClick={() => handleUpdateStatus(r.reservationId, "refunded", "refunded")}
                               disabled={isWorking}
-                              className="px-2 py-1 rounded text-[11px] font-semibold text-blue-300 bg-blue-950/60 hover:bg-blue-900 border border-blue-500/40 transition-colors flex items-center gap-1"
+                              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-blue-300 bg-blue-950/60 hover:bg-blue-900 border border-blue-500/40 transition-colors flex items-center gap-1.5 cursor-pointer"
                               title="Refund $500 Holding Fee"
                             >
-                              <RotateCcw size={11} />
+                              <RotateCcw size={13} />
                               <span>Refund</span>
                             </button>
 
                             <button
                               onClick={() => handleUpdateStatus(r.reservationId, "expired")}
                               disabled={isWorking}
-                              className="px-2 py-1 rounded text-[11px] font-semibold text-red-300 bg-red-950/60 hover:bg-red-900 border border-red-500/40 transition-colors"
+                              className="px-3 py-1.5 rounded-lg text-xs font-semibold text-red-300 bg-red-950/60 hover:bg-red-900 border border-red-500/40 transition-colors cursor-pointer"
                               title="Mark Expired"
                             >
                               Expire
@@ -282,7 +282,7 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                           </>
                         )}
                         {r.status !== "active" && (
-                          <span className="text-[11px] text-gray-500 italic">Archived</span>
+                          <span className="text-xs text-gray-500 italic">Archived</span>
                         )}
                       </div>
                     </td>

@@ -121,36 +121,36 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-7">
       {/* Top Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-purple-900/40">
+      <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-purple-900/40">
         <Link
           href="/admin/designs"
-          className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-white transition-colors"
         >
-          <ArrowLeft size={14} />
+          <ArrowLeft size={16} />
           <span>Back to Catalog</span>
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setPreviewOpen(true)}
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold text-purple-200 bg-purple-950/60 hover:bg-purple-900 border border-purple-500/40 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-purple-200 bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 transition-all cursor-pointer"
           >
-            <Eye size={14} />
+            <Eye size={16} />
             <span>Preview Demo</span>
           </button>
 
           <button
             type="submit"
             disabled={saving}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 shadow-[0_0_15px_rgba(255,215,0,0.35)] transition-all disabled:opacity-50 cursor-pointer"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 shadow-[0_0_20px_rgba(255,215,0,0.35)] transition-all disabled:opacity-50 cursor-pointer"
           >
             {saving ? (
-              <Loader2 size={14} className="animate-spin" />
+              <Loader2 size={16} className="animate-spin" />
             ) : (
-              <Save size={14} className="stroke-[2.5]" />
+              <Save size={16} className="stroke-[2.5]" />
             )}
             <span>{isNew ? "Create Theme" : "Save Changes"}</span>
           </button>
@@ -160,14 +160,14 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
       {/* Main Grid: Details + Thumbnail */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column: Core Fields */}
-        <div className="lg:col-span-2 space-y-4 p-5 rounded-xl bg-[#080214] border border-purple-900/40">
-          <h2 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+        <div className="lg:col-span-2 space-y-5 p-6 rounded-2xl bg-[#080214] border border-purple-900/40">
+          <h2 className="text-sm font-bold text-white uppercase tracking-wider">
             Theme Metadata
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                 Theme Name *
               </label>
               <input
@@ -176,12 +176,12 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
                 value={name}
                 onChange={(e) => handleNameChange(e.target.value)}
                 placeholder="e.g. Royal Prestige"
-                className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                 URL Slug *
               </label>
               <input
@@ -194,13 +194,13 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
                   setSlug(e.target.value);
                 }}
                 placeholder="e.g. royal-prestige"
-                className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs disabled:opacity-50 focus:outline-none focus:border-[#FFD700]"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm disabled:opacity-50 focus:outline-none focus:border-[#FFD700]"
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+            <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
               Subtitle / Design Concept
             </label>
             <input
@@ -208,31 +208,31 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
               value={subtitle}
               onChange={(e) => setSubtitle(e.target.value)}
               placeholder="e.g. Luxury Lion & Gold VIP Experience"
-              className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+              className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             <div>
-              <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                 Display Order
               </label>
               <input
                 type="number"
                 value={order}
                 onChange={(e) => setOrder(parseInt(e.target.value) || 0)}
-                className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
               />
             </div>
 
             <div>
-              <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                 Storefront Status
               </label>
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as DesignStatus)}
-                className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
               >
                 <option value="active">Active (Visible)</option>
                 <option value="hidden">Hidden</option>
@@ -241,7 +241,7 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
             </div>
 
             <div>
-              <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+              <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                 Tags (comma-separated)
               </label>
               <input
@@ -249,19 +249,19 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
                 value={tagsStr}
                 onChange={(e) => setTagsStr(e.target.value)}
                 placeholder="VIP, Gold, Slots"
-                className="w-full px-3 py-2 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
               />
             </div>
           </div>
         </div>
 
         {/* Right Column: Primary Thumbnail */}
-        <div className="space-y-4 p-5 rounded-xl bg-[#080214] border border-purple-900/40 flex flex-col justify-between">
+        <div className="space-y-4 p-6 rounded-2xl bg-[#080214] border border-purple-900/40 flex flex-col justify-between">
           <div>
-            <h2 className="text-xs font-bold text-white uppercase tracking-wider mb-2">
+            <h2 className="text-sm font-bold text-white uppercase tracking-wider mb-3">
               Primary Thumbnail
             </h2>
-            <div className="relative aspect-[460/220] rounded-lg bg-[#04010a] border border-purple-500/30 overflow-hidden mb-3">
+            <div className="relative aspect-[3/2] rounded-xl bg-[#04010a] border border-purple-500/35 overflow-hidden mb-3">
               <Image
                 src={image}
                 alt={name || "Casino preview"}
@@ -270,16 +270,16 @@ export default function DesignForm({ initialDesign, isNew = false }: DesignFormP
                 unoptimized
               />
             </div>
-            <p className="text-[11px] text-gray-400">
+            <p className="text-xs text-gray-400">
               Shown on the Homepage &amp; Catalog cards.
             </p>
           </div>
 
-          <label className="w-full py-2 px-3 rounded-lg text-xs font-semibold text-center text-purple-200 bg-purple-950/60 hover:bg-purple-900 border border-purple-500/40 cursor-pointer transition-all flex items-center justify-center gap-2">
+          <label className="w-full py-2.5 px-4 rounded-xl text-sm font-semibold text-center text-purple-200 bg-purple-950/70 hover:bg-purple-900 border border-purple-500/40 cursor-pointer transition-all flex items-center justify-center gap-2">
             {uploadingThumb ? (
-              <Loader2 size={13} className="animate-spin" />
+              <Loader2 size={16} className="animate-spin" />
             ) : (
-              <Upload size={13} />
+              <Upload size={16} />
             )}
             <span>{uploadingThumb ? "Uploading..." : "Upload New Thumbnail"}</span>
             <input

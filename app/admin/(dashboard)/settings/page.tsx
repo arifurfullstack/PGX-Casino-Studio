@@ -8,16 +8,16 @@ export default async function AdminSettingsPage() {
   const config = await getIntegrationConfig();
 
   return (
-    <div className="space-y-6">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-purple-900/40">
+    <div className="space-y-7">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-purple-900/40">
         <div>
-          <div className="flex items-center gap-2">
-            <Settings size={22} className="text-[#FFD700]" />
-            <h1 className="text-xl sm:text-2xl font-black text-white uppercase tracking-tight">
+          <div className="flex items-center gap-2.5">
+            <Settings size={26} className="text-[#FFD700]" />
+            <h1 className="text-2xl sm:text-3xl font-black text-white uppercase tracking-tight">
               Gateways &amp; Email Providers
             </h1>
           </div>
-          <p className="text-xs text-gray-400 mt-1">
+          <p className="text-sm sm:text-base text-gray-400 mt-1.5">
             Manage live API keys, payment addresses (USDT TRC20/ERC20, BTC, Stripe), and transactional email providers (Resend, Mailgun, SMTP) without editing <code className="text-purple-300">.env</code>.
           </p>
         </div>

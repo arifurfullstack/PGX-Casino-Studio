@@ -16,7 +16,8 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
-  if (!MONGODB_URI) {
+  const mongoUri = process.env.MONGODB_URI
+  if (!mongoUri) {
     throw new Error(
       "Please define the MONGODB_URI environment variable inside .env"
     )
@@ -32,7 +33,7 @@ export async function connectToDatabase() {
       dbName: process.env.MONGODB_DB || "casino",
     }
 
-    cached!.promise = mongoose.connect(MONGODB_URI, opts).then((mongooseInstance) => {
+    cached!.promise = mongoose.connect(mongoUri, opts).then((mongooseInstance) => {
       return mongooseInstance
     })
   }

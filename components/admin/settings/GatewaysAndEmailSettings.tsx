@@ -91,43 +91,43 @@ export default function GatewaysAndEmailSettings({
       )}
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-2 border-b border-purple-900/40 pb-2">
+      <div className="flex flex-wrap items-center gap-2.5 border-b border-purple-900/40 pb-3">
         <button
           type="button"
           onClick={() => setActiveTab("payment")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${
             activeTab === "payment"
-              ? "bg-[#FFD700] text-black shadow-[0_0_15px_rgba(255,215,0,0.3)]"
-              : "text-gray-400 hover:text-white hover:bg-white/5"
+              ? "bg-[#FFD700] text-black shadow-[0_0_18px_rgba(255,215,0,0.3)]"
+              : "text-gray-300 hover:text-white hover:bg-white/5"
           }`}
         >
-          <CreditCard size={14} />
+          <CreditCard size={16} />
           <span>Payment Gateways (Crypto &amp; Stripe)</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab("email")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${
             activeTab === "email"
-              ? "bg-[#FFD700] text-black shadow-[0_0_15px_rgba(255,215,0,0.3)]"
-              : "text-gray-400 hover:text-white hover:bg-white/5"
+              ? "bg-[#FFD700] text-black shadow-[0_0_18px_rgba(255,215,0,0.3)]"
+              : "text-gray-300 hover:text-white hover:bg-white/5"
           }`}
         >
-          <Mail size={14} />
+          <Mail size={16} />
           <span>Email &amp; Notifications (Resend / Mailgun / SMTP)</span>
         </button>
 
         <button
           type="button"
           onClick={() => setActiveTab("modules")}
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${
             activeTab === "modules"
-              ? "bg-[#FFD700] text-black shadow-[0_0_15px_rgba(255,215,0,0.3)]"
-              : "text-gray-400 hover:text-white hover:bg-white/5"
+              ? "bg-[#FFD700] text-black shadow-[0_0_18px_rgba(255,215,0,0.3)]"
+              : "text-gray-300 hover:text-white hover:bg-white/5"
           }`}
         >
-          <DollarSign size={14} />
+          <DollarSign size={16} />
           <span>Module Pricing Manager</span>
         </button>
       </div>
@@ -183,7 +183,7 @@ export default function GatewaysAndEmailSettings({
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Crypto Wallets Configuration */}
-              <div className="p-5 rounded-xl bg-[#080214] border border-purple-900/40 space-y-4">
+              <div className="p-6 rounded-2xl bg-[#080214] border border-purple-900/40 space-y-5">
                 <div className="flex items-center justify-between pb-2 border-b border-purple-900/30">
                   <div className="flex items-center gap-2">
                     <QrCode size={16} className="text-[#FFD700]" />
@@ -217,7 +217,7 @@ export default function GatewaysAndEmailSettings({
 
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Merchant / Desk Name
                     </label>
                     <input
@@ -238,7 +238,7 @@ export default function GatewaysAndEmailSettings({
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       USDT (TRC20 - Tron) Deposit Address
                     </label>
                     <input
@@ -254,12 +254,12 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="TYDny59kU..."
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-yellow-300 font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-yellow-300 font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       USDT (ERC20 - Ethereum) Deposit Address
                     </label>
                     <input
@@ -275,12 +275,12 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="0x71C..."
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-yellow-300 font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-yellow-300 font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Bitcoin (BTC) Deposit Address
                     </label>
                     <input
@@ -296,12 +296,12 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="bc1q..."
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-yellow-300 font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-yellow-300 font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Buyer Payment Instructions
                     </label>
                     <textarea
@@ -323,7 +323,7 @@ export default function GatewaysAndEmailSettings({
               </div>
 
               {/* Stripe Configuration */}
-              <div className="p-5 rounded-xl bg-[#080214] border border-purple-900/40 space-y-4">
+              <div className="p-6 rounded-2xl bg-[#080214] border border-purple-900/40 space-y-5">
                 <div className="flex items-center justify-between pb-2 border-b border-purple-900/30">
                   <div className="flex items-center gap-2">
                     <CreditCard size={16} className="text-[#FFD700]" />
@@ -354,7 +354,7 @@ export default function GatewaysAndEmailSettings({
 
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Publishable Key
                     </label>
                     <input
@@ -370,7 +370,7 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="pk_test_..."
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
@@ -401,12 +401,12 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="sk_test_..."
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Webhook Signing Secret
                     </label>
                     <input
@@ -422,13 +422,13 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="whsec_..."
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                     <p className="text-[10px] text-gray-500 mt-1">Webhook Endpoint URL: <code className="text-purple-300">/api/webhooks/stripe</code></p>
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Currency Code
                     </label>
                     <input
@@ -504,13 +504,13 @@ export default function GatewaysAndEmailSettings({
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Sender & Recipient Routing */}
-              <div className="p-5 rounded-xl bg-[#080214] border border-purple-900/40 space-y-4">
+              <div className="p-6 rounded-2xl bg-[#080214] border border-purple-900/40 space-y-5">
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider pb-2 border-b border-purple-900/30">
                   Sender &amp; Alert Routing
                 </h3>
                 <div className="space-y-3">
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Sender Name
                     </label>
                     <input
@@ -523,12 +523,12 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="All I Gaming Concierge"
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       From Email (Authorized Sender)
                     </label>
                     <input
@@ -541,12 +541,12 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="sales@alligaming.com"
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Admin Alert Recipient Email
                     </label>
                     <input
@@ -559,7 +559,7 @@ export default function GatewaysAndEmailSettings({
                         })
                       }
                       placeholder="admin@alligaming.com"
-                      className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                     />
                     <p className="text-[10px] text-gray-500 mt-1">Receives instant alerts when new inquiries or $500 reservation deposits are submitted.</p>
                   </div>
@@ -567,7 +567,7 @@ export default function GatewaysAndEmailSettings({
               </div>
 
               {/* Provider Specific Credentials */}
-              <div className="p-5 rounded-xl bg-[#080214] border border-purple-900/40 space-y-4">
+              <div className="p-6 rounded-2xl bg-[#080214] border border-purple-900/40 space-y-5">
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider pb-2 border-b border-purple-900/30">
                   {config.email.activeProvider === "resend"
                     ? "Resend API Setup"
@@ -581,7 +581,7 @@ export default function GatewaysAndEmailSettings({
                 {config.email.activeProvider === "resend" && (
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                      <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                         Resend API Key
                       </label>
                       <input
@@ -597,7 +597,7 @@ export default function GatewaysAndEmailSettings({
                           })
                         }
                         placeholder="re_..."
-                        className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                       />
                     </div>
                   </div>
@@ -606,7 +606,7 @@ export default function GatewaysAndEmailSettings({
                 {config.email.activeProvider === "mailgun" && (
                   <div className="space-y-3">
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                      <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                         Mailgun API Key
                       </label>
                       <input
@@ -622,11 +622,11 @@ export default function GatewaysAndEmailSettings({
                           })
                         }
                         placeholder="key-..."
-                        className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                      <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                         Mailgun Sending Domain
                       </label>
                       <input
@@ -642,11 +642,11 @@ export default function GatewaysAndEmailSettings({
                           })
                         }
                         placeholder="mg.alligaming.com"
-                        className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                       />
                     </div>
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                      <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                         Region
                       </label>
                       <select
@@ -676,7 +676,7 @@ export default function GatewaysAndEmailSettings({
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                        <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                           SMTP Host
                         </label>
                         <input
@@ -692,11 +692,11 @@ export default function GatewaysAndEmailSettings({
                             })
                           }
                           placeholder="smtp.mailgun.org"
-                          className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                          className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                         />
                       </div>
                       <div>
-                        <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                        <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                           Port
                         </label>
                         <input
@@ -712,13 +712,13 @@ export default function GatewaysAndEmailSettings({
                             })
                           }
                           placeholder="587"
-                          className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                          className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                      <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                         Username
                       </label>
                       <input
@@ -733,12 +733,12 @@ export default function GatewaysAndEmailSettings({
                             },
                           })
                         }
-                        className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white text-xs focus:outline-none focus:border-[#FFD700]"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-semibold text-gray-400 uppercase mb-1">
+                      <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                         Password
                       </label>
                       <input
@@ -753,7 +753,7 @@ export default function GatewaysAndEmailSettings({
                             },
                           })
                         }
-                        className="w-full px-3 py-1.5 rounded-lg bg-[#04010a] border border-purple-500/30 text-white font-mono text-xs focus:outline-none focus:border-[#FFD700]"
+                        className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                       />
                     </div>
                   </div>
@@ -820,7 +820,7 @@ export default function GatewaysAndEmailSettings({
         {/* TAB 3: MODULE PRICING (PRD Section 14.3) */}
         {/* ========================================================================= */}
         {activeTab === "modules" && (
-          <div className="p-5 rounded-xl bg-[#080214] border border-purple-900/40 space-y-4">
+          <div className="p-6 rounded-2xl bg-[#080214] border border-purple-900/40 space-y-5">
             <div className="flex items-center justify-between pb-2 border-b border-purple-900/30">
               <div>
                 <h3 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
