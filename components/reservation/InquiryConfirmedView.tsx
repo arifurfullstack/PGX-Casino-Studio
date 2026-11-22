@@ -32,17 +32,17 @@ export default function InquiryConfirmedView({
 
       <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
         <Link
-          href="/designs"
-          className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 flex items-center justify-center gap-1.5"
+          href={`/confirmation/submission?ref=${inquiryRef}`}
+          className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-[#FFD700] hover:brightness-110 flex items-center justify-center gap-1.5 shadow-[0_0_15px_rgba(255,215,0,0.3)]"
         >
-          <span>Explore Other Themes</span>
+          <span>View Official Inquiry Receipt</span>
           <ArrowRight size={13} />
         </Link>
         <Link
-          href="/"
+          href="/designs"
           className="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/60 border border-purple-800/50"
         >
-          Return Home
+          Explore Themes
         </Link>
       </div>
     </div>

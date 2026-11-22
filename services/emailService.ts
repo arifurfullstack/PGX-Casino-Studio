@@ -307,3 +307,228 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
     });
   }
 }
+
+/**
+ * Dispatches automated transactional emails when a 120-Hour Reservation Hold Expires
+ * (Design released & 100% refund initiated per PRD Section 12 & 15)
+ */
+export async function dispatchReservationExpiredEmails(reservation: Reservation): Promise<void> {
+  const config = await getIntegrationConfig();
+  const adminEmail = config.email.adminAlertEmail;
+
+  // 1. Email to Customer
+  const customerHtml = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #080214; color: #ffffff; padding: 30px; border-radius: 16px; border: 2px solid #ef4444;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h1 style="color: #ffd700; font-size: 24px; text-transform: uppercase; margin: 0;">ALL I GAMING</h1>
+        <p style="color: #ef4444; font-size: 13px; font-weight: bold; margin-top: 4px;">RESERVATION HOLD EXPIRED — REFUND INITIATED</p>
+      </div>
+
+      <div style="background: #110526; padding: 20px; border-radius: 12px; border: 1px solid #4c1d95; margin-bottom: 20px;">
+        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">5-Day Reservation Period Concluded</h2>
+        <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
+        <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
+          Your 120-hour (5-day) reservation hold on the <strong>${reservation.selectedDesignName}</strong> casino platform solution has concluded without an executed turnkey agreement.
+        </p>
+
+        <div style="background: #080214; border: 1px solid #ef4444; padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <table style="width: 100%; font-size: 13px; color: #e5e7eb;">
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Reservation ID:</td>
+              <td style="font-weight: bold; color: #ffd700; text-align: right;">${reservation.reservationId}</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Reserved Theme:</td>
+              <td style="font-weight: bold; text-align: right;">${reservation.selectedDesignName}</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Reservation Fee:</td>
+              <td style="font-weight: bold; color: #34d399; text-align: right;">$${reservation.reservationFee} USD</td>
+            </tr>
+            <tr style="border-top: 1px solid #4c1d95;">
+              <td style="color: #ffffff; font-weight: bold; padding: 6px 0;">Refund Status:</td>
+              <td style="font-weight: bold; color: #34d399; font-size: 14px; text-align: right;">Full $500 Refund Initiated</td>
+            </tr>
+          </table>
+        </div>
+
+        <p style="color: #d1d5db; font-size: 13px; line-height: 1.6;">
+          As guaranteed by our 100% Refundable Policy, your full $500 USD holding deposit has been queued for immediate return to your original payment method. The temporary design lock and 5% price incentive have now been released.
+        </p>
+        <p style="color: #9ca3af; font-size: 12px; margin-top: 12px;">
+          Should you wish to resume your casino platform deployment in the future, our enterprise team remains at your service.
+        </p>
+      </div>
+
+      <p style="color: #9ca3af; font-size: 12px; text-align: center;">
+        All I Gaming Platform Solutions • 24/7 Global Turnkey Services
+      </p>
+    </div>
+  `;
+
+  await sendEmail({
+    to: reservation.customerEmail,
+    subject: `All I Gaming — Reservation Expired & Refund Initiated [${reservation.reservationId}]`,
+    html: customerHtml,
+  });
+
+  // 2. Alert Email to Admin
+  if (adminEmail) {
+    const adminHtml = `
+      <div style="font-family: sans-serif; background: #0c041c; color: #fff; padding: 25px; border-radius: 12px; border: 2px solid #ef4444;">
+        <h2 style="color: #ef4444; margin-top: 0;">⚠️ Reservation Expired — Action Required: Process $500 Refund</h2>
+        <p>A 5-day holding reservation has reached its 120-hour expiration limit:</p>
+        <ul>
+          <li><strong>Reservation ID:</strong> ${reservation.reservationId}</li>
+          <li><strong>Client:</strong> ${reservation.customerName} (${reservation.customerEmail})</li>
+          <li><strong>Design Theme:</strong> ${reservation.selectedDesignName} (Hold Released)</li>
+          <li><strong>Deposit to Refund:</strong> $${reservation.reservationFee} USD</li>
+        </ul>
+        <p style="margin-top: 20px;"><a href="${process.env.NEXT_PUBLIC_SITE_URL || "https://alligaming.com"}/admin/reservations" style="background: #ef4444; color: #fff; padding: 8px 16px; border-radius: 6px; text-decoration: none; font-weight: bold;">Process Refund in Admin Dashboard →</a></p>
+      </div>
+    `;
+
+    await sendEmail({
+      to: adminEmail,
+      subject: `[Action Required] Reservation Expired: ${reservation.customerName} (${reservation.reservationId})`,
+      html: adminHtml,
+    });
+  }
+}
+
+/**
+ * Dispatches automated transactional emails when a Commercial Agreement is Completed
+ * ($500 reservation fee is credited toward the final invoice balance)
+ */
+export async function dispatchAgreementCompletedEmails(reservation: Reservation): Promise<void> {
+  const config = await getIntegrationConfig();
+  const adminEmail = config.email.adminAlertEmail;
+
+  // 1. Email to Customer
+  const customerHtml = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #080214; color: #ffffff; padding: 30px; border-radius: 16px; border: 2px solid #ffd700;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h1 style="color: #ffd700; font-size: 24px; text-transform: uppercase; margin: 0;">ALL I GAMING</h1>
+        <p style="color: #34d399; font-size: 13px; font-weight: bold; margin-top: 4px;">★ TURNKEY AGREEMENT EXECUTED ★</p>
+      </div>
+
+      <div style="background: #110526; padding: 20px; border-radius: 12px; border: 1px solid #4c1d95; margin-bottom: 20px;">
+        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">Agreement Confirmed — $500 Credited</h2>
+        <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
+        <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
+          Congratulations! Your turnkey online casino solution agreement for <strong>${reservation.selectedDesignName}</strong> has been officially executed.
+        </p>
+
+        <div style="background: #080214; border: 1px solid #ffd700; padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <table style="width: 100%; font-size: 13px; color: #e5e7eb;">
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Reservation / Agreement Ref:</td>
+              <td style="font-weight: bold; color: #ffd700; text-align: right;">${reservation.reservationId}</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Selected Theme:</td>
+              <td style="font-weight: bold; text-align: right;">${reservation.selectedDesignName}</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Locked Package Price:</td>
+              <td style="font-weight: bold; text-align: right;">$${reservation.discountedPrice.toLocaleString()} USD</td>
+            </tr>
+            <tr>
+              <td style="color: #34d399; font-weight: bold; padding: 4px 0;">Reservation Credit Applied:</td>
+              <td style="font-weight: bold; color: #34d399; text-align: right;">-$${reservation.reservationFee} USD</td>
+            </tr>
+            <tr style="border-top: 1px solid #4c1d95;">
+              <td style="color: #ffffff; font-weight: bold; padding: 6px 0;">Remaining Project Balance:</td>
+              <td style="font-weight: bold; color: #ffd700; font-size: 16px; text-align: right;">$${reservation.remainingBalance.toLocaleString()} USD</td>
+            </tr>
+          </table>
+        </div>
+
+        <p style="color: #d1d5db; font-size: 13px; line-height: 1.6;">
+          Your $500 holding deposit has been fully credited toward your project total. Your dedicated technical account manager will now schedule the engineering onboarding kick-off.
+        </p>
+      </div>
+
+      <p style="color: #9ca3af; font-size: 12px; text-align: center;">
+        Welcome to the All I Gaming operator network.
+      </p>
+    </div>
+  `;
+
+  await sendEmail({
+    to: reservation.customerEmail,
+    subject: `All I Gaming — Agreement Executed & $500 Credited [${reservation.reservationId}]`,
+    html: customerHtml,
+  });
+
+  // 2. Alert Email to Admin
+  if (adminEmail) {
+    const adminHtml = `
+      <div style="font-family: sans-serif; background: #0c041c; color: #fff; padding: 25px; border-radius: 12px; border: 2px solid #ffd700;">
+        <h2 style="color: #ffd700; margin-top: 0;">🎉 Agreement Executed — $500 Credited</h2>
+        <p>Agreement signed and confirmed for reservation ${reservation.reservationId}:</p>
+        <ul>
+          <li><strong>Client:</strong> ${reservation.customerName} (${reservation.customerEmail})</li>
+          <li><strong>Theme:</strong> ${reservation.selectedDesignName}</li>
+          <li><strong>Total Package Value:</strong> $${reservation.discountedPrice.toLocaleString()} USD</li>
+          <li><strong>Remaining Milestone Balance:</strong> $${reservation.remainingBalance.toLocaleString()} USD</li>
+        </ul>
+      </div>
+    `;
+
+    await sendEmail({
+      to: adminEmail,
+      subject: `[Agreement Executed] ${reservation.customerName} (${reservation.reservationId})`,
+      html: adminHtml,
+    });
+  }
+}
+
+/**
+ * Dispatches automated transactional emails when a $500 Reservation Refund is Processed
+ */
+export async function dispatchRefundCompletedEmails(reservation: Reservation): Promise<void> {
+  const customerHtml = `
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #080214; color: #ffffff; padding: 30px; border-radius: 16px; border: 2px solid #34d399;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <h1 style="color: #ffd700; font-size: 24px; text-transform: uppercase; margin: 0;">ALL I GAMING</h1>
+        <p style="color: #34d399; font-size: 13px; font-weight: bold; margin-top: 4px;">REFUND COMPLETED — RECEIPT</p>
+      </div>
+
+      <div style="background: #110526; padding: 20px; border-radius: 12px; border: 1px solid #4c1d95; margin-bottom: 20px;">
+        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">$500 Holding Deposit Refunded</h2>
+        <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
+        <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
+          Your <strong>$500 USD refundable holding deposit</strong> for reservation reference <strong>${reservation.reservationId}</strong> has been successfully returned to your original payment method.
+        </p>
+
+        <div style="background: #080214; border: 1px solid #34d399; padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <table style="width: 100%; font-size: 13px; color: #e5e7eb;">
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Reservation ID:</td>
+              <td style="font-weight: bold; color: #ffd700; text-align: right;">${reservation.reservationId}</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Refund Amount:</td>
+              <td style="font-weight: bold; color: #34d399; font-size: 15px; text-align: right;">$500.00 USD</td>
+            </tr>
+            <tr>
+              <td style="color: #9ca3af; padding: 4px 0;">Processed Date:</td>
+              <td style="font-weight: bold; color: #ffffff; text-align: right;">${new Date().toUTCString()}</td>
+            </tr>
+          </table>
+        </div>
+
+        <p style="color: #9ca3af; font-size: 12px;">
+          Depending on your card issuer or network, the funds typically appear on your statement within 3–7 business days (or within minutes for crypto transfers).
+        </p>
+      </div>
+    </div>
+  `;
+
+  await sendEmail({
+    to: reservation.customerEmail,
+    subject: `All I Gaming — $500 Refund Processed [${reservation.reservationId}]`,
+    html: customerHtml,
+  });
+}

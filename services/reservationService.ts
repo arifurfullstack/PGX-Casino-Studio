@@ -1,6 +1,11 @@
 import { connectToDatabase } from "@/lib/mongodb";
 import { ReservationModel } from "@/models";
 import { Reservation, ReservationStatus, PaymentStatus } from "@/types";
+import {
+  dispatchReservationExpiredEmails,
+  dispatchAgreementCompletedEmails,
+  dispatchRefundCompletedEmails,
+} from "./emailService";
 
 export interface CreateReservationInput {
   inquiryId: string;
@@ -137,12 +142,32 @@ export async function updateReservationStatus(
   paymentStatus?: PaymentStatus
 ): Promise<boolean> {
   await connectToDatabase();
-  const updateData: { status: ReservationStatus; paymentStatus?: PaymentStatus } = { status };
+  const updateData: { status: ReservationStatus; paymentStatus?: PaymentStatus; refundCompletedAt?: Date } = { status };
   if (paymentStatus) {
     updateData.paymentStatus = paymentStatus;
   }
+  if (status === "refunded") {
+    updateData.refundCompletedAt = new Date();
+  }
 
   const res = await ReservationModel.updateOne({ reservationId }, { $set: updateData });
+
+  if (res.modifiedCount > 0) {
+    // Dispatch lifecycle automated transactional email in background
+    getReservationById(reservationId).then((updated) => {
+      if (!updated) return;
+      if (status === "agreement_completed") {
+        dispatchAgreementCompletedEmails(updated).catch((err) =>
+          console.warn("[Email] Agreement email dispatch error:", err)
+        );
+      } else if (status === "refunded") {
+        dispatchRefundCompletedEmails(updated).catch((err) =>
+          console.warn("[Email] Refund email dispatch error:", err)
+        );
+      }
+    }).catch((err) => console.warn("[Reservation] Status update hook error:", err));
+  }
+
   return res.modifiedCount > 0;
 }
 
@@ -173,6 +198,33 @@ export async function checkAndExpireReservations(): Promise<ExpirationCheckResul
     await res.save();
     expiredReservationIds.push(res.reservationId);
     console.log(`[Auto-Expire Cron] Reservation ${res.reservationId} has expired. Refund initiated.`);
+
+    // Dispatch automated expiration email
+    const reservationDto: Reservation = {
+      id: res._id.toString(),
+      reservationId: res.reservationId,
+      inquiryId: res.inquiryId,
+      customerName: res.customerName,
+      customerEmail: res.customerEmail,
+      customerPhone: res.customerPhone,
+      selectedDesignName: res.selectedDesignName,
+      selectedAddons: res.selectedAddons,
+      originalPackagePrice: res.originalPackagePrice,
+      discountPercent: res.discountPercent,
+      discountedPrice: res.discountedPrice,
+      reservationFee: res.reservationFee,
+      remainingBalance: res.remainingBalance,
+      paymentStatus: res.paymentStatus,
+      status: res.status,
+      startTime: res.startTime.toISOString(),
+      expiresAt: res.expiresAt.toISOString(),
+      refundInitiatedAt: res.refundInitiatedAt?.toISOString(),
+      createdAt: res.createdAt?.toISOString(),
+    };
+
+    dispatchReservationExpiredEmails(reservationDto).catch((err) =>
+      console.warn(`[Auto-Expire Cron] Email dispatch error for ${res.reservationId}:`, err)
+    );
   }
 
   return {

@@ -76,14 +76,19 @@ export async function initiateStripePaymentAction(input: {
   customerEmail: string;
   customerName: string;
   designName: string;
+  returnUrl?: string;
 }) {
   return createStripeReservationSession(input);
 }
 
 export async function submitCryptoPaymentAction(
-  reservationId: string,
-  txHash: string,
-  network: string
+  param1: string | { reservationId: string; txHash: string; cryptoNetwork?: string; network?: string },
+  param2?: string,
+  param3?: string
 ) {
-  return recordCryptoPayment(reservationId, txHash, network);
+  if (typeof param1 === "object") {
+    const { reservationId, txHash, cryptoNetwork, network } = param1;
+    return recordCryptoPayment(reservationId, txHash, cryptoNetwork || network || "USDT-TRC20");
+  }
+  return recordCryptoPayment(param1, param2 || "", param3 || "USDT-TRC20");
 }

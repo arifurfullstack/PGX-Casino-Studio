@@ -53,7 +53,7 @@ export async function createStripeReservationSession(
         customerName: input.customerName,
         designName: input.designName,
       },
-      success_url: `${origin}/select-design?success=1&reservationId=${input.reservationId}`,
+      success_url: `${origin}/confirmation/reservation?id=${input.reservationId}&stripe_success=1`,
       cancel_url: `${origin}/select-design?cancelled=1&reservationId=${input.reservationId}`,
     });
 

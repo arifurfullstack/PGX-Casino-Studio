@@ -1,6 +1,7 @@
 import { Crown, Mail, Phone, Send, MessageSquare } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site-config";
 import ContactForm from "@/components/contact/ContactForm";
+import { getAllActiveDesigns } from "@/services/casinoService";
 
 export const metadata = {
   title: "Contact Us & Request a Quote | All I Gaming",
@@ -13,6 +14,8 @@ interface ContactPageProps {
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const { design, module } = await searchParams;
+  const activeDesigns = await getAllActiveDesigns();
+  const designOptions = activeDesigns.map((d) => ({ id: d.slug, name: d.name }));
 
   return (
     <main className="min-h-screen pt-8 sm:pt-12 pb-20 bg-[#04010a] text-white">
@@ -39,7 +42,11 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
           
           {/* Left Form */}
           <div className="lg:col-span-8">
-            <ContactForm initialDesign={design} initialModule={module} />
+            <ContactForm
+              initialDesign={design}
+              initialModule={module}
+              designs={designOptions}
+            />
           </div>
 
           {/* Right Direct Channels */}

@@ -1,13 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import Link from "next/link";
+import { Send, CheckCircle2, AlertCircle, ArrowRight } from "lucide-react";
 import { submitInquiryAction } from "@/app/actions/inquiryActions";
 import { TimelineOption } from "@/types";
+
+export interface ContactDesignOption {
+  id: string;
+  name: string;
+}
 
 interface ContactFormProps {
   initialDesign?: string;
   initialModule?: string;
+  designs?: ContactDesignOption[];
 }
 
 const DESIGNS_LIST = [
@@ -25,13 +32,16 @@ const DESIGNS_LIST = [
   { id: "mystic-casino", name: "Mystic Casino" },
 ];
 
-export default function ContactForm({ initialDesign, initialModule }: ContactFormProps) {
+export default function ContactForm({ initialDesign, initialModule, designs }: ContactFormProps) {
+  const availableDesigns = designs && designs.length > 0 ? designs : DESIGNS_LIST;
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [companyName, setCompanyName] = useState("");
-  const [selectedDesignId, setSelectedDesignId] = useState(initialDesign || "royal-prestige");
+  const [selectedDesignId, setSelectedDesignId] = useState(
+    initialDesign || (availableDesigns[0]?.id ?? "royal-prestige")
+  );
   const [timeline, setTimeline] = useState<TimelineOption>("immediately");
   const selectedAddons = initialModule ? [initialModule] : [];
   const [projectRequirements, setProjectRequirements] = useState("");
@@ -43,7 +53,7 @@ export default function ContactForm({ initialDesign, initialModule }: ContactFor
     setLoading(true);
     setResult(null);
 
-    const designObj = DESIGNS_LIST.find((d) => d.id === selectedDesignId);
+    const designObj = availableDesigns.find((d) => d.id === selectedDesignId);
 
     const res = await submitInquiryAction({
       fullName,
@@ -80,6 +90,15 @@ export default function ContactForm({ initialDesign, initialModule }: ContactFor
         <p className="text-xs sm:text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
           Thank you for reaching out. An All I Gaming enterprise technical coordinator will contact you via Email and WhatsApp within 4 business hours.
         </p>
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Link
+            href={`/confirmation/submission?ref=${result.ref}`}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-[#FFD700] hover:brightness-110 transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)]"
+          >
+            <span>View Official Submission Receipt</span>
+            <ArrowRight size={14} />
+          </Link>
+        </div>
       </div>
     );
   }
@@ -163,7 +182,7 @@ export default function ContactForm({ initialDesign, initialModule }: ContactFor
             onChange={(e) => setSelectedDesignId(e.target.value)}
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white focus:outline-none focus:border-yellow-400"
           >
-            {DESIGNS_LIST.map((d) => (
+            {availableDesigns.map((d) => (
               <option key={d.id} value={d.id} className="bg-[#0e0420] text-white">
                 {d.name} ($15,000 USD)
               </option>

@@ -77,17 +77,17 @@ export default function ReservationConfirmedView({
 
       <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
         <Link
-          href="/designs"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110"
+          href={`/confirmation/reservation?id=${reservationDetails.reservationId}`}
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-black bg-gradient-to-r from-[#FFE259] to-[#FFA700] hover:brightness-110 shadow-[0_0_20px_rgba(255,215,0,0.4)]"
         >
-          <span>Browse More Designs</span>
+          <span>View Official Reservation Receipt</span>
           <ArrowRight size={14} />
         </Link>
         <Link
-          href="/"
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/60 border border-purple-800/50"
+          href="/designs"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold text-gray-300 hover:text-white bg-purple-950/60 border border-purple-800/50"
         >
-          <span>Back to Homepage</span>
+          <span>Browse Catalog</span>
         </Link>
       </div>
     </div>

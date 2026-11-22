@@ -120,6 +120,39 @@ export async function getInquiryById(id: string): Promise<CustomerInquiry | null
   }
 }
 
+export async function getInquiryByReferenceNumber(
+  referenceNumber: string
+): Promise<CustomerInquiry | null> {
+  try {
+    await connectToDatabase();
+    const doc = await CustomerInquiryModel.findOne({ referenceNumber }).lean();
+    if (!doc) return null;
+
+    return {
+      id: (doc._id as unknown as string).toString(),
+      referenceNumber: doc.referenceNumber,
+      fullName: doc.fullName,
+      email: doc.email,
+      phoneNumber: doc.phoneNumber,
+      whatsappNumber: doc.whatsappNumber,
+      companyName: doc.companyName,
+      intendedTimeline: doc.intendedTimeline,
+      projectRequirements: doc.projectRequirements,
+      selectedDesignId: doc.selectedDesignId,
+      selectedDesignName: doc.selectedDesignName,
+      selectedAddonIds: doc.selectedAddonIds || [],
+      totalPrice: doc.totalPrice,
+      status: doc.status,
+      adminNotes: doc.adminNotes,
+      createdAt: doc.createdAt?.toISOString(),
+      updatedAt: doc.updatedAt?.toISOString(),
+    };
+  } catch (error) {
+    console.warn("MongoDB get inquiry by ref error:", error);
+    return null;
+  }
+}
+
 export async function updateInquiryStatus(
   id: string,
   status: InquiryStatus,
