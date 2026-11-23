@@ -840,10 +840,10 @@ export default function HeroSection() {
           ref={headlineScrollRef}
           className="absolute z-30 will-change-transform"
           style={{
-            left: "5.0%",
-            top: "19.5%",
-            width: "41.5%",
-            height: "38.0%",
+            left: "2.0%",
+            top: "6.5%",
+            width: "45.0%",
+            height: "60.0%",
           }}
         >
           <div
@@ -866,7 +866,7 @@ export default function HeroSection() {
                 alt="Launch Your Own Premium Online Casino - Starting at $15,000"
                 fill
                 priority
-                sizes="(max-width: 1672px) 42vw, 695px"
+                sizes="(max-width: 1672px) 45vw, 755px"
                 className="hero-headline-img object-contain object-left"
               />
               {/* Pixel-masked champagne-gold light glint sweep (ambient + hover) */}
@@ -880,15 +880,15 @@ export default function HeroSection() {
           ref={copyScrollRef}
           className="absolute z-20 text-left will-change-transform"
           style={{
-            left: "6.2%",
-            top: "54.8%",
-            width: "41%",
+            left: "4.9%",
+            top: "56.6%",
+            width: "42.5%",
           }}
         >
-          <p className="js-hero-copy text-[#ffd700] text-[12px] xl:text-[13.5px] 2xl:text-[15px] font-extrabold uppercase tracking-[0.05em] leading-snug mb-1.5 xl:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
+          <p className="js-hero-copy text-[#ffd700] text-[clamp(11.5px,1.02vw,17px)] font-extrabold uppercase tracking-[0.045em] leading-snug mb-1.5 xl:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
             WHITE-LABEL TURN KEY CASINO, NO LICENSE REQUIRED!
           </p>
-          <p className="js-hero-copy text-gray-100 text-[13.5px] xl:text-[15px] 2xl:text-[16.5px] font-normal leading-[1.38] tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+          <p className="js-hero-copy text-gray-100 text-[clamp(12px,1.12vw,18.5px)] font-normal leading-[1.38] tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
             Choose Your Design, Launch with Casino Slots &amp; Game Tables,
             <br className="hidden sm:inline" />
             and Build Your Casino Brand with a Complete Platform Solution.
@@ -898,9 +898,9 @@ export default function HeroSection() {
         {/* Dual Magnetic Luxury CTA Buttons */}
         <div
           ref={ctaScrollRef}
-          className="absolute z-30 flex items-center gap-4 will-change-transform"
+          className="absolute z-30 flex items-center gap-3 xl:gap-4 will-change-transform"
           style={{
-            left: "6.2%",
+            left: "4.9%",
             top: "68.2%",
           }}
         >
@@ -909,7 +909,7 @@ export default function HeroSection() {
             href="/designs"
             onMouseMove={handleMagneticMove}
             onMouseLeave={handleMagneticLeave}
-            className="js-hero-cta group/cta btn-royal-gold shine px-7 py-3.5 text-[15.5px] font-black tracking-tight will-change-transform"
+            className="js-hero-cta group/cta btn-royal-gold shine px-5 xl:px-7 2xl:px-8 py-2.5 xl:py-3.5 text-[clamp(12.5px,1.02vw,16.5px)] font-black tracking-tight will-change-transform"
           >
             <span>Browse Casino Designs</span>
             <ArrowRight
@@ -923,7 +923,7 @@ export default function HeroSection() {
             href="/select-design"
             onMouseMove={handleMagneticMove}
             onMouseLeave={handleMagneticLeave}
-            className="js-hero-cta group/cta btn-royal-purple-neon px-7 py-3.5 text-[15.5px] font-extrabold tracking-wide will-change-transform"
+            className="js-hero-cta group/cta btn-royal-purple-neon px-5 xl:px-7 2xl:px-8 py-2.5 xl:py-3.5 text-[clamp(12.5px,1.02vw,16.5px)] font-extrabold tracking-wide will-change-transform"
           >
             <Crown
               size={20}
@@ -996,17 +996,17 @@ export default function HeroSection() {
           MOBILE & TABLET RESPONSIVE STAGE (< lg)
           Clean adaptation with identical assets, typography, and GSAP stagger
           ========================================================================= */}
-      <div className="lg:hidden relative z-10 pt-28 sm:pt-32 pb-14 px-4 sm:px-6 max-w-2xl mx-auto flex flex-col items-center text-center">
+      <div className="lg:hidden relative z-10 pt-[76px] sm:pt-24 pb-12 sm:pb-16 px-4 sm:px-6 max-w-2xl mx-auto flex flex-col items-center text-center">
         {/* Soft readability scrim over full-bleed hero backdrop on mobile/tablet */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -inset-x-8 inset-y-0 z-0 bg-gradient-to-b from-[#0a0214]/55 via-[#0a0214]/35 to-transparent"
+          className="pointer-events-none absolute -inset-x-8 inset-y-0 z-0 bg-gradient-to-b from-[#0a0214]/65 via-[#0a0214]/40 to-transparent"
         />
 
         {/* Content Container */}
         <div className="relative z-10 w-full flex flex-col items-center">
-          {/* Headline Image Responsive Scale (Animated + Interactive Hover) */}
-          <div className="js-hero-mobile-stagger group/headline relative w-full max-w-md sm:max-w-lg aspect-[1448/1086] mb-2 cursor-pointer">
+          {/* Headline Image Responsive Scale (trimmed vertical margin to offset PNG transparent padding) */}
+          <div className="js-hero-mobile-stagger group/headline relative w-[108%] max-w-[460px] sm:max-w-[560px] md:max-w-[620px] aspect-[1448/1086] -mt-[8%] -mb-[10%] sm:-mt-[9%] sm:-mb-[10%] cursor-pointer">
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -inset-4 rounded-full opacity-45 blur-[40px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:scale-110 group-hover/headline:opacity-90"
@@ -1021,7 +1021,7 @@ export default function HeroSection() {
                 alt="Launch Your Own Premium Online Casino - Starting at $15,000"
                 fill
                 priority
-                sizes="(max-width: 768px) 95vw, 500px"
+                sizes="(max-width: 640px) 96vw, (max-width: 1024px) 620px, 620px"
                 className="hero-headline-img object-contain object-center"
               />
               <div className="hero-headline-mask-center" aria-hidden="true" />
@@ -1029,64 +1029,67 @@ export default function HeroSection() {
           </div>
 
           {/* Tagline */}
-          <p className="js-hero-mobile-stagger text-[#ffd700] text-xs sm:text-sm font-extrabold uppercase tracking-[0.05em] leading-snug max-w-lg mt-2 mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
+          <p className="js-hero-mobile-stagger text-[#ffd700] text-[13px] sm:text-[15px] md:text-base font-extrabold uppercase tracking-[0.045em] leading-snug max-w-md sm:max-w-xl mt-2 mb-2 px-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
             WHITE-LABEL TURN KEY CASINO, NO LICENSE REQUIRED!
           </p>
 
           {/* Subtitle */}
-          <p className="js-hero-mobile-stagger text-gray-200 text-xs sm:text-sm font-medium leading-relaxed max-w-lg mb-6">
+          <p className="js-hero-mobile-stagger text-gray-100/95 text-[13.5px] sm:text-[15px] md:text-base font-normal leading-relaxed max-w-md sm:max-w-xl mb-6 px-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
             Choose Your Design, Launch with Casino Slots &amp; Game Tables, and Build Your Casino Brand with a Complete Platform Solution.
           </p>
 
-          {/* Dual CTAs Stacked / Wrapped */}
-          <div className="js-hero-mobile-stagger flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full max-w-md mb-8">
+          {/* Dual CTAs Stacked on Mobile / Side-by-Side on sm+ */}
+          <div className="js-hero-mobile-stagger flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full max-w-sm sm:max-w-lg mb-7">
             <Link
               href="/designs"
-              className="btn-royal-gold shine w-full sm:w-auto px-6 py-3.5 text-xs sm:text-sm font-black text-center"
+              className="btn-royal-gold shine w-full sm:w-auto min-h-[48px] px-6 sm:px-7 py-3.5 text-sm sm:text-[15px] font-black text-center"
             >
               <span>Browse Casino Designs</span>
-              <ArrowRight size={16} className="stroke-[3]" />
+              <ArrowRight size={17} className="stroke-[3]" />
             </Link>
 
             <Link
               href="/select-design"
-              className="btn-royal-purple-neon w-full sm:w-auto px-6 py-3.5 text-xs sm:text-sm font-bold text-center"
+              className="btn-royal-purple-neon w-full sm:w-auto min-h-[48px] px-6 sm:px-7 py-3.5 text-sm sm:text-[15px] font-extrabold text-center"
             >
-              <Crown size={16} className="fill-[#ffd700] text-[#ffd700] stroke-[1.5]" />
+              <Crown size={18} className="fill-[#ffd700] text-[#ffd700] stroke-[1.5]" />
               <span>Reserve A Casino</span>
             </Link>
           </div>
 
           {/* Responsive Showcase Visual: Model + Casino Objects Composite */}
-          <div className="js-hero-mobile-stagger relative w-full max-w-lg aspect-[16/10] my-4 overflow-hidden rounded-2xl border border-purple-700/30 bg-[#0d0322]/60 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.25)]">
+          <div className="js-hero-mobile-stagger relative w-full max-w-lg md:max-w-2xl aspect-[16/10] my-2 sm:my-4 overflow-hidden rounded-2xl border border-purple-700/35 bg-[#0d0322]/65 backdrop-blur-md shadow-[0_0_30px_rgba(168,85,247,0.28)]">
             <Image
               src="/images/royal-hero/royal-hero-bg.png"
               alt="Casino stage background"
               fill
+              sizes="(max-width: 640px) 94vw, 672px"
               className="object-cover opacity-60"
             />
             {/* Model */}
-            <div className="js-hero-model-float absolute left-[5%] bottom-0 w-[48%] h-[92%]">
+            <div className="js-hero-model-float absolute left-[4%] bottom-0 w-[48%] h-[94%]">
               <Image
                 src="/images/royal-hero/royal-hero-model.png"
                 alt="Casino Dealer Model"
                 fill
+                sizes="(max-width: 640px) 46vw, 320px"
                 className="object-contain object-bottom"
               />
             </div>
             {/* Objects */}
-            <div className="js-hero-objects-float absolute right-[0%] bottom-0 w-[64%] h-[88%]">
+            <div className="js-hero-objects-float absolute right-[0%] bottom-0 w-[64%] h-[90%]">
               <Image
                 src="/images/royal-hero/royal-hero-objects.png"
                 alt="Casino 777 Slot Machine & Roulette"
                 fill
+                sizes="(max-width: 640px) 62vw, 430px"
                 className="object-contain object-bottom"
               />
             </div>
           </div>
 
           {/* Responsive Features Grid (2 Columns on mobile, 3 on tablet) */}
-          <div className="js-hero-mobile-stagger w-full mt-6">
+          <div className="js-hero-mobile-stagger w-full mt-5 sm:mt-6">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
               {features.map((feat, idx) => {
                 const Icon = feat.icon;
@@ -1094,16 +1097,16 @@ export default function HeroSection() {
                   <Link
                     key={idx}
                     href={feat.href}
-                    className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-xl bg-[#120329]/80 border border-purple-600/40 hover:border-[#ffd700]/70 hover:bg-purple-950/40 backdrop-blur-md transition-all duration-300 text-left shadow-[0_0_15px_rgba(168,85,247,0.15)] group"
+                    className="flex items-center gap-2.5 p-2.5 sm:p-3 rounded-xl bg-[#120329]/85 border border-purple-600/40 hover:border-[#ffd700]/70 hover:bg-purple-950/40 backdrop-blur-md transition-all duration-300 text-left shadow-[0_0_15px_rgba(168,85,247,0.15)] group"
                   >
-                    <div className="shrink-0 flex items-center justify-center w-8 h-8 rounded-lg bg-purple-950/90 border border-purple-500/40 text-[#FFD700] group-hover:scale-110 transition-transform">
+                    <div className="shrink-0 flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-purple-950/90 border border-purple-500/40 text-[#FFD700] group-hover:scale-110 transition-transform">
                       <Icon size={16} className="stroke-[2]" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[11px] sm:text-xs font-bold text-white leading-tight truncate">
+                      <p className="text-[11.5px] sm:text-xs font-bold text-white leading-tight truncate">
                         {feat.title}
                       </p>
-                      <p className="text-[10px] sm:text-[11px] text-[#ffd700] leading-tight truncate font-semibold">
+                      <p className="text-[10.5px] sm:text-[11px] text-[#ffd700] leading-tight truncate font-semibold">
                         {feat.subtitle}
                       </p>
                     </div>
