@@ -9,11 +9,11 @@ import { CheckCircle2, Video, Trophy, Spade, Gift, Crown, Sparkles } from "lucid
 const includedItems = [
   {
     title: "Your selected casino design",
-    detail: null,
+    detail: "(Choose from 12 luxury turnkey themes)",
   },
   {
     title: "Online casino slots",
-    detail: null,
+    detail: "(Premium HTML5 slot library ready to play)",
   },
   {
     title: "Casino game tables",
@@ -22,6 +22,10 @@ const includedItems = [
   {
     title: "Your casino branding",
     detail: "(logo, colors, and domain setup)",
+  },
+  {
+    title: "Turnkey launch & admin panel",
+    detail: "(Hosting, player management & 24/7 support)",
   },
 ];
 
@@ -72,64 +76,70 @@ export default function StarterPackageSection() {
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
       const ctx = gsap.context(() => {
-        /* 1. Cinematic Vault Scroll Entrance */
+        /* 1. Cinematic Vault Scroll Entrance (fromTo + clearProps prevents CSS transition opacity lock) */
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
-            start: "top 82%",
+            start: "top 88%",
             once: true,
           },
         });
 
-        tl.from(".js-sp-vault", {
-          opacity: 0,
-          y: 38,
-          scale: 0.975,
-          duration: 0.9,
-          ease: "power3.out",
-        })
-          .from(
+        tl.fromTo(
+          ".js-sp-vault",
+          { opacity: 0, y: 32, scale: 0.98 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.85, ease: "power3.out", clearProps: "opacity" }
+        )
+          .fromTo(
             ".js-sp-crown",
+            { opacity: 0, scale: 0.88, y: 20 },
             {
-              opacity: 0,
-              scale: 0.85,
-              y: 22,
-              duration: 0.85,
+              opacity: 1,
+              scale: 1,
+              y: 0,
+              duration: 0.8,
               ease: "back.out(1.4)",
+              clearProps: "opacity",
             },
-            "-=0.6"
+            "-=0.55"
           )
-          .from(
+          .fromTo(
             ".js-sp-col1",
+            { opacity: 0, y: 16 },
             {
-              opacity: 0,
-              y: 18,
-              duration: 0.6,
-              stagger: 0.08,
-              ease: "power3.out",
-            },
-            "-=0.6"
-          )
-          .from(
-            ".js-sp-check",
-            {
-              opacity: 0,
-              x: -16,
+              opacity: 1,
+              y: 0,
               duration: 0.55,
-              stagger: 0.08,
+              stagger: 0.07,
+              ease: "power3.out",
+              clearProps: "transform,opacity",
+            },
+            "-=0.55"
+          )
+          .fromTo(
+            ".js-sp-check",
+            { opacity: 0, x: -14 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.5,
+              stagger: 0.07,
               ease: "power2.out",
+              clearProps: "transform,opacity",
             },
             "-=0.45"
           )
-          .from(
+          .fromTo(
             ".js-sp-addon",
+            { opacity: 0, y: 18, scale: 0.94 },
             {
-              opacity: 0,
-              y: 20,
-              scale: 0.93,
-              duration: 0.55,
-              stagger: 0.08,
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              duration: 0.5,
+              stagger: 0.07,
               ease: "back.out(1.35)",
+              clearProps: "transform,opacity",
             },
             "-=0.45"
           );
@@ -280,12 +290,46 @@ export default function StarterPackageSection() {
     <section
       id="packages"
       ref={sectionRef}
-      className="py-10 sm:py-14 relative z-10 [perspective:1400px]"
+      className="pt-2 pb-10 sm:pt-3 sm:pb-14 lg:-mt-4 relative z-10 [perspective:1400px]"
     >
       <div className="mx-auto max-w-[1672px] px-4 sm:px-6 lg:px-12">
+        {/* Minimal Luxury Ornamental Crest Divider bridging Hero & Starter Vault */}
+        <div
+          aria-hidden="true"
+          className="mb-4 sm:mb-5 flex items-center justify-center gap-2.5 sm:gap-5 select-none"
+        >
+          <span className="h-px flex-1 max-w-[260px] bg-gradient-to-r from-transparent via-[#f5c451]/55 to-[#f5c451]/90" />
+          <svg
+            viewBox="0 0 28 16"
+            className="hidden sm:block h-3.5 w-6 shrink-0 text-[#f5c451] drop-shadow-[0_0_8px_rgba(245,196,81,0.55)]"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M2 8L8 3L14 8L8 13L2 8Z" stroke="currentColor" strokeWidth="1.2" fill="rgba(245,196,81,0.18)" />
+            <path d="M14 8L20 3L26 8L20 13L14 8Z" stroke="currentColor" strokeWidth="1.2" fill="rgba(217,70,239,0.22)" />
+            <circle cx="14" cy="8" r="2" fill="#fff3b0" />
+          </svg>
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-full border border-[#f5c451]/40 bg-[#1a072e]/75 px-3 sm:px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] sm:tracking-[0.26em] text-[#ffe28a]/95 shadow-[0_0_20px_rgba(245,196,81,0.16),inset_0_1px_0_rgba(255,243,196,0.2)] backdrop-blur-md">
+            <Crown className="h-3 w-3 shrink-0 fill-[#ffd75e] text-[#ffd75e]" />
+            <span>Turnkey Royal Platform</span>
+            <span className="text-[#e879f9]">◆</span>
+          </span>
+          <svg
+            viewBox="0 0 28 16"
+            className="hidden sm:block h-3.5 w-6 shrink-0 text-[#f5c451] drop-shadow-[0_0_8px_rgba(245,196,81,0.55)]"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M2 8L8 3L14 8L8 13L2 8Z" stroke="currentColor" strokeWidth="1.2" fill="rgba(217,70,239,0.22)" />
+            <path d="M14 8L20 3L26 8L20 13L14 8Z" stroke="currentColor" strokeWidth="1.2" fill="rgba(245,196,81,0.18)" />
+            <circle cx="14" cy="8" r="2" fill="#fff3b0" />
+          </svg>
+          <span className="h-px flex-1 max-w-[260px] bg-gradient-to-l from-transparent via-[#f5c451]/55 to-[#f5c451]/90" />
+        </div>
+
         <div
           ref={vaultRef}
-          className="js-sp-vault panel panel-interactive relative overflow-hidden grid gap-8 p-6 lg:grid-cols-[1.3fr_1fr_1.2fr] lg:gap-0 lg:p-9 xl:p-11 will-change-transform"
+          className="js-sp-vault panel panel-interactive relative overflow-hidden grid gap-6 sm:gap-8 p-5 sm:p-6 lg:grid-cols-[1.3fr_1fr_1.2fr] lg:gap-0 lg:p-9 xl:p-11 will-change-transform"
           style={{
             transformStyle: "preserve-3d",
             boxShadow:
@@ -410,7 +454,16 @@ export default function StarterPackageSection() {
           </div>
 
           {/* Col 2: What's Included */}
-          <div className="relative z-10 lg:px-8 xl:px-10">
+          <div className="relative z-10 pt-6 lg:pt-0 lg:px-8 xl:px-10">
+            {/* Subtle Gold-to-Violet Horizontal Divider on Mobile/Tablet */}
+            <div
+              aria-hidden="true"
+              className="lg:hidden pointer-events-none absolute top-0 left-2 right-2 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent 0%, rgba(245, 196, 81, 0.45) 30%, rgba(192, 132, 252, 0.35) 70%, transparent 100%)",
+              }}
+            />
             {/* Subtle Gold-to-Violet Vertical Divider on Desktop */}
             <div
               aria-hidden="true"
@@ -421,16 +474,16 @@ export default function StarterPackageSection() {
               }}
             />
 
-            <h3 className="js-sp-col1 flex items-center gap-2 text-lg xl:text-xl font-bold uppercase tracking-wide text-[#f5c451]">
+            <h3 className="js-sp-col1 flex items-center gap-2 text-base sm:text-lg xl:text-xl font-bold uppercase tracking-wide text-[#f5c451]">
               <Sparkles className="h-4 w-4 text-[#ffd75e]" />
               <span>Included:</span>
             </h3>
 
-            <ul className="mt-4 space-y-3 text-sm sm:text-base xl:text-[17px]">
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base xl:text-[16.5px]">
               {includedItems.map((item, idx) => (
                 <li
                   key={idx}
-                  className="js-sp-check group/item flex items-start gap-3 rounded-xl px-2.5 py-1.5 -mx-2.5 transition-all duration-300 hover:translate-x-1 hover:bg-white/[0.03]"
+                  className="js-sp-check group/item flex items-start gap-3 rounded-xl px-2.5 py-1.5 -mx-2.5 transition-colors duration-200 hover:bg-white/[0.04]"
                 >
                   <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[#f5c451]/45 bg-[#2a0a4a]/80 text-[#f5c451] shadow-[0_0_12px_rgba(245,196,81,0.2)] transition-all duration-300 group-hover/item:border-[#ffe28a] group-hover/item:shadow-[0_0_18px_rgba(245,196,81,0.45)]">
                     <CheckCircle2 className="h-3.5 w-3.5" />
@@ -449,7 +502,16 @@ export default function StarterPackageSection() {
           </div>
 
           {/* Col 3: Available Add-On Modules */}
-          <div id="addons" className="relative z-10 lg:pl-8 xl:pl-10">
+          <div id="addons" className="relative z-10 pt-6 lg:pt-0 lg:pl-8 xl:pl-10">
+            {/* Subtle Gold-to-Violet Horizontal Divider on Mobile/Tablet */}
+            <div
+              aria-hidden="true"
+              className="lg:hidden pointer-events-none absolute top-0 left-2 right-2 h-px"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent 0%, rgba(245, 196, 81, 0.45) 30%, rgba(192, 132, 252, 0.35) 70%, transparent 100%)",
+              }}
+            />
             {/* Subtle Gold-to-Violet Vertical Divider on Desktop */}
             <div
               aria-hidden="true"
@@ -460,11 +522,11 @@ export default function StarterPackageSection() {
               }}
             />
 
-            <h3 className="js-sp-col1 text-lg xl:text-xl font-bold uppercase tracking-wide text-[#f5c451]">
+            <h3 className="js-sp-col1 text-base sm:text-lg xl:text-xl font-bold uppercase tracking-wide text-[#f5c451]">
               Available add-on modules:
             </h3>
 
-            <ul className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
+            <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
               {addonModules.map((mod, idx) => {
                 const Icon = mod.icon;
                 return (
@@ -475,7 +537,7 @@ export default function StarterPackageSection() {
                       rel="noopener noreferrer"
                       onMouseEnter={(e) => handleAddonHover(e, true)}
                       onMouseLeave={(e) => handleAddonHover(e, false)}
-                      className="group/addon panel panel-interactive relative flex h-full min-h-[112px] flex-col items-center justify-center gap-2.5 overflow-hidden !rounded-xl px-2.5 py-3.5 text-center text-[13px] xl:text-sm font-semibold leading-tight will-change-transform"
+                      className="group/addon panel panel-interactive relative flex h-full min-h-[98px] sm:min-h-[112px] flex-col items-center justify-center gap-2 sm:gap-2.5 overflow-hidden !rounded-xl px-2.5 py-3 sm:py-3.5 text-center text-[12.5px] sm:text-[13px] xl:text-sm font-semibold leading-tight will-change-transform"
                     >
                       <div className="panel-sheen" aria-hidden="true" />
                       <div className="panel-rim" aria-hidden="true" />

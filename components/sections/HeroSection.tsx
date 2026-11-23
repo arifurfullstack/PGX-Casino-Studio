@@ -148,15 +148,21 @@ export default function HeroSection() {
           0.34
         );
 
-        intro.from(
+        intro.fromTo(
           ".js-hero-cta",
           {
             opacity: 0,
             y: 22,
             scale: 0.94,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
             duration: 0.72,
             stagger: 0.11,
             ease: "back.out(1.45)",
+            clearProps: "transform,opacity",
           },
           0.46
         );
