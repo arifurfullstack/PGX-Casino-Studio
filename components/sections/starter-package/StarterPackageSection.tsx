@@ -9,23 +9,19 @@ import { CheckCircle2, Video, Trophy, Spade, Gift, Crown, Sparkles } from "lucid
 const includedItems = [
   {
     title: "Your selected casino design",
-    detail: "(Choose from 12 luxury turnkey themes)",
+    detail: null,
   },
   {
     title: "Online casino slots",
-    detail: "(Premium HTML5 slot library ready to play)",
+    detail: null,
   },
   {
     title: "Casino game tables",
-    detail: "(e.g. Blackjack, Roulette, Baccarat, etc.)",
+    detail: "(Blackjack, Roulette, Baccarat & more)",
   },
   {
     title: "Your casino branding",
-    detail: "(logo, colors, and domain setup)",
-  },
-  {
-    title: "Turnkey launch & admin panel",
-    detail: "(Hosting, player management & 24/7 support)",
+    detail: "(Logo, colors & domain setup)",
   },
 ];
 
@@ -290,13 +286,13 @@ export default function StarterPackageSection() {
     <section
       id="packages"
       ref={sectionRef}
-      className="pt-2 pb-10 sm:pt-3 sm:pb-14 lg:-mt-4 relative z-10 [perspective:1400px]"
+      className="pt-5 pb-10 sm:pt-6 sm:pb-14 relative z-20 [perspective:1400px]"
     >
       <div className="mx-auto max-w-[1672px] px-4 sm:px-6 lg:px-12">
         {/* Minimal Luxury Ornamental Crest Divider bridging Hero & Starter Vault */}
         <div
           aria-hidden="true"
-          className="mb-4 sm:mb-5 flex items-center justify-center gap-2.5 sm:gap-5 select-none"
+          className="mb-5 sm:mb-6 flex items-center justify-center gap-2.5 sm:gap-5 select-none"
         >
           <span className="h-px flex-1 max-w-[260px] bg-gradient-to-r from-transparent via-[#f5c451]/55 to-[#f5c451]/90" />
           <svg
@@ -329,7 +325,7 @@ export default function StarterPackageSection() {
 
         <div
           ref={vaultRef}
-          className="js-sp-vault panel panel-interactive relative overflow-hidden grid gap-6 sm:gap-8 p-5 sm:p-6 lg:grid-cols-[1.3fr_1fr_1.2fr] lg:gap-0 lg:p-9 xl:p-11 will-change-transform"
+          className="js-sp-vault panel panel-interactive relative overflow-hidden grid gap-6 sm:gap-8 p-5 sm:p-6 lg:grid-cols-[1.25fr_1fr_1.2fr] lg:items-center lg:gap-0 lg:p-8 xl:p-9 will-change-transform"
           style={{
             transformStyle: "preserve-3d",
             boxShadow:
@@ -443,12 +439,12 @@ export default function StarterPackageSection() {
                 <span className="text-xl xl:text-2xl text-white/90">USD</span>
               </p>
 
-              <h3 className="js-sp-col1 mt-2.5 text-[1.35rem] xl:text-[1.55rem] font-bold leading-tight text-white font-philosopher">
-                Launch Your Own Branded Online Casino
+              <h3 className="js-sp-col1 mt-2 text-xl xl:text-[1.4rem] font-bold leading-snug text-white font-philosopher">
+                Launch Your Branded Casino
               </h3>
 
-              <p className="js-sp-col1 mt-2 text-sm xl:text-base text-white/75 leading-relaxed">
-                A complete casino website with your chosen design, including casino slots and game tables.
+              <p className="js-sp-col1 mt-1.5 text-sm text-white/75 leading-relaxed max-w-xs">
+                Complete turnkey casino with slots &amp; game tables.
               </p>
             </div>
           </div>
