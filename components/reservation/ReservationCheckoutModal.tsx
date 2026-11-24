@@ -176,7 +176,7 @@ export default function ReservationCheckoutModal({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 bg-[#05010c]/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 bg-[#05010c]/90 backdrop-blur-md flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto overscroll-contain"
     >
       <div
         ref={modalRef}

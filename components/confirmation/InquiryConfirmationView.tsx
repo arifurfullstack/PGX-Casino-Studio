@@ -124,12 +124,12 @@ export default function InquiryConfirmationView({
           <div className="flex items-center gap-2 text-yellow-400">
             <Sparkles size={16} />
             <h3 className="text-sm font-black uppercase tracking-wider text-white">
-              Optional 5-Day Reservation &amp; 5% Price Guarantee
+              Optional 5-Day Reservation &amp; 10% Price Guarantee
             </h3>
           </div>
           <p className="text-xs text-gray-300 leading-relaxed">
             Want to lock in exclusive rights to <strong>{inquiry.selectedDesignName}</strong> and secure a guaranteed{" "}
-            <strong className="text-[#34d399]">5% discount (saving ${Math.round(inquiry.totalPrice * 0.05).toLocaleString()} USD)</strong>?
+            <strong className="text-[#34d399]">10% discount (saving ${Math.round(inquiry.totalPrice * 0.1).toLocaleString()} USD)</strong>?
             Place a <strong className="text-white">100% refundable $1,000 holding deposit</strong> valid for 120 hours.
           </p>
           <div className="pt-1 flex flex-wrap items-center gap-3">

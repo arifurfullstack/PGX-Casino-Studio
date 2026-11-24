@@ -154,7 +154,7 @@ export default function StandaloneReservationPay({
           />
           <span className="text-xs text-gray-300 leading-relaxed">
             I understand this <strong className="text-white">$1,000 USD holding deposit</strong> locks
-            my selected casino theme and exclusive 5% package discount for exactly 120 hours. If no
+            my selected casino theme and exclusive 10% package discount for exactly 120 hours. If no
             turnkey agreement is executed, the deposit is{" "}
             <strong className="text-[#34d399]">100% refundable</strong> back to my original payment
             method per ALL I GAMING commercial policy.

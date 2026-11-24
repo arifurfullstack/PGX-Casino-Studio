@@ -53,11 +53,11 @@ export default function ReservationOfferModal({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 bg-[#05010c]/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+      className="fixed inset-0 z-50 bg-[#05010c]/85 backdrop-blur-md flex items-start sm:items-center justify-center p-4 overflow-y-auto overscroll-contain"
     >
       <div
         ref={modalRef}
-        className="panel panel-gold relative max-w-lg w-full p-6 sm:p-8 space-y-6 overflow-hidden"
+        className="panel panel-gold relative max-w-lg w-full p-6 sm:p-8 space-y-6 my-auto overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="panel-sheen" aria-hidden="true" />

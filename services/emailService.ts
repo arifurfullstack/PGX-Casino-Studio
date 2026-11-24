@@ -219,14 +219,14 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
     <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; background: #080214; color: #ffffff; padding: 30px; border-radius: 16px; border: 2px solid #ffd700;">
       <div style="text-align: center; margin-bottom: 24px;">
         <h1 style="color: #ffd700; font-size: 24px; text-transform: uppercase; margin: 0;">ALL I GAMING</h1>
-        <p style="color: #34d399; font-size: 13px; font-weight: bold; margin-top: 4px;">★ 5-DAY PRICE LOCK &amp; 5% DISCOUNT CONFIRMED ★</p>
+        <p style="color: #34d399; font-size: 13px; font-weight: bold; margin-top: 4px;">★ 5-DAY PRICE LOCK &amp; ${reservation.discountPercent}% DISCOUNT CONFIRMED ★</p>
       </div>
 
       <div style="background: #110526; padding: 20px; border-radius: 12px; border: 1px solid #4c1d95; margin-bottom: 20px;">
         <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">Your Design is Reserved!</h2>
         <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
         <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
-          We have recorded your <strong>$1,000 USD refundable holding deposit</strong>. Your selected casino frontend design and exclusive 5% package discount are officially reserved for the next <strong>120 hours (5 full days)</strong>.
+          We have recorded your <strong>$1,000 USD refundable holding deposit</strong>. Your selected casino frontend design and exclusive ${reservation.discountPercent}% package discount are officially reserved for the next <strong>120 hours (5 full days)</strong>.
         </p>
 
         <div style="background: #080214; border: 1px solid #ffd700; padding: 15px; border-radius: 8px; margin: 15px 0;">
@@ -244,7 +244,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
               <td style="text-align: right; text-decoration: line-through; color: #9ca3af;">$${reservation.originalPackagePrice.toLocaleString()} USD</td>
             </tr>
             <tr>
-              <td style="color: #34d399; font-weight: bold; padding: 4px 0;">5% Exclusive Savings:</td>
+              <td style="color: #34d399; font-weight: bold; padding: 4px 0;">${reservation.discountPercent}% Exclusive Savings:</td>
               <td style="color: #34d399; font-weight: bold; text-align: right;">-$${Math.round((reservation.originalPackagePrice * reservation.discountPercent) / 100).toLocaleString()} USD</td>
             </tr>
             <tr>
@@ -292,7 +292,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
           <li><strong>Reservation ID:</strong> ${reservation.reservationId}</li>
           <li><strong>Client:</strong> ${reservation.customerName} (${reservation.customerEmail} / ${reservation.customerPhone})</li>
           <li><strong>Design Theme:</strong> ${reservation.selectedDesignName}</li>
-          <li><strong>Locked Package Total:</strong> $${reservation.discountedPrice.toLocaleString()} USD (5% Discount Applied)</li>
+          <li><strong>Locked Package Total:</strong> $${reservation.discountedPrice.toLocaleString()} USD (${reservation.discountPercent}% Discount Applied)</li>
           <li><strong>Remaining Balance:</strong> $${reservation.remainingBalance.toLocaleString()} USD</li>
           <li><strong>Expires At:</strong> ${expiryDate}</li>
         </ul>

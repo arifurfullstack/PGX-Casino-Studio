@@ -42,7 +42,7 @@ export default function ReservationReceiptView({
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/70 border border-emerald-500/40">
           <CheckCircle2 size={13} className="text-[#34d399]" />
           <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#34d399]">
-            Deposit Secured • 5% Discount Locked
+            Deposit Secured • {reservation.discountPercent}% Discount Locked
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export default function ReservationReceiptView({
               <div className="flex justify-between text-[#34d399] font-bold">
                 <span className="flex items-center gap-1.5">
                   <Sparkles size={13} />
-                  <span>5% Exclusive Reservation Discount:</span>
+                  <span>{reservation.discountPercent}% Exclusive Reservation Discount:</span>
                 </span>
                 <span className="font-mono">-${discountAmount.toLocaleString()} USD</span>
               </div>

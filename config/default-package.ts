@@ -70,6 +70,6 @@ export const DEFAULT_PRICING_CONFIG: PricingConfig = {
   ggrCompanyShare: 25,
   ggrOperatorShare: 75,
   reservationFee: 1000,
-  reservationDiscountPercent: 5,
+  reservationDiscountPercent: 10,
   reservationDurationHours: 120, // 5 days
 };

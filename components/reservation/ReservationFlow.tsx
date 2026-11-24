@@ -42,7 +42,6 @@ import {
 import {
   DEFAULT_ADDON_MODULES,
   DEFAULT_PRICING_CONFIG,
-  DEFAULT_STARTER_PACKAGE,
 } from "@/config/default-package";
 import {
   submitInquiryAction,
@@ -52,7 +51,6 @@ import ReservationOfferModal from "./ReservationOfferModal";
 import ReservationCheckoutModal from "./ReservationCheckoutModal";
 import ReservationConfirmedView from "./ReservationConfirmedView";
 import InquiryConfirmedView from "./InquiryConfirmedView";
-import ReservationSummaryCard from "./ReservationSummaryCard";
 
 interface ReservationFlowProps {
   designs: CasinoDesign[];
@@ -134,7 +132,6 @@ function AddonIcon({ iconKey }: { iconKey: AddonModule["iconKey"] }) {
 export default function ReservationFlow({
   designs,
   addonModules = DEFAULT_ADDON_MODULES.filter((m) => m.isEnabled),
-  starterPackage = DEFAULT_STARTER_PACKAGE,
   pricingConfig = DEFAULT_PRICING_CONFIG,
   initialDesignSlug,
   initialAddons = "",
@@ -164,7 +161,6 @@ export default function ReservationFlow({
   const [selectedAddonIds, setSelectedAddonIds] = useState<string[]>(resolvedInitialAddons);
   const [themeQuery, setThemeQuery] = useState("");
   const [showAllThemes, setShowAllThemes] = useState(false);
-  const [previewMode, setPreviewMode] = useState<"hold" | "standard">("hold");
 
   // Operator Form State
   const [brandName, setBrandName] = useState("");
@@ -694,14 +690,13 @@ export default function ReservationFlow({
       </header>
 
       {/* =====================================================================
-          MAIN TWO-COLUMN LUXURY WORKSPACE (LEFT CONFIGURATOR + RIGHT LIVE SUMMARY)
+          MAIN SINGLE-COLUMN LUXURY WORKSPACE (CONFIGURATOR + OPERATOR FORM)
           ===================================================================== */}
       <form
         onSubmit={handleFormSubmit}
-        className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-7 xl:gap-9 items-start"
+        className="relative z-10 mx-auto max-w-4xl space-y-7"
       >
-        {/* LEFT COLUMN (7 COLS): INTERACTIVE THEME PICKER + ADD-ONS + OPERATOR FORM */}
-        <div className="lg:col-span-7 space-y-7">
+        <div className="space-y-7">
           {/* -----------------------------------------------------------------
               CARD 1: VISUAL CASINO THEME PICKER (FULLY DYNAMIC)
               ----------------------------------------------------------------- */}
@@ -1207,20 +1202,6 @@ export default function ReservationFlow({
             </div>
           </section>
         </div>
-
-        {/* RIGHT COLUMN (5 COLS): STICKY LIVE BRANDED PLATFORM SUMMARY */}
-        <ReservationSummaryCard
-          selectedDesign={selectedDesign}
-          selectedModules={selectedModules}
-          onRemoveAddon={toggleAddon}
-          starterPackage={starterPackage}
-          pricingConfig={pricingConfig}
-          packageTotal={packageTotal}
-          brandName={brandName}
-          domainPreference={domainPreference}
-          previewMode={previewMode}
-          onPreviewModeChange={setPreviewMode}
-        />
       </form>
 
       {/* Reservation Incentive Modal Popup */}
