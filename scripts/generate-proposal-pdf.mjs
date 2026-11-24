@@ -688,7 +688,7 @@ const html = `<!DOCTYPE html>
         </div>
         <div class="cover-kpi-glass">
           <div class="cover-kpi-val">5-Day</div>
-          <div class="cover-kpi-lbl">$1,000 Refundable Lock<br />+ 5% instant discount</div>
+          <div class="cover-kpi-lbl">$1,000 Refundable Lock<br />+ 10% instant discount</div>
         </div>
       </div>
 
@@ -914,7 +914,7 @@ const html = `<!DOCTYPE html>
       <div class="surface-white" style="padding: 14px 15px;">
         <div class="card-top" style="margin-bottom:9px;">
           <span class="icon-box gold">${icons.sliders}</span>
-          <div class="card-title">Transparent Package Pricing &amp; 5% Reservation Discount Comparison</div>
+          <div class="card-title">Transparent Package Pricing &amp; 10% Reservation Discount Comparison</div>
         </div>
         <table class="ed-table">
           <thead>
@@ -922,7 +922,7 @@ const html = `<!DOCTYPE html>
               <th>Package Build</th>
               <th>Included Verticals &amp; Scope</th>
               <th>Standard Price</th>
-              <th>With 5% Hold Discount</th>
+              <th>With 10% Hold Discount</th>
               <th>You Save</th>
             </tr>
           </thead>
@@ -931,36 +931,36 @@ const html = `<!DOCTYPE html>
               <td class="td-strong">Starter Launch</td>
               <td>Selected Design + Online Slots + Table Games + Branding</td>
               <td>$15,000</td>
-              <td class="td-gold">$14,250 USD</td>
-              <td style="color:#059669; font-weight:700;">$750</td>
+              <td class="td-gold">$13,500 USD</td>
+              <td style="color:#059669; font-weight:700;">$1,500</td>
             </tr>
             <tr>
               <td class="td-strong">Starter + Live Dealer</td>
               <td>Starter Package + HD Real-Time Live Dealer Tables</td>
               <td>$25,000</td>
-              <td class="td-gold">$23,750 USD</td>
-              <td style="color:#059669; font-weight:700;">$1,250</td>
+              <td class="td-gold">$22,500 USD</td>
+              <td style="color:#059669; font-weight:700;">$2,500</td>
             </tr>
             <tr>
               <td class="td-strong">Starter + Sportsbook</td>
               <td>Starter Package + Global Pre-Match &amp; Live Sportsbook</td>
               <td>$25,000</td>
-              <td class="td-gold">$23,750 USD</td>
-              <td style="color:#059669; font-weight:700;">$1,250</td>
+              <td class="td-gold">$22,500 USD</td>
+              <td style="color:#059669; font-weight:700;">$2,500</td>
             </tr>
             <tr>
               <td class="td-strong">Starter + Poker</td>
               <td>Starter Package + Texas Hold'em &amp; Omaha Poker Suite</td>
               <td>$35,000</td>
-              <td class="td-gold">$33,250 USD</td>
-              <td style="color:#059669; font-weight:700;">$1,750</td>
+              <td class="td-gold">$31,500 USD</td>
+              <td style="color:#059669; font-weight:700;">$3,500</td>
             </tr>
             <tr>
               <td class="td-strong">Full Enterprise Suite</td>
               <td>Starter + Live Dealer + Sportsbook + Poker + Sweepstakes</td>
               <td>$80,000</td>
-              <td class="td-gold">$76,000 USD</td>
-              <td style="color:#059669; font-weight:700;">$4,000</td>
+              <td class="td-gold">$72,000 USD</td>
+              <td style="color:#059669; font-weight:700;">$8,000</td>
             </tr>
           </tbody>
         </table>
@@ -971,7 +971,7 @@ const html = `<!DOCTYPE html>
           <div style="font-size:10.6px; color:#334155;">
             <strong style="color:#160B35;">Zero Hidden Setup Charges:</strong> Every reservation deposit ($1,000 USD) is credited 100% toward your selected build invoice or refunded in full if no agreement closes within 5 days.
           </div>
-          <span style="background:#2D1B69; color:#FFD700; font-size:9.5px; font-weight:700; padding:5px 11px; border-radius:6px; white-space:nowrap;">Lock 5% Off</span>
+          <span style="background:#2D1B69; color:#FFD700; font-size:9.5px; font-weight:700; padding:5px 11px; border-radius:6px; white-space:nowrap;">Lock 10% Off</span>
         </div>
       </div>
     </div>
@@ -1499,12 +1499,12 @@ const html = `<!DOCTYPE html>
       <div class="surface-royal" style="padding: 14px 16px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:9px;">
           <div class="font-display" style="font-size:17px; font-weight:700; color:#FFD700;">The $1,000 Refundable 5-Day Reservation Guarantee</div>
-          <span style="background:rgba(255,215,0,0.16); border:1px solid #FFD700; color:#FFD700; font-size:9.5px; font-weight:700; padding:3.5px 10px; border-radius:999px; letter-spacing:0.08em;">5% INSTANT DISCOUNT</span>
+          <span style="background:rgba(255,215,0,0.16); border:1px solid #FFD700; color:#FFD700; font-size:9.5px; font-weight:700; padding:3.5px 10px; border-radius:999px; letter-spacing:0.08em;">10% INSTANT DISCOUNT</span>
         </div>
         <div class="grid-2" style="gap: 10px;">
           <ul class="clean-list">
             <li><strong>120-Hour Exclusive Lock:</strong> Holds your selected design &amp; discounted package pricing for 5 full days.</li>
-            <li><strong>Instant 5% Package Savings:</strong> Save $750 on Starter Launch or up to $4,000 on full-suite builds.</li>
+            <li><strong>Instant 10% Package Savings:</strong> Save $1,500 on Starter Launch or up to $8,000 on full-suite builds.</li>
           </ul>
           <ul class="clean-list">
             <li><strong>100% Credited Toward Invoice:</strong> Your $1,000 hold is deducted directly from your final build balance.</li>
@@ -1537,7 +1537,7 @@ const html = `<!DOCTYPE html>
             </tr>
             <tr>
               <td class="td-strong">Commercial Model</td>
-              <td>75% Operator / 25% Platform GGR Split &middot; No License Needed to Start &middot; Zero Hidden Fees &middot; $1,000 Refundable Hold (5% Off)</td>
+              <td>75% Operator / 25% Platform GGR Split &middot; No License Needed to Start &middot; Zero Hidden Fees &middot; $1,000 Refundable Hold (10% Off)</td>
             </tr>
             <tr>
               <td class="td-strong">Payments &amp; Crypto</td>
@@ -1580,7 +1580,7 @@ const html = `<!DOCTYPE html>
       </h2>
       <div class="cover-accent-line"></div>
       <p class="cover-desc" style="max-width: 152mm;">
-        Tell us your preferred design, target market, and desired add-on modules. We will walk you through a live demo, prepare your tailored package quote, and help you lock in your 5% reservation discount today.
+        Tell us your preferred design, target market, and desired add-on modules. We will walk you through a live demo, prepare your tailored package quote, and help you lock in your 10% reservation discount today.
       </p>
 
       <div class="grid-3" style="margin-top: 15mm; gap: 12px;">
@@ -1595,7 +1595,7 @@ const html = `<!DOCTYPE html>
 
         <div class="cover-kpi-glass">
           <div style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:#FFD700; margin-bottom:6px;">Step 02 &middot; Configure</div>
-          <div class="font-display" style="font-size:18px; font-weight:700; color:#FFFFFF; margin-bottom:6px;">Reserve &amp; Save 5%</div>
+          <div class="font-display" style="font-size:18px; font-weight:700; color:#FFFFFF; margin-bottom:6px;">Reserve &amp; Save 10%</div>
           <p style="font-size:10.8px; color:#CBD5E1; line-height:1.5;">
             Customize add-ons and lock your price with a $1,000 refundable hold:<br />
             <a href="https://royalcasinoclub.com/select-design" style="color:#FFD700; font-weight:700; text-decoration:underline;">royalcasinoclub.com/select-design</a>
