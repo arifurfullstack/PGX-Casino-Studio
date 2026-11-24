@@ -1,9 +1,12 @@
-import Stripe from "stripe";
+import crypto from "node:crypto";
 import { getIntegrationConfig } from "./integrationService";
-import { updateReservationStatus, getReservationById } from "./reservationService";
+import {
+  updateReservationStatus,
+  getReservationById,
+} from "./reservationService";
 import { dispatchReservationEmails } from "./emailService";
 
-export interface CreateStripeSessionInput {
+export interface CreateCardSessionInput {
   reservationId: string;
   customerEmail: string;
   customerName: string;
@@ -11,61 +14,159 @@ export interface CreateStripeSessionInput {
   returnUrl?: string;
 }
 
-export async function createStripeReservationSession(
-  input: CreateStripeSessionInput
-): Promise<{ success: boolean; url?: string; error?: string }> {
-  try {
-    const config = await getIntegrationConfig();
-    const { stripe } = config.payment;
+export type CreateStripeSessionInput = CreateCardSessionInput;
 
-    if (!stripe.enabled || !stripe.secretKey) {
+export function getPgxGatewaySettings() {
+  return {
+    apiUrl: (process.env.PGX_GATEWAY_URL || "https://api.pgxgateway.com")
+      .trim()
+      .replace(/\/+$/, ""),
+    merchantRefId: (process.env.PGX_MERCHANT_REF_ID || "").trim(),
+    webhookSecret: (process.env.PGX_WEBHOOK_SECRET || "").trim(),
+  };
+}
+
+/**
+ * Verifies an incoming PGX Gateway webhook signature using constant-time HMAC-SHA256.
+ * Supports both timestamped production signatures (`${timestamp}.${rawBody}`) and raw body signatures.
+ */
+export function verifyPgxWebhookSignature(
+  rawBody: string | Buffer,
+  signature: string | null | undefined,
+  secret: string,
+  timestamp?: string | null
+): boolean {
+  if (!signature || !secret) return false;
+  const cleanSig = signature.trim();
+  if (!/^[a-f0-9]{64}$/i.test(cleanSig)) return false;
+
+  try {
+    const providedDigest = Buffer.from(cleanSig, "hex");
+    const bodyText = typeof rawBody === "string" ? rawBody : rawBody.toString("utf8");
+
+    if (timestamp) {
+      const tsDigest = crypto
+        .createHmac("sha256", secret)
+        .update(`${timestamp.trim()}.${bodyText}`)
+        .digest();
+      if (
+        tsDigest.length === providedDigest.length &&
+        crypto.timingSafeEqual(tsDigest, providedDigest)
+      ) {
+        return true;
+      }
+    }
+
+    const rawDigest = crypto.createHmac("sha256", secret).update(rawBody).digest();
+    if (
+      rawDigest.length === providedDigest.length &&
+      crypto.timingSafeEqual(rawDigest, providedDigest)
+    ) {
+      return true;
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Initiates a server-to-server hosted card checkout session via PGX Gateway.
+ * Never loads or invokes client-side Stripe SDKs.
+ */
+export async function createPgxReservationSession(
+  input: CreateCardSessionInput
+): Promise<{ success: boolean; url?: string; sessionId?: string; error?: string }> {
+  try {
+    const [config, reservation] = await Promise.all([
+      getIntegrationConfig(),
+      getReservationById(input.reservationId),
+    ]);
+
+    const cardConfig = config.payment.stripe;
+    const { apiUrl, merchantRefId } = getPgxGatewaySettings();
+
+    if (!cardConfig.enabled) {
       return {
         success: false,
-        error: "Stripe card gateway is not enabled or secret key is missing in Admin settings.",
+        error: "Card gateway is currently disabled in Admin settings.",
       };
     }
 
-    const stripeClient = new Stripe(stripe.secretKey.trim());
-    const origin =
+    if (!merchantRefId) {
+      return {
+        success: false,
+        error: "PGX_MERCHANT_REF_ID is not configured on the server.",
+      };
+    }
+
+    const origin = (
       input.returnUrl ||
       process.env.NEXT_PUBLIC_SITE_URL ||
-      "http://localhost:3000";
+      "https://royalcasinoclub.com"
+    )
+      .trim()
+      .replace(/\/+$/, "");
 
-    const session = await stripeClient.checkout.sessions.create({
-      line_items: [
-        {
-          price_data: {
-            currency: stripe.currency || "usd",
-            product_data: {
-              name: `5-Day Reservation Holding — ${input.designName}`,
-              description: `100% Refundable $500 USD holding deposit. Locks 5% package discount for 120 hours. Ref: ${input.reservationId}`,
-            },
-            unit_amount: 50000, // $500.00
-          },
-          quantity: 1,
-        },
-      ],
-      mode: "payment",
-      customer_email: input.customerEmail,
-      client_reference_id: input.reservationId,
-      metadata: {
-        reservationId: input.reservationId,
-        customerName: input.customerName,
-        designName: input.designName,
+    const amount = reservation?.reservationFee || 500;
+    const currency = (cardConfig.currency || "USD").toUpperCase();
+
+    const response = await fetch(`${apiUrl}/api/v1/checkout/session`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      success_url: `${origin}/confirmation/reservation?id=${input.reservationId}&stripe_success=1`,
-      cancel_url: `${origin}/select-design?cancelled=1&reservationId=${input.reservationId}`,
+      body: JSON.stringify({
+        refId: merchantRefId,
+        amount,
+        currency,
+        orderId: input.reservationId,
+        productName: `5-Day Reservation Holding — ${input.designName}`,
+        customerEmail: input.customerEmail,
+        successUrl: `${origin}/confirmation/reservation?id=${encodeURIComponent(input.reservationId)}&payment=success`,
+        cancelUrl: `${origin}/select-design?cancelled=1&reservationId=${encodeURIComponent(input.reservationId)}`,
+        webhookUrl: `${origin}/api/webhooks/pgx`,
+        mode: cardConfig.mode === "test" ? "test" : "live",
+      }),
+      signal: AbortSignal.timeout(15000),
     });
 
-    return { success: true, url: session.url || undefined };
+    const data = (await response.json()) as {
+      success?: boolean;
+      checkoutUrl?: string;
+      sessionId?: string;
+      paymentRef?: string;
+      message?: string;
+    };
+
+    if (!response.ok || !data.success || !data.checkoutUrl) {
+      return {
+        success: false,
+        error: data.message || "Failed to initiate PGX Gateway checkout session.",
+      };
+    }
+
+    return {
+      success: true,
+      url: data.checkoutUrl,
+      sessionId: data.sessionId || data.paymentRef,
+    };
   } catch (error) {
-    console.error("Stripe session creation failed:", error);
+    console.error("PGX Gateway session creation failed:", error);
     return {
       success: false,
-      error: error instanceof Error ? error.message : "Failed to initiate Stripe checkout",
+      error:
+        error instanceof Error
+          ? error.message
+          : "Failed to initiate card checkout session",
     };
   }
 }
+
+// Backward-compatible export alias for existing server actions
+export const createStripeReservationSession = createPgxReservationSession;
 
 export async function recordCryptoPayment(
   reservationId: string,
@@ -78,12 +179,12 @@ export async function recordCryptoPayment(
       return { success: false, error: "Reservation holding not found." };
     }
 
-    await updateReservationStatus(reservationId, "active", "paid");
-    reservation.paymentTransactionId = `${network}:${txHash.trim()}`;
+    const txRef = `${network}:${txHash.trim()}`;
+    await updateReservationStatus(reservationId, "active", "paid", txRef);
+    reservation.paymentTransactionId = txRef;
     reservation.paymentStatus = "paid";
     reservation.status = "active";
 
-    // Trigger confirmation receipt email
     dispatchReservationEmails(reservation).catch((err) =>
       console.error("[Crypto Email Error]:", err)
     );

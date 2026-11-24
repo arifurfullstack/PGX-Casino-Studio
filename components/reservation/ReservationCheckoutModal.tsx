@@ -49,7 +49,16 @@ export default function ReservationCheckoutModal({
 }: ReservationCheckoutModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"crypto" | "stripe" | "demo">("crypto");
-  const [selectedCrypto, setSelectedCrypto] = useState<"trc20" | "erc20" | "btc">("trc20");
+  const cryptoOptions = ([
+    { id: "usdc" as const, label: "USDC (ERC20)", networkCode: "USDC-ERC20", address: paymentConfig.crypto.usdcAddress },
+    { id: "btc" as const, label: "BTC", networkCode: "BTC", address: paymentConfig.crypto.btcAddress },
+    { id: "trc20" as const, label: "USDT (TRC20)", networkCode: "USDT-TRC20", address: paymentConfig.crypto.usdtTrc20Address },
+    { id: "erc20" as const, label: "USDT (ERC20)", networkCode: "USDT-ERC20", address: paymentConfig.crypto.usdtErc20Address },
+  ]).filter((opt) => Boolean(opt.address && opt.address.trim()));
+
+  const [selectedCrypto, setSelectedCrypto] = useState<"usdc" | "btc" | "trc20" | "erc20">(
+    cryptoOptions[0]?.id || "usdc"
+  );
   const [txHash, setTxHash] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -77,11 +86,10 @@ export default function ReservationCheckoutModal({
   const balanceOnContract = Math.max(0, discountedTotal - depositFee);
   const holdDays = Math.max(1, Math.round(pricingConfig.reservationDurationHours / 24));
 
-  const getAddress = () => {
-    if (selectedCrypto === "trc20") return paymentConfig.crypto.usdtTrc20Address;
-    if (selectedCrypto === "erc20") return paymentConfig.crypto.usdtErc20Address;
-    return paymentConfig.crypto.btcAddress;
-  };
+  const activeCryptoOption =
+    cryptoOptions.find((opt) => opt.id === selectedCrypto) || cryptoOptions[0];
+
+  const getAddress = () => activeCryptoOption?.address || "";
 
   const handleCopyAddress = () => {
     const addr = getAddress();
@@ -109,12 +117,7 @@ export default function ReservationCheckoutModal({
     setLoading(true);
     setErrorMessage(null);
 
-    const network =
-      selectedCrypto === "trc20"
-        ? "USDT-TRC20"
-        : selectedCrypto === "erc20"
-        ? "USDT-ERC20"
-        : "BTC";
+    const network = activeCryptoOption?.networkCode || "USDC-ERC20";
 
     const res = await submitCryptoPaymentAction(reservationId, txHash.trim(), network);
     setLoading(false);
@@ -293,19 +296,19 @@ export default function ReservationCheckoutModal({
             <div className="p-4 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 space-y-3">
               <div className="flex items-center justify-between text-xs">
                 <span className="text-white/70 font-semibold">Select Network:</span>
-                <div className="flex items-center gap-1">
-                  {(["trc20", "erc20", "btc"] as const).map((net) => (
+                <div className="flex items-center gap-1 flex-wrap justify-end">
+                  {cryptoOptions.map((net) => (
                     <button
-                      key={net}
+                      key={net.id}
                       type="button"
-                      onClick={() => setSelectedCrypto(net)}
+                      onClick={() => setSelectedCrypto(net.id)}
                       className={`px-2.5 py-1 rounded-lg text-[10px] font-bold uppercase transition-all ${
-                        selectedCrypto === net
+                        selectedCrypto === net.id
                           ? "bg-[#ffd75e] text-[#261100]"
                           : "bg-purple-950/70 text-white/65 hover:text-white"
                       }`}
                     >
-                      {net === "trc20" ? "USDT (TRC20)" : net === "erc20" ? "USDT (ERC20)" : "BTC"}
+                      {net.label}
                     </button>
                   ))}
                 </div>

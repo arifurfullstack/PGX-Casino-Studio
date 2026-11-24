@@ -30,8 +30,15 @@ export default function StandaloneReservationPay({
   const router = useRouter();
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [activeTab, setActiveTab] = useState<"crypto" | "stripe">("crypto");
-  const [selectedCrypto, setSelectedCrypto] = useState<"usdt_trc20" | "usdt_erc20" | "btc">(
-    "usdt_trc20"
+  const walletOptions = ([
+    { id: "usdc" as const, label: "USDC (ERC-20)", network: "Ethereum (ERC-20)", address: paymentConfig.crypto.usdcAddress },
+    { id: "btc" as const, label: "Bitcoin (BTC)", network: "Bitcoin Native", address: paymentConfig.crypto.btcAddress },
+    { id: "usdt_trc20" as const, label: "USDT TRC-20", network: "Tron (TRC-20)", address: paymentConfig.crypto.usdtTrc20Address },
+    { id: "usdt_erc20" as const, label: "USDT ERC-20", network: "Ethereum (ERC-20)", address: paymentConfig.crypto.usdtErc20Address },
+  ]).filter((w) => Boolean(w.address && w.address.trim()));
+
+  const [selectedCrypto, setSelectedCrypto] = useState<"usdc" | "btc" | "usdt_trc20" | "usdt_erc20">(
+    walletOptions[0]?.id || "usdc"
   );
   const [txHash, setTxHash] = useState("");
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
@@ -44,30 +51,13 @@ export default function StandaloneReservationPay({
     setTimeout(() => setCopiedKey(null), 2500);
   };
 
-  const getActiveWallet = () => {
-    switch (selectedCrypto) {
-      case "usdt_trc20":
-        return {
-          label: "USDT (TRC-20)",
-          address: paymentConfig.crypto.usdtTrc20Address,
-          network: "Tron (TRC-20)",
-        };
-      case "usdt_erc20":
-        return {
-          label: "USDT (ERC-20)",
-          address: paymentConfig.crypto.usdtErc20Address,
-          network: "Ethereum (ERC-20)",
-        };
-      case "btc":
-        return {
-          label: "Bitcoin (BTC)",
-          address: paymentConfig.crypto.btcAddress,
-          network: "Bitcoin Native",
-        };
-    }
-  };
-
-  const activeWallet = getActiveWallet();
+  const activeWallet =
+    walletOptions.find((w) => w.id === selectedCrypto) ||
+    walletOptions[0] || {
+      label: "USDC (ERC-20)",
+      address: paymentConfig.crypto.usdcAddress,
+      network: "Ethereum (ERC-20)",
+    };
 
   const handleCryptoSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -205,18 +195,12 @@ export default function StandaloneReservationPay({
       {activeTab === "crypto" && (
         <div className="space-y-4">
           {/* Sub-network Selector */}
-          <div className="grid grid-cols-3 gap-2">
-            {[
-              { id: "usdt_trc20", label: "USDT TRC-20" },
-              { id: "usdt_erc20", label: "USDT ERC-20" },
-              { id: "btc", label: "Bitcoin" },
-            ].map((coin) => (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+            {walletOptions.map((coin) => (
               <button
                 key={coin.id}
                 type="button"
-                onClick={() =>
-                  setSelectedCrypto(coin.id as "usdt_trc20" | "usdt_erc20" | "btc")
-                }
+                onClick={() => setSelectedCrypto(coin.id)}
                 className={`py-2 px-3 rounded-lg text-xs font-bold border transition-all ${
                   selectedCrypto === coin.id
                     ? "bg-purple-900/60 border-yellow-400 text-yellow-300"

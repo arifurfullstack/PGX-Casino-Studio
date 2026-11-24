@@ -6,6 +6,7 @@ export interface CryptoGatewayConfig {
   merchantName: string;
   usdtTrc20Address: string;
   usdtErc20Address: string;
+  usdcAddress: string;
   btcAddress: string;
   instructions: string;
   gatewayApiKey?: string;
@@ -78,6 +79,7 @@ export interface PublicPaymentConfig {
     merchantName: string;
     usdtTrc20Address: string;
     usdtErc20Address: string;
+    usdcAddress: string;
     btcAddress: string;
     instructions: string;
   };

@@ -281,6 +281,27 @@ export default function GatewaysAndEmailSettings({
 
                   <div>
                     <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
+                      USDC (ERC20 - Ethereum) Deposit Address
+                    </label>
+                    <input
+                      type="text"
+                      value={config.payment.crypto.usdcAddress || ""}
+                      onChange={(e) =>
+                        setConfig({
+                          ...config,
+                          payment: {
+                            ...config.payment,
+                            crypto: { ...config.payment.crypto, usdcAddress: e.target.value },
+                          },
+                        })
+                      }
+                      placeholder="0x4520..."
+                      className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-yellow-300 font-mono text-sm focus:outline-none focus:border-[#FFD700]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-300 uppercase mb-1.5">
                       Bitcoin (BTC) Deposit Address
                     </label>
                     <input
@@ -424,7 +445,7 @@ export default function GatewaysAndEmailSettings({
                       placeholder="whsec_..."
                       className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white font-mono text-sm focus:outline-none focus:border-[#FFD700]"
                     />
-                    <p className="text-[10px] text-gray-500 mt-1">Webhook Endpoint URL: <code className="text-purple-300">/api/webhooks/stripe</code></p>
+                    <p className="text-[10px] text-gray-500 mt-1">Webhook Endpoint URL: <code className="text-purple-300">/api/webhooks/pgx</code></p>
                   </div>
 
                   <div>

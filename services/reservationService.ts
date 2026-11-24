@@ -144,12 +144,21 @@ export async function getAllReservations(): Promise<Reservation[]> {
 export async function updateReservationStatus(
   reservationId: string,
   status: ReservationStatus,
-  paymentStatus?: PaymentStatus
+  paymentStatus?: PaymentStatus,
+  paymentTransactionId?: string
 ): Promise<boolean> {
   await connectToDatabase();
-  const updateData: { status: ReservationStatus; paymentStatus?: PaymentStatus; refundCompletedAt?: Date } = { status };
+  const updateData: {
+    status: ReservationStatus;
+    paymentStatus?: PaymentStatus;
+    paymentTransactionId?: string;
+    refundCompletedAt?: Date;
+  } = { status };
   if (paymentStatus) {
     updateData.paymentStatus = paymentStatus;
+  }
+  if (paymentTransactionId) {
+    updateData.paymentTransactionId = paymentTransactionId;
   }
   if (status === "refunded") {
     updateData.refundCompletedAt = new Date();

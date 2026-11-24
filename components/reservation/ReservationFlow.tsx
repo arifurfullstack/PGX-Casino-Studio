@@ -66,20 +66,21 @@ interface ReservationFlowProps {
 }
 
 const FALLBACK_PAYMENT_CONFIG: PublicPaymentConfig = {
-  activeGateway: "crypto",
+  activeGateway: "stripe",
   crypto: {
     enabled: true,
-    mode: "test",
+    mode: "live",
     merchantName: "Royal Casino Club Holding Desk",
-    usdtTrc20Address: "TYDny59kU75P6B8s75X97P73Lq92RkL41q",
-    usdtErc20Address: "0x71C8364860D4e022f3E9D58E2E5B1b4f494A49e7",
-    btcAddress: "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh",
+    usdtTrc20Address: "",
+    usdtErc20Address: "",
+    usdcAddress: "0x4520FBE6d418c1bAcE97A1E517e5Be2d78eb9598",
+    btcAddress: "3DyMA7VZavn4iA4m4scrjMHJyaEn1XRmaz",
     instructions:
-      "Send the exact holding deposit in USDT (TRC20 or ERC20) or equivalent BTC. Submit your Transaction Hash (TxID) below for instant verification.",
+      "Send the exact holding deposit in USDC (ERC20) or equivalent BTC. Submit your Transaction Hash (TxID) below for instant verification.",
   },
   stripe: {
-    enabled: false,
-    mode: "test",
+    enabled: true,
+    mode: "live",
     publishableKey: "",
     currency: "usd",
   },
