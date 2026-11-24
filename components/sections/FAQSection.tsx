@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "How do I reserve a casino?",
-    a: "Choose a design and message us on WhatsApp. A $500 hold reserves your casino, then we set it up, brand it and get you live.",
+    a: "Choose a design and message us on WhatsApp. A $1,000 hold reserves your casino, then we set it up, brand it and get you live.",
   },
   {
     q: "Can I see a design before I choose?",

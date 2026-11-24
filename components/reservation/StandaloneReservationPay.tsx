@@ -153,7 +153,7 @@ export default function StandaloneReservationPay({
             className="mt-0.5 w-4 h-4 rounded border-purple-500 text-yellow-500 focus:ring-0 bg-[#080214]"
           />
           <span className="text-xs text-gray-300 leading-relaxed">
-            I understand this <strong className="text-white">$500 USD holding deposit</strong> locks
+            I understand this <strong className="text-white">$1,000 USD holding deposit</strong> locks
             my selected casino theme and exclusive 5% package discount for exactly 120 hours. If no
             turnkey agreement is executed, the deposit is{" "}
             <strong className="text-[#34d399]">100% refundable</strong> back to my original payment
@@ -215,7 +215,7 @@ export default function StandaloneReservationPay({
           {/* Wallet Address Box */}
           <div className="p-4 rounded-xl bg-[#04010a] border border-purple-900/50 space-y-2">
             <div className="flex items-center justify-between text-xs text-gray-400">
-              <span>Send Exactly: <strong className="text-white">$500.00 USD ({activeWallet.label})</strong></span>
+              <span>Send Exactly: <strong className="text-white">$1,000.00 USD ({activeWallet.label})</strong></span>
               <span className="text-[10px] text-purple-300">Network: {activeWallet.network}</span>
             </div>
 
@@ -263,7 +263,7 @@ export default function StandaloneReservationPay({
               ) : (
                 <>
                   <CheckCircle2 size={16} />
-                  <span>Confirm $500 Crypto Deposit</span>
+                  <span>Confirm $1,000 Crypto Deposit</span>
                 </>
               )}
             </button>
@@ -278,7 +278,7 @@ export default function StandaloneReservationPay({
             <CreditCard size={28} className="text-[#FFD700] mx-auto" />
             <h4 className="text-sm font-bold text-white">Stripe 256-bit Encrypted Checkout</h4>
             <p className="text-xs text-gray-400 max-w-sm mx-auto">
-              Securely reserve your casino theme with Visa, Mastercard, or American Express. The $500 deposit is fully refundable.
+              Securely reserve your casino theme with Visa, Mastercard, or American Express. The $1,000 deposit is fully refundable.
             </p>
           </div>
 
@@ -296,7 +296,7 @@ export default function StandaloneReservationPay({
             ) : (
               <>
                 <ExternalLink size={16} />
-                <span>Proceed to Stripe Card Checkout ($500)</span>
+                <span>Proceed to Stripe Card Checkout ($1,000)</span>
               </>
             )}
           </button>
@@ -311,7 +311,7 @@ export default function StandaloneReservationPay({
           disabled={submitting || !termsAccepted}
           className="text-[11px] text-gray-400 hover:text-yellow-400 transition-colors disabled:opacity-50"
         >
-          ⚡ Demo / Testing? Click here to simulate instant $500 reservation lock
+          ⚡ Demo / Testing? Click here to simulate instant $1,000 reservation lock
         </button>
       </div>
     </div>

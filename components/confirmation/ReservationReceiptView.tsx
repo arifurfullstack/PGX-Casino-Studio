@@ -168,8 +168,8 @@ export default function ReservationReceiptView({
           </span>
           <ol className="list-decimal list-inside space-y-1 leading-relaxed">
             <li><strong>Sales Consultation:</strong> A dedicated solution architect will contact you within business hours.</li>
-            <li><strong>Contract Execution:</strong> When you proceed with turnkey deployment, your $500 fee is credited toward your balance.</li>
-            <li><strong>100% Refund Guarantee:</strong> If you decide not to proceed within 120 hours, the $500 deposit is automatically returned in full.</li>
+            <li><strong>Contract Execution:</strong> When you proceed with turnkey deployment, your $1,000 fee is credited toward your balance.</li>
+            <li><strong>100% Refund Guarantee:</strong> If you decide not to proceed within 120 hours, the $1,000 deposit is automatically returned in full.</li>
           </ol>
         </div>
 

@@ -91,7 +91,7 @@ export default function OverviewKpiCards({
       title: "Completed Agreements",
       href: "/admin/reservations",
       value: completedAgreementsCount.toString(),
-      subtext: "$500 credited to final price",
+      subtext: "$1,000 credited to final price",
       icon: CheckCircle2,
       color: "from-emerald-500/18 to-teal-500/8",
       borderColor: "border-emerald-500/35 hover:border-emerald-400/70",

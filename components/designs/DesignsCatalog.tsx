@@ -501,7 +501,7 @@ export default function DesignsCatalog({
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
             <span className="text-white/75">
               Lock <strong className="text-emerald-400">{discountPercent}% Off</strong> ($
-              {pricingConfig.reservationFee} Refundable Hold)
+              {pricingConfig.reservationFee.toLocaleString()} Refundable Hold)
             </span>
           </div>
 

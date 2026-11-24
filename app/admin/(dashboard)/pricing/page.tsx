@@ -18,7 +18,7 @@ export default async function AdminPricingPage() {
             </h1>
           </div>
           <p className="text-sm sm:text-base text-gray-400 mt-1.5">
-            Configure starter package price, reservation holding deposit ($500), 5% price incentive, and 75/25 GGR revenue share split.
+            Configure starter package price, reservation holding deposit ($1,000), 5% price incentive, and 75/25 GGR revenue share split.
           </p>
         </div>
       </div>

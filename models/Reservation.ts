@@ -37,7 +37,7 @@ const ReservationSchema = new Schema<IReservation>(
     originalPackagePrice: { type: Number, required: true },
     discountPercent: { type: Number, default: 5 },
     discountedPrice: { type: Number, required: true },
-    reservationFee: { type: Number, default: 500 },
+    reservationFee: { type: Number, default: 1000 },
     remainingBalance: { type: Number, required: true },
     paymentStatus: {
       type: String,

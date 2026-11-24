@@ -124,7 +124,7 @@ export default function HowItWorksPage() {
             Ready to Begin Your Casino Journey?
           </h2>
           <p className="text-sm text-gray-300 max-w-xl mx-auto">
-            Reserve your favorite casino design today with a $500 refundable deposit, and our engineers will schedule your onboarding session immediately.
+            Reserve your favorite casino design today with a $1,000 refundable deposit, and our engineers will schedule your onboarding session immediately.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link

@@ -104,7 +104,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
             <div className="rounded-2xl bg-gradient-to-br from-purple-950/40 to-[#0e0320] border border-purple-500/30 p-5 space-y-2 text-xs text-gray-300">
               <p className="font-bold text-yellow-400 uppercase tracking-wider">Refundable Deposit</p>
               <p className="leading-relaxed">
-                All platform reservations include a $500 USD refundable holding deposit to lock in your exclusive territory and theme.
+                All platform reservations include a $1,000 USD refundable holding deposit to lock in your exclusive territory and theme.
               </p>
             </div>
           </div>

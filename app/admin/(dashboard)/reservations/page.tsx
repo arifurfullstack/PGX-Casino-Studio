@@ -22,7 +22,7 @@ export default async function AdminReservationsPage() {
             </h1>
           </div>
           <p className="text-sm sm:text-base text-gray-400 mt-1.5">
-            Monitor $500 reservation holdings, 120-hour price lock countdowns, and record agreement sign-offs or refunds.
+            Monitor $1,000 reservation holdings, 120-hour price lock countdowns, and record agreement sign-offs or refunds.
           </p>
         </div>
 

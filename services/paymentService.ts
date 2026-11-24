@@ -109,7 +109,7 @@ export async function createPgxReservationSession(
       .trim()
       .replace(/\/+$/, "");
 
-    const amount = reservation?.reservationFee || 500;
+    const amount = reservation?.reservationFee || 1000;
     const currency = (cardConfig.currency || "USD").toUpperCase();
 
     const response = await fetch(`${apiUrl}/api/v1/checkout/session`, {

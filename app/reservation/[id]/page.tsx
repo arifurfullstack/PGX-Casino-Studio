@@ -110,7 +110,7 @@ export default async function StandaloneReservationPage({
               120-Hour Holding Period Expired
             </h2>
             <p className="text-xs sm:text-sm text-gray-300 max-w-md mx-auto">
-              This reservation hold has concluded and the 5% discount incentive has been released. The $500 deposit was initiated for refund.
+              This reservation hold has concluded and the 5% discount incentive has been released. The $1,000 deposit was initiated for refund.
             </p>
             <div className="pt-2">
               <Link
@@ -183,7 +183,7 @@ export default async function StandaloneReservationPage({
                 </div>
                 <div className="flex items-center gap-2">
                   <DollarSign size={14} className="text-[#34d399] shrink-0" />
-                  <span>$500 is 100% refundable if no agreement is finalized.</span>
+                  <span>$1,000 is 100% refundable if no agreement is finalized.</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <ShieldCheck size={14} className="text-purple-400 shrink-0" />

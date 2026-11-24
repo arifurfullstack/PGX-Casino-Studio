@@ -130,14 +130,14 @@ export default function InquiryConfirmationView({
           <p className="text-xs text-gray-300 leading-relaxed">
             Want to lock in exclusive rights to <strong>{inquiry.selectedDesignName}</strong> and secure a guaranteed{" "}
             <strong className="text-[#34d399]">5% discount (saving ${Math.round(inquiry.totalPrice * 0.05).toLocaleString()} USD)</strong>?
-            Place a <strong className="text-white">100% refundable $500 holding deposit</strong> valid for 120 hours.
+            Place a <strong className="text-white">100% refundable $1,000 holding deposit</strong> valid for 120 hours.
           </p>
           <div className="pt-1 flex flex-wrap items-center gap-3">
             <Link
               href={`/select-design?design=${inquiry.selectedDesignId}`}
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-gradient-to-r from-[#FFE259] to-[#FFA700] hover:brightness-110 transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)]"
             >
-              <span>Lock 5-Day Hold for $500 (Refundable)</span>
+              <span>Lock 5-Day Hold for $1,000 (Refundable)</span>
               <ArrowRight size={14} />
             </Link>
             <span className="text-[11px] text-gray-400">Credited to final balance upon agreement.</span>

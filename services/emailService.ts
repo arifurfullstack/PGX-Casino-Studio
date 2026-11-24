@@ -207,7 +207,7 @@ export async function dispatchInquiryEmails(inquiry: CustomerInquiry): Promise<v
 }
 
 /**
- * Dispatches automated transactional emails on 5-Day Reservation Confirmation ($500 USD lock)
+ * Dispatches automated transactional emails on 5-Day Reservation Confirmation ($1,000 USD lock)
  */
 export async function dispatchReservationEmails(reservation: Reservation): Promise<void> {
   const config = await getIntegrationConfig();
@@ -226,7 +226,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
         <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">Your Design is Reserved!</h2>
         <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
         <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
-          We have recorded your <strong>$500 USD refundable holding deposit</strong>. Your selected casino frontend design and exclusive 5% package discount are officially reserved for the next <strong>120 hours (5 full days)</strong>.
+          We have recorded your <strong>$1,000 USD refundable holding deposit</strong>. Your selected casino frontend design and exclusive 5% package discount are officially reserved for the next <strong>120 hours (5 full days)</strong>.
         </p>
 
         <div style="background: #080214; border: 1px solid #ffd700; padding: 15px; border-radius: 8px; margin: 15px 0;">
@@ -266,7 +266,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
           ⏰ Holding Expiration: ${expiryDate}
         </p>
         <p style="color: #9ca3af; font-size: 11px;">
-          Note: The $500 fee is credited toward your final project balance upon agreement execution. If no agreement is finalized within 120 hours, the hold is released and the $500 deposit is fully refunded.
+          Note: The $1,000 fee is credited toward your final project balance upon agreement execution. If no agreement is finalized within 120 hours, the hold is released and the $1,000 deposit is fully refunded.
         </p>
       </div>
 
@@ -278,7 +278,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
 
   await sendEmail({
     to: reservation.customerEmail,
-    subject: `All I Gaming — $500 Reservation Confirmed [${reservation.reservationId}]`,
+    subject: `All I Gaming — $1,000 Reservation Confirmed [${reservation.reservationId}]`,
     html: customerHtml,
   });
 
@@ -286,7 +286,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
   if (adminEmail) {
     const adminHtml = `
       <div style="font-family: sans-serif; background: #0c041c; color: #fff; padding: 25px; border-radius: 12px; border: 2px solid #34d399;">
-        <h2 style="color: #34d399; margin-top: 0;">💰 $500 Reservation Deposit Secured!</h2>
+        <h2 style="color: #34d399; margin-top: 0;">💰 $1,000 Reservation Deposit Secured!</h2>
         <p>A client has locked a 5-day holding reservation:</p>
         <ul>
           <li><strong>Reservation ID:</strong> ${reservation.reservationId}</li>
@@ -302,7 +302,7 @@ export async function dispatchReservationEmails(reservation: Reservation): Promi
 
     await sendEmail({
       to: adminEmail,
-      subject: `[Payment Secured] $500 Reservation: ${reservation.customerName} (${reservation.reservationId})`,
+      subject: `[Payment Secured] $1,000 Reservation: ${reservation.customerName} (${reservation.reservationId})`,
       html: adminHtml,
     });
   }
@@ -347,13 +347,13 @@ export async function dispatchReservationExpiredEmails(reservation: Reservation)
             </tr>
             <tr style="border-top: 1px solid #4c1d95;">
               <td style="color: #ffffff; font-weight: bold; padding: 6px 0;">Refund Status:</td>
-              <td style="font-weight: bold; color: #34d399; font-size: 14px; text-align: right;">Full $500 Refund Initiated</td>
+              <td style="font-weight: bold; color: #34d399; font-size: 14px; text-align: right;">Full $1,000 Refund Initiated</td>
             </tr>
           </table>
         </div>
 
         <p style="color: #d1d5db; font-size: 13px; line-height: 1.6;">
-          As guaranteed by our 100% Refundable Policy, your full $500 USD holding deposit has been queued for immediate return to your original payment method. The temporary design lock and 5% price incentive have now been released.
+          As guaranteed by our 100% Refundable Policy, your full $1,000 USD holding deposit has been queued for immediate return to your original payment method. The temporary design lock and 5% price incentive have now been released.
         </p>
         <p style="color: #9ca3af; font-size: 12px; margin-top: 12px;">
           Should you wish to resume your casino platform deployment in the future, our enterprise team remains at your service.
@@ -376,7 +376,7 @@ export async function dispatchReservationExpiredEmails(reservation: Reservation)
   if (adminEmail) {
     const adminHtml = `
       <div style="font-family: sans-serif; background: #0c041c; color: #fff; padding: 25px; border-radius: 12px; border: 2px solid #ef4444;">
-        <h2 style="color: #ef4444; margin-top: 0;">⚠️ Reservation Expired — Action Required: Process $500 Refund</h2>
+        <h2 style="color: #ef4444; margin-top: 0;">⚠️ Reservation Expired — Action Required: Process $1,000 Refund</h2>
         <p>A 5-day holding reservation has reached its 120-hour expiration limit:</p>
         <ul>
           <li><strong>Reservation ID:</strong> ${reservation.reservationId}</li>
@@ -398,7 +398,7 @@ export async function dispatchReservationExpiredEmails(reservation: Reservation)
 
 /**
  * Dispatches automated transactional emails when a Commercial Agreement is Completed
- * ($500 reservation fee is credited toward the final invoice balance)
+ * ($1,000 reservation fee is credited toward the final invoice balance)
  */
 export async function dispatchAgreementCompletedEmails(reservation: Reservation): Promise<void> {
   const config = await getIntegrationConfig();
@@ -413,7 +413,7 @@ export async function dispatchAgreementCompletedEmails(reservation: Reservation)
       </div>
 
       <div style="background: #110526; padding: 20px; border-radius: 12px; border: 1px solid #4c1d95; margin-bottom: 20px;">
-        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">Agreement Confirmed — $500 Credited</h2>
+        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">Agreement Confirmed — $1,000 Credited</h2>
         <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
         <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
           Congratulations! Your turnkey online casino solution agreement for <strong>${reservation.selectedDesignName}</strong> has been officially executed.
@@ -445,7 +445,7 @@ export async function dispatchAgreementCompletedEmails(reservation: Reservation)
         </div>
 
         <p style="color: #d1d5db; font-size: 13px; line-height: 1.6;">
-          Your $500 holding deposit has been fully credited toward your project total. Your dedicated technical account manager will now schedule the engineering onboarding kick-off.
+          Your $1,000 holding deposit has been fully credited toward your project total. Your dedicated technical account manager will now schedule the engineering onboarding kick-off.
         </p>
       </div>
 
@@ -457,7 +457,7 @@ export async function dispatchAgreementCompletedEmails(reservation: Reservation)
 
   await sendEmail({
     to: reservation.customerEmail,
-    subject: `All I Gaming — Agreement Executed & $500 Credited [${reservation.reservationId}]`,
+    subject: `All I Gaming — Agreement Executed & $1,000 Credited [${reservation.reservationId}]`,
     html: customerHtml,
   });
 
@@ -465,7 +465,7 @@ export async function dispatchAgreementCompletedEmails(reservation: Reservation)
   if (adminEmail) {
     const adminHtml = `
       <div style="font-family: sans-serif; background: #0c041c; color: #fff; padding: 25px; border-radius: 12px; border: 2px solid #ffd700;">
-        <h2 style="color: #ffd700; margin-top: 0;">🎉 Agreement Executed — $500 Credited</h2>
+        <h2 style="color: #ffd700; margin-top: 0;">🎉 Agreement Executed — $1,000 Credited</h2>
         <p>Agreement signed and confirmed for reservation ${reservation.reservationId}:</p>
         <ul>
           <li><strong>Client:</strong> ${reservation.customerName} (${reservation.customerEmail})</li>
@@ -485,7 +485,7 @@ export async function dispatchAgreementCompletedEmails(reservation: Reservation)
 }
 
 /**
- * Dispatches automated transactional emails when a $500 Reservation Refund is Processed
+ * Dispatches automated transactional emails when a $1,000 Reservation Refund is Processed
  */
 export async function dispatchRefundCompletedEmails(reservation: Reservation): Promise<void> {
   const customerHtml = `
@@ -496,10 +496,10 @@ export async function dispatchRefundCompletedEmails(reservation: Reservation): P
       </div>
 
       <div style="background: #110526; padding: 20px; border-radius: 12px; border: 1px solid #4c1d95; margin-bottom: 20px;">
-        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">$500 Holding Deposit Refunded</h2>
+        <h2 style="font-size: 18px; color: #ffffff; margin-top: 0;">$1,000 Holding Deposit Refunded</h2>
         <p style="color: #d1d5db; font-size: 14px; line-height: 1.6;">Dear <strong>${reservation.customerName}</strong>,</p>
         <p style="color: #9ca3af; font-size: 13px; line-height: 1.6;">
-          Your <strong>$500 USD refundable holding deposit</strong> for reservation reference <strong>${reservation.reservationId}</strong> has been successfully returned to your original payment method.
+          Your <strong>$1,000 USD refundable holding deposit</strong> for reservation reference <strong>${reservation.reservationId}</strong> has been successfully returned to your original payment method.
         </p>
 
         <div style="background: #080214; border: 1px solid #34d399; padding: 15px; border-radius: 8px; margin: 15px 0;">
@@ -510,7 +510,7 @@ export async function dispatchRefundCompletedEmails(reservation: Reservation): P
             </tr>
             <tr>
               <td style="color: #9ca3af; padding: 4px 0;">Refund Amount:</td>
-              <td style="font-weight: bold; color: #34d399; font-size: 15px; text-align: right;">$500.00 USD</td>
+              <td style="font-weight: bold; color: #34d399; font-size: 15px; text-align: right;">$1,000.00 USD</td>
             </tr>
             <tr>
               <td style="color: #9ca3af; padding: 4px 0;">Processed Date:</td>
@@ -528,7 +528,7 @@ export async function dispatchRefundCompletedEmails(reservation: Reservation): P
 
   await sendEmail({
     to: reservation.customerEmail,
-    subject: `All I Gaming — $500 Refund Processed [${reservation.reservationId}]`,
+    subject: `All I Gaming — $1,000 Refund Processed [${reservation.reservationId}]`,
     html: customerHtml,
   });
 }

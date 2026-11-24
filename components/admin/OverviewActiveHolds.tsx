@@ -16,7 +16,7 @@ export default function OverviewActiveHolds({ reservations }: OverviewActiveHold
         <div className="flex items-center gap-2.5">
           <Clock size={20} className="text-[#FFD700]" />
           <h2 className="text-base font-bold text-white uppercase tracking-wider">
-            Active 5-Day Price Locks ($500)
+            Active 5-Day Price Locks ($1,000)
           </h2>
         </div>
         <Link

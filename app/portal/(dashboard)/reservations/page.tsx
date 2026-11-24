@@ -32,7 +32,7 @@ export default async function CustomerReservationsPage() {
               My 5-Day <span className="gold-text">Reservations</span> &amp; Receipts
             </h1>
             <p className="text-xs sm:text-sm text-white/70 mt-1 max-w-2xl">
-              Track your $500 refundable reservation holdings, locked 5% package discounts, and official digital deposit receipts.
+              Track your $1,000 refundable reservation holdings, locked 5% package discounts, and official digital deposit receipts.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default async function CustomerReservationsPage() {
             No Reservations On File Yet
           </h2>
           <p className="text-xs sm:text-sm text-white/70 max-w-lg mx-auto leading-relaxed">
-            Lock in a <strong className="text-[#ffe28a]">5% VIP discount</strong> and secure your custom casino package price for 5 full days with a $500 refundable deposit on our design selector.
+            Lock in a <strong className="text-[#ffe28a]">5% VIP discount</strong> and secure your custom casino package price for 5 full days with a $1,000 refundable deposit on our design selector.
           </p>
           <div className="pt-1">
             <Link
@@ -152,7 +152,7 @@ export default async function CustomerReservationsPage() {
                   <div className="flex items-center gap-2 text-white/75">
                     <ShieldCheck size={15} className="text-[#f5c451] shrink-0" />
                     <span>
-                      Deposit Paid: <strong className="text-white">$500 USD</strong> • 100% credited toward project invoice upon agreement sign-off.
+                      Deposit Paid: <strong className="text-white">$1,000 USD</strong> • 100% credited toward project invoice upon agreement sign-off.
                     </span>
                   </div>
 

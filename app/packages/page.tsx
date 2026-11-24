@@ -52,7 +52,7 @@ export default function PackagesPage() {
                 ${starter.basePrice.toLocaleString()}
               </div>
               <p className="text-xs text-gray-400 mt-1">USD One-Time Setup</p>
-              <p className="text-[11px] text-green-400 font-bold mt-0.5">$500 Refundable Reservation</p>
+              <p className="text-[11px] text-green-400 font-bold mt-0.5">$1,000 Refundable Reservation</p>
             </div>
           </div>
 

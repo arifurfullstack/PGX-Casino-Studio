@@ -15,7 +15,7 @@ const PricingConfigSchema = new Schema<IPricingConfig>(
     starterPackagePrice: { type: Number, default: 15000, required: true },
     ggrCompanyShare: { type: Number, default: 25, required: true },
     ggrOperatorShare: { type: Number, default: 75, required: true },
-    reservationFee: { type: Number, default: 500, required: true },
+    reservationFee: { type: Number, default: 1000, required: true },
     reservationDiscountPercent: { type: Number, default: 5, required: true },
     reservationDurationHours: { type: Number, default: 120, required: true },
   },

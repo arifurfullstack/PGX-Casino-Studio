@@ -582,7 +582,7 @@ export default function GatewaysAndEmailSettings({
                       placeholder="admin@alligaming.com"
                       className="w-full px-4 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/35 text-white text-sm focus:outline-none focus:border-[#FFD700]"
                     />
-                    <p className="text-[10px] text-gray-500 mt-1">Receives instant alerts when new inquiries or $500 reservation deposits are submitted.</p>
+                    <p className="text-[10px] text-gray-500 mt-1">Receives instant alerts when new inquiries or $1,000 reservation deposits are submitted.</p>
                   </div>
                 </div>
               </div>

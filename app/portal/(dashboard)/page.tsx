@@ -140,7 +140,7 @@ export default async function CustomerPortalOverviewPage() {
                 Lock in your selected casino theme with a{" "}
                 <strong className="text-[#ffe28a] font-bold">5% VIP discount</strong> and{" "}
                 <strong className="text-white font-bold">120-hour price freeze</strong> for a{" "}
-                <strong className="text-[#ffe28a] font-bold">$500 refundable deposit</strong>.
+                <strong className="text-[#ffe28a] font-bold">$1,000 refundable deposit</strong>.
               </p>
             </div>
 
@@ -308,7 +308,7 @@ export default async function CustomerPortalOverviewPage() {
                   </span>
                 </div>
                 <p className="text-xs text-white/70 mt-0.5 leading-relaxed">
-                  Contract review, commercial onboarding sign-off, and formal invoice credit of your $500 reservation fee.
+                  Contract review, commercial onboarding sign-off, and formal invoice credit of your $1,000 reservation fee.
                 </p>
               </div>
             </div>

@@ -225,7 +225,7 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                         <p className="text-white font-bold">
                           Balance Due: ${r.remainingBalance.toLocaleString()}
                         </p>
-                        <p className="text-xs text-[#FFD700] font-mono">$500 fee paid</p>
+                        <p className="text-xs text-[#FFD700] font-mono">$1,000 fee paid</p>
                       </div>
                     </td>
 
@@ -255,7 +255,7 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                               onClick={() => handleUpdateStatus(r.reservationId, "agreement_completed")}
                               disabled={isWorking}
                               className="px-3 py-1.5 rounded-lg text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 transition-all flex items-center gap-1.5 cursor-pointer"
-                              title="Sign Agreement & Credit $500 to Invoice"
+                              title="Sign Agreement & Credit $1,000 to Invoice"
                             >
                               <CheckCircle size={13} className="stroke-[2.5]" />
                               <span>Complete</span>
@@ -265,7 +265,7 @@ export default function ReservationsTable({ initialReservations }: ReservationsT
                               onClick={() => handleUpdateStatus(r.reservationId, "refunded", "refunded")}
                               disabled={isWorking}
                               className="px-3 py-1.5 rounded-lg text-xs font-semibold text-blue-300 bg-blue-950/60 hover:bg-blue-900 border border-blue-500/40 transition-colors flex items-center gap-1.5 cursor-pointer"
-                              title="Refund $500 Holding Fee"
+                              title="Refund $1,000 Holding Fee"
                             >
                               <RotateCcw size={13} />
                               <span>Refund</span>

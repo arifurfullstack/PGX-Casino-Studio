@@ -24,10 +24,10 @@ const STAGES = [
     status: "in_progress",
     timeline: "Days 4–7",
     description:
-      "Formal contract execution, $500 reservation holding credited directly to your initial invoice, and commercial terms sign-off.",
+      "Formal contract execution, $1,000 reservation holding credited directly to your initial invoice, and commercial terms sign-off.",
     items: [
       "B2B software licensing agreement review",
-      "$500 reservation fee credited to invoice",
+      "$1,000 reservation fee credited to invoice",
       "Operator GGR commercial terms confirmation",
     ],
   },
