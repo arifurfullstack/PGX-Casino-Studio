@@ -25,8 +25,8 @@ export const SITE_CONFIG = {
     { label: "Packages", href: "/packages" },
     { label: "Add-On Modules", href: "/modules" },
     { label: "How It Works", href: "/how-it-works" },
-    { label: "About Us", href: "/about" },
     { label: "Proposal", href: "/Royal-Casino-Club-Proposal.pdf", external: true },
+    { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ] as NavItem[],
 };
