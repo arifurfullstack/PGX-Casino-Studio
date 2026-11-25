@@ -1,6 +1,7 @@
 export interface NavItem {
   label: string;
   href: string;
+  external?: boolean;
 }
 
 export const SITE_CONFIG = {
@@ -25,6 +26,7 @@ export const SITE_CONFIG = {
     { label: "Add-On Modules", href: "/modules" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "About Us", href: "/about" },
+    { label: "Proposal", href: "/Royal-Casino-Club-Proposal.pdf", external: true },
     { label: "Contact", href: "/contact" },
   ] as NavItem[],
 };

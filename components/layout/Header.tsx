@@ -43,19 +43,36 @@ export default function Header() {
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8 text-[14.5px] font-semibold">
           {SITE_CONFIG.navItems.map((item) => {
             const isActive =
-              item.href === "/"
+              !item.external &&
+              (item.href === "/"
                 ? pathname === "/"
-                : pathname.startsWith(item.href);
+                : pathname.startsWith(item.href));
+
+            const linkClass = `relative py-1.5 transition-colors duration-200 tracking-wide ${
+              isActive
+                ? "text-[#FFD700] font-bold drop-shadow-[0_0_12px_rgba(255,215,0,0.6)]"
+                : "text-white/95 hover:text-[#FFD700]"
+            }`;
+
+            if (item.external) {
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  <span>{item.label}</span>
+                </a>
+              );
+            }
 
             return (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`relative py-1.5 transition-colors duration-200 tracking-wide ${
-                  isActive
-                    ? "text-[#FFD700] font-bold drop-shadow-[0_0_12px_rgba(255,215,0,0.6)]"
-                    : "text-white/95 hover:text-[#FFD700]"
-                }`}
+                className={linkClass}
               >
                 <span>{item.label}</span>
                 {isActive && <span className="gold-lens-flare" />}

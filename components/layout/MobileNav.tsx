@@ -26,17 +26,31 @@ export default function MobileNav({ items }: MobileNavProps) {
       {isOpen && (
         <div className="fixed inset-x-0 top-16 sm:top-20 bg-[#060114]/98 border-b border-purple-800/60 backdrop-blur-2xl px-6 py-6 shadow-[0_20px_50px_rgba(0,0,0,0.9)] z-50 animate-in fade-in slide-in-from-top-2 duration-200">
           <nav className="flex flex-col gap-2">
-            {items.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="text-base font-semibold text-gray-200 hover:text-[#FFD700] py-2.5 border-b border-purple-900/30 transition-colors flex items-center justify-between"
-              >
-                <span>{item.label}</span>
-                <span className="text-purple-400/40 text-xs">&rarr;</span>
-              </Link>
-            ))}
+            {items.map((item) =>
+              item.external ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-gray-200 hover:text-[#FFD700] py-2.5 border-b border-purple-900/30 transition-colors flex items-center justify-between"
+                >
+                  <span>{item.label}</span>
+                  <span className="text-purple-400/40 text-xs">&rarr;</span>
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-base font-semibold text-gray-200 hover:text-[#FFD700] py-2.5 border-b border-purple-900/30 transition-colors flex items-center justify-between"
+                >
+                  <span>{item.label}</span>
+                  <span className="text-purple-400/40 text-xs">&rarr;</span>
+                </Link>
+              )
+            )}
 
             <div className="pt-4 flex flex-col gap-3">
               <Link

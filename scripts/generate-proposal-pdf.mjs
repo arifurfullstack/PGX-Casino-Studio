@@ -5,6 +5,7 @@ import { execFileSync } from "node:child_process";
 
 const ROOT = process.cwd();
 const OUTPUT_PDF = path.join(ROOT, "Royal-Casino-Club-Proposal.pdf");
+const PUBLIC_PDF = path.join(ROOT, "public", "Royal-Casino-Club-Proposal.pdf");
 
 function toDataUri(relPath, mime) {
   const abs = path.join(ROOT, relPath);
@@ -1655,8 +1656,9 @@ try {
     ],
     { stdio: "inherit" }
   );
+  fs.copyFileSync(OUTPUT_PDF, PUBLIC_PDF);
   const stats = fs.statSync(OUTPUT_PDF);
-  console.log(`Generated ${OUTPUT_PDF} (${(stats.size / 1024).toFixed(1)} KB)`);
+  console.log(`Generated ${OUTPUT_PDF} & ${PUBLIC_PDF} (${(stats.size / 1024).toFixed(1)} KB)`);
 } finally {
   if (fs.existsSync(tmpHtml)) {
     fs.unlinkSync(tmpHtml);
