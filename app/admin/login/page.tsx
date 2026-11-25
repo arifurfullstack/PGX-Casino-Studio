@@ -32,7 +32,7 @@ export default async function AdminLoginPage({
             className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-[#FFD700] transition-colors"
           >
             <Home size={14} />
-            <span>Back to All I Gaming Storefront</span>
+            <span>Back to Royal Casino Club Storefront</span>
           </Link>
         </div>
 
@@ -40,10 +40,10 @@ export default async function AdminLoginPage({
         <div className="bg-[#0a0316]/90 border border-purple-500/40 rounded-2xl p-6 sm:p-8 backdrop-blur-xl shadow-[0_0_35px_rgba(168,85,247,0.25)]">
           {/* Brand Logo & Title */}
           <div className="text-center mb-8">
-            <div className="relative w-44 h-12 mx-auto mb-4">
+            <div className="relative w-40 aspect-[1158/612] mx-auto mb-4">
               <Image
-                src="/images/all-i-gaming-logo-official.png"
-                alt="All I Gaming Logo"
+                src="/images/royal-hero/royal-hero-logo-perfect.png"
+                alt="Royal Casino Club Logo"
                 fill
                 className="object-contain"
                 unoptimized

@@ -80,10 +80,10 @@ export default function AdminSidebar() {
         {/* Admin Header / Logo */}
         <div className="p-6 border-b border-purple-900/40">
           <Link href="/admin" className="flex items-center gap-3">
-            <div className="relative w-44 h-11">
+            <div className="relative w-36 aspect-[1158/612]">
               <Image
-                src="/images/all-i-gaming-logo-official.png"
-                alt="All I Gaming"
+                src="/images/royal-hero/royal-hero-logo-perfect.png"
+                alt="Royal Casino Club"
                 fill
                 className="object-contain object-left"
                 unoptimized
@@ -153,16 +153,16 @@ export default function AdminSidebar() {
   return (
     <>
       {/* Mobile Top Navbar Bar */}
-      <div className="lg:hidden flex items-center justify-between px-5 py-3.5 bg-[#0a0316] border-b border-purple-900/50 sticky top-0 z-40">
-        <div className="relative w-36 h-9">
+      <div className="lg:hidden flex items-center justify-between px-5 py-3 bg-[#0a0316] border-b border-purple-900/50 sticky top-0 z-40">
+        <Link href="/admin" className="relative w-28 aspect-[1158/612]">
           <Image
-            src="/images/all-i-gaming-logo-official.png"
-            alt="All I Gaming"
+            src="/images/royal-hero/royal-hero-logo-perfect.png"
+            alt="Royal Casino Club"
             fill
             className="object-contain object-left"
             unoptimized
           />
-        </div>
+        </Link>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           className="p-2.5 text-gray-200 hover:text-white rounded-xl bg-purple-950/60 border border-purple-500/40 cursor-pointer"

@@ -22,8 +22,15 @@ export async function createCustomerInquiry(
 ): Promise<CustomerInquiry> {
   await connectToDatabase();
 
-  const count = await CustomerInquiryModel.countDocuments();
-  const referenceNumber = `AIG-REQ-${(count + 1).toString().padStart(5, "0")}`;
+  const [count, latest] = await Promise.all([
+    CustomerInquiryModel.countDocuments(),
+    CustomerInquiryModel.findOne({}, { referenceNumber: 1 }).sort({ createdAt: -1 }).lean(),
+  ]);
+  const latestNum = latest?.referenceNumber
+    ? parseInt(latest.referenceNumber.replace(/\D/g, ""), 10) || 0
+    : 0;
+  const nextSeq = Math.max(count, latestNum) + 1;
+  const referenceNumber = `AIG-REQ-${nextSeq.toString().padStart(5, "0")}`;
 
   const doc = await CustomerInquiryModel.create({
     referenceNumber,

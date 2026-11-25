@@ -11,11 +11,15 @@ import {
   Clock,
   Download,
   Eye,
+  Trash2,
   CheckCircle2,
   AlertCircle,
 } from "lucide-react";
 import { AdminCustomerRecord } from "@/services/adminCustomerService";
-import { toggleCustomerStatusAction } from "@/app/actions/adminCustomerActions";
+import {
+  toggleCustomerStatusAction,
+  deleteCustomerAction,
+} from "@/app/actions/adminCustomerActions";
 import CustomerDossierModal from "./CustomerDossierModal";
 
 interface CustomerManagementTableProps {
@@ -27,8 +31,9 @@ export default function CustomerManagementTable({ initialCustomers }: CustomerMa
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | "registered" | "holds" | "suspended">("all");
   const [selectedCustomer, setSelectedCustomer] = useState<AdminCustomerRecord | null>(null);
+  const [customerToDelete, setCustomerToDelete] = useState<AdminCustomerRecord | null>(null);
   const [isPending, startTransition] = useTransition();
-  const [actionMessage, setActionMessage] = useState<string | null>(null);
+  const [actionMessage, setActionMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
   const filteredCustomers = customers.filter((c) => {
     const q = search.toLowerCase();
@@ -53,8 +58,31 @@ export default function CustomerManagementTable({ initialCustomers }: CustomerMa
         setCustomers((prev) =>
           prev.map((c) => (c.email === email ? { ...c, status: newStatus } : c))
         );
-        setActionMessage(`Updated ${email} status to ${newStatus}`);
+        setActionMessage({ type: "success", text: `Updated ${email} status to ${newStatus}` });
         setTimeout(() => setActionMessage(null), 3000);
+      } else {
+        setActionMessage({ type: "error", text: res.message || "Failed to update status." });
+        setTimeout(() => setActionMessage(null), 4000);
+      }
+    });
+  };
+
+  const handleConfirmDelete = () => {
+    if (!customerToDelete) return;
+    const targetEmail = customerToDelete.email;
+    startTransition(async () => {
+      const res = await deleteCustomerAction(targetEmail);
+      setCustomerToDelete(null);
+      if (res.success) {
+        setCustomers((prev) => prev.filter((c) => c.email !== targetEmail));
+        if (selectedCustomer?.email === targetEmail) {
+          setSelectedCustomer(null);
+        }
+        setActionMessage({ type: "success", text: res.message });
+        setTimeout(() => setActionMessage(null), 3500);
+      } else {
+        setActionMessage({ type: "error", text: res.message || "Failed to delete customer." });
+        setTimeout(() => setActionMessage(null), 4000);
       }
     });
   };
@@ -94,7 +122,7 @@ export default function CustomerManagementTable({ initialCustomers }: CustomerMa
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `alligaming_customers_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute("download", `royalcasinoclub_customers_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -103,9 +131,15 @@ export default function CustomerManagementTable({ initialCustomers }: CustomerMa
   return (
     <div className="space-y-4">
       {actionMessage && (
-        <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/30 text-green-400 text-xs font-semibold flex items-center gap-2">
-          <CheckCircle2 size={16} />
-          <span>{actionMessage}</span>
+        <div
+          className={`p-3 rounded-lg border text-xs font-semibold flex items-center gap-2 ${
+            actionMessage.type === "error"
+              ? "bg-red-500/10 border-red-500/30 text-red-400"
+              : "bg-green-500/10 border-green-500/30 text-green-400"
+          }`}
+        >
+          {actionMessage.type === "error" ? <AlertCircle size={16} /> : <CheckCircle2 size={16} />}
+          <span>{actionMessage.text}</span>
         </div>
       )}
 
@@ -251,14 +285,26 @@ export default function CustomerManagementTable({ initialCustomers }: CustomerMa
                     </td>
 
                     <td className="py-4 px-5 text-right">
-                      <button
-                        onClick={() => setSelectedCustomer(cust)}
-                        type="button"
-                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-purple-900/40 border border-purple-500/35 text-xs sm:text-sm font-semibold text-gray-200 hover:text-[#FFD700] hover:border-[#FFD700]/50 transition-colors cursor-pointer"
-                      >
-                        <Eye size={14} />
-                        <span>View Dossier</span>
-                      </button>
+                      <div className="inline-flex items-center justify-end gap-2">
+                        <button
+                          onClick={() => setSelectedCustomer(cust)}
+                          type="button"
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-purple-900/40 border border-purple-500/35 text-xs sm:text-sm font-semibold text-gray-200 hover:text-[#FFD700] hover:border-[#FFD700]/50 transition-colors cursor-pointer"
+                        >
+                          <Eye size={14} />
+                          <span>View Dossier</span>
+                        </button>
+                        <button
+                          onClick={() => setCustomerToDelete(cust)}
+                          disabled={isPending}
+                          type="button"
+                          title={`Delete ${cust.email}`}
+                          className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-red-950/50 border border-red-500/35 text-xs sm:text-sm font-semibold text-red-300 hover:bg-red-900/60 hover:text-white hover:border-red-400/60 transition-colors cursor-pointer disabled:opacity-50"
+                        >
+                          <Trash2 size={14} />
+                          <span>Delete</span>
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))
@@ -273,6 +319,46 @@ export default function CustomerManagementTable({ initialCustomers }: CustomerMa
           customer={selectedCustomer}
           onClose={() => setSelectedCustomer(null)}
         />
+      )}
+
+      {customerToDelete && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-[#0b0114] border border-red-500/40 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+            <div className="flex items-start gap-3">
+              <div className="p-2.5 rounded-xl bg-red-950/70 border border-red-500/40 text-red-400 shrink-0">
+                <Trash2 size={20} />
+              </div>
+              <div>
+                <h3 className="text-base font-black text-white uppercase tracking-wide">
+                  Delete Customer Record?
+                </h3>
+                <p className="text-xs text-gray-400 mt-1 leading-relaxed">
+                  This will permanently remove <span className="text-white font-semibold">{customerToDelete.companyName}</span> ({customerToDelete.email}) along with their {customerToDelete.inquiriesCount} quote(s) and {customerToDelete.reservationsCount} reservation(s).
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2.5 pt-2">
+              <button
+                onClick={() => setCustomerToDelete(null)}
+                disabled={isPending}
+                type="button"
+                className="px-4 py-2 rounded-xl bg-white/5 border border-purple-500/30 text-xs font-bold text-gray-300 hover:text-white transition-colors cursor-pointer disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleConfirmDelete}
+                disabled={isPending}
+                type="button"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-xs font-bold text-white transition-colors cursor-pointer disabled:opacity-50"
+              >
+                <Trash2 size={14} />
+                <span>{isPending ? "Deleting..." : "Confirm Delete"}</span>
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

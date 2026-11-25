@@ -238,3 +238,41 @@ export async function updateCustomerAdminNotesInDb(
     return { success: false, message: errorMsg };
   }
 }
+
+export async function deleteCustomerByEmailInDb(
+  email: string
+): Promise<{ success: boolean; message: string }> {
+  try {
+    await connectToDatabase();
+    const normalizedEmail = email.toLowerCase().trim();
+    if (!normalizedEmail) {
+      return { success: false, message: "Customer email is required." };
+    }
+
+    const escaped = normalizedEmail.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const exactEmailRegex = new RegExp(`^${escaped}$`, "i");
+
+    const [userRes, inquiryRes, reservationRes] = await Promise.all([
+      CustomerUserModel.deleteMany({ email: exactEmailRegex }),
+      CustomerInquiryModel.deleteMany({ email: exactEmailRegex }),
+      ReservationModel.deleteMany({ customerEmail: exactEmailRegex }),
+    ]);
+
+    const totalDeleted =
+      (userRes.deletedCount || 0) +
+      (inquiryRes.deletedCount || 0) +
+      (reservationRes.deletedCount || 0);
+
+    if (totalDeleted === 0) {
+      return { success: false, message: "No matching customer records found." };
+    }
+
+    return {
+      success: true,
+      message: `Deleted customer records for ${normalizedEmail}.`,
+    };
+  } catch (error: unknown) {
+    const errorMsg = error instanceof Error ? error.message : "Failed to delete customer.";
+    return { success: false, message: errorMsg };
+  }
+}

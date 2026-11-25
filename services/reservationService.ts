@@ -21,11 +21,16 @@ export interface CreateReservationInput {
 export async function createReservation(input: CreateReservationInput): Promise<Reservation> {
   await connectToDatabase();
 
-  const [count, pricingConfig] = await Promise.all([
+  const [count, latest, pricingConfig] = await Promise.all([
     ReservationModel.countDocuments(),
+    ReservationModel.findOne({}, { reservationId: 1 }).sort({ createdAt: -1 }).lean(),
     getPricingConfig(),
   ]);
-  const reservationId = `AIG-RES-${(count + 1).toString().padStart(5, "0")}`;
+  const latestNum = latest?.reservationId
+    ? parseInt(latest.reservationId.replace(/\D/g, ""), 10) || 0
+    : 0;
+  const nextSeq = Math.max(count, latestNum) + 1;
+  const reservationId = `AIG-RES-${nextSeq.toString().padStart(5, "0")}`;
 
   const discountPercent = pricingConfig.reservationDiscountPercent;
   const discountAmount = Math.round((input.originalPackagePrice * discountPercent) / 100);
