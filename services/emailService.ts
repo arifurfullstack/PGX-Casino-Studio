@@ -167,7 +167,7 @@ export async function dispatchInquiryEmails(inquiry: CustomerInquiry): Promise<v
       </div>
 
       <p style="color: #9ca3af; font-size: 12px; text-align: center; margin-top: 25px;">
-        Need instant assistance? Contact our VIP team on WhatsApp: <strong>+1 (416) 725-6556</strong>
+        Need instant assistance? Contact our VIP team on WhatsApp: <strong>+1 (416) 477-0191</strong>
       </p>
     </div>
   `;

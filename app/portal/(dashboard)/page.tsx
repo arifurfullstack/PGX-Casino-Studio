@@ -366,7 +366,7 @@ export default async function CustomerPortalOverviewPage() {
                     Direct WhatsApp
                   </p>
                   <p className="text-xs sm:text-[13px] font-bold text-white tabular-nums">
-                    +1 (416) 725-6538
+                    +1 (416) 477-0191
                   </p>
                 </div>
               </div>
@@ -402,7 +402,7 @@ export default async function CustomerPortalOverviewPage() {
           </div>
 
           <a
-            href="https://wa.me/14167256538?text=Hello%20Royal%20Casino%20Club%2C%20I%20am%20reviewing%20my%20VIP%20Client%20Portal."
+            href="https://wa.me/14164770191?text=Hello%20Royal%20Casino%20Club%2C%20I%20am%20reviewing%20my%20VIP%20Client%20Portal."
             target="_blank"
             rel="noreferrer"
             className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[#ffe27a] via-[#f5b82e] to-[#d48806] text-[#261100] py-2.5 px-4 text-xs sm:text-sm font-extrabold border border-[#fff2b2]/70 hover:brightness-105 transition-all duration-150"

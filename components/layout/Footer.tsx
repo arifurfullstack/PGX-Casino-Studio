@@ -91,18 +91,18 @@ export default function Footer() {
             <li className="flex items-center gap-2.5">
               <Phone className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
               <a
-                href="https://wa.me/14167256538?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20know%20more."
+                href="https://wa.me/14164770191?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20know%20more."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gold transition-colors"
               >
-                +1 (416) 725-6538 (WhatsApp)
+                +1 (416) 477-0191 (WhatsApp)
               </a>
             </li>
             <li className="flex items-center gap-2.5">
               <Crown className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
               <a
-                href="https://wa.me/14167256538?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20reserve%20a%20casino."
+                href="https://wa.me/14164770191?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20reserve%20a%20casino."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-bold text-gold hover:underline"

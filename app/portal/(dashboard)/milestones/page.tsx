@@ -100,7 +100,7 @@ export default async function CustomerMilestonesPage() {
         </div>
 
         <a
-          href="https://wa.me/14167256538?text=Hello%20Royal%20Casino%20Club%2C%20I%20have%20a%20question%20about%20my%20onboarding%20milestones."
+          href="https://wa.me/14164770191?text=Hello%20Royal%20Casino%20Club%2C%20I%20have%20a%20question%20about%20my%20onboarding%20milestones."
           target="_blank"
           rel="noreferrer"
           className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-b from-[#ffe27a] via-[#f5b82e] to-[#d48806] text-[#261100] px-4 py-2.5 text-xs sm:text-sm font-extrabold border border-[#fff2b2]/70 hover:brightness-105 transition-all duration-150 shrink-0 self-start lg:self-auto"

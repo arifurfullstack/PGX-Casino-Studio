@@ -1224,7 +1224,7 @@ const html = `<!DOCTYPE html>
           <div>
             <div style="font-size:12px; font-weight:700; color:#1E1047;">Want a Live Walkthrough of Any Theme?</div>
             <p style="font-size:10.6px; color:#475569; margin-top:3px;">
-              Tap <strong>"View Demo"</strong> on any storefront at <a href="https://royalcasinoclub.com/designs" style="color:#3B1E8A; font-weight:700; text-decoration:underline;">royalcasinoclub.com/designs</a> or message our VIP desk on WhatsApp (<a href="https://wa.me/14167256556" style="color:#1E1047; font-weight:700;">+1 (416) 725-6556</a>) for an instant guided preview.
+              Tap <strong>"View Demo"</strong> on any storefront at <a href="https://royalcasinoclub.com/designs" style="color:#3B1E8A; font-weight:700; text-decoration:underline;">royalcasinoclub.com/designs</a> or message our VIP desk on WhatsApp (<a href="https://wa.me/14164770191" style="color:#1E1047; font-weight:700;">+1 (416) 477-0191</a>) for an instant guided preview.
             </p>
           </div>
         </div>
@@ -1615,7 +1615,7 @@ const html = `<!DOCTYPE html>
         <div>
           <div style="font-size:10px; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#FFD700;">Direct Partner Channels</div>
           <div style="display:flex; flex-wrap:wrap; gap:18px; margin-top:8px; font-size:11.5px; color:#F8FAFC;">
-            <div><span style="color:#94A3B8;">WhatsApp:</span> <a href="https://wa.me/14167256556" style="font-weight:700; color:#FFFFFF;">+1 (416) 725-6556</a></div>
+            <div><span style="color:#94A3B8;">WhatsApp:</span> <a href="https://wa.me/14164770191" style="font-weight:700; color:#FFFFFF;">+1 (416) 477-0191</a></div>
             <div><span style="color:#94A3B8;">Telegram:</span> <a href="https://t.me/RoyalCasinoClubOfficial" style="font-weight:700; color:#FFFFFF;">@RoyalCasinoClubOfficial</a></div>
             <div><span style="color:#94A3B8;">Email:</span> <a href="mailto:contact@royalcasinoclub.com" style="font-weight:700; color:#FFFFFF;">contact@royalcasinoclub.com</a></div>
           </div>

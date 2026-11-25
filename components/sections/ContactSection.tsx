@@ -405,7 +405,7 @@ Phone/WhatsApp: ${phone}
 Email: ${email || "N/A"}
 Message: ${message || "I am interested in launching an online casino."}`;
 
-    const url = `https://wa.me/14167256538?text=${encodeURIComponent(text)}`;
+    const url = `https://wa.me/14164770191?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank");
   };
 
@@ -688,7 +688,7 @@ Message: ${message || "I am interested in launching an online casino."}`;
 
                   <li className="js-contact-stagger">
                     <a
-                      href="https://wa.me/14167256538?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20know%20more."
+                      href="https://wa.me/14164770191?text=Hi%20Royal%20Casino%20Club%2C%20I%27d%20like%20to%20know%20more."
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group/link flex items-center justify-between gap-3 rounded-2xl border border-purple-400/25 bg-[#16052a]/70 px-4 py-3 backdrop-blur-md transition-all duration-300 hover:translate-x-1.5 hover:border-[#f5c451]/65 hover:bg-[#22093f]/80 hover:shadow-[0_0_24px_rgba(245,196,81,0.18)]"
@@ -698,7 +698,7 @@ Message: ${message || "I am interested in launching an online casino."}`;
                           <Phone className="h-4 w-4" />
                         </span>
                         <span className="truncate font-semibold text-white/95 group-hover/link:text-[#ffe28a] transition-colors">
-                          +1 (416) 725-6538 (WhatsApp)
+                          +1 (416) 477-0191 (WhatsApp)
                         </span>
                       </span>
                       <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#f5c451]" />

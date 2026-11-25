@@ -13,8 +13,8 @@ export const SITE_CONFIG = {
   startingPriceFormatted: "$15,000 USD",
   contact: {
     email: "contact@royalcasinoclub.com",
-    whatsapp: "+1 (416) 725-6538",
-    whatsappLink: "https://wa.me/14167256538",
+    whatsapp: "+1 (416) 477-0191",
+    whatsappLink: "https://wa.me/14164770191",
     telegram: "@RoyalCasinoClubOfficial",
     supportHours: "24/7 Global Business Inquiries",
   },

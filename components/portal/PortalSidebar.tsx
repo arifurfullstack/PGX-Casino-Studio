@@ -225,7 +225,7 @@ export default function PortalSidebar({ user }: PortalSidebarProps) {
       {/* Footer Actions & Concierge Desk */}
       <div className="relative z-10 px-3.5 pb-4 pt-3.5 border-t border-[#d696ff]/15 space-y-2">
         <a
-          href="https://wa.me/14167256538?text=Hello%20Royal%20Casino%20Club%2C%20I%20am%20in%20my%20VIP%20Client%20Portal%20and%20would%20like%20assistance."
+          href="https://wa.me/14164770191?text=Hello%20Royal%20Casino%20Club%2C%20I%20am%20in%20my%20VIP%20Client%20Portal%20and%20would%20like%20assistance."
           target="_blank"
           rel="noreferrer"
           className="group flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-emerald-950/45 border border-emerald-400/30 hover:border-emerald-300/60 transition-colors duration-150"

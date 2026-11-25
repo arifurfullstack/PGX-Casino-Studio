@@ -59,7 +59,7 @@ export default function StarterPackageSection() {
   const priceRef = useRef<HTMLSpanElement>(null);
 
   const getWhatsAppLink = (moduleName: string) =>
-    `https://wa.me/14167256538?text=${encodeURIComponent(
+    `https://wa.me/14164770191?text=${encodeURIComponent(
       `Hi Royal Casino Club, I'd like to add the ${moduleName} module to my casino.`
     )}`;
 
