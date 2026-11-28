@@ -1,10 +1,22 @@
 import type { Metadata, Viewport } from "next";
-import { Cabin, Cinzel, Great_Vibes } from "next/font/google";
+import {
+  Cabin,
+  Cinzel,
+  Great_Vibes,
+  Noto_Sans_Arabic,
+  Noto_Sans_Bengali,
+  Noto_Sans_Devanagari,
+} from "next/font/google";
 import localFont from "next/font/local";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import LanguageWelcomeModal from "@/components/i18n/LanguageWelcomeModal";
 import { SITE_CONFIG } from "@/config/site-config";
+import { getLocaleDir } from "@/i18n/config";
+import { resolveServerLocale } from "@/i18n/request";
 
 const cabin = Cabin({
   subsets: ["latin"],
@@ -24,6 +36,27 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
   variable: "--font-script",
   weight: ["400"],
+  display: "swap",
+});
+
+const notoArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
+  variable: "--font-arabic",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const notoBengali = Noto_Sans_Bengali({
+  subsets: ["bengali"],
+  variable: "--font-bengali",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const notoDevanagari = Noto_Sans_Devanagari({
+  subsets: ["devanagari"],
+  variable: "--font-devanagari",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -117,34 +150,45 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [{ locale, hasCookie }, messages] = await Promise.all([
+    resolveServerLocale(),
+    getMessages(),
+  ]);
+  const dir = getLocaleDir(locale);
+
   return (
     <html
-      lang="en"
+      lang={locale}
+      dir={dir}
       suppressHydrationWarning
-      className={`dark ${cabin.variable} ${cinzel.variable} ${philosopher.variable} ${greatVibes.variable}`}
+      className={`dark ${cabin.variable} ${cinzel.variable} ${philosopher.variable} ${greatVibes.variable} ${notoArabic.variable} ${notoBengali.variable} ${notoDevanagari.variable}`}
     >
       <body
         suppressHydrationWarning
         className="min-h-screen bg-[#07020d] text-white antialiased font-sans selection:bg-purple-600 selection:text-white flex flex-col justify-between"
       >
-        {/* Background ambient neon ribbons and glow effects */}
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-purple-700/15 rounded-full blur-[140px]" />
-          <div className="absolute top-20 right-[-10%] w-[600px] h-[600px] bg-fuchsia-600/12 rounded-full blur-[160px]" />
-          <div className="absolute top-[38%] left-[-10%] w-[700px] h-[700px] bg-violet-600/12 rounded-full blur-[180px]" />
-          <div className="absolute bottom-[15%] right-1/4 w-[800px] h-[500px] bg-purple-700/15 rounded-full blur-[160px]" />
-        </div>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {/* Background ambient neon ribbons and glow effects */}
+          <div className="fixed inset-0 pointer-events-none z-0">
+            <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-purple-700/15 rounded-full blur-[140px]" />
+            <div className="absolute top-20 right-[-10%] w-[600px] h-[600px] bg-fuchsia-600/12 rounded-full blur-[160px]" />
+            <div className="absolute top-[38%] left-[-10%] w-[700px] h-[700px] bg-violet-600/12 rounded-full blur-[180px]" />
+            <div className="absolute bottom-[15%] right-1/4 w-[800px] h-[500px] bg-purple-700/15 rounded-full blur-[160px]" />
+          </div>
 
-        <div className="relative z-10 flex flex-col min-h-screen">
-          <Header />
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </div>
+          <div className="relative z-10 flex flex-col min-h-screen">
+            <Header />
+            <div className="flex-1">{children}</div>
+            <Footer />
+          </div>
+
+          <LanguageWelcomeModal hasSavedLocale={hasCookie} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

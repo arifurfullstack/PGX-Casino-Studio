@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Search, Heart, Play, ChevronLeft, ChevronRight, Crown, Sparkles, Layers, Maximize2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign } from "@/types";
 import ProtectedDemoCanvas from "./ProtectedDemoCanvas";
 import WebsiteDemoModal from "./WebsiteDemoModal";
@@ -32,7 +33,8 @@ const CATEGORIES = [
 ];
 
 export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) {
-  const [activeTab, setActiveTab] = useState("Home");
+  const t = useTranslations("designs.demo");
+  const [activeTab, setActiveTab] = useState("home");
   const [favorites, setFavorites] = useState<string[]>([]);
   const [activeModalGame, setActiveModalGame] = useState<string | null>(null);
   const [selectedPreviewId, setSelectedPreviewId] = useState<string | null>(
@@ -64,7 +66,7 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
         <div className="flex items-center gap-1.5 px-3 py-2 bg-[#06010d] border-b border-purple-900/50 overflow-x-auto text-[11px]">
           <span className="text-gray-400 font-bold uppercase text-[10px] tracking-wider px-1.5 flex items-center gap-1 shrink-0">
             <Layers size={12} className="text-[#FFD700]" />
-            <span>Demo Pages:</span>
+            <span>{t("demoPages")}</span>
           </span>
           {previewList.map((p) => (
             <button
@@ -89,15 +91,15 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
                 : "bg-purple-950/60 text-gray-300 hover:text-white"
             }`}
           >
-            Interactive Lobby
+            {t("interactiveLobby")}
           </button>
           <button
             onClick={() => setIsWebsiteModalOpen(true)}
             type="button"
-            className="ml-auto inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#f5c451]/45 bg-[#1a0730] text-[#ffe28a] font-bold hover:bg-[#2a0c4a] shrink-0 cursor-pointer"
+            className="ms-auto inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-[#f5c451]/45 bg-[#1a0730] text-[#ffe28a] font-bold hover:bg-[#2a0c4a] shrink-0 cursor-pointer"
           >
             <Maximize2 size={11} />
-            <span>Full Browser Demo</span>
+            <span>{t("fullBrowserDemo")}</span>
           </button>
         </div>
       )}
@@ -110,26 +112,26 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
             <div className="text-xs sm:text-sm font-black uppercase tracking-wider text-yellow-400 flex items-center gap-1">
               <span>{design.name}</span>
             </div>
-            <p className="text-[9px] uppercase tracking-widest text-purple-300 font-semibold">Casino</p>
+            <p className="text-[9px] uppercase tracking-widest text-purple-300 font-semibold">{t("casinoLabel")}</p>
           </div>
         </div>
 
         <div className="hidden md:flex items-center gap-4 text-xs font-semibold text-gray-300">
-          {["Home", "Slots", "Live Dealer Casino", "Sportsbook", "Poker Platform"].map((tab) => (
+          {(["home", "slots", "live", "sports", "poker"] as const).map((tabKey) => (
             <button
-              key={tab}
+              key={tabKey}
               onClick={() => {
                 setSelectedPreviewId(null);
-                setActiveTab(tab);
+                setActiveTab(tabKey);
               }}
               type="button"
               className={`py-1 transition-colors ${
-                activeTab === tab && !selectedPreviewId
+                activeTab === tabKey && !selectedPreviewId
                   ? "text-yellow-400 border-b border-yellow-400 font-bold"
                   : "hover:text-white"
               }`}
             >
-              {tab}
+              {t(`tabs.${tabKey}`)}
             </button>
           ))}
         </div>
@@ -138,13 +140,13 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
           <button
             type="button"
             className="w-7 h-7 rounded-full bg-purple-950/60 border border-purple-500/40 text-gray-300 flex items-center justify-center hover:text-white"
-            title="Search Games"
+            title={t("searchGames")}
           >
             <Search size={13} />
           </button>
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-yellow-400/10 border border-yellow-400/40 text-[10px] sm:text-[11px] font-bold text-yellow-400 uppercase tracking-wider">
             <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
-            <span>Turnkey Demo</span>
+            <span>{t("turnkeyDemo")}</span>
           </span>
         </div>
       </div>
@@ -210,15 +212,15 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
             <div className="flex items-center gap-2">
               <span className="w-1 h-3.5 bg-yellow-400 rounded-full" />
               <h3 className="text-xs sm:text-sm font-bold tracking-wider text-white">
-                Featured Games
+                {t("featuredGames")}
               </h3>
             </div>
             <button
               type="button"
               className="text-[11px] font-semibold text-yellow-400 hover:text-yellow-300 flex items-center gap-1 transition-colors"
             >
-              <span>View All Games</span>
-              <span className="text-xs">→</span>
+              <span>{t("viewAllGames")}</span>
+              <span className="text-xs rtl-flip">→</span>
             </button>
           </div>
 
@@ -257,7 +259,7 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
                       <Play size={12} className="fill-black ml-0.5" />
                     </div>
                     <span className="text-[9px] font-bold uppercase text-yellow-300 tracking-wider">
-                      Instant Play
+                      {t("instantPlay")}
                     </span>
                   </div>
                 </div>
@@ -284,17 +286,17 @@ export default function CasinoPreviewStage({ design }: CasinoPreviewStageProps) 
             </div>
             <div>
               <h4 className="text-lg font-black text-white">{activeModalGame}</h4>
-              <p className="text-xs text-purple-300 mt-1">Live Turnkey Game Simulation</p>
+              <p className="text-xs text-purple-300 mt-1">{t("liveSimulation")}</p>
             </div>
             <p className="text-xs text-gray-300 leading-relaxed">
-              In production, this launches the licensed Pragmatic Play / Evolution Gaming iframe with real wallet synchronization.
+              {t("simulationBody")}
             </p>
             <button
               type="button"
               onClick={() => setActiveModalGame(null)}
               className="w-full py-2 rounded-xl text-xs font-bold text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110"
             >
-              Close Demo
+              {t("closeDemo")}
             </button>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { CheckCircle2, ArrowRight, Crown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign, AddonModule } from "@/types";
 
 interface InquiryConfirmedViewProps {
@@ -19,6 +20,7 @@ export default function InquiryConfirmedView({
   packageTotal,
   selectedModules = [],
 }: InquiryConfirmedViewProps) {
+  const t = useTranslations("reservation.inquiryConfirmed");
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -48,36 +50,32 @@ export default function InquiryConfirmedView({
       <div className="relative z-10 space-y-1.5">
         <div className="inline-flex items-center gap-1.5 rounded-full border border-[#f5c451]/45 bg-[#240942]/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#ffe28a]">
           <Crown size={12} />
-          <span>Royal Casino Club VIP Desk</span>
+          <span>{t("badge")}</span>
         </div>
         <h2 className="font-philosopher text-3xl font-bold italic uppercase text-white">
-          Inquiry <span className="gold-text">Received</span>
+          {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
         </h2>
         <p className="text-xs font-bold text-[#ffe28a] uppercase tracking-wider font-mono">
-          Reference Number: {inquiryRef}
+          {t("refNumber", { ref: inquiryRef })}
         </p>
       </div>
 
       <p className="relative z-10 text-xs sm:text-sm text-white/75 leading-relaxed">
-        Your design inquiry for <strong className="text-white">{selectedDesign.name}</strong>
+        {t("body", { design: selectedDesign.name })}
         {selectedModules.length > 0 && (
           <>
             {" "}
-            with{" "}
-            <strong className="text-[#ffe28a]">
-              {selectedModules.map((m) => m.name).join(", ")}
-            </strong>
+            {t("withModules", { modules: selectedModules.map((m) => m.name).join(", ") })}
           </>
-        )}{" "}
-        has been logged in our enterprise portal.
+        )}
         {packageTotal ? (
           <>
             {" "}
-            Estimated package total:{" "}
-            <strong className="text-white">${packageTotal.toLocaleString()} USD</strong>.
+            <strong className="text-white">
+              {t("estimatedTotal", { total: packageTotal.toLocaleString() })}
+            </strong>
           </>
-        ) : null}{" "}
-        A launch coordinator will contact you shortly to finalize your quote.
+        ) : null}
       </p>
 
       <div className="relative z-10 pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -85,14 +83,14 @@ export default function InquiryConfirmedView({
           href={`/confirmation/submission?ref=${inquiryRef}`}
           className="btn-royal-gold shine w-full sm:w-auto px-6 py-3 text-xs sm:text-sm uppercase tracking-wider"
         >
-          <span>View Official Inquiry Receipt</span>
-          <ArrowRight size={14} />
+          <span>{t("viewReceipt")}</span>
+          <ArrowRight size={14} className="rtl-flip" />
         </Link>
         <Link
           href="/designs"
           className="btn btn-neon w-full sm:w-auto text-xs font-semibold"
         >
-          <span>Explore Themes</span>
+          <span>{t("exploreThemes")}</span>
         </Link>
       </div>
     </div>

@@ -12,6 +12,7 @@ import {
   AlertCircle,
   ExternalLink,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Reservation, PublicPaymentConfig } from "@/types";
 import {
   initiateStripePaymentAction,
@@ -27,6 +28,7 @@ export default function StandaloneReservationPay({
   reservation,
   paymentConfig,
 }: StandaloneReservationPayProps) {
+  const t = useTranslations("reservation.standalone");
   const router = useRouter();
   const [termsAccepted, setTermsAccepted] = useState(false);
   const [activeTab, setActiveTab] = useState<"crypto" | "stripe">("crypto");
@@ -64,12 +66,12 @@ export default function StandaloneReservationPay({
     setErrorMsg(null);
 
     if (!termsAccepted) {
-      setErrorMsg("Please accept the 5-day refundable reservation terms.");
+      setErrorMsg(t("payTermsError"));
       return;
     }
 
     if (!txHash.trim()) {
-      setErrorMsg("Please enter your Transaction Hash / ID.");
+      setErrorMsg(t("payTxError"));
       return;
     }
 
@@ -91,7 +93,7 @@ export default function StandaloneReservationPay({
   const handleStripeCheckout = async () => {
     setErrorMsg(null);
     if (!termsAccepted) {
-      setErrorMsg("Please accept the 5-day refundable reservation terms.");
+      setErrorMsg(t("payTermsError"));
       return;
     }
 
@@ -115,7 +117,7 @@ export default function StandaloneReservationPay({
   const handleTestSimulation = async () => {
     setErrorMsg(null);
     if (!termsAccepted) {
-      setErrorMsg("Please accept the 5-day refundable reservation terms.");
+      setErrorMsg(t("payTermsError"));
       return;
     }
 
@@ -153,11 +155,7 @@ export default function StandaloneReservationPay({
             className="mt-0.5 w-4 h-4 rounded border-purple-500 text-yellow-500 focus:ring-0 bg-[#080214]"
           />
           <span className="text-xs text-gray-300 leading-relaxed">
-            I understand this <strong className="text-white">$1,000 USD holding deposit</strong> locks
-            my selected casino theme and exclusive 10% package discount for exactly 120 hours. If no
-            turnkey agreement is executed, the deposit is{" "}
-            <strong className="text-[#34d399]">100% refundable</strong> back to my original payment
-            method per ALL I GAMING commercial policy.
+            {t("payTermsText")}
           </span>
         </label>
       </div>
@@ -174,7 +172,7 @@ export default function StandaloneReservationPay({
           }`}
         >
           <QrCode size={15} />
-          <span>Crypto (USDT / BTC)</span>
+          <span>{t("tabCrypto")}</span>
         </button>
 
         <button
@@ -187,7 +185,7 @@ export default function StandaloneReservationPay({
           }`}
         >
           <CreditCard size={15} />
-          <span>Credit Card (Stripe)</span>
+          <span>{t("tabCard")}</span>
         </button>
       </div>
 
@@ -215,8 +213,8 @@ export default function StandaloneReservationPay({
           {/* Wallet Address Box */}
           <div className="p-4 rounded-xl bg-[#04010a] border border-purple-900/50 space-y-2">
             <div className="flex items-center justify-between text-xs text-gray-400">
-              <span>Send Exactly: <strong className="text-white">$1,000.00 USD ({activeWallet.label})</strong></span>
-              <span className="text-[10px] text-purple-300">Network: {activeWallet.network}</span>
+              <span><strong className="text-white">{t("sendExactly", { label: activeWallet.label })}</strong></span>
+              <span className="text-[10px] text-purple-300">{t("network", { network: activeWallet.network })}</span>
             </div>
 
             <div className="flex items-center gap-2 bg-[#0c031c] p-2.5 rounded-lg border border-purple-500/30">
@@ -227,7 +225,6 @@ export default function StandaloneReservationPay({
                 type="button"
                 onClick={() => copyToClipboard(activeWallet.address, "addr")}
                 className="p-1.5 rounded bg-purple-950 hover:bg-purple-900 text-yellow-400 transition-colors shrink-0"
-                title="Copy Address"
               >
                 {copiedKey === "addr" ? <Check size={14} /> : <Copy size={14} />}
               </button>
@@ -238,14 +235,14 @@ export default function StandaloneReservationPay({
           <form onSubmit={handleCryptoSubmit} className="space-y-3">
             <div>
               <label className="block text-[11px] font-bold text-gray-300 uppercase mb-1">
-                Your Payment Transaction Hash / TxID *
+                {t("txHashLabel")}
               </label>
               <input
                 type="text"
                 required
                 value={txHash}
                 onChange={(e) => setTxHash(e.target.value)}
-                placeholder="Paste the transfer transaction hash / ID"
+                placeholder={t("txHashPlaceholder")}
                 className="w-full px-3.5 py-2.5 rounded-xl bg-[#04010a] border border-purple-500/40 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
               />
             </div>
@@ -258,12 +255,12 @@ export default function StandaloneReservationPay({
               {submitting ? (
                 <>
                   <Loader2 size={16} className="animate-spin" />
-                  <span>Verifying Transfer...</span>
+                  <span>{t("verifying")}</span>
                 </>
               ) : (
                 <>
                   <CheckCircle2 size={16} />
-                  <span>Confirm $1,000 Crypto Deposit</span>
+                  <span>{t("confirmDeposit")}</span>
                 </>
               )}
             </button>
@@ -276,9 +273,9 @@ export default function StandaloneReservationPay({
         <div className="space-y-4">
           <div className="p-4 rounded-xl bg-[#04010a] border border-purple-900/50 space-y-2 text-center">
             <CreditCard size={28} className="text-[#FFD700] mx-auto" />
-            <h4 className="text-sm font-bold text-white">Stripe 256-bit Encrypted Checkout</h4>
+            <h4 className="text-sm font-bold text-white">{t("cardTitle")}</h4>
             <p className="text-xs text-gray-400 max-w-sm mx-auto">
-              Securely reserve your casino theme with Visa, Mastercard, or American Express. The $1,000 deposit is fully refundable.
+              {t("cardBody")}
             </p>
           </div>
 
@@ -291,12 +288,12 @@ export default function StandaloneReservationPay({
             {submitting ? (
               <>
                 <Loader2 size={16} className="animate-spin" />
-                <span>Redirecting to Stripe...</span>
+                <span>{t("redirectingCard")}</span>
               </>
             ) : (
               <>
                 <ExternalLink size={16} />
-                <span>Proceed to Stripe Card Checkout ($1,000)</span>
+                <span>{t("proceedCard")}</span>
               </>
             )}
           </button>
@@ -311,7 +308,7 @@ export default function StandaloneReservationPay({
           disabled={submitting || !termsAccepted}
           className="text-[11px] text-gray-400 hover:text-yellow-400 transition-colors disabled:opacity-50"
         >
-          ⚡ Demo / Testing? Click here to simulate instant $1,000 reservation lock
+          ⚡ {t("simulateDemo")}
         </button>
       </div>
     </div>

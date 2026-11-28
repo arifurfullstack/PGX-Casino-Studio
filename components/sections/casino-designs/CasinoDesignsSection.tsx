@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign } from "@/types";
 import { DEFAULT_CASINO_DESIGNS } from "@/config/default-designs";
 import { resolveShowcaseImage } from "./CasinoDesignCard";
@@ -16,6 +17,8 @@ interface CasinoDesignsSectionProps {
 export default function CasinoDesignsSection({
   designs,
 }: CasinoDesignsSectionProps) {
+  const t = useTranslations("home.designsSection");
+  const tCommon = useTranslations("common");
   const [activeDemoDesign, setActiveDemoDesign] = useState<CasinoDesign | null>(
     null
   );
@@ -34,13 +37,13 @@ export default function CasinoDesignsSection({
         <div className="text-center">
           <h2 className="flourish font-philosopher text-[clamp(1.6rem,4vw,2.4rem)] font-bold uppercase italic leading-tight tracking-wide">
             <span>
-              Choose your <span className="gold-text">casino design</span>
+              {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
             </span>
           </h2>
 
           <Link href="/designs" className="btn btn-gold mx-auto mt-6">
-            <span>View All Designs</span>
-            <ArrowRight className="h-4 w-4" />
+            <span>{t("viewAll")}</span>
+            <ArrowRight className="h-4 w-4 rtl-flip" />
           </Link>
         </div>
 
@@ -82,7 +85,7 @@ export default function CasinoDesignsSection({
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#150726] via-[#150726]/45 to-transparent pointer-events-none" />
                   {pageCount > 1 && (
                     <span className="absolute top-3 right-3 z-20 rounded-full border border-[#f5c451]/45 bg-[#120424]/85 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#ffe28a] backdrop-blur-md">
-                      {pageCount} Pages
+                      {tCommon("pagesCount", { count: pageCount })}
                     </span>
                   )}
                 </div>
@@ -97,7 +100,7 @@ export default function CasinoDesignsSection({
                     onClick={() => setActiveDemoDesign(design)}
                     className="btn btn-neon btn-sm !px-3.5 xl:!px-4 text-xs xl:text-sm font-semibold cursor-pointer"
                   >
-                    <span>View Demo</span>
+                    <span>{t("viewDemo")}</span>
                     <ExternalLink className="h-3.5 w-3.5" />
                   </button>
 
@@ -105,7 +108,7 @@ export default function CasinoDesignsSection({
                     href={getSelectLink(design.slug)}
                     className="btn btn-gold btn-sm !px-3.5 xl:!px-4 text-xs xl:text-sm font-bold"
                   >
-                    <span>Select Design</span>
+                    <span>{t("selectDesign")}</span>
                   </Link>
                 </div>
               </div>

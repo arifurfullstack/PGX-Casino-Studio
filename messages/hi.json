@@ -1,0 +1,845 @@
+{
+  "common": {
+    "brandName": "Royal Casino Club",
+    "usd": "USD",
+    "optional": "वैकल्पिक",
+    "viewDemo": "डेमो देखें",
+    "selectDesign": "डिज़ाइन चुनें",
+    "reserveCasino": "कैसीनो रिज़र्व करें",
+    "close": "बंद करें",
+    "loading": "लोड हो रहा है...",
+    "pagesCount": "{count, plural, one {# पेज} other {# पेज}}",
+    "off": "छूट"
+  },
+  "languageModal": {
+    "titlePrefix": "अपनी भाषा",
+    "titleHighlight": "चुनें",
+    "subtitle": "Royal Casino Club के टर्नकी कैसीनो डिज़ाइन, पैकेज और ऑपरेटर समाधान देखने के लिए अपनी पसंदीदा भाषा चुनें।",
+    "hint": "आप ऊपर दिए गए नेविगेशन बार से कभी भी भाषा बदल सकते हैं।",
+    "continueDefault": "अंग्रेज़ी में जारी रखें",
+    "closeLabel": "भाषा चयनकर्ता बंद करें"
+  },
+  "nav": {
+    "links": {
+      "home": "होम",
+      "designs": "कैसीनो डिज़ाइन",
+      "packages": "पैकेज",
+      "modules": "ऐड-ऑन मॉड्यूल",
+      "howItWorks": "यह कैसे काम करता है",
+      "proposal": "प्रस्ताव",
+      "about": "हमारे बारे में",
+      "contact": "संपर्क करें"
+    },
+    "clientPortal": "क्लाइंट पोर्टल",
+    "portalTitle": "B2B क्लाइंट पोर्टल",
+    "reserveCasino": "कैसीनो रिज़र्व करें",
+    "backToDesigns": "डिज़ाइन पर वापस जाएं",
+    "languageLabel": "भाषा",
+    "toggleMenu": "नेविगेशन मेनू खोलें",
+    "mobileFooterTag": "Royal Casino Club • प्रीमियम ऑनलाइन समाधान"
+  },
+  "footer": {
+    "description": "Royal Casino Club प्रीमियम टर्नकी ऑनलाइन कैसीनो सॉफ्टवेयर समाधान प्रदान करता है, जिससे ऑपरेटर दुनिया भर में कस्टमाइज़्ड और उच्च-कन्वर्ज़न वाले कैसीनो लॉन्च कर सकते हैं।",
+    "quickLinksTitle": "त्वरित लिंक",
+    "companyTitle": "कंपनी",
+    "getInTouchTitle": "संपर्क करें",
+    "whatsappSuffix": "WhatsApp",
+    "reserveHoldCta": "कैसीनो रिज़र्व करें ($1,000 USD होल्ड)",
+    "copyright": "© 2026 {name}. सर्वाधिकार सुरक्षित।",
+    "developedBy": "Huipper द्वारा विकसित"
+  },
+  "home": {
+    "hero": {
+      "headlineLine1": "अपना खुद का",
+      "headlineLine2": "प्रीमियम ऑनलाइन कैसीनो लॉन्च करें",
+      "startingAt": "शुरुआती कीमत $15,000",
+      "tagline": "व्हाइट-लेबल टर्नकी कैसीनो, किसी लाइसेंस की आवश्यकता नहीं!",
+      "subtitle": "अपना डिज़ाइन चुनें, कैसीनो स्लॉट्स और गेम टेबल्स के साथ लॉन्च करें और संपूर्ण प्लेटफ़ॉर्म के साथ अपना ब्रांड बनाएं।",
+      "browseDesigns": "कैसीनो डिज़ाइन देखें",
+      "reserveCasino": "कैसीनो रिज़र्व करें",
+      "features": {
+        "designs": {
+          "title": "प्रीमियम",
+          "subtitle": "कैसीनो डिज़ाइन",
+          "badge": "12 थीम्स"
+        },
+        "turnkey": {
+          "title": "टर्नकी",
+          "subtitle": "सेटअप",
+          "badge": "पूर्ण लॉन्च"
+        },
+        "games": {
+          "title": "कैसीनो गेम्स",
+          "subtitle": "शामिल",
+          "badge": "स्लॉट्स और टेबल्स"
+        },
+        "addons": {
+          "title": "ऐड-ऑन",
+          "subtitle": "मॉड्यूल",
+          "badge": "स्पोर्ट्स और लाइव"
+        },
+        "scalable": {
+          "title": "स्केलेबल और",
+          "subtitle": "लचीला",
+          "badge": "क्लाउड स्केल"
+        },
+        "support": {
+          "title": "प्रोफेशनल",
+          "subtitle": "सपोर्ट",
+          "badge": "24/7 VIP"
+        }
+      }
+    },
+    "starterPackage": {
+      "ribbon": "टर्नकी रॉयल प्लेटफ़ॉर्म",
+      "badge": "स्टार्टर पैकेज",
+      "heading": "अपना ब्रांडेड कैसीनो लॉन्च करें",
+      "description": "स्लॉट्स और गेम टेबल्स के साथ संपूर्ण टर्नकी कैसीनो।",
+      "includedTitle": "शामिल:",
+      "included": {
+        "designTitle": "आपका चुना हुआ कैसीनो डिज़ाइन",
+        "slotsTitle": "ऑनलाइन कैसीनो स्लॉट्स",
+        "tablesTitle": "कैसीनो गेम टेबल्स",
+        "tablesDetail": "(ब्लैकजैक, रूलेट, बैकारेट आदि)",
+        "brandingTitle": "आपकी कैसीनो ब्रांडिंग",
+        "brandingDetail": "(लोगो, रंग और डोमेन सेटअप)"
+      },
+      "addonsTitle": "उपलब्ध ऐड-ऑन मॉड्यूल:",
+      "addons": {
+        "liveDealer": "लाइव डीलर टेबल्स",
+        "poker": "पोकर प्लेटफ़ॉर्म",
+        "sportsbook": "स्पोर्ट्सबुक",
+        "sweepstakes": "स्वीपस्टेक्स और सोशल"
+      },
+      "addonsNote": "वैकल्पिक मॉड्यूल अलग से कोट किए जाते हैं। उन्हें जोड़ने के लिए WhatsApp पर संदेश भेजें।"
+    },
+    "designsSection": {
+      "headingPrefix": "अपना",
+      "headingHighlight": "कैसीनो डिज़ाइन चुनें",
+      "viewAll": "सभी डिज़ाइन देखें",
+      "viewDemo": "डेमो देखें",
+      "selectDesign": "डिज़ाइन चुनें"
+    },
+    "howItWorks": {
+      "headingPrefix": "यह कैसे",
+      "headingHighlight": "काम करता है",
+      "steps": {
+        "step1": {
+          "title": "1. डिज़ाइन चुनें",
+          "desc": "हमारे प्रीमियम कैसीनो लुक्स में से चुनें।"
+        },
+        "step2": {
+          "title": "2. पैकेज कस्टमाइज़ करें",
+          "desc": "$15,000 पैकेज से शुरू करें और वैकल्पिक मॉड्यूल जोड़ें।"
+        },
+        "step3": {
+          "title": "3. रिज़र्व और लॉन्च करें",
+          "desc": "अपना कैसीनो रिज़र्व करें, हम इसे सेटअप व ब्रांड करके लाइव कर देंगे!"
+        }
+      }
+    },
+    "features": {
+      "headingPrefix": "क्यों चुनें",
+      "headingHighlight": "Royal Casino Club",
+      "items": {
+        "fastSetup": {
+          "tag": "तेज़ लॉन्च",
+          "title": "त्वरित सेटअप",
+          "desc": "जल्दी ऑनलाइन आएं और संचालन शुरू करें।"
+        },
+        "yourBrand": {
+          "tag": "व्हाइट-लेबल",
+          "title": "आपका ब्रांड",
+          "desc": "आपके नाम, रंगों और पहचान के साथ पूर्ण रूप से तैयार।"
+        },
+        "provenGames": {
+          "tag": "शीर्ष प्रदाता",
+          "title": "प्रमाणित गेम्स",
+          "desc": "बेहतरीन प्रदर्शन वाले स्लॉट्स और लोकप्रिय टेबल गेम्स।"
+        },
+        "multiDevice": {
+          "tag": "रिस्पॉन्सिव UI",
+          "title": "मल्टी-डिवाइस",
+          "desc": "डेस्कटॉप, मोबाइल और टैबलेट के लिए अनुकूलित।"
+        },
+        "globalReady": {
+          "tag": "मल्टी-करेंसी",
+          "title": "ग्लोबल रेडी",
+          "desc": "कई मुद्राओं और क्षेत्रों के लिए पूर्ण समर्थन।"
+        },
+        "ongoingSupport": {
+          "tag": "24/7 VIP डेस्क",
+          "title": "निरंतर सहायता",
+          "desc": "तकनीकी सहायता और प्लेटफ़ॉर्म अपडेट्स।"
+        }
+      }
+    },
+    "about": {
+      "headingHighlight": "हमारे बारे में",
+      "description": "Royal Casino Club प्रीमियम टर्नकी ऑनलाइन कैसीनो सॉफ्टवेयर समाधान प्रदान करता है, जिससे ऑपरेटर दुनिया भर में कस्टमाइज़्ड और उच्च-कन्वर्ज़न वाले कैसीनो लॉन्च कर सकते हैं।"
+    },
+    "faq": {
+      "headingPrefix": "अक्सर पूछे जाने वाले",
+      "headingHighlight": "प्रश्न",
+      "items": {
+        "q1": {
+          "q": "कैसीनो लॉन्च करने में कितना खर्च आता है?",
+          "a": "स्टार्टर पैकेज $15,000 USD का है। इसमें आपका चुना हुआ डिज़ाइन, ऑनलाइन स्लॉट्स, गेम टेबल्स और आपकी ब्रांडिंग शामिल है।"
+        },
+        "q2": {
+          "q": "स्टार्टर पैकेज में क्या-क्या शामिल है?",
+          "a": "आपका चुना हुआ कैसीनो डिज़ाइन, ऑनलाइन स्लॉट्स, गेम टेबल्स (ब्लैकजैक, रूलेट, बैकारेट) और पूरी ब्रांडिंग: लोगो, रंग और डोमेन सेटअप।"
+        },
+        "q3": {
+          "q": "कौन से ऐड-ऑन मॉड्यूल उपलब्ध हैं?",
+          "a": "लाइव डीलर टेबल्स, स्पोर्ट्सबुक, पोकर प्लेटफ़ॉर्म और स्वीपस्टेक्स। ये वैकल्पिक हैं और अलग से कोट किए जाते हैं।"
+        },
+        "q4": {
+          "q": "मैं कैसीनो कैसे रिज़र्व करूँ?",
+          "a": "एक डिज़ाइन चुनें और WhatsApp पर संदेश भेजें। $1,000 का होल्ड आपका कैसीनो रिज़र्व करता है, फिर हम इसे सेटअप व ब्रांड करके लाइव करते हैं।"
+        },
+        "q5": {
+          "q": "क्या मैं चुनने से पहले डिज़ाइन देख सकता हूँ?",
+          "a": "हाँ। किसी भी डिज़ाइन पर \"डेमो देखें\" पर टैप करें या WhatsApp पर लाइव डेमो मांगें।"
+        },
+        "q6": {
+          "q": "क्या कैसीनो पर मेरा अपना ब्रांड होगा?",
+          "a": "हाँ। यह आपके नाम, लोगो, रंगों और आपके अपने डोमेन के साथ लॉन्च होता है।"
+        },
+        "q7": {
+          "q": "GGR विभाजन क्या है?",
+          "a": "प्लेटफ़ॉर्म को 25% मिलता है, और 75% मुनाफा आपका होता है!"
+        }
+      }
+    },
+    "contact": {
+      "vipOnline": "VIP कंसीर्ज ऑनलाइन",
+      "deskBadge": "डायरेक्ट ऑपरेटर डेस्क",
+      "headingPrefix": "संपर्क",
+      "headingHighlight": "करें",
+      "subtitle": "हमें बताएं कि आपको कौन सा डिज़ाइन पसंद है और कौन से मॉड्यूल चाहिए। हम सीधे WhatsApp पर जवाब देते हैं।",
+      "whatsappSuffix": "WhatsApp",
+      "reserveCta": "कैसीनो रिज़र्व करें ($1,000 USD होल्ड)",
+      "formTitlePrefix": "हमें एक",
+      "formTitleHighlight": "संदेश भेजें",
+      "formSubtitle": "हमारी VIP लॉन्च टीम से तुरंत प्राथमिकता प्रतिक्रिया।",
+      "nameLabel": "आपका नाम",
+      "namePlaceholder": "अपना नाम दर्ज करें",
+      "phoneLabel": "फ़ोन / WhatsApp",
+      "phonePlaceholder": "जैसे +1 (416) 555-0123",
+      "emailLabel": "ईमेल",
+      "emailPlaceholder": "you@domain.com",
+      "messageLabel": "हम आपकी कैसे मदद कर सकते हैं?",
+      "messagePlaceholder": "अपने कैसीनो लक्ष्यों के बारे में बताएं...",
+      "submitBtn": "WhatsApp पर भेजें"
+    },
+    "ctaBanner": {
+      "line1": "अपना खुद का कैसीनो",
+      "line2": "लॉन्च करने के लिए तैयार?",
+      "subtitle": "डिज़ाइन चुनें, अपना पैकेज कस्टमाइज़ करें और आज ही रिज़र्व करें!",
+      "cta": "कैसीनो रिज़र्व करें"
+    }
+  },
+  "designs": {
+    "catalog": {
+      "badge": "टर्नकी कैसीनो डिज़ाइन मार्केटप्लेस",
+      "headingPrefix": "अपना",
+      "headingHighlight": "कैसीनो डिज़ाइन चुनें",
+      "subtitle": "उच्च कन्वर्ज़न के लिए बनाए गए {count} लक्ज़री व्हाइट-लेबल डिज़ाइन देखें। ${price} USD से लॉन्च करें या ${fee} रिफंडेबल होल्ड के साथ {discount}% छूट लॉक करें।",
+      "searchPlaceholder": "थीम, स्टाइल या टैग खोजें...",
+      "categories": {
+        "All": "सभी",
+        "Luxury": "लक्ज़री",
+        "Neon": "नियॉन",
+        "VIP": "VIP",
+        "Classic": "क्लासिक",
+        "Futuristic": "फ्यूचरिस्टिक"
+      },
+      "sort": {
+        "featured": "प्रमुख क्रम",
+        "nameAsc": "नाम (A–Z)",
+        "nameDesc": "नाम (Z–A)"
+      },
+      "gridView": "ग्रिड",
+      "showcaseView": "शोकेस",
+      "showing": "{total} में से {filtered} लक्ज़री कैसीनो थीम्स दिख रही हैं",
+      "inCategory": "{category} में",
+      "tip": "टिप: तुरंत प्रीव्यू के लिए आई आइकन पर क्लिक करें, या तुलना करने के लिए 3 तक थीम चुनें।",
+      "emptyTitle": "कोई कैसीनो डिज़ाइन नहीं मिला",
+      "emptySubtitle": "आपके फ़िल्टर या खोज से कोई थीम मेल नहीं खाई।",
+      "resetFilters": "फ़िल्टर रीसेट करें",
+      "bannerBadge": "कस्टम कैसीनो ब्रांडिंग शामिल",
+      "bannerHeadingPrefix": "कस्टम ब्रांडेड",
+      "bannerHeadingHighlight": "टर्नकी लॉन्च चाहते हैं?",
+      "bannerBody": "हर थीम आपके लोगो, रंग, डोमेन, स्लॉट्स और टेबल गेम्स के साथ आती है। {days} दिनों के लिए {discount}% छूट (${discountedPrice} USD) लॉक करने के लिए अभी रिज़र्व करें।",
+      "chatWhatsapp": "WhatsApp पर चैट करें",
+      "compareLabel": "तुलना ({count}/3)",
+      "clear": "साफ़ करें",
+      "compareNow": "अभी तुलना करें",
+      "themeTagSuffix": "थीम",
+      "starterPackage": "स्टार्टर पैकेज",
+      "withHoldLock": "{discount}% होल्ड लॉक के साथ",
+      "includesLabel": "शामिल",
+      "includesSummary": "स्लॉट्स, टेबल्स और ब्रांड",
+      "selectCustomize": "{name} चुनें और कस्टमाइज़ करें",
+      "openInteractiveDemo": "इंटरैक्टिव डेमो खोलें",
+      "comparisonEyebrow": "साइड-बाय-साइड तुलना",
+      "comparisonTitlePrefix": "अपनी चुनी हुई",
+      "comparisonTitleHighlight": "थीम्स की तुलना करें",
+      "starterPriceLabel": "शुरुआती कीमत",
+      "holdLockDiscount": "होल्ड लॉक ({discount}% छूट)",
+      "operatorGgr": "ऑपरेटर GGR",
+      "yoursPercent": "{share}% आपका",
+      "selectTheme": "{name} चुनें",
+      "liveDemo": "लाइव डेमो",
+      "defaultSubtitle": "टर्नकी लक्ज़री स्टोरफ्रंट"
+    },
+    "demo": {
+      "demoPages": "डेमो पेज:",
+      "interactiveLobby": "इंटरैक्टिव लॉबी",
+      "fullBrowserDemo": "पूर्ण ब्राउज़र डेमो",
+      "casinoLabel": "कैसीनो",
+      "turnkeyDemo": "टर्नकी डेमो",
+      "searchGames": "गेम्स खोजें",
+      "featuredGames": "प्रमुख गेम्स",
+      "viewAllGames": "सभी गेम्स देखें",
+      "instantPlay": "तुरंत खेलें",
+      "liveSimulation": "लाइव गेम सिमुलेशन",
+      "simulationBody": "प्रोडक्शन में यह वास्तविक वॉलेट सिंक के साथ लाइसेंस प्राप्त Pragmatic Play / Evolution Gaming iframe लॉन्च करता है।",
+      "closeDemo": "डेमो बंद करें",
+      "tabs": {
+        "home": "होम",
+        "slots": "स्लॉट्स",
+        "live": "लाइव डीलर",
+        "sports": "स्पोर्ट्सबुक",
+        "poker": "पोकर प्लेटफ़ॉर्म"
+      },
+      "sidebar": {
+        "title": "कैसीनो डिज़ाइन डेमो",
+        "selectedLook": "चुना हुआ लुक",
+        "basicPackage": "बेसिक पैकेज",
+        "includedLine": "कैसीनो टेबल गेम्स और स्लॉट्स शामिल",
+        "addonModules": "ऐड-ऑन मॉड्यूल",
+        "ggrShare": "GGR शेयर",
+        "ourCompany": "हमारी कंपनी: {share}%",
+        "yourShare": "आपका हिस्सा: {share}%",
+        "totalEstimate": "कुल अनुमान:",
+        "selectThisDesign": "यह डिज़ाइन चुनें",
+        "requestQuote": "कोटेशन मांगें",
+        "viewAllDesigns": "सभी डिज़ाइन देखें"
+      },
+      "modal": {
+        "protected": "सुरक्षित",
+        "desktopView": "डेस्कटॉप व्यू",
+        "tabletView": "टैबलेट व्यू",
+        "mobileView": "मोबाइल व्यू",
+        "fullscreen": "फ़ुलस्क्रीन",
+        "exitFullscreen": "फ़ुलस्क्रीन से बाहर निकलें",
+        "liveUiDemo": "लाइव UI डेमो",
+        "pages": "पेज",
+        "viewingOf": "{design} का {page} — सुरक्षित डेमो",
+        "nextPage": "अगला: {page}",
+        "reserveDesign": "{design} रिज़र्व करें"
+      }
+    }
+  },
+  "pages": {
+    "packages": {
+      "badge": "पारदर्शी टर्नकी निवेश",
+      "headingPrefix": "सरल, पारदर्शी",
+      "headingHighlight": "मूल्य निर्धारण",
+      "subtitle": "एक सफल वैश्विक ऑनलाइन कैसीनो लॉन्च करने के लिए आवश्यक सब कुछ। कोई छिपा शुल्क नहीं, प्रमाणित गेम्स और लचीले मॉड्यूल।",
+      "popularTag": "सबसे लोकप्रिय • टर्नकी",
+      "oneTimeSetup": "USD एकमुश्त सेटअप",
+      "refundableHold": "$1,000 रिफंडेबल रिज़र्वेशन",
+      "whatsIncluded": "स्टार्टर पैकेज में क्या शामिल है:",
+      "ggrSplit": "GGR विभाजन: 75% ऑपरेटर / 25% प्लेटफ़ॉर्म • 5-दिन मूल्य लॉक",
+      "reserveCta": "डिज़ाइन चुनें और रिज़र्व करें ($1,000)",
+      "addonsHeading": "वैकल्पिक विस्तार मॉड्यूल",
+      "addonsSubtitle": "प्रारंभिक सेटअप के दौरान या बाद में कभी भी नए गेमिंग वर्टिकल जोड़ें।",
+      "oneTimeAddon": "USD एकमुश्त ऐड-ऑन",
+      "addModule": "मॉड्यूल जोड़ें",
+      "starter": {
+        "subtitle": "स्टार्टर पैकेज",
+        "description": "आपके चुने हुए डिज़ाइन के साथ संपूर्ण कैसीनो वेबसाइट, जिसमें स्लॉट्स और गेम टेबल्स शामिल हैं।",
+        "includes": {
+          "design": {
+            "title": "आपका चुना हुआ कैसीनो डिज़ाइन",
+            "sub": ""
+          },
+          "slots": {
+            "title": "ऑनलाइन कैसीनो स्लॉट्स",
+            "sub": ""
+          },
+          "tables": {
+            "title": "कैसीनो गेम टेबल्स",
+            "sub": "(जैसे ब्लैकजैक, रूलेट, बैकारेट आदि)"
+          },
+          "branding": {
+            "title": "आपकी कैसीनो ब्रांडिंग",
+            "sub": "(लोगो, रंग और डोमेन सेटअप)"
+          }
+        }
+      },
+      "addons": {
+        "live-dealer": {
+          "name": "लाइव डीलर टेबल्स",
+          "description": "रियल-टाइम स्ट्रीमिंग HD डीलर टेबल्स और मल्टी-सीट लॉबी"
+        },
+        "sportsbook": {
+          "name": "स्पोर्ट्सबुक",
+          "description": "वैश्विक खेल आयोजन, लाइव बेटिंग और रियल-टाइम ऑड्स फ़ीड"
+        },
+        "poker": {
+          "name": "पोकर प्लेटफ़ॉर्म",
+          "description": "टेक्सास होल्डम, ओमाहा, कैश टेबल्स और टूर्नामेंट सिस्टम"
+        },
+        "sweepstakes": {
+          "name": "स्वीपस्टेक्स",
+          "description": "डुअल-करेंसी सोशल गेमिंग अनुरूप स्वीपस्टेक्स इंजन"
+        }
+      }
+    },
+    "modules": {
+      "badge": "मॉड्यूलर इकोसिस्टम",
+      "headingPrefix": "विस्तार",
+      "headingHighlight": "ऐड-ऑन मॉड्यूल",
+      "subtitle": "टर्नकी वर्टिकल एकीकरण के साथ अपने गेमिंग व्यवसाय का विस्तार करें। इन्हें शुरुआत में या बाद में आसानी से जोड़ें।",
+      "addToPackage": "पैकेज में जोड़ें",
+      "customInquiry": "कस्टम पूछताछ",
+      "items": {
+        "live-dealer": {
+          "title": "लाइव डीलर कैसीनो",
+          "description": "असली डीलर 4K रिज़ॉल्यूशन में 24/7 लाइव। लाइव रूलेट, ब्लैकजैक, बैकारेट और इंटरैक्टिव गेम शो।",
+          "features": [
+            "कम लेटेंसी अल्ट्रा HD वीडियो स्ट्रीमिंग",
+            "हाई रोलर्स के लिए मल्टी-एंगल VIP टेबल्स",
+            "बहुभाषी डीलर स्टाफ",
+            "Evolution और Pragmatic Live गेम इंटीग्रेशन"
+          ]
+        },
+        "sportsbook": {
+          "title": "ग्लोबल स्पोर्ट्सबुक इंजन",
+          "description": "60+ खेलों, 50,000+ मासिक लाइव इवेंट्स, ऑटोमैटिक ऑड्स और तुरंत बेट सेटलमेंट के साथ संपूर्ण स्पोर्ट्सबुक।",
+          "features": [
+            "फ़ुटबॉल, बास्केटबॉल, टेनिस, क्रिकेट और ईस्पोर्ट्स",
+            "प्री-मैच और लाइव बेटिंग फ़ीड्स",
+            "कैश-आउट और एक्यूमुलेटर बोनस सिस्टम",
+            "स्वचालित जोखिम और मार्जिन नियंत्रण"
+          ]
+        },
+        "poker": {
+          "title": "मल्टीप्लेयर पोकर प्लेटफ़ॉर्म",
+          "description": "टेक्सास होल्डम, ओमाहा, सिट एंड गो और मल्टी-टेबल टूर्नामेंट के लिए ग्लोबल नेटवर्क या प्राइवेट रूम।",
+          "features": [
+            "डेस्कटॉप, मोबाइल वेब और नेटिव क्लाइंट्स",
+            "एंटी-कलूज़न AI और रियल-टाइम बॉट डिटेक्शन",
+            "कस्टमाइज़ेबल रेकबैक और VIP लॉबी",
+            "प्राइवेट क्लब टेबल्स और चिप ट्रांसफर"
+          ]
+        },
+        "sweepstakes": {
+          "title": "स्वीपस्टेक्स और सोशल कैसीनो",
+          "description": "उत्तरी अमेरिका और सोशल कैसीनो बाजारों के लिए दोहरी मुद्रा वाली प्रमोशनल गेमिंग प्रणाली।",
+          "features": [
+            "गोल्ड कॉइन्स (मनोरंजन) और स्वीप्स कॉइन्स (पुरस्कार)",
+            "स्वचालित पुरस्कार रिडेम्पशन और KYC सत्यापन",
+            "दैनिक लॉगिन बोनस और रेफ़रल इंजन",
+            "US/कनाडा स्वीपस्टेक्स अनुपालन वर्कफ़्लो"
+          ]
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "टर्नकी लॉन्च फ़्रेमवर्क",
+      "headingPrefix": "कॉन्सेप्ट से लाइव खिलाड़ियों तक",
+      "headingHighlight": "3 चरणों में",
+      "subtitle": "हम सारा तकनीकी कार्य संभालते हैं: प्रमाणित गेम लाइसेंसिंग, फ्रंटएंड कस्टमाइज़ेशन, सर्वर और पेमेंट गेटवे।",
+      "ctaTitle": "अपना कैसीनो डिज़ाइन लॉक करने के लिए तैयार हैं?",
+      "ctaSubtitle": "5-दिन की डिज़ाइन एक्सक्लूसिविटी और छूट लॉक करने के लिए 100% रिफंडेबल $1,000 होल्ड जमा करें।",
+      "ctaButton": "अभी चयन शुरू करें",
+      "steps": {
+        "step1": {
+          "title": "अपना कैसीनो डिज़ाइन चुनें",
+          "subtitle": "फ्रंटएंड थीम और लुक",
+          "turnaround": "1–2 दिन",
+          "description": "12 लक्ज़री थीम्स (Royal Prestige, Neon Vegas, Emerald Club आदि) देखें जो डेस्कटॉप व मोबाइल दोनों पर रिस्पॉन्सिव हैं।",
+          "deliverables": [
+            "पूर्ण रिस्पॉन्सिव Next.js फ्रंटएंड कोड",
+            "कस्टम कलर पैलेट और ब्रांडिंग",
+            "डायनामिक बैनर और स्लॉट लॉबी"
+          ]
+        },
+        "step2": {
+          "title": "अपना पैकेज कस्टमाइज़ करें",
+          "subtitle": "मॉड्यूल और पेमेंट इंटीग्रेशन",
+          "turnaround": "3–5 दिन",
+          "description": "$15,000 USD कोर पैकेज से शुरू करें और कभी भी लाइव डीलर, स्पोर्ट्सबुक, पोकर या स्वीपस्टेक्स जोड़ें।",
+          "deliverables": [
+            "कस्टम डोमेन और क्लाउड होस्टिंग डिप्लॉयमेंट",
+            "मल्टी-करेंसी फिएट व क्रिप्टो गेटवे सेटअप",
+            "सिंगल-वॉलेट के साथ प्रमाणित RNG स्लॉट्स"
+          ]
+        },
+        "step3": {
+          "title": "लॉन्च करें और संचालित करें",
+          "subtitle": "21–30 दिनों में टर्नकी हैंडओवर",
+          "turnaround": "21–30 दिन",
+          "description": "हमारी टीम हाई-अवेलेबिलिटी सर्वर पर क्लस्टर तैनात करती है और पूर्ण बैकऑफ़िस प्रशिक्षण व 24/7 सपोर्ट देती है।",
+          "deliverables": [
+            "संपूर्ण प्लेयर मैनेजमेंट बैकऑफ़िस",
+            "स्वचालित एफिलिएट और बोनस इंजन",
+            "समर्पित 24/7 VIP तकनीकी डेस्क"
+          ]
+        }
+      }
+    },
+    "about": {
+      "badge": "Royal Casino Club Enterprise",
+      "headingPrefix": "वैश्विक गेमिंग ऑपरेटरों को",
+      "headingHighlight": "सशक्त बनाना",
+      "subtitle": "हम टर्नकी व्हाइट-लेबल ऑनलाइन कैसीनो इंफ्रास्ट्रक्चर बनाते और तैनात करते हैं, जिससे ब्रांड हफ़्तों में ग्लोबल लॉन्च कर सकें।",
+      "ctaDesigns": "कैसीनो डिज़ाइन देखें",
+      "ctaQuote": "कस्टम कोट मांगें",
+      "stats": {
+        "uptime": { "label": "अपटाइम SLA", "value": "99.99%", "desc": "एंटरप्राइज़ क्लाउड होस्टिंग" },
+        "themes": { "label": "टर्नकी थीम्स", "value": "12+", "desc": "उच्च-कन्वर्ज़न कस्टम UI" },
+        "delivery": { "label": "डिलीवरी समय", "value": "21-30 दिन", "desc": "टर्नकी लॉन्च शेड्यूल" },
+        "reach": { "label": "वैश्विक पहुंच", "value": "40+ देश", "desc": "मल्टी-करेंसी और क्रिप्टो" }
+      },
+      "pillars": {
+        "games": {
+          "title": "लाइसेंस प्राप्त गेम एग्रीगेशन",
+          "desc": "शीर्ष स्टूडियो के 5,000+ प्रमाणित स्लॉट्स, लाइव टेबल्स और स्पोर्ट्स फ़ीड के साथ सिंगल-वॉलेट इंटीग्रेशन।"
+        },
+        "infra": {
+          "title": "हाई-अवेलेबिलिटी इंफ्रास्ट्रक्चर",
+          "desc": "स्वचालित DDoS सुरक्षा और मल्टी-डेटासेंटर रिडंडेंसी के साथ लो-लेटेंसी एज सर्वर।"
+        },
+        "wallets": {
+          "title": "ग्लोबल फिएट और क्रिप्टो वॉलेट",
+          "desc": "Visa, Mastercard, बैंक ट्रांसफर, Apple Pay और प्रमुख क्रिप्टो (BTC, ETH, USDT, TRX) के लिए बिल्ट-इन सपोर्ट।"
+        },
+        "partnership": {
+          "title": "समर्पित B2B साझेदारी",
+          "desc": "हम कंज्यूमर कैसीनो नहीं चलाते; हमारा पूरा ध्यान B2B ऑपरेटरों को विश्वसनीय सॉफ्टवेयर देने पर है।"
+        }
+      }
+    },
+    "contact": {
+      "badge": "24/7 B2B पूछताछ",
+      "headingPrefix": "कोटेशन का",
+      "headingHighlight": "अनुरोध करें",
+      "subtitle": "अपना ब्रांडेड कैसीनो लॉन्च करने के लिए तैयार हैं? नीचे प्रोजेक्ट विवरण भरें या WhatsApp / Telegram पर सलाहकारों से जुड़ें।",
+      "directChannels": "सीधे संपर्क चैनल",
+      "emailInquiries": "ईमेल पूछताछ",
+      "whatsappBusiness": "WhatsApp बिज़नेस",
+      "telegramOfficial": "आधिकारिक Telegram",
+      "supportAvailability": "सहायता उपलब्धता",
+      "supportHours": "24 घंटे / सप्ताह के 7 दिन",
+      "depositTitle": "रिफंडेबल डिपॉज़िट",
+      "depositBody": "सभी रिज़र्वेशन में आपकी थीम और एक्सक्लूसिविटी लॉक करने के लिए $1,000 USD रिफंडेबल होल्ड शामिल है।",
+      "form": {
+        "successTitle": "पूछताछ सफलतापूर्वक प्राप्त हुई!",
+        "reference": "संदर्भ: {ref}",
+        "successBody": "संपर्क करने के लिए धन्यवाद। Royal Casino Club का तकनीकी समन्वयक 4 कार्य घंटों के भीतर ईमेल और WhatsApp पर आपसे संपर्क करेगा।",
+        "viewReceipt": "आधिकारिक रसीद देखें",
+        "fullName": "पूरा नाम *",
+        "fullNamePlaceholder": "राहुल शर्मा",
+        "businessEmail": "व्यावसायिक ईमेल *",
+        "businessEmailPlaceholder": "rahul@company.com",
+        "phoneNumber": "फ़ोन नंबर *",
+        "phonePlaceholder": "+1 (555) 000-0000",
+        "whatsappNumber": "WhatsApp नंबर (वैकल्पिक)",
+        "company": "कंपनी / संगठन",
+        "companyPlaceholder": "Gaming Ventures Ltd.",
+        "targetDesign": "लक्षित कैसीनो डिज़ाइन",
+        "whenToStart": "कब शुरू करना चाहते हैं?",
+        "timeline": {
+          "immediately": "तुरंत",
+          "within_30_days": "30 दिनों के भीतर",
+          "within_1_3_months": "1–3 महीनों के भीतर",
+          "within_3_6_months": "3–6 महीनों के भीतर",
+          "just_exploring": "अभी जानकारी ले रहे हैं"
+        },
+        "requirements": "प्रोजेक्ट आवश्यकताएं / नोट्स",
+        "requirementsPlaceholder": "अपना लक्षित बाज़ार, भाषाएं, क्रिप्टो/फिएट आवश्यकताएं बताएं...",
+        "submitting": "अनुरोध भेजा जा रहा है...",
+        "submit": "कोटेशन अनुरोध भेजें"
+      }
+    }
+  },
+  "reservation": {
+    "flow": {
+      "badge": "VIP ऑपरेटर रिज़र्वेशन डेस्क",
+      "headingPrefix": "अपना कैसीनो",
+      "headingHighlight": "कॉन्फ़िगर और रिज़र्व करें",
+      "subtitle": "अपना लक्ज़री डिज़ाइन चुनें, मॉड्यूल जोड़ें और 100% रिफंडेबल ${fee} USD डिपॉज़िट के साथ {days} दिनों के लिए {discount}% छूट लॉक करें।",
+      "steps": {
+        "step1Title": "थीम और मॉड्यूल",
+        "step2Title": "ऑपरेटर विवरण",
+        "readyToSubmit": "सबमिट करने के लिए तैयार",
+        "profileComplete": "{percent}% प्रोफ़ाइल पूर्ण",
+        "step3Title": "{discount}% होल्ड लॉक",
+        "refundableDeposit": "${fee} रिफंडेबल डिपॉज़िट",
+        "addonsCount": "{count, plural, one {# ऐड-ऑन} other {# ऐड-ऑन}}"
+      },
+      "card1": {
+        "eyebrow": "चरण 01 • विज़ुअल थीम चयन",
+        "headingPrefix": "अपना",
+        "headingHighlight": "कैसीनो डिज़ाइन चुनें",
+        "searchPlaceholder": "थीम खोजें...",
+        "selected": "चयनित",
+        "defaultThemeSub": "टर्नकी VIP थीम",
+        "noMatch": "\"{query}\" से कोई थीम मेल नहीं खाई।",
+        "clearFilter": "फ़िल्टर साफ़ करें",
+        "showFewer": "कम डिज़ाइन दिखाएं",
+        "exploreAll": "सभी {count} डिज़ाइन देखें"
+      },
+      "card2": {
+        "eyebrow": "चरण 02 • वैकल्पिक विस्तार मॉड्यूल",
+        "headingPrefix": "अपना",
+        "headingHighlight": "पैकेज कस्टमाइज़ करें",
+        "starterOnly": "केवल स्टार्टर पैकेज",
+        "activeModules": "{count, plural, one {# मॉड्यूल} other {# मॉड्यूल}} सक्रिय (+${total})"
+      },
+      "card3": {
+        "eyebrow": "चरण 03 • ऑपरेटर ऑनबोर्डिंग प्रोफ़ाइल",
+        "headingPrefix": "ऑपरेटर और",
+        "headingHighlight": "ब्रांड विवरण",
+        "percentComplete": "{percent}% पूर्ण",
+        "brandName": "कैसीनो ब्रांड का नाम",
+        "brandPlaceholder": "जैसे Royal VIP Casino",
+        "targetDomain": "लक्षित डोमेन",
+        "domainPlaceholder": "जैसे royalvip.com",
+        "fullName": "ऑपरेटर का पूरा नाम",
+        "fullNamePlaceholder": "अमित वर्मा",
+        "company": "व्यवसाय / कंपनी",
+        "companyPlaceholder": "Gaming Holdings Ltd.",
+        "email": "ईमेल पता",
+        "emailPlaceholder": "amit@example.com",
+        "phone": "फ़ोन नंबर",
+        "phonePlaceholder": "+1 (416) 555-0199",
+        "whatsapp": "WhatsApp नंबर",
+        "sameAsPhone": "फ़ोन नंबर जैसा ही",
+        "whatsappPlaceholder": "अलग WhatsApp नंबर दर्ज करें",
+        "launchTimeline": "आप कब लॉन्च करना चाहते हैं?",
+        "requirements": "प्रोजेक्ट आवश्यकताएं",
+        "tapTags": "जल्दी जोड़ने के लिए टैग टैप करें",
+        "requirementsPlaceholder": "लक्षित क्षेत्र, पसंदीदा गेम प्रदाता, क्रिप्टो/फिएट भुगतान आदि लिखें...",
+        "initializing": "रिज़र्वेशन डेस्क शुरू हो रहा है...",
+        "continueWith": "{design} के साथ आगे बढ़ें",
+        "nextStepNote": "अगले चरण में आप ${fee} रिफंडेबल होल्ड के साथ {discount}% छूट लॉक कर सकते हैं या मुफ़्त पूछताछ कर सकते हैं।"
+      },
+      "timelines": {
+        "immediately": { "label": "तुरंत", "badge": "प्राथमिकता" },
+        "within_30_days": { "label": "30 दिनों में", "badge": "फ़ास्ट ट्रैक" },
+        "within_1_3_months": { "label": "1–3 महीने", "badge": "नियोजित" },
+        "within_3_6_months": { "label": "3–6 महीने", "badge": "रोडमैप" },
+        "just_exploring": { "label": "जानकारी हेतु", "badge": "खोज" }
+      },
+      "chips": {
+        "crypto": "क्रिप्टो और USDT",
+        "fiat": "फिएट कार्ड",
+        "multilang": "बहुभाषी",
+        "vip": "VIP लॉयल्टी",
+        "affiliates": "एफिलिएट सिस्टम",
+        "curacao": "क्यूरासाओ रेडी"
+      },
+      "errors": {
+        "requiredFields": "कृपया अपना पूरा नाम, ईमेल और फ़ोन नंबर भरें।",
+        "initFailed": "रिज़र्वेशन शुरू करने में विफल।",
+        "submitFailed": "पूछताछ सबमिट करने में विफल।"
+      }
+    },
+    "offerModal": {
+      "skipTitle": "रिज़र्वेशन छोड़ें",
+      "badge": "विशेष ऑपरेटर प्रोत्साहन",
+      "headingPrefix": "लॉक करें",
+      "headingHighlight": "{discount}% छूट",
+      "headingSuffix": "और डिज़ाइन होल्ड करें",
+      "subtitle": "${fee} USD रिफंडेबल डिपॉज़िट के साथ {design} को {days} दिनों के लिए रिज़र्व करें।",
+      "standardPrice": "मानक पैकेज मूल्य:",
+      "discountLine": "{discount}% तत्काल रिज़र्वेशन छूट:",
+      "lockedTotal": "लॉक किया गया पैकेज कुल:",
+      "depositToday": "आज की होल्डिंग राशि:",
+      "refundable100": "100% रिफंडेबल",
+      "balanceHandover": "हैंडओवर पर शेष:",
+      "depositCredited": "डिपॉज़िट समायोजित",
+      "lockHighlightTitle": "{days}-दिन मूल्य लॉक:",
+      "lockHighlightBody": "{hours} घंटों तक मूल्य परिवर्तन से सुरक्षित।",
+      "refundHighlightTitle": "100% रिफंडेबल:",
+      "refundHighlightBody": "यदि आप {days} दिनों में आगे नहीं बढ़ते हैं तो पूरा रिफंड।",
+      "securing": "रिज़र्वेशन सुरक्षित हो रहा है...",
+      "optionA": "विकल्प A: अभी रिज़र्व करें (${fee} USD)",
+      "optionB": "विकल्प B: बिना रिज़र्व किए आगे बढ़ें (सामान्य पूछताछ)"
+    },
+    "checkoutModal": {
+      "closeTitle": "चेकआउट बंद करें",
+      "badge": "सुरक्षित {days}-दिन होल्डिंग चेकआउट",
+      "headingPrefix": "रिज़र्व करें",
+      "bookingRef": "बुकिंग संदर्भ:",
+      "standardTotal": "मानक पैकेज कुल:",
+      "discountLine": "विशेष {discount}% रिज़र्वेशन छूट:",
+      "discountedPrice": "छूट के बाद लॉक कीमत:",
+      "holdingFeeToday": "आज की होल्डिंग राशि:",
+      "refundable100": "100% रिफंडेबल",
+      "balanceHandover": "हैंडओवर पर शेष:",
+      "depositCredited": "डिपॉज़िट समायोजित",
+      "tabCrypto": "क्रिप्टो (USDT / BTC)",
+      "tabCard": "कार्ड भुगतान",
+      "tabDemo": "डेमो",
+      "selectNetwork": "नेटवर्क चुनें:",
+      "transferExact": "पते पर ठीक ${fee} USD ट्रांसफर करें:",
+      "copied": "कॉपी हो गया!",
+      "addressNotConfigured": "एडमिन में पता कॉन्फ़िगर नहीं है",
+      "copyAddress": "पता कॉपी करें",
+      "txHashLabel": "ट्रांज़ैक्शन हैश / TxID *",
+      "txHashPlaceholder": "जैसे 8f6b1e32d5c4...",
+      "cardTitle": "क्रेडिट / डेबिट कार्ड चेकआउट",
+      "cardBody": "Visa, Mastercard या American Express से ${fee} USD की 100% रिफंडेबल होल्ड राशि भुगतान करें।",
+      "cardDisabled": "कार्ड प्रोसेसिंग अभी सेटअप मोड में है। क्रिप्टो या डेमो उपयोग करें।",
+      "demoTitle": "टेस्ट और ऑनबोर्डिंग सिमुलेशन",
+      "demoBody": "{hours}-घंटे का होल्ड टाइमर जांचने के लिए बिना लाइव फंड भेजे तुरंत ${fee} रिज़र्वेशन सिमुलेट करें।",
+      "termsText": "मैं {days}-दिन की रिफंडेबल रिज़र्वेशन शर्तों को स्पष्ट रूप से स्वीकार करता हूँ। ${fee} USD डिपॉज़िट {hours} घंटों के लिए कीमत और {discount}% छूट लॉक करता है।",
+      "termsError": "आगे बढ़ने से पहले {days}-दिन की रिज़र्वेशन शर्तें स्वीकार करें।",
+      "txError": "सत्यापन के लिए कृपया अपना ट्रांज़ैक्शन हैश (TxID) दर्ज करें।",
+      "recording": "ट्रांसफर दर्ज हो रहा है...",
+      "confirmCrypto": "${fee} क्रिप्टो डिपॉज़िट की पुष्टि करें",
+      "redirecting": "रीडायरेक्ट हो रहा है...",
+      "payCard": "कार्ड से ${fee} USD भुगतान करें",
+      "simulateBtn": "${fee} रिज़र्वेशन सिमुलेट करें (डेमो)"
+    },
+    "confirmed": {
+      "badge": "{discount}% छूट लॉक • {days}-दिन होल्ड सक्रिय",
+      "headingPrefix": "डिज़ाइन",
+      "headingHighlight": "सफलतापूर्वक",
+      "headingSuffix": "रिज़र्व हो गया!",
+      "bookingId": "बुकिंग ID: {id}",
+      "priceLockActive": "मूल्य लॉक सक्रिय ({hours} घंटे)",
+      "remaining": "शेष: {time}",
+      "selectedDesign": "चयनित डिज़ाइन:",
+      "originalPrice": "मूल कीमत:",
+      "discountedTotal": "{discount}% छूट सहित कुल:",
+      "holdingFee": "रिफंडेबल होल्डिंग शुल्क:",
+      "credited": "समायोजित",
+      "balanceDelivery": "डिलीवरी पर शेष राशि:",
+      "outreach": "आपका डिज़ाइन {days} दिनों के लिए एक्सक्लूसिव होल्ड पर है। हमारे तकनीकी प्रबंधक ईमेल ({email}) और WhatsApp ({phone}) पर 2 कार्य घंटों में संपर्क करेंगे।",
+      "viewReceipt": "आधिकारिक रिज़र्वेशन रसीद देखें",
+      "browseCatalog": "कैटलॉग देखें"
+    },
+    "inquiryConfirmed": {
+      "badge": "Royal Casino Club VIP डेस्क",
+      "headingPrefix": "पूछताछ",
+      "headingHighlight": "प्राप्त हुई",
+      "refNumber": "संदर्भ संख्या: {ref}",
+      "body": "{design} के लिए आपकी पूछताछ हमारे पोर्टल में दर्ज हो गई है। एक समन्वयक शीघ्र ही आपसे संपर्क करेगा।",
+      "withModules": "{modules} के साथ",
+      "estimatedTotal": "अनुमानित पैकेज कुल: ${total} USD।",
+      "viewReceipt": "आधिकारिक रसीद देखें",
+      "exploreThemes": "थीम्स देखें"
+    },
+    "standalone": {
+      "notFoundTitle": "रिज़र्वेशन नहीं मिला",
+      "notFoundBody": "रिज़र्वेशन ID {id} नहीं मिला या संग्रहीत किया जा चुका है।",
+      "browseCatalog": "कैटलॉग देखें",
+      "dossierBadge": "टर्नकी होल्डिंग डोजियर",
+      "headingPrefix": "5-दिन का",
+      "headingHighlight": "रिज़र्वेशन होल्ड सुरक्षित करें",
+      "referenceClient": "संदर्भ: {id} • क्लाइंट: {name}",
+      "alreadyPaidTitle": "होल्डिंग डिपॉज़िट पहले से सुरक्षित है!",
+      "alreadyPaidBody": "{design} के लिए आपका 5-दिन का प्राइस लॉक और {discount}% छूट सक्रिय है।",
+      "viewOfficialReceipt": "आधिकारिक रसीद देखें",
+      "expiredTitle": "120-घंटे की होल्डिंग अवधि समाप्त",
+      "expiredBody": "यह रिज़र्वेशन अवधि समाप्त हो गई है। $1,000 डिपॉज़िट रिफंड के लिए शुरू कर दिया गया है।",
+      "startNew": "नया चयन शुरू करें",
+      "targetSolution": "लक्षित कैसीनो समाधान",
+      "includes": "शामिल: {addons}",
+      "standardPrice": "मानक पैकेज कीमत:",
+      "discountLabel": "विशेष रिज़र्वेशन छूट ({discount}%):",
+      "lockedTotal": "लॉक किया गया टर्नकी कुल:",
+      "holdingDueNow": "होल्डिंग डिपॉज़िट (अभी देय):",
+      "remainingBalance": "हैंडओवर पर शेष राशि:",
+      "term1": "5-दिन (120 घंटे) की एक्सक्लूसिविटी और मूल्य लॉक की गारंटी।",
+      "term2": "कोई समझौता न होने पर $1,000 100% रिफंडेबल है।",
+      "term3": "डिपॉज़िट अंतिम चालान में पूरी तरह समायोजित होता है।",
+      "payTermsError": "कृपया 5-दिन की रिफंडेबल रिज़र्वेशन शर्तें स्वीकार करें।",
+      "payTxError": "कृपया अपना ट्रांज़ैक्शन हैश / ID दर्ज करें।",
+      "payTermsText": "मैं समझता हूँ कि यह $1,000 USD होल्डिंग डिपॉज़िट मेरी थीम और 10% छूट को 120 घंटों के लिए लॉक करता है और समझौता न होने पर 100% रिफंडेबल है।",
+      "tabCrypto": "क्रिप्टो (USDT / BTC)",
+      "tabCard": "क्रेडिट कार्ड",
+      "sendExactly": "ठीक भेजें: $1,000.00 USD ({label})",
+      "network": "नेटवर्क: {network}",
+      "txHashLabel": "आपका भुगतान ट्रांज़ैक्शन हैश / TxID *",
+      "txHashPlaceholder": "ट्रांज़ैक्शन हैश / ID पेस्ट करें",
+      "verifying": "ट्रांसफर सत्यापित हो रहा है...",
+      "confirmDeposit": "$1,000 क्रिप्टो डिपॉज़िट की पुष्टि करें",
+      "cardTitle": "256-बिट एन्क्रिप्टेड कार्ड चेकआउट",
+      "cardBody": "Visa, Mastercard या American Express से सुरक्षित रिज़र्व करें। $1,000 डिपॉज़िट पूरी तरह रिफंडेबल है।",
+      "redirectingCard": "चेकआउट पर जा रहे हैं...",
+      "proceedCard": "कार्ड चेकआउट पर जाएं ($1,000)",
+      "simulateDemo": "डेमो / टेस्ट? तुरंत $1,000 रिज़र्वेशन लॉक सिमुलेट करें"
+    },
+    "confirmation": {
+      "reservationNotFoundTitle": "रिज़र्वेशन रसीद नहीं मिली",
+      "reservationNotFoundBody": "संदर्भ {ref} के लिए कोई रिज़र्वेशन रिकॉर्ड नहीं मिला।",
+      "inquiryNotFoundTitle": "पूछताछ रसीद नहीं मिली",
+      "inquiryNotFoundBody": "संदर्भ {ref} के लिए कोई पूछताछ नहीं मिली।",
+      "exploreThemes": "कैसीनो थीम्स देखें",
+      "resBadge": "डिपॉज़िट सुरक्षित • {discount}% छूट लॉक",
+      "resHeadingPrefix": "आपका कैसीनो डिज़ाइन",
+      "resHeadingHighlight": "रिज़र्व हो गया है!",
+      "resSubtitle": "आपका चुना हुआ डिज़ाइन और छूट मूल्य पाँच दिनों (120 घंटे) के लिए सुरक्षित है। एक एंटरप्राइज़ निदेशक आपसे संपर्क करेंगे।",
+      "certificateTitle": "ROYAL CASINO CLUB टर्नकी प्रमाणपत्र",
+      "certificateSub": "5-दिन की विशेष प्लेटफ़ॉर्म रिज़र्वेशन का आधिकारिक प्रमाण",
+      "reservationIdLabel": "रिज़र्वेशन ID",
+      "clientInfo": "रिज़र्व क्लाइंट जानकारी",
+      "expiryWindow": "होल्डिंग समाप्ति समय",
+      "exactExpiry": "सटीक समाप्ति: {date}",
+      "platformConfig": "चयनित प्लेटफ़ॉर्म कॉन्फ़िगरेशन",
+      "modulesLabel": "मॉड्यूल: {modules}",
+      "originalTotal": "मूल पैकेज कुल:",
+      "exclusiveDiscount": "विशेष रिज़र्वेशन छूट ({discount}%):",
+      "discountedTotal": "छूट के बाद कुल:",
+      "depositPaid": "भुगतान किया गया होल्डिंग डिपॉज़िट:",
+      "refundableTag": "100% रिफंडेबल",
+      "remainingBalance": "प्रोजेक्ट हैंडओवर पर शेष:",
+      "printReceipt": "प्रमाणपत्र प्रिंट करें",
+      "chatWhatsapp": "WhatsApp पर चैट करें",
+      "clientPortal": "क्लाइंट पोर्टल खोलें",
+      "inqBadge": "पूछताछ डोजियर दर्ज",
+      "inqHeadingPrefix": "पूछताछ",
+      "inqHeadingHighlight": "प्राप्त हुई",
+      "inqSubtitle": "धन्यवाद, {name}। आपके टर्नकी कैसीनो प्रोजेक्ट का विवरण हमारी टीम को भेज दिया गया है।",
+      "inqRefLabel": "पूछताछ संदर्भ संख्या",
+      "submissionDate": "जमा करने की तिथि",
+      "justNow": "अभी",
+      "customerDetails": "ग्राहक विवरण",
+      "companyLabel": "कंपनी: {company}",
+      "emailLabel": "ईमेल: {email}",
+      "phoneLabel": "फ़ोन: {phone}",
+      "whatsappLabel": "WhatsApp: {wa}",
+      "intendedLaunch": "लक्ष्य लॉन्च:",
+      "requestedSetup": "अनुरोधित प्लेटफ़ॉर्म सेटअप",
+      "selectedAddons": "चयनित ऐड-ऑन:",
+      "starterPackageDefault": "स्टार्टर कैसीनो पैकेज ($15,000 USD)",
+      "estimatedTotal": "अनुमानित कुल:",
+      "specifiedRequirements": "निर्दिष्ट आवश्यकताएं",
+      "upsellTitle": "वैकल्पिक 5-दिन रिज़र्वेशन और 10% मूल्य गारंटी",
+      "upsellBody": "{design} पर एक्सक्लूसिव अधिकार और 10% छूट (${savings} USD की बचत) चाहते हैं? 120 घंटों के लिए 100% रिफंडेबल $1,000 होल्ड जमा करें।",
+      "upsellCta": "$1,000 में 5-दिन होल्ड लॉक करें (रिफंडेबल)",
+      "upsellCredited": "समझौते पर अंतिम शेष राशि में समायोजित।",
+      "whatNext": "आगे क्या होगा?",
+      "step1Tag": "चरण 1 • समीक्षा",
+      "step1Title": "तकनीकी डोजियर",
+      "step1Desc": "हमारी टीम आपका मॉड्यूलर आर्किटेक्चर विवरण तैयार करती है।",
+      "step2Tag": "चरण 2 • संपर्क",
+      "step2Title": "परामर्श कॉल",
+      "step2Desc": "एक सलाहकार 4 घंटों के भीतर WhatsApp और ईमेल से संपर्क करता है।",
+      "step3Tag": "चरण 3 • लॉन्च",
+      "step3Title": "ब्रांड और लाइव",
+      "step3Desc": "आपका कस्टम कैसीनो 21–30 दिनों में लाइव हो जाता है।",
+      "browseMore": "और डिज़ाइन देखें"
+    }
+  }
+}

@@ -5,50 +5,26 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CheckCircle2, Video, Trophy, Spade, Gift, Crown, Sparkles } from "lucide-react";
-
-const includedItems = [
-  {
-    title: "Your selected casino design",
-    detail: null,
-  },
-  {
-    title: "Online casino slots",
-    detail: null,
-  },
-  {
-    title: "Casino game tables",
-    detail: "(Blackjack, Roulette, Baccarat & more)",
-  },
-  {
-    title: "Your casino branding",
-    detail: "(Logo, colors & domain setup)",
-  },
-];
-
-const addonModules = [
-  {
-    name: "Live Dealer Tables",
-    icon: Video,
-    query: "Live Dealer Tables",
-  },
-  {
-    name: "Poker Platform",
-    icon: Spade,
-    query: "Poker Platform",
-  },
-  {
-    name: "Sportsbook",
-    icon: Trophy,
-    query: "Sportsbook",
-  },
-  {
-    name: "Sweepstakes & Social",
-    icon: Gift,
-    query: "Sweepstakes & Social",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export default function StarterPackageSection() {
+  const t = useTranslations("home.starterPackage");
+  const tCommon = useTranslations("common");
+
+  const includedItems = [
+    { title: t("included.designTitle"), detail: null },
+    { title: t("included.slotsTitle"), detail: null },
+    { title: t("included.tablesTitle"), detail: t("included.tablesDetail") },
+    { title: t("included.brandingTitle"), detail: t("included.brandingDetail") },
+  ];
+
+  const addonModules = [
+    { name: t("addons.liveDealer"), icon: Video, query: "Live Dealer Tables" },
+    { name: t("addons.poker"), icon: Spade, query: "Poker Platform" },
+    { name: t("addons.sportsbook"), icon: Trophy, query: "Sportsbook" },
+    { name: t("addons.sweepstakes"), icon: Gift, query: "Sweepstakes & Social" },
+  ];
+
   const sectionRef = useRef<HTMLElement>(null);
   const vaultRef = useRef<HTMLDivElement>(null);
   const spotlightRef = useRef<HTMLDivElement>(null);
@@ -307,7 +283,7 @@ export default function StarterPackageSection() {
           </svg>
           <span className="inline-flex items-center gap-1.5 sm:gap-2 whitespace-nowrap rounded-full border border-[#f5c451]/40 bg-[#1a072e]/75 px-3 sm:px-3.5 py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] sm:tracking-[0.26em] text-[#ffe28a]/95 shadow-[0_0_20px_rgba(245,196,81,0.16),inset_0_1px_0_rgba(255,243,196,0.2)] backdrop-blur-md">
             <Crown className="h-3 w-3 shrink-0 fill-[#ffd75e] text-[#ffd75e]" />
-            <span>Turnkey Royal Platform</span>
+            <span>{t("ribbon")}</span>
             <span className="text-[#e879f9]">◆</span>
           </span>
           <svg
@@ -426,7 +402,7 @@ export default function StarterPackageSection() {
             <div>
               <p className="js-sp-col1 shine inline-flex items-center gap-1.5 rounded-full border border-[#f5c451]/75 bg-[#23093d]/80 px-3 py-1 text-xs xl:text-sm font-bold uppercase italic tracking-wider text-[#ffe28a] shadow-[0_0_16px_rgba(245,196,81,0.22)]">
                 <Crown className="h-3.5 w-3.5 fill-[#ffd75e] text-[#ffd75e]" />
-                <span>Starter Package</span>
+                <span>{t("badge")}</span>
               </p>
 
               <p className="js-sp-col1 mt-2.5 font-display font-bold italic leading-none">
@@ -436,15 +412,15 @@ export default function StarterPackageSection() {
                 >
                   $15,000
                 </span>{" "}
-                <span className="text-xl xl:text-2xl text-white/90">USD</span>
+                <span className="text-xl xl:text-2xl text-white/90">{tCommon("usd")}</span>
               </p>
 
               <h3 className="js-sp-col1 mt-2 text-xl xl:text-[1.4rem] font-bold leading-snug text-white font-philosopher">
-                Launch Your Branded Casino
+                {t("heading")}
               </h3>
 
               <p className="js-sp-col1 mt-1.5 text-sm text-white/75 leading-relaxed max-w-xs">
-                Complete turnkey casino with slots &amp; game tables.
+                {t("description")}
               </p>
             </div>
           </div>
@@ -463,7 +439,7 @@ export default function StarterPackageSection() {
             {/* Subtle Gold-to-Violet Vertical Divider on Desktop */}
             <div
               aria-hidden="true"
-              className="hidden lg:block pointer-events-none absolute left-0 top-2 bottom-2 w-px"
+              className="hidden lg:block pointer-events-none absolute start-0 top-2 bottom-2 w-px"
               style={{
                 background:
                   "linear-gradient(180deg, transparent 0%, rgba(245, 196, 81, 0.45) 30%, rgba(192, 132, 252, 0.35) 70%, transparent 100%)",
@@ -472,7 +448,7 @@ export default function StarterPackageSection() {
 
             <h3 className="js-sp-col1 flex items-center gap-2 text-base sm:text-lg xl:text-xl font-bold uppercase tracking-wide text-[#f5c451]">
               <Sparkles className="h-4 w-4 text-[#ffd75e]" />
-              <span>Included:</span>
+              <span>{t("includedTitle")}</span>
             </h3>
 
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base xl:text-[16.5px]">
@@ -498,7 +474,7 @@ export default function StarterPackageSection() {
           </div>
 
           {/* Col 3: Available Add-On Modules */}
-          <div id="addons" className="relative z-10 pt-6 lg:pt-0 lg:pl-8 xl:pl-10">
+          <div id="addons" className="relative z-10 pt-6 lg:pt-0 lg:ps-8 xl:ps-10">
             {/* Subtle Gold-to-Violet Horizontal Divider on Mobile/Tablet */}
             <div
               aria-hidden="true"
@@ -511,7 +487,7 @@ export default function StarterPackageSection() {
             {/* Subtle Gold-to-Violet Vertical Divider on Desktop */}
             <div
               aria-hidden="true"
-              className="hidden lg:block pointer-events-none absolute left-0 top-2 bottom-2 w-px"
+              className="hidden lg:block pointer-events-none absolute start-0 top-2 bottom-2 w-px"
               style={{
                 background:
                   "linear-gradient(180deg, transparent 0%, rgba(245, 196, 81, 0.45) 30%, rgba(192, 132, 252, 0.35) 70%, transparent 100%)",
@@ -519,7 +495,7 @@ export default function StarterPackageSection() {
             />
 
             <h3 className="js-sp-col1 text-base sm:text-lg xl:text-xl font-bold uppercase tracking-wide text-[#f5c451]">
-              Available add-on modules:
+              {t("addonsTitle")}
             </h3>
 
             <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
@@ -550,7 +526,7 @@ export default function StarterPackageSection() {
             </ul>
 
             <p className="js-sp-col1 mt-4 text-xs xl:text-sm text-white/70 leading-relaxed">
-              Optional modules quoted separately. Message us on WhatsApp to add them to your casino.
+              {t("addonsNote")}
             </p>
           </div>
         </div>

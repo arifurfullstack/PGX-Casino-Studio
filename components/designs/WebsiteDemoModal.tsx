@@ -19,6 +19,7 @@ import {
   ShieldCheck,
   Menu,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign, DesignPreviewImage } from "@/types";
 import ProtectedDemoCanvas from "./ProtectedDemoCanvas";
 
@@ -59,6 +60,8 @@ export default function WebsiteDemoModal({
   initialPageId,
   allowUnsavedAdminPreview = false,
 }: WebsiteDemoModalProps) {
+  const t = useTranslations("designs.demo.modal");
+  const tCommon = useTranslations("common");
   const [activeIndex, setActiveIndex] = useState(0);
   const [historyStack, setHistoryStack] = useState<number[]>([0]);
   const [historyPos, setHistoryPos] = useState(0);
@@ -303,9 +306,9 @@ export default function WebsiteDemoModal({
             <div className="flex items-center gap-2 rounded-full border border-purple-400/25 bg-[#070210] px-3 py-1.5 text-[11px] sm:text-xs text-white/75">
               <Lock className="h-3 w-3 text-emerald-400 shrink-0" />
               <span className="truncate font-mono text-white/80">{simulatedUrl}</span>
-              <span className="ml-auto hidden md:inline-flex items-center gap-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 shrink-0">
+              <span className="ms-auto hidden md:inline-flex items-center gap-1 rounded-full bg-emerald-500/15 border border-emerald-400/30 px-2 py-0.5 text-[10px] font-semibold text-emerald-300 shrink-0">
                 <ShieldCheck className="h-3 w-3" />
-                Protected
+                {t("protected")}
               </span>
             </div>
           </div>
@@ -356,8 +359,8 @@ export default function WebsiteDemoModal({
               href={`/select-design?design=${design.slug}`}
               className="btn btn-gold btn-sm !px-3 sm:!px-4 !py-1.5 text-[11px] sm:text-xs font-bold shrink-0"
             >
-              <span>Select Design</span>
-              <ArrowRight className="h-3.5 w-3.5" />
+              <span>{tCommon("selectDesign")}</span>
+              <ArrowRight className="h-3.5 w-3.5 rtl-flip" />
             </Link>
 
             <button
@@ -391,7 +394,7 @@ export default function WebsiteDemoModal({
                   {design.name}
                 </p>
                 <p className="text-[10px] uppercase tracking-[0.18em] text-[#f5c451]/80">
-                  Live UI Demo • {pages.length} {pages.length === 1 ? "Page" : "Pages"}
+                  {t("liveUiDemo")} • {tCommon("pagesCount", { count: pages.length })}
                 </p>
               </div>
             </button>
@@ -516,8 +519,7 @@ export default function WebsiteDemoModal({
               <div className="flex items-center gap-2 text-xs text-white/60">
                 <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
                 <span>
-                  Viewing <strong className="text-white">{activePage?.title}</strong> of{" "}
-                  <strong className="text-[#ffe28a]">{design.name}</strong> — Protected Demo
+                  {t("viewingOf", { page: activePage?.title || "", design: design.name })}
                 </span>
               </div>
 
@@ -530,7 +532,7 @@ export default function WebsiteDemoModal({
                     }
                     className="inline-flex items-center gap-1.5 rounded-full border border-purple-400/35 bg-[#16062c] px-3.5 py-1.5 text-xs font-semibold text-white/85 hover:border-[#f5c451] hover:text-[#ffe28a] cursor-pointer"
                   >
-                    <ChevronLeft className="h-3.5 w-3.5" />
+                    <ChevronLeft className="h-3.5 w-3.5 rtl-flip" />
                     <span>{prevPage.title}</span>
                   </button>
                 )}
@@ -541,8 +543,8 @@ export default function WebsiteDemoModal({
                     onClick={() => navigateToIndex((activeIndex + 1) % pages.length)}
                     className="inline-flex items-center gap-1.5 rounded-full border border-[#f5c451]/50 bg-[#1f0a3a] px-3.5 py-1.5 text-xs font-semibold text-[#ffe28a] hover:bg-[#2a0f4d] cursor-pointer"
                   >
-                    <span>Next: {nextPage.title}</span>
-                    <ChevronRight className="h-3.5 w-3.5" />
+                    <span>{t("nextPage", { page: nextPage.title })}</span>
+                    <ChevronRight className="h-3.5 w-3.5 rtl-flip" />
                   </button>
                 )}
 
@@ -550,8 +552,8 @@ export default function WebsiteDemoModal({
                   href={`/select-design?design=${design.slug}`}
                   className="btn btn-gold btn-sm !px-4 !py-1.5 text-xs font-bold"
                 >
-                  <span>Reserve {design.name}</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
+                  <span>{t("reserveDesign", { design: design.name })}</span>
+                  <ArrowRight className="h-3.5 w-3.5 rtl-flip" />
                 </Link>
               </div>
             </div>

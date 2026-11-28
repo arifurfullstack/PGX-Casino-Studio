@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Send, CheckCircle2, AlertCircle, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { submitInquiryAction } from "@/app/actions/inquiryActions";
 import { TimelineOption } from "@/types";
 
@@ -33,6 +34,7 @@ const DESIGNS_LIST = [
 ];
 
 export default function ContactForm({ initialDesign, initialModule, designs }: ContactFormProps) {
+  const t = useTranslations("pages.contact.form");
   const availableDesigns = designs && designs.length > 0 ? designs : DESIGNS_LIST;
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -83,20 +85,20 @@ export default function ContactForm({ initialDesign, initialModule, designs }: C
         <div className="w-16 h-16 rounded-full bg-yellow-400/20 text-yellow-400 mx-auto flex items-center justify-center">
           <CheckCircle2 size={36} />
         </div>
-        <h3 className="text-2xl font-black text-white">Inquiry Received Successfully!</h3>
+        <h3 className="text-2xl font-black text-white">{t("successTitle")}</h3>
         <p className="text-xs text-yellow-400 font-bold uppercase tracking-wider">
-          Reference: {result.ref}
+          {t("reference", { ref: result.ref || "" })}
         </p>
         <p className="text-xs sm:text-sm text-gray-300 max-w-md mx-auto leading-relaxed">
-          Thank you for reaching out. An All I Gaming enterprise technical coordinator will contact you via Email and WhatsApp within 4 business hours.
+          {t("successBody")}
         </p>
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href={`/confirmation/submission?ref=${result.ref}`}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold text-black bg-[#FFD700] hover:brightness-110 transition-all shadow-[0_0_15px_rgba(255,215,0,0.3)]"
           >
-            <span>View Official Submission Receipt</span>
-            <ArrowRight size={14} />
+            <span>{t("viewReceipt")}</span>
+            <ArrowRight size={14} className="rtl-flip" />
           </Link>
         </div>
       </div>
@@ -114,25 +116,25 @@ export default function ContactForm({ initialDesign, initialModule, designs }: C
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Full Name *</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("fullName")}</label>
           <input
             required
             type="text"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
-            placeholder="John Doe"
+            placeholder={t("fullNamePlaceholder")}
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
           />
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Business Email *</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("businessEmail")}</label>
           <input
             required
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="john@company.com"
+            placeholder={t("businessEmailPlaceholder")}
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
           />
         </div>
@@ -140,24 +142,24 @@ export default function ContactForm({ initialDesign, initialModule, designs }: C
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Phone Number *</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("phoneNumber")}</label>
           <input
             required
             type="tel"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
-            placeholder="+1 (555) 000-0000"
+            placeholder={t("phonePlaceholder")}
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
           />
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">WhatsApp Number (Optional)</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("whatsappNumber")}</label>
           <input
             type="tel"
             value={whatsappNumber}
             onChange={(e) => setWhatsappNumber(e.target.value)}
-            placeholder="+1 (555) 000-0000"
+            placeholder={t("phonePlaceholder")}
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
           />
         </div>
@@ -165,18 +167,18 @@ export default function ContactForm({ initialDesign, initialModule, designs }: C
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Company / Organization</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("company")}</label>
           <input
             type="text"
             value={companyName}
             onChange={(e) => setCompanyName(e.target.value)}
-            placeholder="Gaming Ventures Ltd."
+            placeholder={t("companyPlaceholder")}
             className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400"
           />
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Target Casino Design</label>
+          <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("targetDesign")}</label>
           <select
             value={selectedDesignId}
             onChange={(e) => setSelectedDesignId(e.target.value)}
@@ -192,27 +194,27 @@ export default function ContactForm({ initialDesign, initialModule, designs }: C
       </div>
 
       <div className="space-y-1.5">
-        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">When Looking to Start?</label>
+        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("whenToStart")}</label>
         <select
           value={timeline}
           onChange={(e) => setTimeline(e.target.value as TimelineOption)}
           className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white focus:outline-none focus:border-yellow-400"
         >
-          <option value="immediately">Immediately</option>
-          <option value="within_30_days">Within 30 Days</option>
-          <option value="within_1_3_months">Within 1–3 Months</option>
-          <option value="within_3_6_months">Within 3–6 Months</option>
-          <option value="just_exploring">Just Exploring</option>
+          <option value="immediately">{t("timeline.immediately")}</option>
+          <option value="within_30_days">{t("timeline.within_30_days")}</option>
+          <option value="within_1_3_months">{t("timeline.within_1_3_months")}</option>
+          <option value="within_3_6_months">{t("timeline.within_3_6_months")}</option>
+          <option value="just_exploring">{t("timeline.just_exploring")}</option>
         </select>
       </div>
 
       <div className="space-y-1.5">
-        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">Project Requirements / Notes</label>
+        <label className="text-xs font-bold text-gray-300 uppercase tracking-wider">{t("requirements")}</label>
         <textarea
           rows={4}
           value={projectRequirements}
           onChange={(e) => setProjectRequirements(e.target.value)}
-          placeholder="Describe your target market, target languages, crypto/fiat requirements..."
+          placeholder={t("requirementsPlaceholder")}
           className="w-full px-3.5 py-2.5 rounded-xl bg-[#0e0420] border border-purple-600/40 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-yellow-400 resize-none"
         />
       </div>
@@ -222,9 +224,9 @@ export default function ContactForm({ initialDesign, initialModule, designs }: C
         disabled={loading}
         className="w-full py-3 px-6 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(255,215,0,0.4)] flex items-center justify-center gap-2 transition-all disabled:opacity-50"
       >
-        {loading ? <span>Submitting Request...</span> : (
+        {loading ? <span>{t("submitting")}</span> : (
           <>
-            <span>Submit Quotation Request</span>
+            <span>{t("submit")}</span>
             <Send size={14} className="stroke-[2.5]" />
           </>
         )}

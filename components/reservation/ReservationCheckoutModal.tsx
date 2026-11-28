@@ -15,6 +15,7 @@ import {
   AlertCircle,
   ExternalLink,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign, PublicPaymentConfig, PricingConfig } from "@/types";
 import { DEFAULT_PRICING_CONFIG } from "@/config/default-package";
 import {
@@ -47,6 +48,8 @@ export default function ReservationCheckoutModal({
   paymentConfig,
   onPaymentSuccess,
 }: ReservationCheckoutModalProps) {
+  const t = useTranslations("reservation.checkoutModal");
+  const tCommon = useTranslations("common");
   const modalRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"crypto" | "stripe" | "demo">("crypto");
   const cryptoOptions = ([
@@ -104,13 +107,11 @@ export default function ReservationCheckoutModal({
   const handleCryptoSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!termsAccepted) {
-      setErrorMessage(
-        `Please accept the ${holdDays}-day refundable reservation holding terms before continuing.`
-      );
+      setErrorMessage(t("termsError", { days: holdDays }));
       return;
     }
     if (!txHash.trim()) {
-      setErrorMessage("Please enter your transaction hash (TxID) for verification.");
+      setErrorMessage(t("txError"));
       return;
     }
 
@@ -132,9 +133,7 @@ export default function ReservationCheckoutModal({
   // Initiate Stripe Checkout
   const handleStripeCheckout = async () => {
     if (!termsAccepted) {
-      setErrorMessage(
-        `Please accept the ${holdDays}-day refundable reservation holding terms before continuing.`
-      );
+      setErrorMessage(t("termsError", { days: holdDays }));
       return;
     }
 
@@ -153,16 +152,14 @@ export default function ReservationCheckoutModal({
     if (res.success && res.url) {
       window.location.href = res.url;
     } else {
-      setErrorMessage(res.error || "Failed to initialize Stripe checkout session.");
+      setErrorMessage(res.error || "Failed to initialize card checkout session.");
     }
   };
 
   // Test Simulation Mode
   const handleSimulatePayment = async () => {
     if (!termsAccepted) {
-      setErrorMessage(
-        `Please accept the ${holdDays}-day refundable reservation holding terms before continuing.`
-      );
+      setErrorMessage(t("termsError", { days: holdDays }));
       return;
     }
     setLoading(true);
@@ -188,8 +185,8 @@ export default function ReservationCheckoutModal({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full border border-purple-400/30 bg-[#1a0730]/85 text-white/60 hover:text-white hover:border-[#f5c451]/60 transition-colors"
-          title="Close Checkout"
+          className="absolute top-4 end-4 z-20 p-2 rounded-full border border-purple-400/30 bg-[#1a0730]/85 text-white/60 hover:text-white hover:border-[#f5c451]/60 transition-colors"
+          title={t("closeTitle")}
         >
           <X size={16} />
         </button>
@@ -198,13 +195,13 @@ export default function ReservationCheckoutModal({
         <div className="relative z-10 text-center space-y-1.5">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2a0a4a]/90 border border-[#f5c451]/60 text-[#ffe28a] text-[10px] font-bold uppercase tracking-[0.16em]">
             <Lock size={12} className="text-[#ffd75e]" />
-            <span>Secure {holdDays}-Day Holding Checkout</span>
+            <span>{t("badge", { days: holdDays })}</span>
           </div>
           <h2 className="font-philosopher text-2xl sm:text-3xl font-bold uppercase italic tracking-wide text-white">
-            Reserve <span className="gold-text">{design.name}</span>
+            {t("headingPrefix")} <span className="gold-text">{design.name}</span>
           </h2>
           <p className="text-xs text-white/70">
-            Booking Reference:{" "}
+            {t("bookingRef")}{" "}
             <strong className="text-[#ffe28a] font-mono">{reservationId}</strong>
           </p>
         </div>
@@ -212,39 +209,39 @@ export default function ReservationCheckoutModal({
         {/* Financial Breakdown Table */}
         <div className="relative z-10 rounded-2xl bg-[#0e031d]/90 border border-purple-400/30 p-4 space-y-2 text-xs">
           <div className="flex justify-between items-center text-white/60">
-            <span>Standard Package Total:</span>
+            <span>{t("standardTotal")}</span>
             <span className="line-through tabular-nums">
-              ${packageTotal.toLocaleString()} USD
+              ${packageTotal.toLocaleString()} {tCommon("usd")}
             </span>
           </div>
           <div className="flex justify-between items-center text-emerald-400 font-bold">
-            <span>Exclusive {discountPercent}% Reservation Discount:</span>
-            <span className="tabular-nums">-${discountAmount.toLocaleString()} USD</span>
+            <span>{t("discountLine", { discount: discountPercent })}</span>
+            <span className="tabular-nums">-${discountAmount.toLocaleString()} {tCommon("usd")}</span>
           </div>
           <div className="flex justify-between items-center py-2 border-y border-purple-500/25 font-bold text-white">
-            <span>Discounted Locked Price:</span>
+            <span>{t("discountedPrice")}</span>
             <span className="font-philosopher text-lg italic gold-text tabular-nums">
-              ${discountedTotal.toLocaleString()} USD
+              ${discountedTotal.toLocaleString()} {tCommon("usd")}
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2.5 pt-1 text-[11px]">
             <div className="p-2.5 rounded-xl bg-[#18062f]/80 border border-emerald-400/30">
               <span className="text-white/60 block text-[10px] uppercase">
-                Holding Fee Today:
+                {t("holdingFeeToday")}
               </span>
               <span className="text-sm font-black text-emerald-400 tabular-nums">
-                ${depositFee.toLocaleString()} USD
+                ${depositFee.toLocaleString()} {tCommon("usd")}
               </span>
-              <span className="text-[10px] text-white/50 block">100% Refundable</span>
+              <span className="text-[10px] text-white/50 block">{t("refundable100")}</span>
             </div>
             <div className="p-2.5 rounded-xl bg-[#18062f]/80 border border-[#f5c451]/35">
               <span className="text-white/60 block text-[10px] uppercase">
-                Balance on Handover:
+                {t("balanceHandover")}
               </span>
               <span className="text-sm font-black text-[#ffe28a] tabular-nums">
-                ${balanceOnContract.toLocaleString()} USD
+                ${balanceOnContract.toLocaleString()} {tCommon("usd")}
               </span>
-              <span className="text-[10px] text-white/50 block">Deposit Credited</span>
+              <span className="text-[10px] text-white/50 block">{t("depositCredited")}</span>
             </div>
           </div>
         </div>
@@ -262,7 +259,7 @@ export default function ReservationCheckoutModal({
               }`}
             >
               <QrCode size={13} />
-              <span>Crypto (USDT / BTC)</span>
+              <span>{t("tabCrypto")}</span>
             </button>
 
             <button
@@ -275,7 +272,7 @@ export default function ReservationCheckoutModal({
               }`}
             >
               <CreditCard size={13} />
-              <span>Card (Stripe)</span>
+              <span>{t("tabCard")}</span>
             </button>
 
             <button
@@ -287,7 +284,7 @@ export default function ReservationCheckoutModal({
                   : "text-white/50 hover:text-white/80"
               }`}
             >
-              Demo
+              {t("tabDemo")}
             </button>
           </div>
 
@@ -295,7 +292,7 @@ export default function ReservationCheckoutModal({
           {activeTab === "crypto" && (
             <div className="p-4 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 space-y-3">
               <div className="flex items-center justify-between text-xs">
-                <span className="text-white/70 font-semibold">Select Network:</span>
+                <span className="text-white/70 font-semibold">{t("selectNetwork")}</span>
                 <div className="flex items-center gap-1 flex-wrap justify-end">
                   {cryptoOptions.map((net) => (
                     <button
@@ -316,18 +313,18 @@ export default function ReservationCheckoutModal({
 
               <div className="space-y-1.5">
                 <label className="text-[10px] font-bold text-white/65 uppercase tracking-wider flex items-center justify-between">
-                  <span>Transfer Exactly ${depositFee.toLocaleString()} USD To Address:</span>
-                  {copied && <span className="text-emerald-400 text-[10px]">Copied!</span>}
+                  <span>{t("transferExact", { fee: depositFee.toLocaleString() })}</span>
+                  {copied && <span className="text-emerald-400 text-[10px]">{t("copied")}</span>}
                 </label>
                 <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#120424] border border-purple-400/35 font-mono text-xs text-[#ffe28a] break-all select-all">
                   <span className="flex-1">
-                    {getAddress() || "Address not configured in Admin"}
+                    {getAddress() || t("addressNotConfigured")}
                   </span>
                   <button
                     type="button"
                     onClick={handleCopyAddress}
                     className="p-1.5 rounded-lg bg-purple-900/70 hover:bg-purple-800 text-white shrink-0 transition-colors"
-                    title="Copy Address"
+                    title={t("copyAddress")}
                   >
                     {copied ? <Check size={14} className="text-emerald-400" /> : <Copy size={14} />}
                   </button>
@@ -336,14 +333,14 @@ export default function ReservationCheckoutModal({
 
               <form onSubmit={handleCryptoSubmit} className="space-y-2 pt-1">
                 <label className="text-[10px] font-bold text-white/80 uppercase tracking-wider block">
-                  Transaction Hash / TxID (Proof of Transfer) *
+                  {t("txHashLabel")}
                 </label>
                 <input
                   required
                   type="text"
                   value={txHash}
                   onChange={(e) => setTxHash(e.target.value)}
-                  placeholder="e.g. 8f6b1e32d5c4..."
+                  placeholder={t("txHashPlaceholder")}
                   className="input !min-h-[42px] !py-2 text-xs font-mono placeholder:text-white/35"
                 />
               </form>
@@ -355,16 +352,14 @@ export default function ReservationCheckoutModal({
             <div className="p-5 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 text-center space-y-3">
               <CreditCard size={30} className="mx-auto text-[#f5c451]" />
               <h3 className="font-philosopher text-lg font-bold text-white">
-                Credit / Debit Card Checkout
+                {t("cardTitle")}
               </h3>
               <p className="text-xs text-white/70 max-w-sm mx-auto">
-                Pay the 100% refundable{" "}
-                <strong className="text-white">${depositFee.toLocaleString()} USD</strong> holding
-                deposit with Visa, Mastercard, or American Express via Stripe.
+                {t("cardBody", { fee: depositFee.toLocaleString() })}
               </p>
               {!paymentConfig.stripe.enabled && (
                 <p className="text-[11px] text-[#ffe28a] font-medium">
-                  Stripe card processing is currently in setup mode. Use Crypto or Demo Simulation.
+                  {t("cardDisabled")}
                 </p>
               )}
             </div>
@@ -373,11 +368,12 @@ export default function ReservationCheckoutModal({
           {/* TAB 3: DEMO TEST MODE */}
           {activeTab === "demo" && (
             <div className="p-4 rounded-2xl bg-[#0b0218]/90 border border-purple-400/30 space-y-1.5 text-center text-xs">
-              <p className="text-white font-semibold">Test &amp; Onboarding Simulation</p>
+              <p className="text-white font-semibold">{t("demoTitle")}</p>
               <p className="text-white/60 text-[11px]">
-                Simulate an immediate ${depositFee.toLocaleString()} reservation confirmation
-                without sending live funds to verify the {pricingConfig.reservationDurationHours}
-                -hour hold timer and receipt.
+                {t("demoBody", {
+                  fee: depositFee.toLocaleString(),
+                  hours: pricingConfig.reservationDurationHours,
+                })}
               </p>
             </div>
           )}
@@ -395,13 +391,12 @@ export default function ReservationCheckoutModal({
             className="mt-0.5 w-4 h-4 rounded accent-[#f5c451] cursor-pointer"
           />
           <span className="text-[11px] text-white/75 leading-relaxed">
-            I explicitly accept the{" "}
-            <strong className="text-white">
-              {holdDays}-Day Refundable Reservation Holding Terms
-            </strong>
-            . The ${depositFee.toLocaleString()} USD deposit locks my package price and{" "}
-            {discountPercent}% discount for {pricingConfig.reservationDurationHours} hours, is
-            credited 100% toward my invoice upon agreement execution, or refunded in full.
+            {t("termsText", {
+              days: holdDays,
+              fee: depositFee.toLocaleString(),
+              discount: discountPercent,
+              hours: pricingConfig.reservationDurationHours,
+            })}
           </span>
         </label>
 
@@ -424,8 +419,8 @@ export default function ReservationCheckoutModal({
               {loading ? <Loader2 size={16} className="animate-spin" /> : <ShieldCheck size={16} />}
               <span>
                 {loading
-                  ? "Recording Transfer..."
-                  : `Confirm $${depositFee.toLocaleString()} Crypto Deposit & Lock`}
+                  ? t("recording")
+                  : t("confirmCrypto", { fee: depositFee.toLocaleString() })}
               </span>
             </button>
           )}
@@ -440,8 +435,8 @@ export default function ReservationCheckoutModal({
               {loading ? <Loader2 size={16} className="animate-spin" /> : <ExternalLink size={16} />}
               <span>
                 {loading
-                  ? "Redirecting..."
-                  : `Pay $${depositFee.toLocaleString()} USD with Card (Stripe)`}
+                  ? t("redirecting")
+                  : t("payCard", { fee: depositFee.toLocaleString() })}
               </span>
             </button>
           )}
@@ -454,7 +449,7 @@ export default function ReservationCheckoutModal({
               className="btn-royal-gold shine w-full py-3 px-6 text-xs uppercase tracking-wider cursor-pointer disabled:opacity-50"
             >
               {loading ? <Loader2 size={14} className="animate-spin" /> : <CheckCircle2 size={14} />}
-              <span>Simulate ${depositFee.toLocaleString()} Reservation (Demo Mode)</span>
+              <span>{t("simulateBtn", { fee: depositFee.toLocaleString() })}</span>
             </button>
           )}
         </div>

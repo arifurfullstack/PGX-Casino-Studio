@@ -4,12 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: var(--font-cabin), "Cabin", sans-serif;
-  --font-serif: var(--font-philosopher), "Philosopher", Georgia, serif;
-  --font-display: var(--font-philosopher), "Philosopher", Georgia, serif;
-  --font-heading: var(--font-philosopher), "Philosopher", Georgia, serif;
-  --font-philosopher: var(--font-philosopher), "Philosopher", Georgia, serif;
-  --font-cinzel: var(--font-cinzel), "Cinzel", Georgia, serif;
+  --font-sans: var(--font-cabin), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Cabin", sans-serif;
+  --font-serif: var(--font-philosopher), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Philosopher", Georgia, serif;
+  --font-display: var(--font-philosopher), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Philosopher", Georgia, serif;
+  --font-heading: var(--font-philosopher), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Philosopher", Georgia, serif;
+  --font-philosopher: var(--font-philosopher), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Philosopher", Georgia, serif;
+  --font-cinzel: var(--font-cinzel), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Cinzel", Georgia, serif;
   --font-script: var(--font-script), "Great Vibes", cursive;
   --font-mono: var(--font-cabin), "Cabin", sans-serif;
 }
@@ -1338,11 +1338,25 @@
   font-family: var(--font-cabin), "Cabin", sans-serif;
 }
 
-/* Apply Philosopher to section headings, flourish, and titles globally */
+/* Apply Philosopher + multi-script fallbacks to section headings, flourish, and titles globally */
 h1, h2, h3, h4, h5, h6,
 .flourish,
 .flourish span {
-  font-family: var(--font-philosopher), "Philosopher", Georgia, serif;
+  font-family: var(--font-philosopher), var(--font-arabic), var(--font-bengali), var(--font-devanagari), "Philosopher", Georgia, serif;
+}
+
+/* RTL typography & directional icon helpers for Arabic */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] .flourish,
+[dir="rtl"] .flourish span {
+  font-style: normal;
+  letter-spacing: normal;
+}
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
 }
 
 /* ============================================================

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Send, ArrowLeft, Check, Plus, TrendingUp } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign, PricingConfig } from "@/types";
 
 interface AddonModule {
@@ -46,6 +47,8 @@ interface DemoSidebarProps {
 }
 
 export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps) {
+  const t = useTranslations("designs.demo.sidebar");
+  const tCommon = useTranslations("common");
   const [selectedAddons, setSelectedAddons] = useState<string[]>([]);
   const basePrice = pricingConfig?.starterPackagePrice || 15000;
   const companyGgr = pricingConfig?.ggrCompanyShare ?? 25;
@@ -70,7 +73,7 @@ export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps)
         
         {/* Title */}
         <h2 className="text-base sm:text-lg font-black tracking-wide text-white uppercase drop-shadow">
-          Casino Design Demo
+          {t("title")}
         </h2>
 
         {/* Selected Design Mini Preview Card */}
@@ -80,7 +83,7 @@ export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps)
               <span>👑</span>
               <span>{design.name}</span>
             </div>
-            <p className="text-[9px] text-gray-400">Selected Demo Look</p>
+            <p className="text-[9px] text-gray-400">{t("selectedLook")}</p>
           </div>
           <div className="relative w-20 h-full rounded overflow-hidden">
             <Image
@@ -101,24 +104,24 @@ export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps)
                 777
               </span>
               <span className="text-[11px] font-bold uppercase tracking-wider text-purple-200">
-                Basic Package
+                {t("basicPackage")}
               </span>
             </div>
             <span className="text-sm font-black text-yellow-400">
-              ${basePrice.toLocaleString()} USD
+              ${basePrice.toLocaleString()} {tCommon("usd")}
             </span>
           </div>
           <p className="text-[10px] text-gray-400">
-            Casino Table Games &amp; Online Slots Included
+            {t("includedLine")}
           </p>
         </div>
 
         {/* Add-On Modules Selection */}
         <div className="space-y-2">
           <div className="flex items-center justify-between text-[11px] font-bold text-gray-300 uppercase tracking-wider">
-            <span>Add-On Modules</span>
+            <span>{t("addonModules")}</span>
             <span className="text-[10px] text-yellow-400/90 font-semibold lowercase">
-              optional
+              {tCommon("optional")}
             </span>
           </div>
 
@@ -176,20 +179,20 @@ export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps)
               <TrendingUp size={14} />
             </div>
             <div>
-              <p className="text-[11px] font-bold text-gray-200">GGR Share</p>
-              <p className="text-[10px] text-gray-400">Our Company: {companyGgr}%</p>
+              <p className="text-[11px] font-bold text-gray-200">{t("ggrShare")}</p>
+              <p className="text-[10px] text-gray-400">{t("ourCompany", { share: companyGgr })}</p>
             </div>
           </div>
-          <div className="text-right">
-            <span className="text-xs font-black text-green-400">Your Share: {operatorGgr}%</span>
+          <div className="text-end">
+            <span className="text-xs font-black text-green-400">{t("yourShare", { share: operatorGgr })}</span>
           </div>
         </div>
 
         {/* Total Price Bar */}
         <div className="pt-2 border-t border-purple-900/60 flex items-center justify-between">
-          <span className="text-xs font-bold text-gray-300">Total Estimate:</span>
+          <span className="text-xs font-bold text-gray-300">{t("totalEstimate")}</span>
           <span className="text-base font-black text-yellow-400 drop-shadow">
-            ${totalPrice.toLocaleString()} USD
+            ${totalPrice.toLocaleString()} {tCommon("usd")}
           </span>
         </div>
 
@@ -199,8 +202,8 @@ export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps)
             href={`/select-design?design=${design.slug}&total=${totalPrice}&addons=${selectedAddons.join(",")}`}
             className="w-full py-2.5 px-4 rounded-xl text-xs font-black uppercase text-black bg-gradient-to-b from-[#FFE259] to-[#FFA700] hover:brightness-110 active:scale-[0.98] shadow-[0_0_20px_rgba(255,215,0,0.4)] flex items-center justify-center gap-2 transition-all"
           >
-            <span>Select This Design</span>
-            <ArrowRight size={14} strokeWidth={3} />
+            <span>{t("selectThisDesign")}</span>
+            <ArrowRight size={14} strokeWidth={3} className="rtl-flip" />
           </Link>
 
           <Link
@@ -208,15 +211,15 @@ export default function DemoSidebar({ design, pricingConfig }: DemoSidebarProps)
             className="w-full py-2 px-3 rounded-xl text-xs font-semibold text-white bg-purple-950/60 hover:bg-purple-900/70 border border-purple-500/50 flex items-center justify-center gap-2 transition-all"
           >
             <Send size={13} className="text-purple-300" />
-            <span>Request a Quote</span>
+            <span>{t("requestQuote")}</span>
           </Link>
 
           <Link
             href="/designs"
             className="w-full py-1.5 px-3 rounded-lg text-[11px] font-medium text-gray-400 hover:text-white flex items-center justify-center gap-1.5 transition-colors"
           >
-            <ArrowLeft size={12} />
-            <span>View All Designs</span>
+            <ArrowLeft size={12} className="rtl-flip" />
+            <span>{t("viewAllDesigns")}</span>
           </Link>
         </div>
 

@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Phone, Crown } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { SITE_CONFIG } from "@/config/site-config";
 import BrandLogo from "./BrandLogo";
 
 export default function Footer() {
   const pathname = usePathname();
+  const t = useTranslations("footer");
+  const tNav = useTranslations("nav");
   if (pathname?.startsWith("/admin") || pathname?.startsWith("/portal")) return null;
 
   return (
@@ -20,67 +23,67 @@ export default function Footer() {
         </div>
 
         {/* Description */}
-        <p className="text-[15px] leading-relaxed text-muted lg:border-l lg:border-line lg:pl-6">
-          Royal Casino Club provides premium turnkey online casino software solutions, empowering operators to launch customized, high-converting casinos worldwide.
+        <p className="text-[15px] leading-relaxed text-muted lg:border-s lg:border-line lg:ps-6">
+          {t("description")}
         </p>
 
         {/* Quick Links */}
-        <div className="lg:border-l lg:border-line lg:pl-6">
-          <h4 className="text-sm font-bold uppercase tracking-wide">Quick links</h4>
+        <div className="lg:border-s lg:border-line lg:ps-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide">{t("quickLinksTitle")}</h4>
           <ul className="mt-3 space-y-1.5 text-[15px] text-muted">
             <li>
               <Link className="hover:text-gold transition-colors" href="/#top">
-                Home
+                {tNav("links.home")}
               </Link>
             </li>
             <li>
               <Link className="hover:text-gold transition-colors" href="/#designs">
-                Casino Designs
+                {tNav("links.designs")}
               </Link>
             </li>
             <li>
               <Link className="hover:text-gold transition-colors" href="/#addons">
-                Add-On Modules
+                {tNav("links.modules")}
               </Link>
             </li>
             <li>
               <Link className="hover:text-gold transition-colors" href="/#packages">
-                Packages
+                {tNav("links.packages")}
               </Link>
             </li>
           </ul>
         </div>
 
         {/* Company Links */}
-        <div className="lg:border-l lg:border-line lg:pl-6">
-          <h4 className="text-sm font-bold uppercase tracking-wide">Company</h4>
+        <div className="lg:border-s lg:border-line lg:ps-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide">{t("companyTitle")}</h4>
           <ul className="mt-3 space-y-1.5 text-[15px] text-muted">
             <li>
               <Link className="hover:text-gold transition-colors" href="/#how-it-works">
-                How It Works
+                {tNav("links.howItWorks")}
               </Link>
             </li>
             <li>
               <Link className="hover:text-gold transition-colors" href="/#about">
-                About Us
+                {tNav("links.about")}
               </Link>
             </li>
             <li>
               <Link className="hover:text-gold transition-colors" href="/#contact">
-                Contact
+                {tNav("links.contact")}
               </Link>
             </li>
             <li>
               <Link className="hover:text-gold transition-colors" href="/portal">
-                Client Portal
+                {tNav("clientPortal")}
               </Link>
             </li>
           </ul>
         </div>
 
         {/* Get in Touch */}
-        <div className="lg:border-l lg:border-line lg:pl-6">
-          <h4 className="text-sm font-bold uppercase tracking-wide">Get in touch</h4>
+        <div className="lg:border-s lg:border-line lg:ps-6">
+          <h4 className="text-sm font-bold uppercase tracking-wide">{t("getInTouchTitle")}</h4>
           <ul className="mt-3 space-y-2 text-[15px]">
             <li className="flex items-center gap-2.5">
               <Mail className="h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
@@ -96,7 +99,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-gold transition-colors"
               >
-                +1 (416) 477-0191 (WhatsApp)
+                +1 (416) 477-0191 ({t("whatsappSuffix")})
               </a>
             </li>
             <li className="flex items-center gap-2.5">
@@ -107,7 +110,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="font-bold text-gold hover:underline"
               >
-                Reserve A Casino ($1,000 USD Hold)
+                {t("reserveHoldCta")}
               </a>
             </li>
           </ul>
@@ -117,14 +120,14 @@ export default function Footer() {
 
       {/* Sub Footer Bar */}
       <div className="mx-auto flex max-w-[1672px] flex-wrap justify-between gap-2 border-t border-gold/30 px-4 py-5 sm:px-6 lg:px-12 text-sm text-muted">
-        <span>© 2026 {SITE_CONFIG.name}. All Rights Reserved.</span>
+        <span>{t("copyright", { name: SITE_CONFIG.name })}</span>
         <a
           href="https://www.huipper.com"
           target="_blank"
           rel="noopener noreferrer"
           className="hover:text-gold transition-colors"
         >
-          Developed by Huipper
+          {t("developedBy")}
         </a>
       </div>
     </footer>

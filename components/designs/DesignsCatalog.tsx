@@ -21,6 +21,7 @@ import {
   CheckCircle2,
   MessageCircle,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign, PricingConfig } from "@/types";
 import { DEFAULT_PRICING_CONFIG } from "@/config/default-package";
 import { SITE_CONFIG } from "@/config/site-config";
@@ -105,6 +106,8 @@ export default function DesignsCatalog({
   initialCategory,
   initialQuery = "",
 }: DesignsCatalogProps) {
+  const t = useTranslations("designs.catalog");
+  const tCommon = useTranslations("common");
   const validInitialCat: CategoryName = CATEGORIES.includes(
     initialCategory as CategoryName
   )
@@ -472,44 +475,50 @@ export default function DesignsCatalog({
 
         <div className="js-designs-hero inline-flex items-center gap-2 rounded-full border border-[#f5c451]/45 bg-[#1a0730]/80 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#ffe28a] backdrop-blur-md shadow-[0_0_24px_rgba(245,196,81,0.18)]">
           <Crown className="h-3.5 w-3.5 text-[#ffd75e] fill-[#ffd75e]/30" />
-          <span>Exclusive Turnkey Collection • {initialDesigns.length} Themes</span>
+          <span>{t("badge")}</span>
         </div>
 
         <h1 className="js-designs-hero flourish font-philosopher text-[clamp(1.9rem,4.5vw,3.2rem)] font-bold uppercase italic leading-tight tracking-wide">
           <span>
-            Choose Your <span className="gold-text">Casino Design</span>
+            {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
           </span>
         </h1>
 
         <p className="js-designs-hero mx-auto max-w-2xl text-sm sm:text-base text-white/75 leading-relaxed">
-          Explore {initialDesigns.length} production-ready luxury casino storefronts. Preview live
-          demos, compare your favorite looks side-by-side, and launch fully branded with slots,
-          table games, and optional add-ons.
+          {t("subtitle", {
+            count: initialDesigns.length,
+            price: starterPrice.toLocaleString(),
+            discount: discountPercent,
+            fee: pricingConfig.reservationFee.toLocaleString(),
+          })}
         </p>
 
         {/* Dynamic Live Pricing & Turnkey Highlights Strip */}
         <div className="pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
           <div className="js-designs-stat inline-flex items-center gap-2 rounded-full border border-[#f5c451]/40 bg-[#17062d]/80 px-4 py-1.5 text-xs backdrop-blur-md">
             <Crown className="h-3.5 w-3.5 text-[#f5c451]" />
-            <span className="text-white/75">Starter From</span>
+            <span className="text-white/75">{t("starterPriceLabel")}</span>
             <strong className="text-[#ffe28a] font-bold">
-              ${starterPrice.toLocaleString()} USD
+              ${starterPrice.toLocaleString()} {tCommon("usd")}
             </strong>
           </div>
 
           <div className="js-designs-stat inline-flex items-center gap-2 rounded-full border border-emerald-400/35 bg-[#120424]/80 px-4 py-1.5 text-xs backdrop-blur-md">
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
             <span className="text-white/75">
-              Lock <strong className="text-emerald-400">{discountPercent}% Off</strong> ($
-              {pricingConfig.reservationFee.toLocaleString()} Refundable Hold)
+              <strong className="text-emerald-400">
+                {t("holdLockDiscount", { discount: discountPercent })}
+              </strong>{" "}
+              (${pricingConfig.reservationFee.toLocaleString()} {tCommon("usd")})
             </span>
           </div>
 
           <div className="js-designs-stat inline-flex items-center gap-2 rounded-full border border-purple-400/35 bg-[#120424]/80 px-4 py-1.5 text-xs backdrop-blur-md">
             <Clock className="h-3.5 w-3.5 text-[#d58cff]" />
             <span className="text-white/75">
-              <strong className="text-white">{pricingConfig.ggrOperatorShare}% Operator GGR</strong>{" "}
-              • 21–30 Day Launch
+              <strong className="text-white">
+                {t("yoursPercent", { share: pricingConfig.ggrOperatorShare })}
+              </strong>
             </span>
           </div>
         </div>
@@ -544,7 +553,7 @@ export default function DesignsCatalog({
                       : "border border-purple-400/30 bg-[#140528]/80 text-white/75 hover:border-[#f5c451]/65 hover:text-[#ffe28a]"
                   }`}
                 >
-                  <span>{cat}</span>
+                  <span>{t(`categories.${cat}`)}</span>
                   <span
                     className={`rounded-full px-1.5 py-0.2 text-[10px] font-extrabold ${
                       active
@@ -563,21 +572,21 @@ export default function DesignsCatalog({
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
             {/* Search Input */}
             <div className="relative flex-1 sm:w-64">
-              <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/45" />
+              <Search className="pointer-events-none absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/45" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search themes or styles..."
-                aria-label="Search casino designs"
-                className="input !min-h-[42px] !py-2 !pl-10 !pr-9 !rounded-full text-xs sm:text-sm placeholder:text-white/40"
+                placeholder={t("searchPlaceholder")}
+                aria-label={t("searchPlaceholder")}
+                className="input !min-h-[42px] !py-2 !ps-10 !pe-9 !rounded-full text-xs sm:text-sm placeholder:text-white/40"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  aria-label="Clear search"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full p-0.5 text-white/50 hover:text-white cursor-pointer"
+                  aria-label={t("clear")}
+                  className="absolute end-3 top-1/2 -translate-y-1/2 rounded-full p-0.5 text-white/50 hover:text-white cursor-pointer"
                 >
                   <X className="h-3.5 w-3.5" />
                 </button>
@@ -586,21 +595,20 @@ export default function DesignsCatalog({
 
             {/* Sort Dropdown */}
             <div className="relative flex items-center">
-              <ArrowUpDown className="pointer-events-none absolute left-3.5 h-3.5 w-3.5 text-[#f5c451]" />
+              <ArrowUpDown className="pointer-events-none absolute start-3.5 h-3.5 w-3.5 text-[#f5c451]" />
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as SortOption)}
-                aria-label="Sort designs"
-                className="input !min-h-[42px] !py-2 !pl-9 !pr-8 !rounded-full text-xs font-semibold text-white/90 cursor-pointer"
+                className="input !min-h-[42px] !py-2 !ps-9 !pe-8 !rounded-full text-xs font-semibold text-white/90 cursor-pointer"
               >
                 <option value="featured" className="bg-[#120424]">
-                  Featured Order
+                  {t("sort.featured")}
                 </option>
                 <option value="name_asc" className="bg-[#120424]">
-                  Name (A → Z)
+                  {t("sort.nameAsc")}
                 </option>
                 <option value="name_desc" className="bg-[#120424]">
-                  Name (Z → A)
+                  {t("sort.nameDesc")}
                 </option>
               </select>
             </div>
@@ -610,7 +618,6 @@ export default function DesignsCatalog({
               <button
                 type="button"
                 onClick={() => setViewMode("grid")}
-                title="4-Column Grid View"
                 className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   viewMode === "grid"
                     ? "bg-gradient-to-b from-[#ffe27a] to-[#e69d12] text-[#261100]"
@@ -618,12 +625,11 @@ export default function DesignsCatalog({
                 }`}
               >
                 <LayoutGrid className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Grid</span>
+                <span className="hidden sm:inline">{t("gridView")}</span>
               </button>
               <button
                 type="button"
                 onClick={() => setViewMode("showcase")}
-                title="2-Column Large Showcase View"
                 className={`inline-flex items-center gap-1 rounded-full px-3 py-1.5 text-xs font-bold transition-all cursor-pointer ${
                   viewMode === "showcase"
                     ? "bg-gradient-to-b from-[#ffe27a] to-[#e69d12] text-[#261100]"
@@ -631,7 +637,7 @@ export default function DesignsCatalog({
                 }`}
               >
                 <Columns2 className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">Showcase</span>
+                <span className="hidden sm:inline">{t("showcaseView")}</span>
               </button>
             </div>
           </div>
@@ -640,20 +646,18 @@ export default function DesignsCatalog({
         {/* Live Results Status Bar */}
         <div className="flex flex-wrap items-center justify-between gap-2 border-t border-purple-500/20 pt-3 text-xs text-white/65">
           <span>
-            Showing{" "}
-            <strong className="text-white">{filteredDesigns.length}</strong> of{" "}
-            <strong className="text-white">{initialDesigns.length}</strong> luxury
-            casino themes
+            {t("showing", { filtered: filteredDesigns.length, total: initialDesigns.length })}
             {selectedCategory !== "All" && (
               <>
                 {" "}
-                in <strong className="text-[#ffe28a]">{selectedCategory}</strong>
+                <strong className="text-[#ffe28a]">
+                  {t("inCategory", { category: t(`categories.${selectedCategory}`) })}
+                </strong>
               </>
             )}
           </span>
           <span className="text-[11px] text-white/55">
-            Tip: Click the eye icon for instant preview, or select up to 3 themes to
-            compare side-by-side.
+            {t("tip")}
           </span>
         </div>
       </section>
@@ -690,10 +694,10 @@ export default function DesignsCatalog({
           </div>
           <div className="space-y-1">
             <h3 className="font-philosopher text-2xl font-bold text-white">
-              No Casino Designs Found
+              {t("emptyTitle")}
             </h3>
             <p className="text-sm text-white/65">
-              No themes matched your current filter or search query.
+              {t("emptySubtitle")}
             </p>
           </div>
           <button
@@ -704,7 +708,7 @@ export default function DesignsCatalog({
             }}
             className="btn btn-gold btn-sm mx-auto cursor-pointer"
           >
-            Reset All Filters
+            {t("resetFilters")}
           </button>
         </div>
       )}
@@ -716,22 +720,21 @@ export default function DesignsCatalog({
         <div className="panel-sheen" aria-hidden="true" />
         <div className="panel-rim" aria-hidden="true" />
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+        <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-start">
           <div className="space-y-2 max-w-2xl">
             <p className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#f5c451]">
               <Crown className="h-3.5 w-3.5" />
-              <span>Bespoke Casino Branding Included</span>
+              <span>{t("bannerBadge")}</span>
             </p>
             <h2 className="font-philosopher text-2xl sm:text-3xl font-bold italic uppercase text-white">
-              Want a Custom Branded <span className="gold-text">Turnkey Launch?</span>
+              {t("bannerHeadingPrefix")} <span className="gold-text">{t("bannerHeadingHighlight")}</span>
             </h2>
             <p className="text-sm text-white/75 leading-relaxed">
-              Every theme ships with your own logo, color accents, domain, slots &amp; table
-              games. Reserve now to lock{" "}
-              <strong className="text-[#ffe28a]">
-                {discountPercent}% off (${discountedPrice.toLocaleString()} USD)
-              </strong>{" "}
-              for {holdDays} days.
+              {t("bannerBody", {
+                discount: discountPercent,
+                discountedPrice: discountedPrice.toLocaleString(),
+                days: holdDays,
+              })}
             </p>
           </div>
 
@@ -740,8 +743,8 @@ export default function DesignsCatalog({
               href="/select-design"
               className="btn-royal-gold shine w-full sm:w-auto px-7 py-3.5 text-xs sm:text-sm uppercase tracking-wider"
             >
-              <span>Reserve A Casino</span>
-              <ArrowRight className="h-4 w-4" />
+              <span>{tCommon("reserveCasino")}</span>
+              <ArrowRight className="h-4 w-4 rtl-flip" />
             </Link>
             <a
               href={`${SITE_CONFIG.contact.whatsappLink}?text=${encodeURIComponent(
@@ -752,7 +755,7 @@ export default function DesignsCatalog({
               className="btn btn-neon w-full sm:w-auto text-xs sm:text-sm font-semibold"
             >
               <MessageCircle className="h-4 w-4 text-[#f5c451]" />
-              <span>Chat on WhatsApp</span>
+              <span>{t("chatWhatsapp")}</span>
             </a>
           </div>
         </div>
@@ -767,7 +770,7 @@ export default function DesignsCatalog({
             <div className="flex items-center gap-2.5 flex-wrap">
               <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ffe28a]">
                 <Scale className="h-4 w-4" />
-                Compare ({comparedDesigns.length}/3)
+                {t("compareLabel", { count: comparedDesigns.length })}
               </span>
 
               <div className="flex items-center gap-1.5 flex-wrap">
@@ -790,21 +793,21 @@ export default function DesignsCatalog({
               </div>
             </div>
 
-            <div className="flex items-center gap-2 ml-auto">
+            <div className="flex items-center gap-2 ms-auto">
               <button
                 type="button"
                 onClick={() => setCompareSlugs([])}
                 className="text-xs text-white/55 hover:text-white px-2 py-1 cursor-pointer"
               >
-                Clear
+                {t("clear")}
               </button>
               <button
                 type="button"
                 onClick={() => setIsCompareOpen(true)}
                 className="btn btn-gold btn-sm !py-1.5 !px-4 text-xs cursor-pointer"
               >
-                <span>Compare Now</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <span>{t("compareNow")}</span>
+                <ArrowRight className="h-3.5 w-3.5 rtl-flip" />
               </button>
             </div>
           </div>
@@ -890,27 +893,27 @@ export default function DesignsCatalog({
             <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               <div className="rounded-xl border border-purple-400/25 bg-[#120424]/80 p-3">
                 <p className="text-white/55 text-[10px] uppercase tracking-wider">
-                  Starter Package
+                  {t("starterPackage")}
                 </p>
                 <p className="mt-0.5 font-philosopher text-lg font-bold text-white">
-                  ${starterPrice.toLocaleString()} USD
+                  ${starterPrice.toLocaleString()} {tCommon("usd")}
                 </p>
               </div>
               <div className="rounded-xl border border-emerald-400/30 bg-[#120424]/80 p-3">
                 <p className="text-white/55 text-[10px] uppercase tracking-wider">
-                  With {discountPercent}% Hold Lock
+                  {t("withHoldLock", { discount: discountPercent })}
                 </p>
                 <p className="mt-0.5 font-philosopher text-lg font-bold text-emerald-400">
-                  ${discountedPrice.toLocaleString()} USD
+                  ${discountedPrice.toLocaleString()} {tCommon("usd")}
                 </p>
               </div>
               <div className="rounded-xl border border-[#f5c451]/35 bg-[#120424]/80 p-3">
                 <p className="text-white/55 text-[10px] uppercase tracking-wider">
-                  Includes
+                  {t("includesLabel")}
                 </p>
                 <p className="mt-0.5 font-semibold text-[#ffe28a] flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5 shrink-0" />
-                  <span>Slots, Tables &amp; Brand</span>
+                  <span>{t("includesSummary")}</span>
                 </p>
               </div>
             </div>
@@ -921,8 +924,8 @@ export default function DesignsCatalog({
                 href={`/select-design?design=${quickPreviewDesign.slug}`}
                 className="btn-royal-gold shine w-full sm:flex-1 py-3 px-5 text-xs sm:text-sm uppercase tracking-wider"
               >
-                <span>Select &amp; Customize {quickPreviewDesign.name}</span>
-                <ArrowRight className="h-4 w-4" />
+                <span>{t("selectCustomize", { name: quickPreviewDesign.name })}</span>
+                <ArrowRight className="h-4 w-4 rtl-flip" />
               </Link>
               <button
                 type="button"
@@ -933,7 +936,7 @@ export default function DesignsCatalog({
                 }}
                 className="btn btn-neon w-full sm:w-auto text-xs sm:text-sm font-semibold cursor-pointer"
               >
-                <span>Open Interactive Demo</span>
+                <span>{t("openInteractiveDemo")}</span>
                 <ExternalLink className="h-3.5 w-3.5" />
               </button>
             </div>
@@ -960,18 +963,18 @@ export default function DesignsCatalog({
             <button
               type="button"
               onClick={() => setIsCompareOpen(false)}
-              aria-label="Close comparison"
-              className="absolute top-4 right-4 z-20 p-2 rounded-full border border-purple-400/30 bg-[#1a0730]/90 text-white/70 hover:text-white hover:border-[#f5c451] cursor-pointer"
+              aria-label={tCommon("close")}
+              className="absolute top-4 end-4 z-20 p-2 rounded-full border border-purple-400/30 bg-[#1a0730]/90 text-white/70 hover:text-white hover:border-[#f5c451] cursor-pointer"
             >
               <X size={16} />
             </button>
 
-            <div className="relative z-10 pr-10">
+            <div className="relative z-10 pe-10">
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f5c451]">
-                Side-by-Side Comparison
+                {t("comparisonEyebrow")}
               </p>
               <h3 className="font-philosopher text-2xl sm:text-3xl font-bold italic text-white">
-                Compare Your <span className="gold-text">Shortlisted Themes</span>
+                {t("comparisonTitlePrefix")} <span className="gold-text">{t("comparisonTitleHighlight")}</span>
               </h3>
             </div>
 
@@ -1009,27 +1012,27 @@ export default function DesignsCatalog({
                           {design.name}
                         </h4>
                         <p className="text-xs text-white/65 mt-0.5">
-                          {design.subtitle || "Turnkey Luxury Storefront"}
+                          {design.subtitle || t("defaultSubtitle")}
                         </p>
                       </div>
 
                       <ul className="space-y-1.5 pt-2 border-t border-purple-500/20 text-xs text-white/80">
                         <li className="flex justify-between">
-                          <span className="text-white/55">Starter Price</span>
+                          <span className="text-white/55">{t("starterPriceLabel")}</span>
                           <strong className="text-white">
-                            ${starterPrice.toLocaleString()} USD
+                            ${starterPrice.toLocaleString()} {tCommon("usd")}
                           </strong>
                         </li>
                         <li className="flex justify-between">
-                          <span className="text-white/55">Hold Lock ({discountPercent}% Off)</span>
+                          <span className="text-white/55">{t("holdLockDiscount", { discount: discountPercent })}</span>
                           <strong className="text-emerald-400">
-                            ${discountedPrice.toLocaleString()} USD
+                            ${discountedPrice.toLocaleString()} {tCommon("usd")}
                           </strong>
                         </li>
                         <li className="flex justify-between">
-                          <span className="text-white/55">Operator GGR</span>
+                          <span className="text-white/55">{t("operatorGgr")}</span>
                           <strong className="text-[#ffe28a]">
-                            {pricingConfig.ggrOperatorShare}% Yours
+                            {t("yoursPercent", { share: pricingConfig.ggrOperatorShare })}
                           </strong>
                         </li>
                       </ul>
@@ -1041,7 +1044,7 @@ export default function DesignsCatalog({
                       href={`/select-design?design=${design.slug}`}
                       className="btn btn-gold btn-sm w-full text-xs font-bold"
                     >
-                      <span>Select {design.name}</span>
+                      <span>{t("selectTheme", { name: design.name })}</span>
                     </Link>
                     <button
                       type="button"
@@ -1051,7 +1054,7 @@ export default function DesignsCatalog({
                       }}
                       className="btn btn-neon btn-sm w-full text-xs font-semibold cursor-pointer"
                     >
-                      <span>Live Demo</span>
+                      <span>{t("liveDemo")}</span>
                       <ExternalLink className="h-3 w-3" />
                     </button>
                   </div>

@@ -1,0 +1,845 @@
+{
+  "common": {
+    "brandName": "Royal Casino Club",
+    "usd": "USD",
+    "optional": "optioneel",
+    "viewDemo": "Demo Bekijken",
+    "selectDesign": "Kies Ontwerp",
+    "reserveCasino": "Reserveer Een Casino",
+    "close": "Sluiten",
+    "loading": "Laden...",
+    "pagesCount": "{count, plural, one {# Pagina} other {# Pagina's}}",
+    "off": "Korting"
+  },
+  "languageModal": {
+    "titlePrefix": "Kies Uw",
+    "titleHighlight": "Taal",
+    "subtitle": "Selecteer uw voorkeurstaal om de kant-en-klare casino-ontwerpen, pakketten en oplossingen van Royal Casino Club te bekijken.",
+    "hint": "U kunt uw taal op elk moment wijzigen via de bovenste navigatiebalk.",
+    "continueDefault": "Doorgaan in het Engels",
+    "closeLabel": "Taalselectie sluiten"
+  },
+  "nav": {
+    "links": {
+      "home": "Home",
+      "designs": "Casino Ontwerpen",
+      "packages": "Pakketten",
+      "modules": "Uitbreidingsmodules",
+      "howItWorks": "Hoe Het Werkt",
+      "proposal": "Voorstel",
+      "about": "Over Ons",
+      "contact": "Contact"
+    },
+    "clientPortal": "Klantportaal",
+    "portalTitle": "B2B Klantportaal",
+    "reserveCasino": "Reserveer Een Casino",
+    "backToDesigns": "Terug naar Ontwerpen",
+    "languageLabel": "Taal",
+    "toggleMenu": "Navigatiemenu openen",
+    "mobileFooterTag": "Royal Casino Club • Premium Online Oplossingen"
+  },
+  "footer": {
+    "description": "Royal Casino Club levert hoogwaardige kant-en-klare online casinosoftware waarmee operators wereldwijd maatwerkcasino's met hoge conversie kunnen lanceren.",
+    "quickLinksTitle": "Snelle links",
+    "companyTitle": "Bedrijf",
+    "getInTouchTitle": "Neem contact op",
+    "whatsappSuffix": "WhatsApp",
+    "reserveHoldCta": "Reserveer Casino ($1,000 USD Borg)",
+    "copyright": "© 2026 {name}. Alle rechten voorbehouden.",
+    "developedBy": "Ontwikkeld door Huipper"
+  },
+  "home": {
+    "hero": {
+      "headlineLine1": "Lanceer Uw Eigen",
+      "headlineLine2": "Premium Online Casino",
+      "startingAt": "Vanaf $15,000",
+      "tagline": "WHITE-LABEL TURNKEY CASINO, GEEN LICENTIE VEREIST!",
+      "subtitle": "Kies uw ontwerp, lanceer met casinospellen en gokkasten en bouw uw eigen merk met een complete platformoplossing.",
+      "browseDesigns": "Bekijk Casino Ontwerpen",
+      "reserveCasino": "Reserveer Een Casino",
+      "features": {
+        "designs": {
+          "title": "Premium",
+          "subtitle": "Casino Ontwerpen",
+          "badge": "12 Thema's"
+        },
+        "turnkey": {
+          "title": "Turnkey",
+          "subtitle": "Installatie",
+          "badge": "Volledige Lancering"
+        },
+        "games": {
+          "title": "Casinospellen",
+          "subtitle": "Inbegrepen",
+          "badge": "Slots & Tafels"
+        },
+        "addons": {
+          "title": "Uitbreidings-",
+          "subtitle": "Modules",
+          "badge": "Sport & Live"
+        },
+        "scalable": {
+          "title": "Schaalbaar &",
+          "subtitle": "Flexibel",
+          "badge": "Cloudschaal"
+        },
+        "support": {
+          "title": "Professionele",
+          "subtitle": "Ondersteuning",
+          "badge": "24/7 VIP"
+        }
+      }
+    },
+    "starterPackage": {
+      "ribbon": "Turnkey Royal Platform",
+      "badge": "Startpakket",
+      "heading": "Lanceer Uw Eigen Casinomerk",
+      "description": "Compleet kant-en-klaar casino met slots en speeltafels.",
+      "includedTitle": "Inbegrepen:",
+      "included": {
+        "designTitle": "Uw gekozen casino-ontwerp",
+        "slotsTitle": "Online casino gokkasten",
+        "tablesTitle": "Casino speeltafels",
+        "tablesDetail": "(Blackjack, Roulette, Baccarat & meer)",
+        "brandingTitle": "Uw eigen casinobranding",
+        "brandingDetail": "(Logo, kleuren & domeininstelling)"
+      },
+      "addonsTitle": "Beschikbare uitbreidingsmodules:",
+      "addons": {
+        "liveDealer": "Live Dealer Tafels",
+        "poker": "Pokerplatform",
+        "sportsbook": "Sportsbook",
+        "sweepstakes": "Sweepstakes & Sociaal"
+      },
+      "addonsNote": "Optionele modules worden apart geoffreerd. Stuur ons een WhatsApp-bericht om ze toe te voegen."
+    },
+    "designsSection": {
+      "headingPrefix": "Kies uw",
+      "headingHighlight": "casino ontwerp",
+      "viewAll": "Alle Ontwerpen Bekijken",
+      "viewDemo": "Demo Bekijken",
+      "selectDesign": "Kies Ontwerp"
+    },
+    "howItWorks": {
+      "headingPrefix": "Hoe Het",
+      "headingHighlight": "Werkt",
+      "steps": {
+        "step1": {
+          "title": "1. Kies een Ontwerp",
+          "desc": "Selecteer een van onze hoogwaardige casinostijlen."
+        },
+        "step2": {
+          "title": "2. Pas Uw Pakket Aan",
+          "desc": "Start met het $15,000 pakket en voeg optionele modules toe."
+        },
+        "step3": {
+          "title": "3. Reserveer & Lanceer",
+          "desc": "Reserveer uw casino, wij richten het in met uw merk en zetten u live!"
+        }
+      }
+    },
+    "features": {
+      "headingPrefix": "Waarom kiezen voor",
+      "headingHighlight": "Royal Casino Club",
+      "items": {
+        "fastSetup": {
+          "tag": "Snelle Lancering",
+          "title": "Snelle Opzet",
+          "desc": "Ga snel online en start direct met opereren."
+        },
+        "yourBrand": {
+          "tag": "White-Label",
+          "title": "Uw Eigen Merk",
+          "desc": "Volledig afgestemd op uw naam, kleuren en identiteit."
+        },
+        "provenGames": {
+          "tag": "Top Aanbieders",
+          "title": "Bewezen Spellen",
+          "desc": "Best presterende gokkasten en populaire tafelspellen."
+        },
+        "multiDevice": {
+          "tag": "Responsive UI",
+          "title": "Multi-Apparaat",
+          "desc": "Geoptimaliseerd voor desktop, mobiel en tablet."
+        },
+        "globalReady": {
+          "tag": "Multi-Valuta",
+          "title": "Wereldwijd Klaar",
+          "desc": "Ondersteuning voor diverse valuta's en regio's."
+        },
+        "ongoingSupport": {
+          "tag": "24/7 VIP Desk",
+          "title": "Doorlopende Support",
+          "desc": "Technische ondersteuning en platformupdates."
+        }
+      }
+    },
+    "about": {
+      "headingHighlight": "Over ons",
+      "description": "Royal Casino Club levert hoogwaardige kant-en-klare online casinosoftware waarmee operators wereldwijd maatwerkcasino's met hoge conversie kunnen lanceren."
+    },
+    "faq": {
+      "headingPrefix": "Veelgestelde",
+      "headingHighlight": "Vragen",
+      "items": {
+        "q1": {
+          "q": "Wat kost het om een casino te lanceren?",
+          "a": "Het Startpakket kost $15,000 USD. Dit omvat uw gekozen casino-ontwerp, online slots, speeltafels en uw branding (logo, kleuren en domein)."
+        },
+        "q2": {
+          "q": "Wat zit er in het Startpakket?",
+          "a": "Uw gekozen ontwerp, online slots, speeltafels (zoals Blackjack, Roulette, Baccarat) en volledige branding: logo, kleuren en domeinconfiguratie."
+        },
+        "q3": {
+          "q": "Welke uitbreidingsmodules zijn beschikbaar?",
+          "a": "Live Dealer Tafels, Sportsbook, Pokerplatform en Sweepstakes. Ze zijn optioneel en worden apart geoffreerd."
+        },
+        "q4": {
+          "q": "Hoe reserveer ik een casino?",
+          "a": "Kies een ontwerp en stuur ons een bericht op WhatsApp. Met een terugbetaalbare borg van $1,000 reserveert u uw casino; wij verzorgen de volledige opzet."
+        },
+        "q5": {
+          "q": "Kan ik een ontwerp bekijken voordat ik kies?",
+          "a": "Ja. Klik op \"Demo Bekijken\" bij elk ontwerp of vraag een live demo aan via WhatsApp."
+        },
+        "q6": {
+          "q": "Draagt het casino mijn eigen merknaam?",
+          "a": "Ja. Het wordt gelanceerd met uw naam, logo, kleuren en uw eigen domein."
+        },
+        "q7": {
+          "q": "Hoe werkt de GGR-verdeling?",
+          "a": "Het platform ontvangt 25%, en 75% van de winst is voor u!"
+        }
+      }
+    },
+    "contact": {
+      "vipOnline": "VIP Concierge Online",
+      "deskBadge": "Direct Operator Desk",
+      "headingPrefix": "Neem",
+      "headingHighlight": "contact op",
+      "subtitle": "Vertel ons welk ontwerp u mooi vindt en welke modules u nodig heeft. Wij antwoorden direct via WhatsApp.",
+      "whatsappSuffix": "WhatsApp",
+      "reserveCta": "Reserveer Casino ($1,000 USD Borg)",
+      "formTitlePrefix": "Stuur ons een",
+      "formTitleHighlight": "bericht",
+      "formSubtitle": "Directe prioritaire reactie van ons VIP-lanceringsteam.",
+      "nameLabel": "Uw naam",
+      "namePlaceholder": "Vul uw naam in",
+      "phoneLabel": "Telefoon / WhatsApp",
+      "phonePlaceholder": "bijv. +1 (416) 555-0123",
+      "emailLabel": "E-mailadres",
+      "emailPlaceholder": "u@domein.com",
+      "messageLabel": "Hoe kunnen wij helpen?",
+      "messagePlaceholder": "Vertel ons over uw casinodoelen...",
+      "submitBtn": "Verstuur via WhatsApp"
+    },
+    "ctaBanner": {
+      "line1": "Klaar om uw eigen",
+      "line2": "casino te lanceren?",
+      "subtitle": "Kies een ontwerp, stel uw pakket samen en reserveer vandaag nog!",
+      "cta": "Reserveer Een Casino"
+    }
+  },
+  "designs": {
+    "catalog": {
+      "badge": "Turnkey Casino Ontwerp Marktplaats",
+      "headingPrefix": "Kies Uw",
+      "headingHighlight": "Casino Ontwerp",
+      "subtitle": "Ontdek {count} luxe white-label storefronts gebouwd voor maximale conversie. Lanceer vanaf ${price} USD of leg {discount}% korting vast met ${fee} terugbetaalbare borg.",
+      "searchPlaceholder": "Zoek thema's, stijlen of tags...",
+      "categories": {
+        "All": "Alle",
+        "Luxury": "Luxe",
+        "Neon": "Neon",
+        "VIP": "VIP",
+        "Classic": "Klassiek",
+        "Futuristic": "Futuristisch"
+      },
+      "sort": {
+        "featured": "Uitgelicht",
+        "nameAsc": "Naam (A–Z)",
+        "nameDesc": "Naam (Z–A)"
+      },
+      "gridView": "Raster",
+      "showcaseView": "Showcase",
+      "showing": "{filtered} van {total} luxe casinothema's weergegeven",
+      "inCategory": "in {category}",
+      "tip": "Tip: Klik op het oogicoon voor een snelle preview of selecteer tot 3 thema's om te vergelijken.",
+      "emptyTitle": "Geen Casino Ontwerpen Gevonden",
+      "emptySubtitle": "Geen thema's gevonden voor uw huidige filter of zoekopdracht.",
+      "resetFilters": "Filters Wissen",
+      "bannerBadge": "Maatwerk Branding Inbegrepen",
+      "bannerHeadingPrefix": "Wilt u een Eigen",
+      "bannerHeadingHighlight": "Turnkey Lancering?",
+      "bannerBody": "Elk thema wordt geleverd met uw logo, kleuren, domein, slots en tafelspellen. Reserveer nu voor {discount}% korting (${discountedPrice} USD) gedurende {days} dagen.",
+      "chatWhatsapp": "Chat via WhatsApp",
+      "compareLabel": "Vergelijk ({count}/3)",
+      "clear": "Wissen",
+      "compareNow": "Nu Vergelijken",
+      "themeTagSuffix": "Thema",
+      "starterPackage": "Startpakket",
+      "withHoldLock": "Met {discount}% Reservering",
+      "includesLabel": "Inclusief",
+      "includesSummary": "Slots, Tafels & Merk",
+      "selectCustomize": "Kies & Pas {name} Aan",
+      "openInteractiveDemo": "Open Interactieve Demo",
+      "comparisonEyebrow": "Vergelijking Naast Elkaar",
+      "comparisonTitlePrefix": "Vergelijk Uw",
+      "comparisonTitleHighlight": "Gekozen Thema's",
+      "starterPriceLabel": "Startprijs",
+      "holdLockDiscount": "Reservering ({discount}% Korting)",
+      "operatorGgr": "Operator GGR",
+      "yoursPercent": "{share}% Voor U",
+      "selectTheme": "Kies {name}",
+      "liveDemo": "Live Demo",
+      "defaultSubtitle": "Turnkey Luxe Storefront"
+    },
+    "demo": {
+      "demoPages": "Demopagina's:",
+      "interactiveLobby": "Interactieve Lobby",
+      "fullBrowserDemo": "Volledige Browserdemo",
+      "casinoLabel": "Casino",
+      "turnkeyDemo": "Turnkey Demo",
+      "searchGames": "Spellen Zoeken",
+      "featuredGames": "Uitgelichte Spellen",
+      "viewAllGames": "Alle Spellen Bekijken",
+      "instantPlay": "Direct Spelen",
+      "liveSimulation": "Live Spelsimulatie",
+      "simulationBody": "In productie start dit de gelicentieerde Pragmatic Play / Evolution Gaming iframe met echte wallet-synchronisatie.",
+      "closeDemo": "Demo Sluiten",
+      "tabs": {
+        "home": "Home",
+        "slots": "Gokkasten",
+        "live": "Live Casino",
+        "sports": "Sportsbook",
+        "poker": "Pokerplatform"
+      },
+      "sidebar": {
+        "title": "Casino Ontwerp Demo",
+        "selectedLook": "Gekozen Demostijl",
+        "basicPackage": "Basispakket",
+        "includedLine": "Casinotafels & Online Slots Inbegrepen",
+        "addonModules": "Uitbreidingsmodules",
+        "ggrShare": "GGR Verdeling",
+        "ourCompany": "Ons Bedrijf: {share}%",
+        "yourShare": "Uw Deel: {share}%",
+        "totalEstimate": "Geschat Totaal:",
+        "selectThisDesign": "Kies Dit Ontwerp",
+        "requestQuote": "Offerte Aanvragen",
+        "viewAllDesigns": "Alle Ontwerpen"
+      },
+      "modal": {
+        "protected": "Beveiligd",
+        "desktopView": "Desktopweergave",
+        "tabletView": "Tabletweergave",
+        "mobileView": "Mobiele Weergave",
+        "fullscreen": "Volledig Scherm",
+        "exitFullscreen": "Volledig Scherm Verlaten",
+        "liveUiDemo": "Live UI Demo",
+        "pages": "Pagina's",
+        "viewingOf": "{page} van {design} — Beveiligde Demo",
+        "nextPage": "Volgende: {page}",
+        "reserveDesign": "Reserveer {design}"
+      }
+    }
+  },
+  "pages": {
+    "packages": {
+      "badge": "Transparante Turnkey Investering",
+      "headingPrefix": "Eenvoudige, Transparante",
+      "headingHighlight": "Prijzen",
+      "subtitle": "Alles wat u nodig heeft om een winstgevend wereldwijd online casino te lanceren. Geen verborgen kosten, gecertificeerde spellen en flexibele modules.",
+      "popularTag": "Meest Gekozen • Turnkey",
+      "oneTimeSetup": "USD Eenmalige Setup",
+      "refundableHold": "$1,000 Terugbetaalbare Borg",
+      "whatsIncluded": "Inbegrepen in het Startpakket:",
+      "ggrSplit": "GGR Verdeling: 75% Operator / 25% Platform • 5 Dagen Prijsgarantie",
+      "reserveCta": "Kies Ontwerp & Reserveer ($1,000)",
+      "addonsHeading": "Optionele Uitbreidingsmodules",
+      "addonsSubtitle": "Voeg op elk moment extra spelverticals toe tijdens of na de oplevering.",
+      "oneTimeAddon": "USD Eenmalige Module",
+      "addModule": "Module Toevoegen",
+      "starter": {
+        "subtitle": "STARTPAKKET",
+        "description": "Een complete casinowebsite met uw gekozen ontwerp, inclusief gokkasten en speeltafels.",
+        "includes": {
+          "design": {
+            "title": "Uw gekozen casino-ontwerp",
+            "sub": ""
+          },
+          "slots": {
+            "title": "Online casino gokkasten",
+            "sub": ""
+          },
+          "tables": {
+            "title": "Casino speeltafels",
+            "sub": "(bijv. Blackjack, Roulette, Baccarat, enz.)"
+          },
+          "branding": {
+            "title": "Uw eigen casinobranding",
+            "sub": "(logo, kleuren en domeininstelling)"
+          }
+        }
+      },
+      "addons": {
+        "live-dealer": {
+          "name": "Live Dealer Tafels",
+          "description": "Realtime HD-gefilmde speeltafels en multi-seat lobby's"
+        },
+        "sportsbook": {
+          "name": "Sportsbook",
+          "description": "Wereldwijde sportevenementen, live wedden en actuele odds"
+        },
+        "poker": {
+          "name": "Pokerplatform",
+          "description": "Texas Hold'em, Omaha, cashgames en toernooisystemen"
+        },
+        "sweepstakes": {
+          "name": "Sweepstakes",
+          "description": "Dual-currency social gaming engine conform sweepstakes"
+        }
+      }
+    },
+    "modules": {
+      "badge": "Modulair Ecosysteem",
+      "headingPrefix": "Uitbreidings-",
+      "headingHighlight": "Modules",
+      "subtitle": "Schaal uw casino-imperium met kant-en-klare verticale integraties. Voeg ze direct toe of schaal later mee met uw groei.",
+      "addToPackage": "Toevoegen aan Pakket",
+      "customInquiry": "Maatwerkaanvraag",
+      "items": {
+        "live-dealer": {
+          "title": "Live Dealer Casino",
+          "description": "Echte croupiers die 24/7 in 4K uitzenden. Ondersteuning voor Live Roulette, Blackjack, Baccarat en game shows.",
+          "features": [
+            "Ultra HD-streaming met lage latentie",
+            "Multi-camera VIP-tafels voor high rollers",
+            "Meertalige native dealers",
+            "Integraties met Evolution & Pragmatic Live"
+          ]
+        },
+        "sportsbook": {
+          "title": "Wereldwijde Sportsbook Engine",
+          "description": "Compleet sportsbook met 60+ sporten, 50.000+ live evenementen per maand, geautomatiseerde odds en directe afwikkeling.",
+          "features": [
+            "Voetbal, Basketbal, Tennis, Cricket & Esports",
+            "Pre-match en in-play live wedfeeds",
+            "Cash-out functie & combi-bonussysteem",
+            "Geautomatiseerd risicobeheer & margecontrole"
+          ]
+        },
+        "poker": {
+          "title": "Multiplayer Pokerplatform",
+          "description": "Wereldwijde netwerkliquiditeit of eigen merk-pokerrooms voor Texas Hold'em, Omaha, Sit & Go en toernooien.",
+          "features": [
+            "Desktop, mobiel web & native clients",
+            "Anti-collusie AI & realtime botdetectie",
+            "Aanpasbare rakeback & VIP-toernooilobby's",
+            "Privéclubtafels & automatische chip-overschrijvingen"
+          ]
+        },
+        "sweepstakes": {
+          "title": "Sweepstakes & Sociaal Casino",
+          "description": "Promotionele dual-currency architectuur ontworpen voor Noord-Amerika en gereguleerde sociale markten.",
+          "features": [
+            "Gold Coins (Entertainment) & Sweeps Coins (Prijzen)",
+            "Geautomatiseerde prijsuitbetaling & KYC-verificatie",
+            "Dagelijkse inlogbonussen & verwijzingsprogramma's",
+            "Conformiteit voor US/Canada sweepstakes"
+          ]
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Turnkey Lanceringskader",
+      "headingPrefix": "Van Concept tot Live Spelers in",
+      "headingHighlight": "3 Stappen",
+      "subtitle": "Wij regelen het zware werk: gecertificeerde spelintegraties, maatwerk design, serverarchitectuur en betaalmethoden.",
+      "ctaTitle": "Klaar om Uw Casino-Ontwerp Vast te Leggen?",
+      "ctaSubtitle": "Plaats een 100% terugbetaalbare borg van $1,000 voor exclusiviteit van 5 dagen en directe korting.",
+      "ctaButton": "Start Nu Met Kiezen",
+      "steps": {
+        "step1": {
+          "title": "Kies Uw Casino-Ontwerp",
+          "subtitle": "Frontend Thema & Uitstraling",
+          "turnaround": "1–2 dagen",
+          "description": "Bekijk onze 12 luxe thema's (Royal Prestige, Neon Vegas, Emerald Club, enz.) met responsieve desktop- en mobiele weergave.",
+          "deliverables": [
+            "Volledig responsieve Next.js frontend-code",
+            "Kleurenpalet en branding op maat",
+            "Dynamische banners en gokkastenlobby"
+          ]
+        },
+        "step2": {
+          "title": "Stel Uw Pakket Samen",
+          "subtitle": "Modules & Betaalkoppelingen",
+          "turnaround": "3–5 dagen",
+          "description": "Start met het kernpakket van $15,000 USD (tafelspellen & slots) en breid op elk moment uit met extra modules.",
+          "deliverables": [
+            "Eigen domein en cloudhosting-implementatie",
+            "Multi-valuta fiat & crypto betaalgateways",
+            "Gecertificeerde RNG-slots met één wallet"
+          ]
+        },
+        "step3": {
+          "title": "Lanceer & Beheer",
+          "subtitle": "Turnkey Oplevering in 21–30 Dagen",
+          "turnaround": "21–30 dagen",
+          "description": "Ons engineeringteam zet uw cluster live op high-availability servers inclusief backoffice-training en 24/7 support.",
+          "deliverables": [
+            "Uitgebreide backoffice voor spelersbeheer",
+            "Geautomatiseerde affiliate- en bonusengines",
+            "Toegewijde 24/7 VIP technische ondersteuning"
+          ]
+        }
+      }
+    },
+    "about": {
+      "badge": "Royal Casino Club Enterprise",
+      "headingPrefix": "Kracht Achter Wereldwijde",
+      "headingHighlight": "Gaming Operators",
+      "subtitle": "Wij bouwen en leveren kant-en-klare white-label casino-infrastructuren zodat merken binnen enkele weken wereldwijd kunnen lanceren.",
+      "ctaDesigns": "Bekijk Ontwerpen",
+      "ctaQuote": "Vraag Offerte Aan",
+      "stats": {
+        "uptime": { "label": "Uptime SLA", "value": "99.99%", "desc": "Enterprise cloudhosting" },
+        "themes": { "label": "Turnkey Thema's", "value": "12+", "desc": "Hoge conversie op maat" },
+        "delivery": { "label": "Levertijd", "value": "21-30 Dagen", "desc": "Turnkey opleverplanning" },
+        "reach": { "label": "Wereldwijd Bereik", "value": "40+ Landen", "desc": "Multi-valuta & crypto" }
+      },
+      "pillars": {
+        "games": {
+          "title": "Gelicentieerde Spelaggregatie",
+          "desc": "Naadloze single-wallet integratie met meer dan 5.000 gecertificeerde slots, live tafels en sportfeeds."
+        },
+        "infra": {
+          "title": "High-Availability Infrastructuur",
+          "desc": "Gedistribueerde microservices op snelle edge-servers met automatische DDoS-bescherming."
+        },
+        "wallets": {
+          "title": "Wereldwijde Fiat & Crypto Wallets",
+          "desc": "Ingebouwde ondersteuning voor Visa, Mastercard, bankoverschrijvingen, Apple Pay en BTC, ETH, USDT, TRX."
+        },
+        "partnership": {
+          "title": "Toegewijd B2B-Partnerschap",
+          "desc": "Wij exploiteren zelf geen consumentencasino's; onze focus ligt volledig op betrouwbare B2B-software."
+        }
+      }
+    },
+    "contact": {
+      "badge": "24/7 B2B Aanvragen",
+      "headingPrefix": "Vraag een",
+      "headingHighlight": "Offerte aan",
+      "subtitle": "Klaar om uw eigen casino te lanceren? Vul het formulier in of spreek direct met onze adviseurs op WhatsApp of Telegram.",
+      "directChannels": "Directe Kanalen",
+      "emailInquiries": "E-mailvragen",
+      "whatsappBusiness": "WhatsApp Zakelijk",
+      "telegramOfficial": "Officieel Telegram",
+      "supportAvailability": "Beschikbaarheid Support",
+      "supportHours": "24 Uur / 7 Dagen per Week",
+      "depositTitle": "Terugbetaalbare Borg",
+      "depositBody": "Elke platformreservering bevat een terugbetaalbare borg van $1,000 USD om uw thema en exclusiviteit vast te leggen.",
+      "form": {
+        "successTitle": "Aanvraag Succesvol Ontvangen!",
+        "reference": "Referentie: {ref}",
+        "successBody": "Bedankt voor uw bericht. Een technisch coördinator van Royal Casino Club neemt binnen 4 werkuren contact op via e-mail en WhatsApp.",
+        "viewReceipt": "Bekijk Officieel Ontvangstbewijs",
+        "fullName": "Volledige Naam *",
+        "fullNamePlaceholder": "Jan de Vries",
+        "businessEmail": "Zakelijk E-mailadres *",
+        "businessEmailPlaceholder": "jan@bedrijf.nl",
+        "phoneNumber": "Telefoonnummer *",
+        "phonePlaceholder": "+1 (555) 000-0000",
+        "whatsappNumber": "WhatsApp-nummer (Optioneel)",
+        "company": "Bedrijf / Organisatie",
+        "companyPlaceholder": "Gaming Ventures B.V.",
+        "targetDesign": "Gewenst Casino Ontwerp",
+        "whenToStart": "Wanneer Wilt U Starten?",
+        "timeline": {
+          "immediately": "Direct",
+          "within_30_days": "Binnen 30 dagen",
+          "within_1_3_months": "Binnen 1–3 maanden",
+          "within_3_6_months": "Binnen 3–6 maanden",
+          "just_exploring": "Alleen oriënterend"
+        },
+        "requirements": "Projectvereisten / Opmerkingen",
+        "requirementsPlaceholder": "Beschrijf uw doelmarkt, talen, crypto/fiat-wensen...",
+        "submitting": "Aanvraag Verzenden...",
+        "submit": "Offerteaanvraag Verzenden"
+      }
+    }
+  },
+  "reservation": {
+    "flow": {
+      "badge": "VIP Operator Reserveringsdesk",
+      "headingPrefix": "Configureer & Reserveer",
+      "headingHighlight": "Uw Casino",
+      "subtitle": "Kies uw luxe storefront, voeg modules toe en leg {discount}% korting vast voor {days} dagen met een 100% terugbetaalbare borg van ${fee} USD.",
+      "steps": {
+        "step1Title": "Thema & Modules",
+        "step2Title": "Gegevens",
+        "readyToSubmit": "Klaar om te verzenden",
+        "profileComplete": "{percent}% profiel compleet",
+        "step3Title": "Leg {discount}% Vast",
+        "refundableDeposit": "${fee} terugbetaalbare borg",
+        "addonsCount": "{count, plural, one {# Module} other {# Modules}}"
+      },
+      "card1": {
+        "eyebrow": "Stap 01 • Visuele Themaselectie",
+        "headingPrefix": "Kies Uw",
+        "headingHighlight": "Casino Ontwerp",
+        "searchPlaceholder": "Zoek thema's...",
+        "selected": "Geselecteerd",
+        "defaultThemeSub": "Turnkey VIP Thema",
+        "noMatch": "Geen thema's gevonden voor \"{query}\".",
+        "clearFilter": "Filter wissen",
+        "showFewer": "Minder Tonen",
+        "exploreAll": "Bekijk Alle {count} Ontwerpen"
+      },
+      "card2": {
+        "eyebrow": "Stap 02 • Optionele Uitbreidingsmodules",
+        "headingPrefix": "Pas Uw",
+        "headingHighlight": "Pakket Aan",
+        "starterOnly": "Alleen Startpakket",
+        "activeModules": "{count, plural, one {# Module} other {# Modules}} Actief (+${total})"
+      },
+      "card3": {
+        "eyebrow": "Stap 03 • Operator Profielgegevens",
+        "headingPrefix": "Operator &",
+        "headingHighlight": "Merkgegevens",
+        "percentComplete": "{percent}% Compleet",
+        "brandName": "Casino Merknaam",
+        "brandPlaceholder": "bijv. Royal VIP Casino",
+        "targetDomain": "Gewenst Domein",
+        "domainPlaceholder": "bijv. royalvip.com",
+        "fullName": "Volledige Naam Operator",
+        "fullNamePlaceholder": "Jan de Vries",
+        "company": "Bedrijf / Onderneming",
+        "companyPlaceholder": "Gaming Holdings B.V.",
+        "email": "E-mailadres",
+        "emailPlaceholder": "jan@voorbeeld.nl",
+        "phone": "Telefoonnummer",
+        "phonePlaceholder": "+1 (416) 555-0199",
+        "whatsapp": "WhatsApp-nummer",
+        "sameAsPhone": "Gelijk aan telefoonnummer",
+        "whatsappPlaceholder": "Vul apart WhatsApp-nummer in",
+        "launchTimeline": "Wanneer Wilt U Lanceren?",
+        "requirements": "Projectvereisten",
+        "tapTags": "Tik op tags om toe te voegen",
+        "requirementsPlaceholder": "Vermeld doelregio, gewenste providers, crypto/fiat-betalingen of compliance...",
+        "initializing": "Reserveringsdesk initialiseren...",
+        "continueWith": "Doorgaan Met {design}",
+        "nextStepNote": "In de volgende stap kunt u {discount}% korting vastleggen met ${fee} terugbetaalbare borg of doorgaan als gratis aanvraag."
+      },
+      "timelines": {
+        "immediately": { "label": "Direct", "badge": "Prioriteit" },
+        "within_30_days": { "label": "Binnen 30 Dagen", "badge": "Snel" },
+        "within_1_3_months": { "label": "1–3 Maanden", "badge": "Gepland" },
+        "within_3_6_months": { "label": "3–6 Maanden", "badge": "Roadmap" },
+        "just_exploring": { "label": "Oriënterend", "badge": "Ontdekken" }
+      },
+      "chips": {
+        "crypto": "Crypto & USDT",
+        "fiat": "Fiat Kaarten",
+        "multilang": "Meertalig",
+        "vip": "VIP Loyaliteit",
+        "affiliates": "Affiliatesysteem",
+        "curacao": "Curaçao Klaar"
+      },
+      "errors": {
+        "requiredFields": "Vul uw volledige naam, e-mailadres en telefoonnummer in.",
+        "initFailed": "Initialiseren van reservering mislukt.",
+        "submitFailed": "Verzenden van aanvraag mislukt."
+      }
+    },
+    "offerModal": {
+      "skipTitle": "Reservering overslaan",
+      "badge": "Exclusief Operator Voordeel",
+      "headingPrefix": "Leg",
+      "headingHighlight": "{discount}% Korting",
+      "headingSuffix": "Vast & Reserveer",
+      "subtitle": "Reserveer {design} voor {days} dagen met een terugbetaalbare borg van ${fee} USD.",
+      "standardPrice": "Standaard Pakketprijs:",
+      "discountLine": "{discount}% Directe Reserveringskorting:",
+      "lockedTotal": "Vastgelegd Pakkettotaal:",
+      "depositToday": "Reserveringsborg Vandaag:",
+      "refundable100": "100% Terugbetaalbaar",
+      "balanceHandover": "Restant bij Oplevering:",
+      "depositCredited": "Borg Verrekend",
+      "lockHighlightTitle": "{days} Dagen Prijsgarantie:",
+      "lockHighlightBody": "Beschermd tegen prijswijzigingen gedurende {hours} uur.",
+      "refundHighlightTitle": "100% Terugbetaalbaar:",
+      "refundHighlightBody": "Volledige terugbetaling als u binnen {days} dagen afziet.",
+      "securing": "Reservering vastleggen...",
+      "optionA": "Optie A: Nu Reserveren (${fee} USD)",
+      "optionB": "Optie B: Doorgaan Zonder Reserveren (Standaard Aanvraag)"
+    },
+    "checkoutModal": {
+      "closeTitle": "Sluiten",
+      "badge": "Beveiligde {days}-Daagse Reservering",
+      "headingPrefix": "Reserveer",
+      "bookingRef": "Referentie:",
+      "standardTotal": "Standaard Pakkettotaal:",
+      "discountLine": "Exclusieve {discount}% Reserveringskorting:",
+      "discountedPrice": "Vastgelegde Actieprijs:",
+      "holdingFeeToday": "Borg Vandaag:",
+      "refundable100": "100% Terugbetaalbaar",
+      "balanceHandover": "Restant bij Oplevering:",
+      "depositCredited": "Borg Verrekend",
+      "tabCrypto": "Crypto (USDT / BTC)",
+      "tabCard": "Kaartbetaling",
+      "tabDemo": "Demo",
+      "selectNetwork": "Kies Netwerk:",
+      "transferExact": "Maak Exact ${fee} USD Over Naar:",
+      "copied": "Gekopieerd!",
+      "addressNotConfigured": "Adres niet geconfigureerd",
+      "copyAddress": "Kopieer Adres",
+      "txHashLabel": "Transactiehash / TxID *",
+      "txHashPlaceholder": "bijv. 8f6b1e32d5c4...",
+      "cardTitle": "Afrekenen met Credit-/Debitcard",
+      "cardBody": "Betaal de 100% terugbetaalbare borg van ${fee} USD met Visa, Mastercard of American Express.",
+      "cardDisabled": "Kaartbetaling wordt ingesteld. Gebruik Crypto of Demomodus.",
+      "demoTitle": "Test- & Onboarding-simulatie",
+      "demoBody": "Simuleer direct een reservering van ${fee} zonder geld te sturen om de {hours}-uur timer te testen.",
+      "termsText": "Ik accepteer de {days}-daagse Terugbetaalbare Reserveringsvoorwaarden. De borg van ${fee} USD legt mijn prijs en {discount}% korting voor {hours} uur vast en wordt 100% verrekend of terugbetaald.",
+      "termsError": "Accepteer de {days}-daagse voorwaarden om door te gaan.",
+      "txError": "Voer uw transactiehash (TxID) in ter verificatie.",
+      "recording": "Transactie vastleggen...",
+      "confirmCrypto": "Bevestig ${fee} Crypto Borg",
+      "redirecting": "Doorsturen...",
+      "payCard": "Betaal ${fee} USD met Kaart",
+      "simulateBtn": "Simuleer ${fee} Reservering (Demomodus)"
+    },
+    "confirmed": {
+      "badge": "{discount}% Korting Vastgelegd • {days}-Daagse Optie Actief",
+      "headingPrefix": "Ontwerp Succesvol",
+      "headingHighlight": "Gereserveerd",
+      "headingSuffix": "!",
+      "bookingId": "Boekings-ID: {id}",
+      "priceLockActive": "Prijsgarantie Actief ({hours} Uur)",
+      "remaining": "Resterend: {time}",
+      "selectedDesign": "Gekozen Ontwerp:",
+      "originalPrice": "Originele Prijs:",
+      "discountedTotal": "Totaal met {discount}% Korting:",
+      "holdingFee": "Terugbetaalbare Borg:",
+      "credited": "Verrekend",
+      "balanceDelivery": "Restant bij Oplevering:",
+      "outreach": "Uw gekozen ontwerp staat exclusief {days} dagen gereserveerd. Onze manager neemt binnen 2 werkuren contact op via e-mail ({email}) en WhatsApp ({phone}).",
+      "viewReceipt": "Bekijk Officieel Bewijs",
+      "browseCatalog": "Bekijk Catalogus"
+    },
+    "inquiryConfirmed": {
+      "badge": "Royal Casino Club VIP Desk",
+      "headingPrefix": "Aanvraag",
+      "headingHighlight": "Ontvangen",
+      "refNumber": "Referentienummer: {ref}",
+      "body": "Uw aanvraag voor {design} is geregistreerd in ons portaal. Een coördinator neemt spoedig contact op om uw offerte af te ronden.",
+      "withModules": "met {modules}",
+      "estimatedTotal": "Geschat pakkettotaal: ${total} USD.",
+      "viewReceipt": "Bekijk Officieel Bewijs",
+      "exploreThemes": "Bekijk Thema's"
+    },
+    "standalone": {
+      "notFoundTitle": "Reservering Niet Gevonden",
+      "notFoundBody": "Reserveringscode {id} kon niet worden gevonden of is gearchiveerd.",
+      "browseCatalog": "Bekijk Catalogus",
+      "dossierBadge": "Turnkey Reserveringsdossier",
+      "headingPrefix": "Bevestig 5-Daagse",
+      "headingHighlight": "Reservering",
+      "referenceClient": "Referentie: {id} • Klant: {name}",
+      "alreadyPaidTitle": "Borg Al Betaald!",
+      "alreadyPaidBody": "Uw 5-daagse prijsgarantie en {discount}% korting voor {design} zijn actief.",
+      "viewOfficialReceipt": "Bekijk Officieel Bewijs",
+      "expiredTitle": "120-Uurs Reservering Verlopen",
+      "expiredBody": "Deze reservering is beëindigd en de korting is vervallen. De borg van $1,000 is aangemeld voor terugbetaling.",
+      "startNew": "Start Nieuwe Selectie",
+      "targetSolution": "Gekozen Casino Oplossing",
+      "includes": "Inclusief: {addons}",
+      "standardPrice": "Standaard Prijs:",
+      "discountLabel": "Exclusieve Korting ({discount}%):",
+      "lockedTotal": "Vastgelegd Totaal:",
+      "holdingDueNow": "Borg (Nu Verschuldigd):",
+      "remainingBalance": "Restant bij Oplevering:",
+      "term1": "Garandeert 5 dagen (120u) exclusiviteit en prijsgarantie.",
+      "term2": "$1,000 is 100% terugbetaalbaar zonder definitief akkoord.",
+      "term3": "Borg wordt volledig verrekend met de eindfactuur.",
+      "payTermsError": "Accepteer de 5-daagse terugbetaalbare voorwaarden.",
+      "payTxError": "Voer uw Transactiehash / ID in.",
+      "payTermsText": "Ik begrijp dat deze borg van $1,000 USD mijn thema en 10% korting voor exact 120 uur vastlegt. Zonder overeenkomst wordt de borg 100% terugbetaald.",
+      "tabCrypto": "Crypto (USDT / BTC)",
+      "tabCard": "Creditcard",
+      "sendExactly": "Stuur Exact: $1,000.00 USD ({label})",
+      "network": "Netwerk: {network}",
+      "txHashLabel": "Uw Transactiehash / TxID *",
+      "txHashPlaceholder": "Plak de transactiehash / ID",
+      "verifying": "Transactie Verifiëren...",
+      "confirmDeposit": "Bevestig $1,000 Crypto Borg",
+      "cardTitle": "256-bit Versleutelde Kaartbetaling",
+      "cardBody": "Reserveer veilig met Visa, Mastercard of American Express. De borg van $1,000 is volledig terugbetaalbaar.",
+      "redirectingCard": "Doorsturen...",
+      "proceedCard": "Betaal met Kaart ($1,000)",
+      "simulateDemo": "Demo / Test? Klik hier om $1,000 reservering te simuleren"
+    },
+    "confirmation": {
+      "reservationNotFoundTitle": "Reserveringsbewijs Niet Gevonden",
+      "reservationNotFoundBody": "Geen reservering gevonden voor referentie {ref}.",
+      "inquiryNotFoundTitle": "Aanvraagbewijs Niet Gevonden",
+      "inquiryNotFoundBody": "Geen aanvraag gevonden voor referentie {ref}.",
+      "exploreThemes": "Bekijk Thema's",
+      "resBadge": "Borg Beveiligd • {discount}% Korting Vastgelegd",
+      "resHeadingPrefix": "Uw Casino Ontwerp",
+      "resHeadingHighlight": "Is Gereserveerd!",
+      "resSubtitle": "Uw gekozen ontwerp en kortingsprijs zijn vijf dagen (120 uur) gereserveerd. Een solution director neemt direct contact op.",
+      "certificateTitle": "ROYAL CASINO CLUB TURNKEY CERTIFICAAT",
+      "certificateSub": "Officieel Bewijs van 5-Daagse Exclusieve Reservering",
+      "reservationIdLabel": "Reserverings-ID",
+      "clientInfo": "Klantgegevens",
+      "expiryWindow": "Vervaldatum Reservering",
+      "exactExpiry": "Exacte Vervaltijd: {date}",
+      "platformConfig": "Gekozen Configuratie",
+      "modulesLabel": "Modules: {modules}",
+      "originalTotal": "Origineel Pakkettotaal:",
+      "exclusiveDiscount": "Exclusieve Korting ({discount}%):",
+      "discountedTotal": "Totaal met Korting:",
+      "depositPaid": "Betaalde Reserveringsborg:",
+      "refundableTag": "100% Terugbetaalbaar",
+      "remainingBalance": "Restant bij Oplevering:",
+      "printReceipt": "Certificaat Printen",
+      "chatWhatsapp": "Chat via WhatsApp",
+      "clientPortal": "Open Klantportaal",
+      "inqBadge": "Aanvraag Geregistreerd",
+      "inqHeadingPrefix": "Aanvraag",
+      "inqHeadingHighlight": "Ontvangen",
+      "inqSubtitle": "Bedankt, {name}. Uw projectspecificaties zijn verzonden naar ons enterpriseteam.",
+      "inqRefLabel": "Referentienummer",
+      "submissionDate": "Verzenddatum",
+      "justNow": "Zojuist",
+      "customerDetails": "Klantgegevens",
+      "companyLabel": "Bedrijf: {company}",
+      "emailLabel": "E-mail: {email}",
+      "phoneLabel": "Telefoon: {phone}",
+      "whatsappLabel": "WhatsApp: {wa}",
+      "intendedLaunch": "Gewenste Start:",
+      "requestedSetup": "Aangevraagde Configuratie",
+      "selectedAddons": "Geselecteerde Modules:",
+      "starterPackageDefault": "Startpakket Casino ($15,000 USD)",
+      "estimatedTotal": "Geschat Totaal:",
+      "specifiedRequirements": "Opgegeven Vereisten",
+      "upsellTitle": "Optionele 5-Daagse Reservering & 10% Prijsgarantie",
+      "upsellBody": "Wilt u exclusieve rechten op {design} en gegarandeerd 10% korting (${savings} USD besparing)? Plaats een 100% terugbetaalbare borg van $1,000 voor 120 uur.",
+      "upsellCta": "Leg 5 Dagen Vast voor $1,000 (Terugbetaalbaar)",
+      "upsellCredited": "Verrekend met het eindbedrag bij akkoord.",
+      "whatNext": "Wat Gebeurt Er Nu?",
+      "step1Tag": "Stap 1 • Beoordeling",
+      "step1Title": "Technisch Dossier",
+      "step1Desc": "Ons team stelt uw modulaire turnkey-architectuur op.",
+      "step2Tag": "Stap 2 • Contact",
+      "step2Title": "Adviesgesprek",
+      "step2Desc": "Een adviseur neemt binnen 4 uur contact op via WhatsApp en e-mail.",
+      "step3Tag": "Stap 3 • Lancering",
+      "step3Title": "Branding & Livegang",
+      "step3Desc": "Uw maatwerkcasino gaat binnen 21–30 dagen live.",
+      "browseMore": "Meer Ontwerpen Bekijken"
+    }
+  }
+}

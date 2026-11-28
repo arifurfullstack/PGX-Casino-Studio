@@ -6,6 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Mail, Phone, Crown, Send, Sparkles, ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const FLOATING_ORBS = [
   { left: "6%", top: "14%", size: 6, color: "rgba(255, 224, 130, 0.9)", delay: 0 },
@@ -19,6 +20,8 @@ const FLOATING_ORBS = [
 ];
 
 export default function ContactSection() {
+  const t = useTranslations("home.contact");
+  const tCommon = useTranslations("common");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -647,7 +650,7 @@ Message: ${message || "I am interested in launching an online casino."}`;
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f5c451] opacity-75" />
                         <span className="relative inline-flex h-2 w-2 rounded-full bg-[#ffd75e]" />
                       </span>
-                      VIP Concierge Online
+                      {t("vipOnline")}
                     </span>
                   </div>
                 </div>
@@ -657,15 +660,15 @@ Message: ${message || "I am interested in launching an online casino."}`;
               <div className="md:col-span-7 flex flex-col">
                 <div className="js-contact-stagger inline-flex w-fit items-center gap-2 rounded-full border border-[#f5c451]/40 bg-[#1a0730]/75 px-3.5 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#ffe28a] backdrop-blur-md shadow-[0_0_18px_rgba(245,196,81,0.16)]">
                   <Sparkles className="h-3.5 w-3.5 text-[#f5c451]" />
-                  <span>Direct Operator Desk</span>
+                  <span>{t("deskBadge")}</span>
                 </div>
 
                 <h2 className="js-contact-stagger mt-3.5 text-[clamp(2rem,4vw,2.85rem)] font-bold uppercase italic leading-tight text-white font-philosopher drop-shadow-[0_4px_20px_rgba(0,0,0,0.75)]">
-                  Get in <span className="gold-text">touch</span>
+                  {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
                 </h2>
 
                 <p className="js-contact-stagger mt-2.5 max-w-md text-sm sm:text-base leading-relaxed text-white/75">
-                  Tell us which design you like and which modules you need. We reply directly on WhatsApp.
+                  {t("subtitle")}
                 </p>
 
                 <ul className="mt-5 space-y-3 text-sm sm:text-base">
@@ -682,7 +685,7 @@ Message: ${message || "I am interested in launching an online casino."}`;
                           contact@royalcasinoclub.com
                         </span>
                       </span>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#f5c451]" />
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 rtl-flip transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#f5c451]" />
                     </a>
                   </li>
 
@@ -698,10 +701,10 @@ Message: ${message || "I am interested in launching an online casino."}`;
                           <Phone className="h-4 w-4" />
                         </span>
                         <span className="truncate font-semibold text-white/95 group-hover/link:text-[#ffe28a] transition-colors">
-                          +1 (416) 477-0191 (WhatsApp)
+                          +1 (416) 477-0191 ({t("whatsappSuffix")})
                         </span>
                       </span>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#f5c451]" />
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-white/40 rtl-flip transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#f5c451]" />
                     </a>
                   </li>
 
@@ -715,10 +718,10 @@ Message: ${message || "I am interested in launching an online casino."}`;
                           <Crown className="h-4 w-4 fill-[#ffd75e]" />
                         </span>
                         <span className="truncate font-bold text-[#ffd75e] group-hover/link:text-[#fff3b0] transition-colors">
-                          Reserve A Casino ($1,000 USD Hold)
+                          {t("reserveCta")}
                         </span>
                       </span>
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-[#f5c451]/75 transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#fff3b0]" />
+                      <ArrowUpRight className="h-4 w-4 shrink-0 text-[#f5c451]/75 rtl-flip transition-all duration-300 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 group-hover/link:text-[#fff3b0]" />
                     </Link>
                   </li>
                 </ul>
@@ -817,59 +820,59 @@ Message: ${message || "I am interested in launching an online casino."}`;
 
               <div className="js-contact-field relative">
                 <h3 className="text-2xl sm:text-[1.7rem] font-bold text-white font-philosopher">
-                  Send us a <span className="gold-text">message</span>
+                  {t("formTitlePrefix")} <span className="gold-text">{t("formTitleHighlight")}</span>
                 </h3>
                 <p className="mt-1 text-xs sm:text-sm text-white/60">
-                  Instant priority response from our VIP launch team.
+                  {t("formSubtitle")}
                 </p>
               </div>
 
               <label className="js-contact-field relative grid gap-1.5 text-sm font-semibold text-white/90">
-                <span>Your name</span>
+                <span>{t("nameLabel")}</span>
                 <input
                   required
                   autoComplete="name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Enter your name"
+                  placeholder={t("namePlaceholder")}
                   className="input font-normal text-white placeholder:text-white/40"
                 />
               </label>
 
               <label className="js-contact-field relative grid gap-1.5 text-sm font-semibold text-white/90">
-                <span>Phone / WhatsApp</span>
+                <span>{t("phoneLabel")}</span>
                 <input
                   type="tel"
                   required
                   autoComplete="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  placeholder="e.g. +1 (416) 555-0123"
+                  placeholder={t("phonePlaceholder")}
                   className="input font-normal text-white placeholder:text-white/40"
                 />
               </label>
 
               <label className="js-contact-field relative grid gap-1.5 text-sm font-semibold text-white/90">
                 <span>
-                  Email <span className="font-normal text-white/50">(optional)</span>
+                  {t("emailLabel")} <span className="font-normal text-white/50">({tCommon("optional")})</span>
                 </span>
                 <input
                   type="email"
                   autoComplete="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="you@domain.com"
+                  placeholder={t("emailPlaceholder")}
                   className="input font-normal text-white placeholder:text-white/40"
                 />
               </label>
 
               <label className="js-contact-field relative grid gap-1.5 text-sm font-semibold text-white/90">
-                <span>How can we help?</span>
+                <span>{t("messageLabel")}</span>
                 <textarea
                   rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Tell us about your casino goals..."
+                  placeholder={t("messagePlaceholder")}
                   className="input font-normal text-white placeholder:text-white/40"
                 />
               </label>
@@ -879,7 +882,7 @@ Message: ${message || "I am interested in launching an online casino."}`;
                 className="js-contact-field btn btn-primary shine relative mt-2 text-base font-bold shadow-lg"
               >
                 <Send className="h-4 w-4" />
-                <span>Send on WhatsApp</span>
+                <span>{t("submitBtn")}</span>
               </button>
             </form>
           </div>

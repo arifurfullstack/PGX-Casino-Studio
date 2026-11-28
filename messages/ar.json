@@ -1,0 +1,845 @@
+{
+  "common": {
+    "brandName": "Royal Casino Club",
+    "usd": "USD",
+    "optional": "اختياري",
+    "viewDemo": "معاينة العرض",
+    "selectDesign": "اختر التصميم",
+    "reserveCasino": "احجز كازينو",
+    "close": "إغلاق",
+    "loading": "جارٍ التحميل...",
+    "pagesCount": "{count, plural, one {صفحة واحدة} two {صفحتان} few {# صفحات} other {# صفحة}}",
+    "off": "خصم"
+  },
+  "languageModal": {
+    "titlePrefix": "اختر",
+    "titleHighlight": "لغتك",
+    "subtitle": "اختر لغتك المفضلة لاستعراض تصاميم الكازينو الجاهزة، الباقات، وحلول المشغلين من Royal Casino Club.",
+    "hint": "يمكنك تغيير اللغة في أي وقت من شريط التنقل العلوي.",
+    "continueDefault": "المتابعة بالإنجليزية",
+    "closeLabel": "إغلاق نافذة اختيار اللغة"
+  },
+  "nav": {
+    "links": {
+      "home": "الرئيسية",
+      "designs": "تصاميم الكازينو",
+      "packages": "الباقات",
+      "modules": "الوحدات الإضافية",
+      "howItWorks": "كيف نعمل",
+      "proposal": "العرض التقديمي",
+      "about": "من نحن",
+      "contact": "تواصل معنا"
+    },
+    "clientPortal": "بوابة العملاء",
+    "portalTitle": "بوابة عملاء B2B",
+    "reserveCasino": "احجز كازينو",
+    "backToDesigns": "العودة للتصاميم",
+    "languageLabel": "اللغة",
+    "toggleMenu": "فتح قائمة التنقل",
+    "mobileFooterTag": "Royal Casino Club • حلول ألعاب إلكترونية فاخرة"
+  },
+  "footer": {
+    "description": "توفر Royal Casino Club حلول برمجيات كازينو إلكتروني جاهزة وفائقة الجودة، لتمكين المشغلين من إطلاق منصات مخصصة وعالية التحويل حول العالم.",
+    "quickLinksTitle": "روابط سريعة",
+    "companyTitle": "الشركة",
+    "getInTouchTitle": "تواصل معنا",
+    "whatsappSuffix": "واتساب",
+    "reserveHoldCta": "احجز كازينو (عربون $1,000 USD)",
+    "copyright": "© 2026 {name}. جميع الحقوق محفوظة.",
+    "developedBy": "تطوير Huipper"
+  },
+  "home": {
+    "hero": {
+      "headlineLine1": "أطلق منصتك الخاصة",
+      "headlineLine2": "كازينو إلكتروني فاخر",
+      "startingAt": "ابتداءً من $15,000",
+      "tagline": "كازينو جاهز بعلامتك التجارية، لا يتطلب ترخيصاً!",
+      "subtitle": "اختر تصميمك، انطلق بألعاب السلوتس وطاولات الكازينو، وابنِ علامتك التجارية عبر منصة متكاملة.",
+      "browseDesigns": "تصفح التصاميم",
+      "reserveCasino": "احجز كازينو",
+      "features": {
+        "designs": {
+          "title": "تصاميم",
+          "subtitle": "كازينو فاخرة",
+          "badge": "12 تصميماً"
+        },
+        "turnkey": {
+          "title": "إعداد",
+          "subtitle": "متكامل وجاهز",
+          "badge": "إطلاق شامل"
+        },
+        "games": {
+          "title": "ألعاب الكازينو",
+          "subtitle": "مشمولة",
+          "badge": "سلوتس وطاولات"
+        },
+        "addons": {
+          "title": "وحدات",
+          "subtitle": "إضافية",
+          "badge": "رياضة ومباشر"
+        },
+        "scalable": {
+          "title": "قابل للتوسع",
+          "subtitle": "ومرن",
+          "badge": "سحابة مرنة"
+        },
+        "support": {
+          "title": "دعم فني",
+          "subtitle": "احترافي",
+          "badge": "VIP 24/7"
+        }
+      }
+    },
+    "starterPackage": {
+      "ribbon": "منصة رويال الجاهزة",
+      "badge": "الباقة الأساسية",
+      "heading": "أطلق كازينو بعلامتك التجارية",
+      "description": "كازينو متكامل وجاهز للتشغيل مع ألعاب السلوتس والطاولات.",
+      "includedTitle": "يشمل العرض:",
+      "included": {
+        "designTitle": "تصميم الكازينو الذي تختاره",
+        "slotsTitle": "ألعاب سلوتس الكازينو",
+        "tablesTitle": "طاولات ألعاب الكازينو",
+        "tablesDetail": "(بلاك جاك، روليت، باكاراه والمزيد)",
+        "brandingTitle": "هوية وعلامة الكازينو الخاصة بك",
+        "brandingDetail": "(الشعار، الألوان، وإعداد النطاق)"
+      },
+      "addonsTitle": "الوحدات الإضافية المتاحة:",
+      "addons": {
+        "liveDealer": "طاولات الموزع المباشر",
+        "poker": "منصة البوكر",
+        "sportsbook": "المراهنات الرياضية",
+        "sweepstakes": "سويبستيكس واللعب الاجتماعي"
+      },
+      "addonsNote": "الوحدات الاختيارية تُسعّر بشكل منفصل. راسلنا عبر واتساب لإضافتها إلى منصتك."
+    },
+    "designsSection": {
+      "headingPrefix": "اختر",
+      "headingHighlight": "تصميم الكازينو",
+      "viewAll": "عرض جميع التصاميم",
+      "viewDemo": "معاينة العرض",
+      "selectDesign": "اختر التصميم"
+    },
+    "howItWorks": {
+      "headingPrefix": "كيف",
+      "headingHighlight": "تعمل المنصة",
+      "steps": {
+        "step1": {
+          "title": "1. اختر تصميماً",
+          "desc": "انتقِ من بين تصاميم الكازينو الفاخرة لدينا."
+        },
+        "step2": {
+          "title": "2. خصّص باقتك",
+          "desc": "ابدأ بباقة $15,000 وأضف الوحدات الاختيارية التي تناسبك."
+        },
+        "step3": {
+          "title": "3. احجز وانطلق",
+          "desc": "احجز منصتك، وسنقوم بالإعداد وتطبيق علامتك وإطلاقها فوراً!"
+        }
+      }
+    },
+    "features": {
+      "headingPrefix": "لماذا تختار",
+      "headingHighlight": "Royal Casino Club",
+      "items": {
+        "fastSetup": {
+          "tag": "إطلاق سريع",
+          "title": "تجهيز فوري",
+          "desc": "انطلق على الإنترنت بسرعة وابدأ التشغيل فوراً."
+        },
+        "yourBrand": {
+          "tag": "علامة بيضاء",
+          "title": "علامتك التجارية",
+          "desc": "مخصصة بالكامل باسمك وألوانك وهويتك."
+        },
+        "provenGames": {
+          "tag": "أفضل المزودين",
+          "title": "ألعاب موثوقة",
+          "desc": "ألعاب سلوتس عالية الأداء وأشهر ألعاب الطاولة."
+        },
+        "multiDevice": {
+          "tag": "واجهة متجاوبة",
+          "title": "متعدد الأجهزة",
+          "desc": "محسّن لأجهزة الكمبيوتر والهواتف والأجهزة اللوحية."
+        },
+        "globalReady": {
+          "tag": "متعدد العملات",
+          "title": "جاهز عالمياً",
+          "desc": "دعم كامل لمختلف العملات والمناطق حول العالم."
+        },
+        "ongoingSupport": {
+          "tag": "مكتب VIP 24/7",
+          "title": "دعم مستمر",
+          "desc": "مساعدة تقنية وتحديثات مستمرة للمنصة."
+        }
+      }
+    },
+    "about": {
+      "headingHighlight": "من نحن",
+      "description": "توفر Royal Casino Club حلول برمجيات كازينو إلكتروني جاهزة وفائقة الجودة، لتمكين المشغلين من إطلاق منصات مخصصة وعالية التحويل حول العالم."
+    },
+    "faq": {
+      "headingPrefix": "الأسئلة",
+      "headingHighlight": "الشائعة",
+      "items": {
+        "q1": {
+          "q": "كم تبلغ تكلفة إطلاق الكازينو؟",
+          "a": "الباقة الأساسية تبلغ $15,000 USD، وتشمل التصميم المختار، ألعاب السلوتس، طاولات الألعاب، والهوية التجارية الكاملة (الشعار والألوان والنطاق)."
+        },
+        "q2": {
+          "q": "ماذا تشمل الباقة الأساسية؟",
+          "a": "تصميم الكازينو المختار، ألعاب السلوتس، طاولات الألعاب (بلاك جاك، روليت، باكاراه)، وعلامتك التجارية الكاملة مع إعداد النطاق."
+        },
+        "q3": {
+          "q": "ما هي الوحدات الإضافية المتاحة؟",
+          "a": "طاولات الموزع المباشر، المراهنات الرياضية، منصة البوكر، وسويبستيكس. جميعها اختيارية وتُسعّر بشكل منفصل."
+        },
+        "q4": {
+          "q": "كيف أقوم بحجز كازينو؟",
+          "a": "اختر تصميماً وتواصل معنا عبر واتساب. حجز مسترد بقيمة $1,000 يثبّت اختيارك، ثم نتولى الإعداد والإطلاق."
+        },
+        "q5": {
+          "q": "هل يمكنني معاينة التصميم قبل الاختيار؟",
+          "a": "نعم، اضغط على \"معاينة العرض\" في أي تصميم أو تواصل معنا عبر واتساب للحصول على العرض المباشر."
+        },
+        "q6": {
+          "q": "هل سيحمل الكازينو علامتي التجارية الخاصة؟",
+          "a": "نعم، يتم إطلاقه باسمك وشعارك وألوانك وعلى نطاقك الخاص."
+        },
+        "q7": {
+          "q": "كيف يتم تقاسم الإيرادات (GGR)؟",
+          "a": "تحصل المنصة على 25%، وتحتفظ أنت بنسبة 75% من صافي الأرباح!"
+        }
+      }
+    },
+    "contact": {
+      "vipOnline": "خدمة VIP متصلة الآن",
+      "deskBadge": "مكتب المشغلين المباشر",
+      "headingPrefix": "تواصل",
+      "headingHighlight": "معنا",
+      "subtitle": "أخبرنا بالتصميم الذي أعجبك والوحدات التي تحتاجها. نرد عليك مباشرة عبر واتساب.",
+      "whatsappSuffix": "واتساب",
+      "reserveCta": "احجز كازينو (عربون $1,000 USD)",
+      "formTitlePrefix": "أرسل لنا",
+      "formTitleHighlight": "رسالة",
+      "formSubtitle": "استجابة فورية بأولوية قصوى من فريق الإطلاق.",
+      "nameLabel": "الاسم",
+      "namePlaceholder": "أدخل اسمك",
+      "phoneLabel": "الهاتف / واتساب",
+      "phonePlaceholder": "مثال: +1 (416) 555-0123",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "you@domain.com",
+      "messageLabel": "كيف يمكننا مساعدتك؟",
+      "messagePlaceholder": "أخبرنا عن أهداف مشروعك...",
+      "submitBtn": "إرسال عبر واتساب"
+    },
+    "ctaBanner": {
+      "line1": "هل أنت مستعد لإطلاق",
+      "line2": "كازينو خاص بك؟",
+      "subtitle": "اختر تصميماً، خصّص باقتك، واحجز منصتك اليوم!",
+      "cta": "احجز كازينو"
+    }
+  },
+  "designs": {
+    "catalog": {
+      "badge": "سوق تصاميم الكازينو الجاهزة",
+      "headingPrefix": "اختر",
+      "headingHighlight": "تصميم الكازينو",
+      "subtitle": "استكشف {count} واجهة فاخرة بعلامتك التجارية مصممة لرفع معدل التحويل. انطلق ابتداءً من ${price} USD أو ثبّت خصم {discount}% بعربون مسترد قيمته ${fee}.",
+      "searchPlaceholder": "ابحث عن التصاميم أو الأنماط...",
+      "categories": {
+        "All": "الكل",
+        "Luxury": "فاخر",
+        "Neon": "نيون",
+        "VIP": "VIP",
+        "Classic": "كلاسيكي",
+        "Futuristic": "مستقبلي"
+      },
+      "sort": {
+        "featured": "الترتيب المميز",
+        "nameAsc": "الاسم (أ–ي)",
+        "nameDesc": "الاسم (ي–أ)"
+      },
+      "gridView": "شبكة",
+      "showcaseView": "عرض موسّع",
+      "showing": "عرض {filtered} من أصل {total} تصميم كازينو فاخر",
+      "inCategory": "في {category}",
+      "tip": "نصيحة: اضغط على أيقونة العين للمعاينة الفورية، أو اختر حتى 3 تصاميم للمقارنة جنباً إلى جنب.",
+      "emptyTitle": "لم يتم العثور على تصاميم",
+      "emptySubtitle": "لا توجد تصاميم مطابقة لبحثك أو التصنيف المحدد.",
+      "resetFilters": "إعادة ضبط الفلاتر",
+      "bannerBadge": "تشمل الهوية التجارية المخصصة",
+      "bannerHeadingPrefix": "هل تريد إطلاقاً متكاملاً",
+      "bannerHeadingHighlight": "بعلامتك الخاصة؟",
+      "bannerBody": "كل تصميم يأتي مع شعارك وألوانك ونطاقك والسلوتس وطاولات الألعاب. احجز الآن لتثبيت خصم {discount}% (${discountedPrice} USD) لمدة {days} أيام.",
+      "chatWhatsapp": "تحدث عبر واتساب",
+      "compareLabel": "مقارنة ({count}/3)",
+      "clear": "مسح",
+      "compareNow": "قارن الآن",
+      "themeTagSuffix": "تصميم",
+      "starterPackage": "الباقة الأساسية",
+      "withHoldLock": "مع تثبيت خصم {discount}%",
+      "includesLabel": "يشمل",
+      "includesSummary": "سلوتس، طاولات وعلامة",
+      "selectCustomize": "اختر وخصّص {name}",
+      "openInteractiveDemo": "افتح العرض التفاعلي",
+      "comparisonEyebrow": "مقارنة جنباً إلى جنب",
+      "comparisonTitlePrefix": "قارن",
+      "comparisonTitleHighlight": "التصاميم المختارة",
+      "starterPriceLabel": "السعر الأساسي",
+      "holdLockDiscount": "تثبيت الحجز (خصم {discount}%)",
+      "operatorGgr": "حصة المشغل من GGR",
+      "yoursPercent": "{share}% لك",
+      "selectTheme": "اختر {name}",
+      "liveDemo": "عرض مباشر",
+      "defaultSubtitle": "واجهة فاخرة جاهزة للتشغيل"
+    },
+    "demo": {
+      "demoPages": "صفحات العرض:",
+      "interactiveLobby": "اللوبي التفاعلي",
+      "fullBrowserDemo": "عرض كامل بالمتصفح",
+      "casinoLabel": "كازينو",
+      "turnkeyDemo": "عرض جاهز",
+      "searchGames": "بحث الألعاب",
+      "featuredGames": "ألعاب مميزة",
+      "viewAllGames": "عرض جميع الألعاب",
+      "instantPlay": "لعب فوري",
+      "liveSimulation": "محاكاة لعبة مباشرة",
+      "simulationBody": "في بيئة الإنتاج يتم تشغيل إطار Pragmatic Play / Evolution Gaming المرخص مع مزامنة المحفظة الحقيقية.",
+      "closeDemo": "إغلاق العرض",
+      "tabs": {
+        "home": "الرئيسية",
+        "slots": "سلوتس",
+        "live": "موزع مباشر",
+        "sports": "المراهنات",
+        "poker": "منصة البوكر"
+      },
+      "sidebar": {
+        "title": "معاينة تصميم الكازينو",
+        "selectedLook": "المظهر المختار",
+        "basicPackage": "الباقة الأساسية",
+        "includedLine": "ألعاب الطاولة والسلوتس مشمولة",
+        "addonModules": "الوحدات الإضافية",
+        "ggrShare": "نسبة GGR",
+        "ourCompany": "الشركة: {share}%",
+        "yourShare": "حصتك: {share}%",
+        "totalEstimate": "التكلفة التقديرية:",
+        "selectThisDesign": "اختر هذا التصميم",
+        "requestQuote": "اطلب عرض سعر",
+        "viewAllDesigns": "عرض جميع التصاميم"
+      },
+      "modal": {
+        "protected": "محمي",
+        "desktopView": "عرض سطح المكتب",
+        "tabletView": "عرض التابلت",
+        "mobileView": "عرض الجوال",
+        "fullscreen": "ملء الشاشة",
+        "exitFullscreen": "إنهاء ملء الشاشة",
+        "liveUiDemo": "عرض واجهة مباشر",
+        "pages": "الصفحات",
+        "viewingOf": "عرض {page} من {design} — معاينة محمية",
+        "nextPage": "التالي: {page}",
+        "reserveDesign": "احجز {design}"
+      }
+    }
+  },
+  "pages": {
+    "packages": {
+      "badge": "استثمار شفاف وجاهز",
+      "headingPrefix": "تسعير بسيط",
+      "headingHighlight": "وشفاف",
+      "subtitle": "كل ما تحتاجه لإطلاق كازينو عالمي عالي التحويل. بدون رسوم خفية، مع ألعاب معتمدة وترقيات مرنة.",
+      "popularTag": "الأكثر طلباً • جاهز للتشغيل",
+      "oneTimeSetup": "USD إعداد لمرة واحدة",
+      "refundableHold": "حجز مسترد بقيمة $1,000",
+      "whatsIncluded": "محتويات الباقة الأساسية:",
+      "ggrSplit": "توزيع GGR: 75% للمشغل / 25% للمنصة • تثبيت سعر 5 أيام",
+      "reserveCta": "اختر التصميم واحجز ($1,000)",
+      "addonsHeading": "وحدات التوسع الاختيارية",
+      "addonsSubtitle": "أضف قطاعات ألعاب متخصصة في أي وقت أثناء الإعداد أو بعده.",
+      "oneTimeAddon": "USD إضافة لمرة واحدة",
+      "addModule": "أضف الوحدة",
+      "starter": {
+        "subtitle": "الباقة الأساسية",
+        "description": "موقع كازينو متكامل بالتصميم الذي تختاره، يشمل ألعاب السلوتس وطاولات اللعب.",
+        "includes": {
+          "design": {
+            "title": "تصميم الكازينو الذي اخترته",
+            "sub": ""
+          },
+          "slots": {
+            "title": "ألعاب سلوتس الكازينو",
+            "sub": ""
+          },
+          "tables": {
+            "title": "طاولات ألعاب الكازينو",
+            "sub": "(مثل بلاك جاك، روليت، باكاراه وغيرها)"
+          },
+          "branding": {
+            "title": "علامتك التجارية الخاصة",
+            "sub": "(الشعار، الألوان، وإعداد النطاق)"
+          }
+        }
+      },
+      "addons": {
+        "live-dealer": {
+          "name": "طاولات الموزع المباشر",
+          "description": "بث مباشر بدقة HD لطاولات الموزعين وصالات متعددة المقاعد"
+        },
+        "sportsbook": {
+          "name": "المراهنات الرياضية",
+          "description": "أحداث رياضية عالمية، مراهنات حية، وتحديث فوري للاحتمالات"
+        },
+        "poker": {
+          "name": "منصة البوكر",
+          "description": "تكساس هولدم، أوماها، طاولات نقدية وأنظمة بطولات"
+        },
+        "sweepstakes": {
+          "name": "سويبستيكس",
+          "description": "محرك ألعاب اجتماعية مزدوج العملة متوافق مع أنظمة سويبستيكس"
+        }
+      }
+    },
+    "modules": {
+      "badge": "منظومة وحدات مرنة",
+      "headingPrefix": "وحدات",
+      "headingHighlight": "التوسع الإضافية",
+      "subtitle": "وسّع إمبراطورية الألعاب الخاصة بك بتكاملات جاهزة. أضفها عند الإعداد الأولي أو مع نمو قاعدة لاعبيك.",
+      "addToPackage": "أضف إلى الباقة",
+      "customInquiry": "استفسار مخصص",
+      "items": {
+        "live-dealer": {
+          "title": "كازينو الموزع المباشر",
+          "description": "موزعون حقيقيون يبثون على مدار الساعة بدقة 4K. دعم للروليت المباشر والبلاك جاك والباكاراه وعروض الألعاب.",
+          "features": [
+            "بث فيديو فائق الدقة بزمن استجابة منخفض",
+            "طاولات VIP متعددة الزوايا لكبار اللاعبين",
+            "طاقم موزعين متعدد اللغات",
+            "تكامل مع Evolution وPragmatic Live"
+          ]
+        },
+        "sportsbook": {
+          "title": "محرك المراهنات الرياضية العالمي",
+          "description": "منصة رياضية متكاملة تغطي أكثر من 60 رياضة و50,000+ حدث شهري مباشر مع تسوية فورية.",
+          "features": [
+            "كرة القدم، السلة، التنس، الكريكيت والرياضات الإلكترونية",
+            "تغذية ما قبل المباراة والمراهنات الحية",
+            "ميزة السحب المبكر ونظام مكافآت التراكم",
+            "إدارة مخاطر وهوامش آلية"
+          ]
+        },
+        "poker": {
+          "title": "منصة البوكر متعددة اللاعبين",
+          "description": "سيولة شبكية عالمية أو غرف بوكر خاصة تدعم تكساس هولدم وأوماها والبطولات.",
+          "features": [
+            "تطبيقات سطح المكتب والويب والجوال",
+            "ذكاء اصطناعي لكشف التواطؤ والبوتات فورياً",
+            "نظام Rakeback قابل للتخصيص وصالات VIP",
+            "طاولات أندية خاصة وتحويلات آلية"
+          ]
+        },
+        "sweepstakes": {
+          "title": "سويبستيكس والكازينو الاجتماعي",
+          "description": "بنية ألعاب ترويجية مزدوجة العملة مصممة لأسواق أمريكا الشمالية والأسواق الاجتماعية المنظمة.",
+          "features": [
+            "عملات ذهبية (ترفيه) وعملات سويبس (جوائز)",
+            "استبدال جوائز آلي والتحقق من الهوية KYC",
+            "مكافآت دخول يومية ونظام إحالات",
+            "توافق كامل مع معايير الولايات المتحدة وكندا"
+          ]
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "إطار الإطلاق الجاهز",
+      "headingPrefix": "من الفكرة إلى لاعبين فعليين في",
+      "headingHighlight": "3 خطوات",
+      "subtitle": "نتولى كل الجوانب التقنية: تراخيص الألعاب المعتمدة، تخصيص الواجهة، الخوادم، وبوابات الدفع.",
+      "ctaTitle": "هل أنت مستعد لتثبيت تصميم الكازينو؟",
+      "ctaSubtitle": "قدّم عربوناً مسترداً بالكامل بقيمة $1,000 لتثبيت الخصم والحصرية لمدة 5 أيام.",
+      "ctaButton": "ابدأ الاختيار الآن",
+      "steps": {
+        "step1": {
+          "title": "اختر تصميم الكازينو",
+          "subtitle": "مظهر الواجهة الأمامية",
+          "turnaround": "1–2 يوم",
+          "description": "تصفح 12 تصميماً فاخراً (Royal Prestige، Neon Vegas، Emerald Club وغيرها) متوافقة مع سطح المكتب والجوال.",
+          "deliverables": [
+            "شيفرة واجهة Next.js متجاوبة بالكامل",
+            "تخصيص الألوان والهوية التجارية",
+            "لافتات متحركة ولوبي ألعاب السلوتس"
+          ]
+        },
+        "step2": {
+          "title": "خصّص باقتك",
+          "subtitle": "الوحدات وتكاملات الدفع",
+          "turnaround": "3–5 أيام",
+          "description": "ابدأ بالباقة الأساسية بقيمة $15,000 USD وأضف وحدات التوسع في أي وقت.",
+          "deliverables": [
+            "نطاق خاص ونشر على الاستضافة السحابية",
+            "إعداد بوابات دفع فيات وعملات رقمية",
+            "مكتبة ألعاب RNG معتمدة بمحفظة موحدة"
+          ]
+        },
+        "step3": {
+          "title": "أطلق وشغّل المنصة",
+          "subtitle": "تسليم جاهز خلال 21–30 يوماً",
+          "turnaround": "21–30 يوماً",
+          "description": "ينشر فريقنا الهندسي منصتك على خوادم عالية التوافر مع تدريب شامل للوحة الإدارة ودعم 24/7.",
+          "deliverables": [
+            "لوحة إدارة متكاملة للاعبين",
+            "أنظمة آلية للشركاء والمكافآت",
+            "مكتب دعم تقني VIP على مدار الساعة"
+          ]
+        }
+      }
+    },
+    "about": {
+      "badge": "Royal Casino Club Enterprise",
+      "headingPrefix": "تمكين مشغلي الألعاب",
+      "headingHighlight": "حول العالم",
+      "subtitle": "نصمم وننشر بنى تحتية جاهزة لكازينوهات العلامة البيضاء لتتمكن العلامات التجارية من الإطلاق عالمياً خلال أسابيع.",
+      "ctaDesigns": "تصفح التصاميم",
+      "ctaQuote": "اطلب عرض سعر",
+      "stats": {
+        "uptime": { "label": "اتفاقية التشغيل", "value": "99.99%", "desc": "استضافة سحابية للمؤسسات" },
+        "themes": { "label": "تصاميم جاهزة", "value": "12+", "desc": "واجهات عالية التحويل" },
+        "delivery": { "label": "مدة التسليم", "value": "21-30 يوماً", "desc": "جدول إطلاق متكامل" },
+        "reach": { "label": "الانتشار العالمي", "value": "40+ دولة", "desc": "دعم العملات والكريبتو" }
+      },
+      "pillars": {
+        "games": {
+          "title": "تجميع الألعاب المرخصة",
+          "desc": "تكامل بمحفظة موحدة مع أكثر من 5,000 لعبة سلوتس وطاولات حية ورياضات من كبرى الاستوديوهات."
+        },
+        "infra": {
+          "title": "بنية تحتية عالية التوافر",
+          "desc": "خدمات موزعة على خوادم طرفية منخفضة الكمون مع حماية تلقائية من هجمات DDoS."
+        },
+        "wallets": {
+          "title": "محافظ فيات وعملات رقمية عالمية",
+          "desc": "دعم مدمج لـ Visa وMastercard والتحويلات البنكية وApple Pay وBTC وETH وUSDT وTRX."
+        },
+        "partnership": {
+          "title": "شراكة B2B مخصصة",
+          "desc": "نحن لا ندير كازينوهات للمستهلكين؛ تركيزنا الكامل هو تزويد المشغلين ببرمجيات موثوقة."
+        }
+      }
+    },
+    "contact": {
+      "badge": "استفسارات B2B 24/7",
+      "headingPrefix": "اطلب",
+      "headingHighlight": "عرض سعر",
+      "subtitle": "هل أنت مستعد لإطلاق منصتك؟ املأ تفاصيل المشروع أدناه أو تواصل مباشرة مع مستشارينا عبر واتساب أو تيليجرام.",
+      "directChannels": "قنوات الاتصال المباشرة",
+      "emailInquiries": "الاستفسارات عبر البريد",
+      "whatsappBusiness": "واتساب للأعمال",
+      "telegramOfficial": "تيليجرام الرسمي",
+      "supportAvailability": "توافر الدعم",
+      "supportHours": "24 ساعة / 7 أيام في الأسبوع",
+      "depositTitle": "عربون مسترد",
+      "depositBody": "تشمل جميع الحجوزات عربوناً مسترداً بقيمة $1,000 USD لتثبيت تصميمك وحصريتك.",
+      "form": {
+        "successTitle": "تم استلام طلبك بنجاح!",
+        "reference": "المرجع: {ref}",
+        "successBody": "شكراً لتواصلك معنا. سيتواصل معك منسق تقني من Royal Casino Club عبر البريد الإلكتروني وواتساب خلال 4 ساعات عمل.",
+        "viewReceipt": "عرض الإيصال الرسمي",
+        "fullName": "الاسم الكامل *",
+        "fullNamePlaceholder": "أحمد المنصور",
+        "businessEmail": "البريد الإلكتروني للعمل *",
+        "businessEmailPlaceholder": "ahmed@company.com",
+        "phoneNumber": "رقم الهاتف *",
+        "phonePlaceholder": "+1 (555) 000-0000",
+        "whatsappNumber": "رقم واتساب (اختياري)",
+        "company": "الشركة / المؤسسة",
+        "companyPlaceholder": "Gaming Ventures Ltd.",
+        "targetDesign": "التصميم المطلوب",
+        "whenToStart": "متى تخطط للبدء؟",
+        "timeline": {
+          "immediately": "فوراً",
+          "within_30_days": "خلال 30 يوماً",
+          "within_1_3_months": "خلال 1–3 أشهر",
+          "within_3_6_months": "خلال 3–6 أشهر",
+          "just_exploring": "أستكشف فقط"
+        },
+        "requirements": "متطلبات المشروع / ملاحظات",
+        "requirementsPlaceholder": "اذكر السوق المستهدف، اللغات، متطلبات الدفع بالكريبتو أو الفيات...",
+        "submitting": "جارٍ إرسال الطلب...",
+        "submit": "إرسال طلب عرض السعر"
+      }
+    }
+  },
+  "reservation": {
+    "flow": {
+      "badge": "مكتب حجوزات VIP للمشغلين",
+      "headingPrefix": "خصّص واحجز",
+      "headingHighlight": "كازينو خاص بك",
+      "subtitle": "اختر واجهتك الفاخرة، خصّص الوحدات، وثبّت خصم {discount}% لمدة {days} أيام بعربون مسترد بالكامل قيمته ${fee} USD.",
+      "steps": {
+        "step1Title": "التصميم والوحدات",
+        "step2Title": "بيانات المشغل",
+        "readyToSubmit": "جاهز للإرسال",
+        "profileComplete": "اكتمال الملف {percent}%",
+        "step3Title": "تثبيت خصم {discount}%",
+        "refundableDeposit": "عربون مسترد ${fee}",
+        "addonsCount": "{count, plural, one {إضافة واحدة} two {إضافتان} few {# إضافات} other {# إضافة}}"
+      },
+      "card1": {
+        "eyebrow": "الخطوة 01 • اختيار التصميم المرئي",
+        "headingPrefix": "اختر",
+        "headingHighlight": "تصميم الكازينو",
+        "searchPlaceholder": "ابحث عن التصاميم...",
+        "selected": "محدد",
+        "defaultThemeSub": "تصميم VIP جاهز",
+        "noMatch": "لا توجد تصاميم تطابق \"{query}\".",
+        "clearFilter": "مسح البحث",
+        "showFewer": "عرض تصاميم أقل",
+        "exploreAll": "استعراض جميع التصاميم ({count})"
+      },
+      "card2": {
+        "eyebrow": "الخطوة 02 • وحدات التوسع الاختيارية",
+        "headingPrefix": "خصّص",
+        "headingHighlight": "باقتك",
+        "starterOnly": "الباقة الأساسية فقط",
+        "activeModules": "{count, plural, one {وحدة واحدة نشطة} two {وحدتان نشطتان} few {# وحدات نشطة} other {# وحدة نشطة}} (+${total})"
+      },
+      "card3": {
+        "eyebrow": "الخطوة 03 • ملف تسجيل المشغل",
+        "headingPrefix": "بيانات المشغل",
+        "headingHighlight": "والعلامة التجارية",
+        "percentComplete": "مكتمل {percent}%",
+        "brandName": "اسم العلامة التجارية للكازينو",
+        "brandPlaceholder": "مثال: Royal VIP Casino",
+        "targetDomain": "النطاق المستهدف",
+        "domainPlaceholder": "مثال: royalvip.com",
+        "fullName": "الاسم الكامل للمشغل",
+        "fullNamePlaceholder": "خالد العلي",
+        "company": "الشركة / المؤسسة",
+        "companyPlaceholder": "Gaming Holdings Ltd.",
+        "email": "البريد الإلكتروني",
+        "emailPlaceholder": "khaled@example.com",
+        "phone": "رقم الهاتف",
+        "phonePlaceholder": "+1 (416) 555-0199",
+        "whatsapp": "رقم واتساب",
+        "sameAsPhone": "مطابق لرقم الهاتف",
+        "whatsappPlaceholder": "أدخل رقم واتساب آخر",
+        "launchTimeline": "متى تخطط للإطلاق؟",
+        "requirements": "متطلبات المشروع",
+        "tapTags": "اضغط على الوسوم للإضافة السريعة",
+        "requirementsPlaceholder": "اذكر الأسواق المستهدفة، مزودي الألعاب، طرق الدفع بالكريبتو/الفيات أو الامتثال...",
+        "initializing": "جارٍ تجهيز مكتب الحجز...",
+        "continueWith": "المتابعة مع {design}",
+        "nextStepNote": "في الخطوة التالية يمكنك تثبيت خصم {discount}% بعربون مسترد ${fee} أو المتابعة كاستفسار مجاني."
+      },
+      "timelines": {
+        "immediately": { "label": "فوراً", "badge": "أولوية" },
+        "within_30_days": { "label": "خلال 30 يوماً", "badge": "مسار سريع" },
+        "within_1_3_months": { "label": "1–3 أشهر", "badge": "مخطط" },
+        "within_3_6_months": { "label": "3–6 أشهر", "badge": "خارطة طريق" },
+        "just_exploring": { "label": "استكشاف فقط", "badge": "اطلاع" }
+      },
+      "chips": {
+        "crypto": "كريبتو وUSDT",
+        "fiat": "بطاقات فيات",
+        "multilang": "متعدد اللغات",
+        "vip": "ولاء VIP",
+        "affiliates": "نظام الشركاء",
+        "curacao": "جاهز لكوراساو"
+      },
+      "errors": {
+        "requiredFields": "يرجى إدخال الاسم الكامل والبريد الإلكتروني ورقم الهاتف.",
+        "initFailed": "تعذر تهيئة الحجز.",
+        "submitFailed": "تعذر إرسال الاستفسار."
+      }
+    },
+    "offerModal": {
+      "skipTitle": "تخطي الحجز",
+      "badge": "ميزة حصرية للمشغلين",
+      "headingPrefix": "ثبّت خصم",
+      "headingHighlight": "{discount}%",
+      "headingSuffix": "واحجز تصميمك",
+      "subtitle": "احجز {design} لمدة {days} أيام بعربون مسترد قيمته ${fee} USD.",
+      "standardPrice": "سعر الباقة القياسي:",
+      "discountLine": "خصم الحجز الفوري ({discount}%):",
+      "lockedTotal": "الإجمالي المثبّت للباقة:",
+      "depositToday": "عربون الحجز اليوم:",
+      "refundable100": "مسترد بنسبة 100%",
+      "balanceHandover": "الرصيد عند التسليم:",
+      "depositCredited": "يُخصم العربون بالكامل",
+      "lockHighlightTitle": "تثبيت السعر {days} أيام:",
+      "lockHighlightBody": "محمي من تغيرات الأسعار لمدة {hours} ساعة.",
+      "refundHighlightTitle": "مسترد 100%:",
+      "refundHighlightBody": "استرداد كامل إذا قررت عدم المتابعة خلال {days} أيام.",
+      "securing": "جارٍ تأمين الحجز...",
+      "optionA": "الخيار أ: احجز الآن (${fee} USD)",
+      "optionB": "الخيار ب: المتابعة بدون حجز (استفسار قياسي)"
+    },
+    "checkoutModal": {
+      "closeTitle": "إغلاق الدفع",
+      "badge": "دفع آمن لحجز {days} أيام",
+      "headingPrefix": "حجز",
+      "bookingRef": "مرجع الحجز:",
+      "standardTotal": "الإجمالي القياسي:",
+      "discountLine": "خصم الحجز الحصري ({discount}%):",
+      "discountedPrice": "السعر المثبّت بعد الخصم:",
+      "holdingFeeToday": "رسوم الحجز اليوم:",
+      "refundable100": "مسترد 100%",
+      "balanceHandover": "الرصيد عند التسليم:",
+      "depositCredited": "يُخصم من الفاتورة",
+      "tabCrypto": "كريبتو (USDT / BTC)",
+      "tabCard": "بطاقة ائتمان",
+      "tabDemo": "تجريبي",
+      "selectNetwork": "اختر الشبكة:",
+      "transferExact": "حوّل مبلغ ${fee} USD بالضبط إلى العنوان:",
+      "copied": "تم النسخ!",
+      "addressNotConfigured": "العنوان غير مهيأ في لوحة الإدارة",
+      "copyAddress": "نسخ العنوان",
+      "txHashLabel": "معرّف المعاملة / TxID *",
+      "txHashPlaceholder": "مثال: 8f6b1e32d5c4...",
+      "cardTitle": "الدفع بالبطاقة الائتمانية / الخصم",
+      "cardBody": "ادفع العربون المسترد بقيمة ${fee} USD عبر Visa أو Mastercard أو American Express.",
+      "cardDisabled": "الدفع بالبطاقة قيد الإعداد حالياً. استخدم الكريبتو أو الوضع التجريبي.",
+      "demoTitle": "محاكاة الاختبار والتفعيل",
+      "demoBody": "حاكِ تأكيد حجز فوري بقيمة ${fee} دون إرسال أموال حقيقية لاختبار مؤقت {hours} ساعة.",
+      "termsText": "أوافق صراحةً على شروط الحجز المسترد لمدة {days} أيام. يثبّت عربون ${fee} USD السعر وخصم {discount}% لمدة {hours} ساعة ويُخصم 100% من الفاتورة أو يُسترد بالكامل.",
+      "termsError": "يرجى الموافقة على شروط الحجز المسترد لمدة {days} أيام قبل المتابعة.",
+      "txError": "يرجى إدخال معرّف المعاملة (TxID) للتحقق.",
+      "recording": "جارٍ تسجيل التحويل...",
+      "confirmCrypto": "تأكيد إيداع كريبتو ${fee} والتثبيت",
+      "redirecting": "جارٍ التحويل...",
+      "payCard": "ادفع ${fee} USD بالبطاقة",
+      "simulateBtn": "محاكاة حجز ${fee} (وضع تجريبي)"
+    },
+    "confirmed": {
+      "badge": "تم تثبيت خصم {discount}% • حجز {days} أيام نشط",
+      "headingPrefix": "تم حجز",
+      "headingHighlight": "التصميم",
+      "headingSuffix": "بنجاح!",
+      "bookingId": "رقم الحجز: {id}",
+      "priceLockActive": "تثبيت السعر نشط ({hours} ساعة)",
+      "remaining": "المتبقي: {time}",
+      "selectedDesign": "التصميم المختار:",
+      "originalPrice": "السعر الأصلي:",
+      "discountedTotal": "الإجمالي بخصم {discount}%:",
+      "holdingFee": "عربون الحجز المسترد:",
+      "credited": "مخصوم",
+      "balanceDelivery": "المتبقي عند التسليم:",
+      "outreach": "تم حجز تصميمك حصرياً لمدة {days} أيام. سيتواصل معك مدير الإطلاق عبر البريد ({email}) وواتساب ({phone}) خلال ساعتين عمل.",
+      "viewReceipt": "عرض إيصال الحجز الرسمي",
+      "browseCatalog": "تصفح الكتالوج"
+    },
+    "inquiryConfirmed": {
+      "badge": "مكتب VIP — Royal Casino Club",
+      "headingPrefix": "تم استلام",
+      "headingHighlight": "الطلب",
+      "refNumber": "الرقم المرجعي: {ref}",
+      "body": "تم تسجيل طلب التصميم الخاص بـ {design} في بوابتنا. سيتواصل معك منسق الإطلاق قريباً لإتمام عرض السعر.",
+      "withModules": "مع {modules}",
+      "estimatedTotal": "الإجمالي التقديري للباقة: ${total} USD.",
+      "viewReceipt": "عرض الإيصال الرسمي",
+      "exploreThemes": "استكشاف التصاميم"
+    },
+    "standalone": {
+      "notFoundTitle": "الحجز غير موجود",
+      "notFoundBody": "تعذر العثور على معرف الحجز {id} أو تم أرشفته.",
+      "browseCatalog": "تصفح الكتالوج",
+      "dossierBadge": "ملف الحجز الجاهز",
+      "headingPrefix": "تأمين حجز",
+      "headingHighlight": "لمدة 5 أيام",
+      "referenceClient": "المرجع: {id} • العميل: {name}",
+      "alreadyPaidTitle": "تم تأمين عربون الحجز مسبقاً!",
+      "alreadyPaidBody": "تثبيت السعر لمدة 5 أيام وخصم {discount}% لتصميم {design} نشطان.",
+      "viewOfficialReceipt": "عرض إيصال الحجز الرسمي",
+      "expiredTitle": "انتهت فترة الحجز (120 ساعة)",
+      "expiredBody": "انتهت مدة هذا الحجز وتم بدء إجراءات استرداد مبلغ $1,000.",
+      "startNew": "بدء اختيار جديد",
+      "targetSolution": "حل الكازينو المختار",
+      "includes": "يشمل: {addons}",
+      "standardPrice": "سعر الباقة القياسي:",
+      "discountLabel": "خصم الحجز الحصري ({discount}%):",
+      "lockedTotal": "الإجمالي المثبّت:",
+      "holdingDueNow": "عربون الحجز (المستحق الآن):",
+      "remainingBalance": "الرصيد المتبقي عند التسليم:",
+      "term1": "يضمن الحصرية وتثبيت السعر لمدة 5 أيام (120 ساعة).",
+      "term2": "$1,000 مسترد 100% في حال عدم توقيع اتفاقية.",
+      "term3": "يُخصم العربون بالكامل من الفاتورة النهائية.",
+      "payTermsError": "يرجى الموافقة على شروط الحجز المسترد لمدة 5 أيام.",
+      "payTxError": "يرجى إدخال معرّف المعاملة / TxID.",
+      "payTermsText": "أفهم أن عربون الحجز هذا بقيمة $1,000 USD يثبّت التصميم المختار وخصم 10% لمدة 120 ساعة، ويُسترد 100% في حال عدم إتمام الاتفاق.",
+      "tabCrypto": "كريبتو (USDT / BTC)",
+      "tabCard": "بطاقة ائتمان",
+      "sendExactly": "أرسل بالضبط: $1,000.00 USD ({label})",
+      "network": "الشبكة: {network}",
+      "txHashLabel": "معرّف معاملة الدفع / TxID *",
+      "txHashPlaceholder": "الصق معرّف المعاملة هنا",
+      "verifying": "جارٍ التحقق...",
+      "confirmDeposit": "تأكيد إيداع كريبتو بقيمة $1,000",
+      "cardTitle": "دفع مشفّر 256-bit بالبطاقة",
+      "cardBody": "احجز تصميمك بأمان عبر Visa أو Mastercard أو American Express. عربون $1,000 مسترد بالكامل.",
+      "redirectingCard": "جارٍ التحويل للدفع...",
+      "proceedCard": "المتابعة للدفع بالبطاقة ($1,000)",
+      "simulateDemo": "وضع تجريبي؟ اضغط هنا لمحاكاة قفل حجز بقيمة $1,000"
+    },
+    "confirmation": {
+      "reservationNotFoundTitle": "إيصال الحجز غير موجود",
+      "reservationNotFoundBody": "تعذر العثور على سجل حجز للمرجع {ref}.",
+      "inquiryNotFoundTitle": "إيصال الاستفسار غير موجود",
+      "inquiryNotFoundBody": "تعذر العثور على استفسار للمرجع {ref}.",
+      "exploreThemes": "استكشف التصاميم",
+      "resBadge": "تم تأمين العربون • تثبيت خصم {discount}%",
+      "resHeadingPrefix": "تم حجز",
+      "resHeadingHighlight": "تصميم الكازينو!",
+      "resSubtitle": "تم حجز التصميم والسعر المخفض لمدة خمسة أيام (120 ساعة). سيتواصل معك مدير الحلول لإرشادك في الخطوات التالية.",
+      "certificateTitle": "شهادة حجز ROYAL CASINO CLUB الجاهزة",
+      "certificateSub": "إثبات رسمي لحجز المنصة الحصري لمدة 5 أيام",
+      "reservationIdLabel": "رقم الحجز",
+      "clientInfo": "معلومات العميل",
+      "expiryWindow": "نافذة انتهاء الحجز",
+      "exactExpiry": "الانتهاء الدقيق: {date}",
+      "platformConfig": "تكوين المنصة المختار",
+      "modulesLabel": "الوحدات: {modules}",
+      "originalTotal": "إجمالي الباقة الأصلي:",
+      "exclusiveDiscount": "خصم الحجز الحصري ({discount}%):",
+      "discountedTotal": "الإجمالي بعد الخصم:",
+      "depositPaid": "عربون الحجز المدفوع:",
+      "refundableTag": "مسترد 100%",
+      "remainingBalance": "المتبقي عند تسليم المشروع:",
+      "printReceipt": "طباعة الشهادة",
+      "chatWhatsapp": "تحدث عبر واتساب",
+      "clientPortal": "فتح بوابة العملاء",
+      "inqBadge": "تم تسجيل ملف الطلب",
+      "inqHeadingPrefix": "تم استلام",
+      "inqHeadingHighlight": "الطلب",
+      "inqSubtitle": "شكراً لك، {name}. تم إرسال مواصفات مشروعك إلى فريق الحلول المؤسسية لدينا.",
+      "inqRefLabel": "الرقم المرجعي للاستفسار",
+      "submissionDate": "تاريخ الإرسال",
+      "justNow": "الآن",
+      "customerDetails": "بيانات العميل",
+      "companyLabel": "الشركة: {company}",
+      "emailLabel": "البريد: {email}",
+      "phoneLabel": "الهاتف: {phone}",
+      "whatsappLabel": "واتساب: {wa}",
+      "intendedLaunch": "الإطلاق المتوقع:",
+      "requestedSetup": "إعداد المنصة المطلوب",
+      "selectedAddons": "الإضافات المختارة:",
+      "starterPackageDefault": "الباقة الأساسية للكازينو ($15,000 USD)",
+      "estimatedTotal": "الإجمالي التقديري:",
+      "specifiedRequirements": "المتطلبات المحددة",
+      "upsellTitle": "حجز اختياري 5 أيام وضمان خصم 10%",
+      "upsellBody": "هل تريد تأمين الحقوق الحصرية لـ {design} وضمان خصم 10% (توفير ${savings} USD)؟ قدّم عربوناً مسترداً 100% بقيمة $1,000 صالحاً لمدة 120 ساعة.",
+      "upsellCta": "ثبّت حجز 5 أيام مقابل $1,000 (مسترد)",
+      "upsellCredited": "يُخصم من الرصيد النهائي عند الاتفاق.",
+      "whatNext": "ماذا يحدث بعد ذلك؟",
+      "step1Tag": "الخطوة 1 • المراجعة",
+      "step1Title": "الملف التقني",
+      "step1Desc": "يُعد فريقنا تفصيلاً متكاملاً لهندسة منصتك.",
+      "step2Tag": "الخطوة 2 • التواصل",
+      "step2Title": "مكالمة استشارية",
+      "step2Desc": "يتواصل معك مستشار عبر واتساب والبريد خلال 4 ساعات.",
+      "step3Tag": "الخطوة 3 • الإطلاق",
+      "step3Title": "العلامة والتشغيل",
+      "step3Desc": "يتم إطلاق كازينو علامتك التجارية خلال 21–30 يوماً.",
+      "browseMore": "تصفح المزيد من التصاميم"
+    }
+  }
+}

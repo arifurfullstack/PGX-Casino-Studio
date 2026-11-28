@@ -4,47 +4,25 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Zap, Sparkles, Dices, Monitor, Globe, Headphones } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const features = [
-  {
-    icon: Zap,
-    tag: "Rapid Launch",
-    title: "Fast Setup",
-    desc: "Get online quickly and start operating.",
-  },
-  {
-    icon: Sparkles,
-    tag: "White-Label",
-    title: "Your Brand",
-    desc: "Fully tailored with your name, colors, and identity.",
-  },
-  {
-    icon: Dices,
-    tag: "Top Providers",
-    title: "Proven Games",
-    desc: "High-performing slots and popular table games.",
-  },
-  {
-    icon: Monitor,
-    tag: "Responsive UI",
-    title: "Multi-Device",
-    desc: "Optimized for desktop, mobile and tablet.",
-  },
-  {
-    icon: Globe,
-    tag: "Multi-Currency",
-    title: "Global Ready",
-    desc: "Support for multiple currencies and regions.",
-  },
-  {
-    icon: Headphones,
-    tag: "24/7 VIP Desk",
-    title: "Ongoing Support",
-    desc: "Technical assistance and platform updates.",
-  },
-];
+const FEATURE_KEYS = [
+  { key: "fastSetup", icon: Zap },
+  { key: "yourBrand", icon: Sparkles },
+  { key: "provenGames", icon: Dices },
+  { key: "multiDevice", icon: Monitor },
+  { key: "globalReady", icon: Globe },
+  { key: "ongoingSupport", icon: Headphones },
+] as const;
 
 export default function Features() {
+  const t = useTranslations("home.features");
+  const features = FEATURE_KEYS.map((item) => ({
+    ...item,
+    tag: t(`items.${item.key}.tag`),
+    title: t(`items.${item.key}.title`),
+    desc: t(`items.${item.key}.desc`),
+  }));
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -129,7 +107,7 @@ export default function Features() {
         <div className="js-feat-heading text-center">
           <h2 className="flourish font-philosopher text-[clamp(1.6rem,4vw,2.4rem)] font-bold uppercase italic leading-tight tracking-wide">
             <span>
-              Features &amp; <span className="gold-text">benefits</span>
+              {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
             </span>
           </h2>
         </div>

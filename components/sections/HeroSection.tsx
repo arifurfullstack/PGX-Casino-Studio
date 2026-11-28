@@ -6,51 +6,16 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, Crown, Layers, Dices, Puzzle, BarChart3, Headphones } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 
-const features = [
-  {
-    icon: Crown,
-    title: "Premium",
-    subtitle: "Casino Designs",
-    href: "/designs",
-    badge: "12 Themes",
-  },
-  {
-    icon: Layers,
-    title: "Turnkey",
-    subtitle: "Setup",
-    href: "/packages",
-    badge: "Full Launch",
-  },
-  {
-    icon: Dices,
-    title: "Casino Games",
-    subtitle: "Included",
-    href: "/packages",
-    badge: "Slots & Tables",
-  },
-  {
-    icon: Puzzle,
-    title: "Add-On",
-    subtitle: "Modules",
-    href: "/modules",
-    badge: "Sports & Live",
-  },
-  {
-    icon: BarChart3,
-    title: "Scalable &",
-    subtitle: "Flexible",
-    href: "/modules",
-    badge: "Cloud Scale",
-  },
-  {
-    icon: Headphones,
-    title: "Professional",
-    subtitle: "Support",
-    href: "/contact",
-    badge: "24/7 VIP",
-  },
-];
+const FEATURE_ITEMS = [
+  { key: "designs", icon: Crown, href: "/designs" },
+  { key: "turnkey", icon: Layers, href: "/packages" },
+  { key: "games", icon: Dices, href: "/packages" },
+  { key: "addons", icon: Puzzle, href: "/modules" },
+  { key: "scalable", icon: BarChart3, href: "/modules" },
+  { key: "support", icon: Headphones, href: "/contact" },
+] as const;
 
 const HERO_PARTICLES = [
   { left: "12%", top: "22%", size: 5, color: "rgba(255, 224, 130, 0.9)" },
@@ -66,6 +31,18 @@ const HERO_PARTICLES = [
 ];
 
 export default function HeroSection() {
+  const locale = useLocale();
+  const t = useTranslations("home.hero");
+  const isEnglish = locale === "en";
+  const isRtl = locale === "ar";
+
+  const features = FEATURE_ITEMS.map((item) => ({
+    ...item,
+    title: t(`features.${item.key}.title`),
+    subtitle: t(`features.${item.key}.subtitle`),
+    badge: t(`features.${item.key}.badge`),
+  }));
+
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const spotlightRef = useRef<HTMLDivElement>(null);
@@ -867,16 +844,40 @@ export default function HeroSection() {
             />
 
             <div className="hero-headline-stage relative w-full h-full">
-              <Image
-                src="/images/royal-hero/royal-hero-headline.png"
-                alt="Launch Your Own Premium Online Casino - Starting at $15,000"
-                fill
-                priority
-                sizes="(max-width: 1672px) 45vw, 755px"
-                className="hero-headline-img object-contain object-left"
-              />
-              {/* Pixel-masked champagne-gold light glint sweep (ambient + hover) */}
-              <div className="hero-headline-mask-left" aria-hidden="true" />
+              {isEnglish ? (
+                <>
+                  <Image
+                    src="/images/royal-hero/royal-hero-headline.png"
+                    alt="Launch Your Own Premium Online Casino - Starting at $15,000"
+                    fill
+                    priority
+                    sizes="(max-width: 1672px) 45vw, 755px"
+                    className="hero-headline-img object-contain object-left"
+                  />
+                  {/* Pixel-masked champagne-gold light glint sweep (ambient + hover) */}
+                  <div className="hero-headline-mask-left" aria-hidden="true" />
+                </>
+              ) : (
+                <div
+                  dir={isRtl ? "rtl" : "ltr"}
+                  className={`flex h-full flex-col justify-center px-3 pt-10 ${
+                    isRtl ? "text-right" : "text-left"
+                  }`}
+                >
+                  <span className="font-philosopher text-[clamp(1.5rem,2.4vw,2.6rem)] font-bold uppercase leading-[1.08] tracking-wide text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.9)]">
+                    {t("headlineLine1")}
+                  </span>
+                  <h1 className="gold-text font-philosopher mt-1 text-[clamp(2rem,3.3vw,3.55rem)] font-black uppercase leading-[1.04] tracking-tight drop-shadow-[0_6px_24px_rgba(245,196,81,0.35)]">
+                    {t("headlineLine2")}
+                  </h1>
+                  <div className="mt-3 inline-flex w-fit items-center gap-2 rounded-full border border-[#f5c451]/70 bg-gradient-to-r from-[#2c094d]/90 to-[#140426]/90 px-4 py-1.5 shadow-[0_0_24px_rgba(245,196,81,0.3)]">
+                    <Crown size={16} className="fill-[#ffd75e] text-[#ffd75e]" />
+                    <span className="text-[clamp(0.95rem,1.4vw,1.45rem)] font-black uppercase tracking-wide text-[#ffe28a]">
+                      {t("startingAt")}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -884,7 +885,10 @@ export default function HeroSection() {
         {/* Tagline & Subtitle Paragraph Description */}
         <div
           ref={copyScrollRef}
-          className="absolute z-20 text-left will-change-transform"
+          dir={isRtl ? "rtl" : "ltr"}
+          className={`absolute z-20 will-change-transform ${
+            isRtl ? "text-right" : "text-left"
+          }`}
           style={{
             left: "4.9%",
             top: "56.6%",
@@ -892,12 +896,10 @@ export default function HeroSection() {
           }}
         >
           <p className="js-hero-copy text-[#ffd700] text-[clamp(11.5px,1.02vw,17px)] font-extrabold uppercase tracking-[0.045em] leading-snug mb-1.5 xl:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
-            WHITE-LABEL TURN KEY CASINO, NO LICENSE REQUIRED!
+            {t("tagline")}
           </p>
           <p className="js-hero-copy text-gray-100 text-[clamp(12px,1.12vw,18.5px)] font-normal leading-[1.38] tracking-normal drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-            Choose Your Design, Launch with Casino Slots &amp; Game Tables,
-            <br className="hidden sm:inline" />
-            and Build Your Casino Brand with a Complete Platform Solution.
+            {t("subtitle")}
           </p>
         </div>
 
@@ -917,10 +919,10 @@ export default function HeroSection() {
             onMouseLeave={handleMagneticLeave}
             className="js-hero-cta group/cta btn-royal-gold shine px-5 xl:px-7 2xl:px-8 py-2.5 xl:py-3.5 text-[clamp(12.5px,1.02vw,16.5px)] font-black tracking-tight will-change-transform"
           >
-            <span>Browse Casino Designs</span>
+            <span>{t("browseDesigns")}</span>
             <ArrowRight
               size={18}
-              className="stroke-[3] transition-transform duration-300 group-hover/cta:translate-x-1"
+              className="stroke-[3] rtl-flip transition-transform duration-300 group-hover/cta:translate-x-1"
             />
           </Link>
 
@@ -935,7 +937,7 @@ export default function HeroSection() {
               size={20}
               className="fill-[#ffd700] text-[#ffd700] stroke-[1.5] transition-transform duration-300 group-hover/cta:scale-115 group-hover/cta:-rotate-6"
             />
-            <span>Reserve A Casino</span>
+            <span>{t("reserveCasino")}</span>
           </Link>
         </div>
 
@@ -950,14 +952,21 @@ export default function HeroSection() {
           }}
         >
           <div ref={stripParallaxRef} className="relative w-full h-full will-change-transform">
-            <Image
-              src="/images/royal-hero/royal-hero-strip-pill.png"
-              alt="Royal Casino Club Features: Premium Casino Designs, Turnkey Setup, Casino Games Included, Add-On Modules, Scalable & Flexible, Professional Support"
-              fill
-              priority
-              sizes="1580px"
-              className="object-contain object-center drop-shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
-            />
+            {isEnglish ? (
+              <Image
+                src="/images/royal-hero/royal-hero-strip-pill.png"
+                alt="Royal Casino Club Features: Premium Casino Designs, Turnkey Setup, Casino Games Included, Add-On Modules, Scalable & Flexible, Professional Support"
+                fill
+                priority
+                sizes="1580px"
+                className="object-contain object-center drop-shadow-[0_10px_35px_rgba(0,0,0,0.7)]"
+              />
+            ) : (
+              <div
+                aria-hidden="true"
+                className="absolute inset-[10%_1.4%] rounded-full border border-[#f5c451]/60 bg-gradient-to-r from-[#1b0633]/92 via-[#2b0b4d]/92 to-[#1b0633]/92 shadow-[0_12px_38px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,243,196,0.28)] backdrop-blur-md"
+              />
+            )}
 
             {/* Gliding GSAP Champagne-Gold Hover Spotlight across the 6 Feature Slots */}
             <div className="pointer-events-none absolute inset-[10%_1.8%] z-30 overflow-hidden rounded-full">
@@ -975,24 +984,43 @@ export default function HeroSection() {
             {/* Interactive Clickable Hotspots mapped directly across the 6 features */}
             <div
               onMouseLeave={handleStripLeave}
-              className="absolute inset-0 grid grid-cols-6 z-40"
+              className="absolute inset-0 grid grid-cols-6 z-40 px-[1.8%]"
             >
-              {features.map((feat, idx) => (
-                <Link
-                  key={idx}
-                  href={feat.href}
-                  onMouseEnter={() => handleStripHover(idx)}
-                  className="group relative h-full flex items-center justify-center rounded-2xl transition-all duration-300"
-                  title={`${feat.title} ${feat.subtitle} - Click to learn more`}
-                >
-                  <span className="sr-only">
-                    {feat.title} {feat.subtitle}
-                  </span>
-                  <div className="opacity-0 group-hover:opacity-100 absolute -top-9 bg-[#1a0a2a]/95 text-[#ffd700] text-[11px] font-bold px-3.5 py-1.5 rounded-full border border-[#f5c451]/60 shadow-[0_6px_22px_rgba(0,0,0,0.65),0_0_18px_rgba(245,196,81,0.35)] pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] transform translate-y-1.5 scale-95 group-hover:translate-y-0 group-hover:scale-100 whitespace-nowrap">
-                    {feat.badge} &rarr;
-                  </div>
-                </Link>
-              ))}
+              {features.map((feat, idx) => {
+                const Icon = feat.icon;
+                return (
+                  <Link
+                    key={feat.key}
+                    href={feat.href}
+                    onMouseEnter={() => handleStripHover(idx)}
+                    className="group relative h-full flex items-center justify-center gap-2 rounded-2xl px-2 transition-all duration-300"
+                    title={`${feat.title} ${feat.subtitle}`}
+                  >
+                    {isEnglish ? (
+                      <span className="sr-only">
+                        {feat.title} {feat.subtitle}
+                      </span>
+                    ) : (
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="grid h-8 w-8 xl:h-9 xl:w-9 shrink-0 place-items-center rounded-xl border border-[#f5c451]/55 bg-[#2a0a4a] text-[#FFD700]">
+                          <Icon size={16} />
+                        </span>
+                        <div className="min-w-0 text-start">
+                          <p className="text-[11px] xl:text-xs font-bold text-white leading-tight truncate">
+                            {feat.title}
+                          </p>
+                          <p className="text-[10px] xl:text-[11px] font-semibold text-[#ffd75e] leading-tight truncate">
+                            {feat.subtitle}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    <div className="opacity-0 group-hover:opacity-100 absolute -top-9 bg-[#1a0a2a]/95 text-[#ffd700] text-[11px] font-bold px-3.5 py-1.5 rounded-full border border-[#f5c451]/60 shadow-[0_6px_22px_rgba(0,0,0,0.65),0_0_18px_rgba(245,196,81,0.35)] pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] transform translate-y-1.5 scale-95 group-hover:translate-y-0 group-hover:scale-100 whitespace-nowrap">
+                      {feat.badge} &rarr;
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -1012,36 +1040,53 @@ export default function HeroSection() {
         {/* Content Container */}
         <div className="relative z-10 w-full flex flex-col items-center">
           {/* Headline Image Responsive Scale (trimmed vertical margin to offset PNG transparent padding) */}
-          <div className="js-hero-mobile-stagger group/headline relative w-[108%] max-w-[460px] sm:max-w-[560px] md:max-w-[620px] aspect-[1448/1086] -mt-[8%] -mb-[10%] sm:-mt-[9%] sm:-mb-[10%] cursor-pointer">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-4 rounded-full opacity-45 blur-[40px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:scale-110 group-hover/headline:opacity-90"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 50% 50%, rgba(255, 215, 94, 0.3) 0%, rgba(224, 36, 255, 0.16) 52%, transparent 76%)",
-              }}
-            />
-            <div className="hero-headline-stage relative w-full h-full">
-              <Image
-                src="/images/royal-hero/royal-hero-headline.png"
-                alt="Launch Your Own Premium Online Casino - Starting at $15,000"
-                fill
-                priority
-                sizes="(max-width: 640px) 96vw, (max-width: 1024px) 620px, 620px"
-                className="hero-headline-img object-contain object-center"
+          {isEnglish ? (
+            <div className="js-hero-mobile-stagger group/headline relative w-[108%] max-w-[460px] sm:max-w-[560px] md:max-w-[620px] aspect-[1448/1086] -mt-[8%] -mb-[10%] sm:-mt-[9%] sm:-mb-[10%] cursor-pointer">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-4 rounded-full opacity-45 blur-[40px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/headline:scale-110 group-hover/headline:opacity-90"
+                style={{
+                  background:
+                    "radial-gradient(ellipse at 50% 50%, rgba(255, 215, 94, 0.3) 0%, rgba(224, 36, 255, 0.16) 52%, transparent 76%)",
+                }}
               />
-              <div className="hero-headline-mask-center" aria-hidden="true" />
+              <div className="hero-headline-stage relative w-full h-full">
+                <Image
+                  src="/images/royal-hero/royal-hero-headline.png"
+                  alt="Launch Your Own Premium Online Casino - Starting at $15,000"
+                  fill
+                  priority
+                  sizes="(max-width: 640px) 96vw, (max-width: 1024px) 620px, 620px"
+                  className="hero-headline-img object-contain object-center"
+                />
+                <div className="hero-headline-mask-center" aria-hidden="true" />
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="js-hero-mobile-stagger pt-4 pb-2 space-y-2 text-center">
+              <p className="font-philosopher text-2xl sm:text-3xl font-bold uppercase text-white">
+                {t("headlineLine1")}
+              </p>
+              <h1 className="gold-text font-philosopher text-3xl sm:text-5xl font-black uppercase leading-tight">
+                {t("headlineLine2")}
+              </h1>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#f5c451]/70 bg-[#23093d]/90 px-4 py-1.5">
+                <Crown size={15} className="fill-[#ffd75e] text-[#ffd75e]" />
+                <span className="text-sm sm:text-base font-black uppercase text-[#ffe28a]">
+                  {t("startingAt")}
+                </span>
+              </div>
+            </div>
+          )}
 
           {/* Tagline */}
           <p className="js-hero-mobile-stagger text-[#ffd700] text-[13px] sm:text-[15px] md:text-base font-extrabold uppercase tracking-[0.045em] leading-snug max-w-md sm:max-w-xl mt-2 mb-2 px-1 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] [text-shadow:0_0_16px_rgba(255,215,0,0.35)]">
-            WHITE-LABEL TURN KEY CASINO, NO LICENSE REQUIRED!
+            {t("tagline")}
           </p>
 
           {/* Subtitle */}
           <p className="js-hero-mobile-stagger text-gray-100/95 text-[13.5px] sm:text-[15px] md:text-base font-normal leading-relaxed max-w-md sm:max-w-xl mb-6 px-1 drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)]">
-            Choose Your Design, Launch with Casino Slots &amp; Game Tables, and Build Your Casino Brand with a Complete Platform Solution.
+            {t("subtitle")}
           </p>
 
           {/* Dual CTAs Stacked on Mobile / Side-by-Side on sm+ */}
@@ -1050,8 +1095,8 @@ export default function HeroSection() {
               href="/designs"
               className="btn-royal-gold shine w-full sm:w-auto min-h-[48px] px-6 sm:px-7 py-3.5 text-sm sm:text-[15px] font-black text-center"
             >
-              <span>Browse Casino Designs</span>
-              <ArrowRight size={17} className="stroke-[3]" />
+              <span>{t("browseDesigns")}</span>
+              <ArrowRight size={17} className="stroke-[3] rtl-flip" />
             </Link>
 
             <Link
@@ -1059,7 +1104,7 @@ export default function HeroSection() {
               className="btn-royal-purple-neon w-full sm:w-auto min-h-[48px] px-6 sm:px-7 py-3.5 text-sm sm:text-[15px] font-extrabold text-center"
             >
               <Crown size={18} className="fill-[#ffd700] text-[#ffd700] stroke-[1.5]" />
-              <span>Reserve A Casino</span>
+              <span>{t("reserveCasino")}</span>
             </Link>
           </div>
 

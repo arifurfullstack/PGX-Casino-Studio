@@ -4,29 +4,21 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Monitor, Layers, Send, ChevronsRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const steps = [
-  {
-    num: "01",
-    title: "1. Choose a Design",
-    desc: "Pick from our premium casino looks.",
-    icon: Monitor,
-  },
-  {
-    num: "02",
-    title: "2. Customize Your Package",
-    desc: "Start with the $15,000 package and add optional modules.",
-    icon: Layers,
-  },
-  {
-    num: "03",
-    title: "3. Reserve & Launch",
-    desc: "Reserve your casino, we set it up, brand it, and get you live!",
-    icon: Send,
-  },
-];
+const STEP_KEYS = [
+  { key: "step1", num: "01", icon: Monitor },
+  { key: "step2", num: "02", icon: Layers },
+  { key: "step3", num: "03", icon: Send },
+] as const;
 
 export default function HowItWorks() {
+  const t = useTranslations("home.howItWorks");
+  const steps = STEP_KEYS.map((item) => ({
+    ...item,
+    title: t(`steps.${item.key}.title`),
+    desc: t(`steps.${item.key}.desc`),
+  }));
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -151,7 +143,7 @@ export default function HowItWorks() {
         <div className="js-hiw-heading text-center">
           <h2 className="flourish font-philosopher text-[clamp(1.6rem,4vw,2.4rem)] font-bold uppercase italic leading-tight tracking-wide">
             <span>
-              <span className="gold-text">How it works</span>
+              {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
             </span>
           </h2>
         </div>
@@ -233,7 +225,7 @@ export default function HowItWorks() {
                   <div className="flex items-center justify-center">
                     <ChevronsRight
                       aria-hidden="true"
-                      className="js-hiw-chevron gold-icon h-6 w-6 rotate-90 lg:rotate-0 lg:h-9 lg:w-9 xl:h-11 xl:w-11 opacity-75 will-change-transform"
+                      className="js-hiw-chevron gold-icon rtl-flip h-6 w-6 rotate-90 lg:rotate-0 lg:h-9 lg:w-9 xl:h-11 xl:w-11 opacity-75 will-change-transform"
                     />
                   </div>
                 )}

@@ -31,6 +31,7 @@ import {
   Monitor,
   ShieldCheck,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import {
   CasinoDesign,
   TimelineOption,
@@ -84,22 +85,22 @@ const FALLBACK_PAYMENT_CONFIG: PublicPaymentConfig = {
   },
 };
 
-const TIMELINE_OPTIONS: { value: TimelineOption; label: string; badge: string }[] = [
-  { value: "immediately", label: "Immediately", badge: "Priority" },
-  { value: "within_30_days", label: "Within 30 Days", badge: "Fast-Track" },
-  { value: "within_1_3_months", label: "1–3 Months", badge: "Planned" },
-  { value: "within_3_6_months", label: "3–6 Months", badge: "Roadmap" },
-  { value: "just_exploring", label: "Just Exploring", badge: "Discovery" },
+const TIMELINE_KEYS: TimelineOption[] = [
+  "immediately",
+  "within_30_days",
+  "within_1_3_months",
+  "within_3_6_months",
+  "just_exploring",
 ];
 
-const REQUIREMENT_CHIPS = [
-  "Crypto Payments (USDT/BTC)",
-  "Fiat & Card Gateways",
-  "Evolution & Pragmatic Slots",
-  "VIP Loyalty & Rakeback",
-  "Multi-Language UI",
-  "Custom Brand Logo & Domain",
-];
+const CHIP_KEYS = [
+  "crypto",
+  "fiat",
+  "multilang",
+  "vip",
+  "affiliates",
+  "curacao",
+] as const;
 
 const AMBIENT_ORBS = [
   { left: "4%", top: "12%", size: 6, color: "rgba(255, 224, 130, 0.9)" },
@@ -137,6 +138,21 @@ export default function ReservationFlow({
   initialAddons = "",
   paymentConfig = FALLBACK_PAYMENT_CONFIG,
 }: ReservationFlowProps) {
+  const t = useTranslations("reservation.flow");
+  const tCommon = useTranslations("common");
+  const timelineOptions = useMemo(
+    () =>
+      TIMELINE_KEYS.map((val) => ({
+        value: val,
+        label: t(`timelines.${val}.label`),
+        badge: t(`timelines.${val}.badge`),
+      })),
+    [t]
+  );
+  const requirementChips = useMemo(
+    () => CHIP_KEYS.map((key) => t(`chips.${key}`)),
+    [t]
+  );
   // Match initial design by slug OR id (handles both /select-design?design=ruby-casino and ?design=<id>)
   const resolvedInitialDesign = useMemo(() => {
     if (initialDesignSlug) {
@@ -602,25 +618,21 @@ export default function ReservationFlow({
 
         <div className="js-res-hero-stagger inline-flex items-center gap-2 rounded-full border border-[#f5c451]/45 bg-[#1a0730]/80 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#ffe28a] backdrop-blur-md shadow-[0_0_24px_rgba(245,196,81,0.18)]">
           <Crown className="h-3.5 w-3.5 text-[#ffd75e] fill-[#ffd75e]/30" />
-          <span>Royal Casino Design Reservation Desk</span>
+          <span>{t("badge")}</span>
         </div>
 
         <h1 className="js-res-hero-stagger flourish font-philosopher text-[clamp(1.9rem,4.4vw,3.1rem)] font-bold uppercase italic leading-tight tracking-wide">
           <span>
-            Secure Your <span className="gold-text">Platform Look</span>
+            {t("headingPrefix")} <span className="gold-text">{t("headingHighlight")}</span>
           </span>
         </h1>
 
         <p className="js-res-hero-stagger mx-auto max-w-2xl text-sm sm:text-base text-white/75 leading-relaxed">
-          Select your luxury storefront theme, configure optional expansion modules in real time, and lock{" "}
-          <span className="font-semibold text-[#ffe28a]">
-            {pricingConfig.reservationDiscountPercent}% off for {holdDays} days
-          </span>{" "}
-          with a 100% refundable{" "}
-          <span className="font-semibold text-white">
-            ${pricingConfig.reservationFee.toLocaleString()} USD
-          </span>{" "}
-          holding deposit.
+          {t("subtitle", {
+            discount: pricingConfig.reservationDiscountPercent,
+            days: holdDays,
+            fee: pricingConfig.reservationFee.toLocaleString(),
+          })}
         </p>
 
         {/* Dynamic 3-Step Journey Tracker (Matches Homepage HowItWorks Medallions) */}
@@ -628,27 +640,27 @@ export default function ReservationFlow({
           {[
             {
               step: 1,
-              title: "Theme & Modules",
+              title: t("steps.step1Title"),
               sub: `${selectedDesign.name}${
                 selectedModules.length > 0
-                  ? ` + ${selectedModules.length} Add-On${selectedModules.length > 1 ? "s" : ""}`
+                  ? ` + ${t("steps.addonsCount", { count: selectedModules.length })}`
                   : ""
               }`,
               icon: Monitor,
             },
             {
               step: 2,
-              title: "Operator Details",
+              title: t("steps.step2Title"),
               sub:
                 completionPercent === 100
-                  ? "Ready to submit"
-                  : `${completionPercent}% profile complete`,
+                  ? t("steps.readyToSubmit")
+                  : t("steps.profileComplete", { percent: completionPercent }),
               icon: User,
             },
             {
               step: 3,
-              title: `Lock ${pricingConfig.reservationDiscountPercent}% Hold`,
-              sub: `$${pricingConfig.reservationFee} refundable deposit`,
+              title: t("steps.step3Title", { discount: pricingConfig.reservationDiscountPercent }),
+              sub: t("steps.refundableDeposit", { fee: pricingConfig.reservationFee.toLocaleString() }),
               icon: ShieldCheck,
             },
           ].map((item) => {
@@ -658,7 +670,7 @@ export default function ReservationFlow({
             return (
               <div
                 key={item.step}
-                className={`js-res-step-pill flex items-center gap-3 rounded-2xl border px-4 py-3 text-left backdrop-blur-md transition-all duration-300 ${
+                className={`js-res-step-pill flex items-center gap-3 rounded-2xl border px-4 py-3 text-start backdrop-blur-md transition-all duration-300 ${
                   isActive
                     ? "border-[#f5c451]/75 bg-gradient-to-r from-[#2e0b4e]/85 to-[#1a0532]/90 shadow-[0_0_24px_rgba(245,196,81,0.2)]"
                     : isComplete
@@ -714,23 +726,23 @@ export default function ReservationFlow({
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f5c451]">
-                  Step 01 • Visual Theme Selection
+                  {t("card1.eyebrow")}
                 </p>
                 <h2 className="mt-0.5 font-philosopher text-xl sm:text-2xl font-bold italic text-white">
-                  Choose Your <span className="gold-text">Casino Design</span>
+                  {t("card1.headingPrefix")} <span className="gold-text">{t("card1.headingHighlight")}</span>
                 </h2>
               </div>
 
               {/* Dynamic Search Filter */}
               <div className="relative w-full sm:w-56">
-                <Search className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/45" />
+                <Search className="pointer-events-none absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/45" />
                 <input
                   type="text"
                   value={themeQuery}
                   onChange={(e) => setThemeQuery(e.target.value)}
-                  placeholder="Search themes..."
-                  aria-label="Search casino themes"
-                  className="input !min-h-[40px] !py-2 !pl-9 !pr-3 !rounded-full text-xs placeholder:text-white/40"
+                  placeholder={t("card1.searchPlaceholder")}
+                  aria-label={t("card1.searchPlaceholder")}
+                  className="input !min-h-[40px] !py-2 !ps-9 !pe-3 !rounded-full text-xs placeholder:text-white/40"
                 />
               </div>
             </div>
@@ -745,7 +757,7 @@ export default function ReservationFlow({
                       key={design.slug}
                       type="button"
                       onClick={() => setSelectedSlug(design.slug)}
-                      className={`group/theme relative rounded-2xl overflow-hidden border text-left transition-all duration-300 ${
+                      className={`group/theme relative rounded-2xl overflow-hidden border text-start transition-all duration-300 ${
                         isSelected
                           ? `border-[#f5c451] bg-[#240942]/95 shadow-[0_0_26px_rgba(245,196,81,0.35)] -translate-y-0.5 theme-card-${design.slug}`
                           : "border-purple-400/25 bg-[#120424]/75 hover:border-[#f5c451]/60 hover:-translate-y-0.5 hover:bg-[#1c0735]/85"
@@ -763,9 +775,9 @@ export default function ReservationFlow({
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#120424] via-transparent to-transparent" />
 
                         {isSelected && (
-                          <span className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-[#ffe27a] to-[#e69d12] px-2 py-0.5 text-[10px] font-black uppercase text-[#261100] shadow-md">
+                          <span className="absolute top-2 end-2 inline-flex items-center gap-1 rounded-full bg-gradient-to-b from-[#ffe27a] to-[#e69d12] px-2 py-0.5 text-[10px] font-black uppercase text-[#261100] shadow-md">
                             <Check className="h-3 w-3 stroke-[3]" />
-                            Selected
+                            {t("card1.selected")}
                           </span>
                         )}
                       </div>
@@ -781,7 +793,7 @@ export default function ReservationFlow({
                           {design.name}
                         </p>
                         <p className="mt-0.5 text-[11px] text-white/55 truncate">
-                          {design.subtitle || "Turnkey VIP Theme"}
+                          {design.subtitle || t("card1.defaultThemeSub")}
                         </p>
                       </div>
                     </button>
@@ -790,13 +802,13 @@ export default function ReservationFlow({
               </div>
             ) : (
               <div className="relative z-10 rounded-2xl border border-purple-500/25 bg-[#120424]/70 p-6 text-center text-xs text-white/65">
-                No themes matched &ldquo;{themeQuery}&rdquo;.{" "}
+                {t("card1.noMatch", { query: themeQuery })}{" "}
                 <button
                   type="button"
                   onClick={() => setThemeQuery("")}
                   className="text-[#ffe28a] font-bold underline underline-offset-4"
                 >
-                  Clear filter
+                  {t("card1.clearFilter")}
                 </button>
               </div>
             )}
@@ -811,12 +823,12 @@ export default function ReservationFlow({
                 >
                   {showAllThemes ? (
                     <>
-                      <span>Show Fewer Designs</span>
+                      <span>{t("card1.showFewer")}</span>
                       <ChevronUp className="h-3.5 w-3.5" />
                     </>
                   ) : (
                     <>
-                      <span>Explore All {filteredDesigns.length} Casino Designs</span>
+                      <span>{t("card1.exploreAll", { count: filteredDesigns.length })}</span>
                       <ChevronDown className="h-3.5 w-3.5" />
                     </>
                   )}
@@ -833,19 +845,20 @@ export default function ReservationFlow({
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f5c451]">
-                  Step 02 • Optional Expansion Modules
+                  {t("card2.eyebrow")}
                 </p>
                 <h2 className="mt-0.5 font-philosopher text-xl sm:text-2xl font-bold italic text-white">
-                  Customize Your <span className="gold-text">Package</span>
+                  {t("card2.headingPrefix")} <span className="gold-text">{t("card2.headingHighlight")}</span>
                 </h2>
               </div>
               <span className="inline-flex items-center gap-1.5 text-xs text-white/65">
                 <Layers className="h-3.5 w-3.5 text-[#f5c451]" />
                 {selectedAddonIds.length === 0
-                  ? "Starter Package Only"
-                  : `${selectedAddonIds.length} Module${
-                      selectedAddonIds.length > 1 ? "s" : ""
-                    } Active (+$${addonsTotal.toLocaleString()})`}
+                  ? t("card2.starterOnly")
+                  : t("card2.activeModules", {
+                      count: selectedAddonIds.length,
+                      total: addonsTotal.toLocaleString(),
+                    })}
               </span>
             </div>
 
@@ -927,14 +940,14 @@ export default function ReservationFlow({
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f5c451]">
-                    Step 03 • Operator Onboarding Profile
+                    {t("card3.eyebrow")}
                   </p>
                   <h2 className="mt-0.5 font-philosopher text-xl sm:text-2xl font-bold italic text-white">
-                    Operator &amp; <span className="gold-text">Brand Details</span>
+                    {t("card3.headingPrefix")} <span className="gold-text">{t("card3.headingHighlight")}</span>
                   </h2>
                 </div>
                 <span className="rounded-full border border-[#f5c451]/40 bg-[#230940]/80 px-3 py-1 text-[11px] font-bold text-[#ffe28a]">
-                  {completionPercent}% Complete
+                  {t("card3.percentComplete", { percent: completionPercent })}
                 </span>
               </div>
 
@@ -960,14 +973,14 @@ export default function ReservationFlow({
                 <label className="grid gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <Crown className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Casino Brand Name <span className="text-[#ffd75e]">*</span>
+                    {t("card3.brandName")} <span className="text-[#ffd75e]">*</span>
                   </span>
                   <input
                     required
                     type="text"
                     value={brandName}
                     onChange={(e) => setBrandName(e.target.value)}
-                    placeholder="e.g. Royal VIP Casino"
+                    placeholder={t("card3.brandPlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 </label>
@@ -975,16 +988,16 @@ export default function ReservationFlow({
                 <label className="grid gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <Globe className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Target Domain{" "}
+                    {t("card3.targetDomain")}{" "}
                     <span className="font-normal normal-case text-white/45">
-                      (optional)
+                      ({tCommon("optional")})
                     </span>
                   </span>
                   <input
                     type="text"
                     value={domainPreference}
                     onChange={(e) => setDomainPreference(e.target.value)}
-                    placeholder="e.g. royalvip.com"
+                    placeholder={t("card3.domainPlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 </label>
@@ -995,7 +1008,7 @@ export default function ReservationFlow({
                 <label className="grid gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <User className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Operator Full Name <span className="text-[#ffd75e]">*</span>
+                    {t("card3.fullName")} <span className="text-[#ffd75e]">*</span>
                   </span>
                   <input
                     required
@@ -1003,7 +1016,7 @@ export default function ReservationFlow({
                     type="text"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    placeholder="John Smith"
+                    placeholder={t("card3.fullNamePlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 </label>
@@ -1011,9 +1024,9 @@ export default function ReservationFlow({
                 <label className="grid gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <Building2 className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Business / Company{" "}
+                    {t("card3.company")}{" "}
                     <span className="font-normal normal-case text-white/45">
-                      (optional)
+                      ({tCommon("optional")})
                     </span>
                   </span>
                   <input
@@ -1021,7 +1034,7 @@ export default function ReservationFlow({
                     type="text"
                     value={companyName}
                     onChange={(e) => setCompanyName(e.target.value)}
-                    placeholder="Gaming Holdings Ltd."
+                    placeholder={t("card3.companyPlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 </label>
@@ -1032,7 +1045,7 @@ export default function ReservationFlow({
                 <label className="grid gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <Mail className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Email Address <span className="text-[#ffd75e]">*</span>
+                    {t("card3.email")} <span className="text-[#ffd75e]">*</span>
                   </span>
                   <input
                     required
@@ -1040,7 +1053,7 @@ export default function ReservationFlow({
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    placeholder="john@example.com"
+                    placeholder={t("card3.emailPlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 </label>
@@ -1048,7 +1061,7 @@ export default function ReservationFlow({
                 <label className="grid gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <Phone className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Phone Number <span className="text-[#ffd75e]">*</span>
+                    {t("card3.phone")} <span className="text-[#ffd75e]">*</span>
                   </span>
                   <input
                     required
@@ -1056,7 +1069,7 @@ export default function ReservationFlow({
                     type="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+1 (416) 555-0199"
+                    placeholder={t("card3.phonePlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 </label>
@@ -1067,7 +1080,7 @@ export default function ReservationFlow({
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                     <MessageSquare className="h-3.5 w-3.5 text-[#f5c451]" />
-                    WhatsApp Number
+                    {t("card3.whatsapp")}
                   </span>
                   <label className="inline-flex items-center gap-2 text-xs text-white/75 cursor-pointer select-none">
                     <input
@@ -1076,7 +1089,7 @@ export default function ReservationFlow({
                       onChange={(e) => setSameAsPhone(e.target.checked)}
                       className="h-3.5 w-3.5 rounded border-purple-400/50 bg-[#0d031b] accent-[#f5c451] cursor-pointer"
                     />
-                    <span>Same as phone number</span>
+                    <span>{t("card3.sameAsPhone")}</span>
                   </label>
                 </div>
 
@@ -1085,7 +1098,7 @@ export default function ReservationFlow({
                     type="tel"
                     value={whatsapp}
                     onChange={(e) => setWhatsapp(e.target.value)}
-                    placeholder="Enter separate WhatsApp number"
+                    placeholder={t("card3.whatsappPlaceholder")}
                     className="input font-normal text-sm placeholder:text-white/35"
                   />
                 )}
@@ -1095,12 +1108,12 @@ export default function ReservationFlow({
               <div className="space-y-2">
                 <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-white/85">
                   <Clock className="h-3.5 w-3.5 text-[#f5c451]" />
-                  When Are You Looking to Launch?{" "}
+                  {t("card3.launchTimeline")}{" "}
                   <span className="text-[#ffd75e]">*</span>
                 </span>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2">
-                  {TIMELINE_OPTIONS.map((opt) => {
+                  {timelineOptions.map((opt) => {
                     const active = intendedTimeline === opt.value;
                     return (
                       <button
@@ -1134,18 +1147,18 @@ export default function ReservationFlow({
                 <span className="flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-wider text-white/85">
                   <span className="flex items-center gap-1.5">
                     <Sparkles className="h-3.5 w-3.5 text-[#f5c451]" />
-                    Project Requirements{" "}
+                    {t("card3.requirements")}{" "}
                     <span className="font-normal normal-case text-white/45">
-                      (optional)
+                      ({tCommon("optional")})
                     </span>
                   </span>
                   <span className="text-[10px] font-normal normal-case text-white/50">
-                    Tap tags to quick-add
+                    {t("card3.tapTags")}
                   </span>
                 </span>
 
                 <div className="flex flex-wrap gap-1.5">
-                  {REQUIREMENT_CHIPS.map((chip) => {
+                  {requirementChips.map((chip) => {
                     const active = projectRequirements.includes(chip);
                     return (
                       <button
@@ -1169,7 +1182,7 @@ export default function ReservationFlow({
                   rows={3}
                   value={projectRequirements}
                   onChange={(e) => setProjectRequirements(e.target.value)}
-                  placeholder="Mention target geography, preferred game providers, crypto/fiat payment preferences, or compliance needs..."
+                  placeholder={t("card3.requirementsPlaceholder")}
                   className="input font-normal text-sm placeholder:text-white/35 resize-none"
                 />
               </div>
@@ -1185,19 +1198,17 @@ export default function ReservationFlow({
                 <Lock className="h-4 w-4 stroke-[2.5]" />
                 <span>
                   {loading
-                    ? "Initializing Your Reservation Desk..."
-                    : `Continue With ${selectedDesign.name}`}
+                    ? t("card3.initializing")
+                    : t("card3.continueWith", { design: selectedDesign.name })}
                 </span>
-                {!loading && <ArrowRight className="h-4 w-4 stroke-[2.5]" />}
+                {!loading && <ArrowRight className="h-4 w-4 stroke-[2.5] rtl-flip" />}
               </button>
 
               <p className="text-center text-[11.5px] text-white/55">
-                Next step lets you either{" "}
-                <strong className="text-[#ffe28a]">
-                  lock {pricingConfig.reservationDiscountPercent}% off with a refundable $
-                  {pricingConfig.reservationFee} hold
-                </strong>{" "}
-                or continue as a free standard inquiry.
+                {t("card3.nextStepNote", {
+                  discount: pricingConfig.reservationDiscountPercent,
+                  fee: pricingConfig.reservationFee.toLocaleString(),
+                })}
               </p>
             </div>
           </section>

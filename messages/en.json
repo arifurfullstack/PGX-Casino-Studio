@@ -1,0 +1,845 @@
+{
+  "common": {
+    "brandName": "Royal Casino Club",
+    "usd": "USD",
+    "optional": "optional",
+    "viewDemo": "View Demo",
+    "selectDesign": "Select Design",
+    "reserveCasino": "Reserve A Casino",
+    "close": "Close",
+    "loading": "Loading...",
+    "pagesCount": "{count, plural, one {# Page} other {# Pages}}",
+    "off": "Off"
+  },
+  "languageModal": {
+    "titlePrefix": "Select Your",
+    "titleHighlight": "Language",
+    "subtitle": "Choose your preferred language to browse Royal Casino Club's turnkey casino designs, packages, and operator solutions.",
+    "hint": "You can switch your language anytime from the top navigation bar.",
+    "continueDefault": "Continue in English",
+    "closeLabel": "Close language selector"
+  },
+  "nav": {
+    "links": {
+      "home": "Home",
+      "designs": "Casino Designs",
+      "packages": "Packages",
+      "modules": "Add-On Modules",
+      "howItWorks": "How It Works",
+      "proposal": "Proposal",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+    "clientPortal": "Client Portal",
+    "portalTitle": "B2B Client Portal",
+    "reserveCasino": "Reserve A Casino",
+    "backToDesigns": "Back to Designs",
+    "languageLabel": "Language",
+    "toggleMenu": "Toggle navigation menu",
+    "mobileFooterTag": "Royal Casino Club • Premium Online Solutions"
+  },
+  "footer": {
+    "description": "Royal Casino Club provides premium turnkey online casino software solutions, empowering operators to launch customized, high-converting casinos worldwide.",
+    "quickLinksTitle": "Quick links",
+    "companyTitle": "Company",
+    "getInTouchTitle": "Get in touch",
+    "whatsappSuffix": "WhatsApp",
+    "reserveHoldCta": "Reserve A Casino ($1,000 USD Hold)",
+    "copyright": "© 2026 {name}. All Rights Reserved.",
+    "developedBy": "Developed by Huipper"
+  },
+  "home": {
+    "hero": {
+      "headlineLine1": "Launch Your Own",
+      "headlineLine2": "Premium Online Casino",
+      "startingAt": "Starting at $15,000",
+      "tagline": "WHITE-LABEL TURNKEY CASINO, NO LICENSE REQUIRED!",
+      "subtitle": "Choose Your Design, Launch with Casino Slots & Game Tables, and Build Your Casino Brand with a Complete Platform Solution.",
+      "browseDesigns": "Browse Casino Designs",
+      "reserveCasino": "Reserve A Casino",
+      "features": {
+        "designs": {
+          "title": "Premium",
+          "subtitle": "Casino Designs",
+          "badge": "12 Themes"
+        },
+        "turnkey": {
+          "title": "Turnkey",
+          "subtitle": "Setup",
+          "badge": "Full Launch"
+        },
+        "games": {
+          "title": "Casino Games",
+          "subtitle": "Included",
+          "badge": "Slots & Tables"
+        },
+        "addons": {
+          "title": "Add-On",
+          "subtitle": "Modules",
+          "badge": "Sports & Live"
+        },
+        "scalable": {
+          "title": "Scalable &",
+          "subtitle": "Flexible",
+          "badge": "Cloud Scale"
+        },
+        "support": {
+          "title": "Professional",
+          "subtitle": "Support",
+          "badge": "24/7 VIP"
+        }
+      }
+    },
+    "starterPackage": {
+      "ribbon": "Turnkey Royal Platform",
+      "badge": "Starter Package",
+      "heading": "Launch Your Branded Casino",
+      "description": "Complete turnkey casino with slots & game tables.",
+      "includedTitle": "Included:",
+      "included": {
+        "designTitle": "Your selected casino design",
+        "slotsTitle": "Online casino slots",
+        "tablesTitle": "Casino game tables",
+        "tablesDetail": "(Blackjack, Roulette, Baccarat & more)",
+        "brandingTitle": "Your casino branding",
+        "brandingDetail": "(Logo, colors & domain setup)"
+      },
+      "addonsTitle": "Available add-on modules:",
+      "addons": {
+        "liveDealer": "Live Dealer Tables",
+        "poker": "Poker Platform",
+        "sportsbook": "Sportsbook",
+        "sweepstakes": "Sweepstakes & Social"
+      },
+      "addonsNote": "Optional modules quoted separately. Message us on WhatsApp to add them to your casino."
+    },
+    "designsSection": {
+      "headingPrefix": "Choose your",
+      "headingHighlight": "casino design",
+      "viewAll": "View All Designs",
+      "viewDemo": "View Demo",
+      "selectDesign": "Select Design"
+    },
+    "howItWorks": {
+      "headingPrefix": "How It",
+      "headingHighlight": "Works",
+      "steps": {
+        "step1": {
+          "title": "1. Choose a Design",
+          "desc": "Pick from our premium casino looks."
+        },
+        "step2": {
+          "title": "2. Customize Your Package",
+          "desc": "Start with the $15,000 package and add optional modules."
+        },
+        "step3": {
+          "title": "3. Reserve & Launch",
+          "desc": "Reserve your casino, we set it up, brand it, and get you live!"
+        }
+      }
+    },
+    "features": {
+      "headingPrefix": "Why choose",
+      "headingHighlight": "Royal Casino Club",
+      "items": {
+        "fastSetup": {
+          "tag": "Rapid Launch",
+          "title": "Fast Setup",
+          "desc": "Get online quickly and start operating."
+        },
+        "yourBrand": {
+          "tag": "White-Label",
+          "title": "Your Brand",
+          "desc": "Fully tailored with your name, colors, and identity."
+        },
+        "provenGames": {
+          "tag": "Top Providers",
+          "title": "Proven Games",
+          "desc": "High-performing slots and popular table games."
+        },
+        "multiDevice": {
+          "tag": "Responsive UI",
+          "title": "Multi-Device",
+          "desc": "Optimized for desktop, mobile and tablet."
+        },
+        "globalReady": {
+          "tag": "Multi-Currency",
+          "title": "Global Ready",
+          "desc": "Support for multiple currencies and regions."
+        },
+        "ongoingSupport": {
+          "tag": "24/7 VIP Desk",
+          "title": "Ongoing Support",
+          "desc": "Technical assistance and platform updates."
+        }
+      }
+    },
+    "about": {
+      "headingHighlight": "About us",
+      "description": "Royal Casino Club provides premium turnkey online casino software solutions, empowering operators to launch customized, high-converting casinos worldwide."
+    },
+    "faq": {
+      "headingPrefix": "Frequently Asked",
+      "headingHighlight": "Questions",
+      "items": {
+        "q1": {
+          "q": "How much does it cost to launch a casino?",
+          "a": "The Starter Package is $15,000 USD. It includes your selected casino design, online casino slots, casino game tables and your casino branding (logo, colors and domain setup)."
+        },
+        "q2": {
+          "q": "What is included in the Starter Package?",
+          "a": "Your selected casino design, online casino slots, casino game tables (e.g. Blackjack, Roulette, Baccarat) and your casino branding: logo, colors and domain setup."
+        },
+        "q3": {
+          "q": "Which add-on modules are available?",
+          "a": "Live Dealer Tables, Sportsbook, Poker Platform and Sweepstakes. They are optional and quoted separately, so message us with the ones you want."
+        },
+        "q4": {
+          "q": "How do I reserve a casino?",
+          "a": "Choose a design and message us on WhatsApp. A $1,000 hold reserves your casino, then we set it up, brand it and get you live."
+        },
+        "q5": {
+          "q": "Can I see a design before I choose?",
+          "a": "Yes. Tap \"View Demo\" on any design and we will send you its live demo on WhatsApp."
+        },
+        "q6": {
+          "q": "Will the casino carry my own brand?",
+          "a": "Yes. It launches with your name, logo, colors and your own domain."
+        },
+        "q7": {
+          "q": "What is the GGR split?",
+          "a": "Platform gets 25%, 75% Profit is yours!"
+        }
+      }
+    },
+    "contact": {
+      "vipOnline": "VIP Concierge Online",
+      "deskBadge": "Direct Operator Desk",
+      "headingPrefix": "Get in",
+      "headingHighlight": "touch",
+      "subtitle": "Tell us which design you like and which modules you need. We reply directly on WhatsApp.",
+      "whatsappSuffix": "WhatsApp",
+      "reserveCta": "Reserve A Casino ($1,000 USD Hold)",
+      "formTitlePrefix": "Send us a",
+      "formTitleHighlight": "message",
+      "formSubtitle": "Instant priority response from our VIP launch team.",
+      "nameLabel": "Your name",
+      "namePlaceholder": "Enter your name",
+      "phoneLabel": "Phone / WhatsApp",
+      "phonePlaceholder": "e.g. +1 (416) 555-0123",
+      "emailLabel": "Email",
+      "emailPlaceholder": "you@domain.com",
+      "messageLabel": "How can we help?",
+      "messagePlaceholder": "Tell us about your casino goals...",
+      "submitBtn": "Send on WhatsApp"
+    },
+    "ctaBanner": {
+      "line1": "Ready to launch",
+      "line2": "your own casino?",
+      "subtitle": "Choose a design, customize your package, and reserve a casino today!",
+      "cta": "Reserve A Casino"
+    }
+  },
+  "designs": {
+    "catalog": {
+      "badge": "Turnkey Casino Design Marketplace",
+      "headingPrefix": "Choose Your",
+      "headingHighlight": "Casino Design",
+      "subtitle": "Explore {count} luxury white-label storefronts engineered for player conversion. Launch starting at ${price} USD or lock {discount}% off with a refundable ${fee} hold.",
+      "searchPlaceholder": "Search themes, styles, or tags...",
+      "categories": {
+        "All": "All",
+        "Luxury": "Luxury",
+        "Neon": "Neon",
+        "VIP": "VIP",
+        "Classic": "Classic",
+        "Futuristic": "Futuristic"
+      },
+      "sort": {
+        "featured": "Featured Order",
+        "nameAsc": "Name (A–Z)",
+        "nameDesc": "Name (Z–A)"
+      },
+      "gridView": "Grid",
+      "showcaseView": "Showcase",
+      "showing": "Showing {filtered} of {total} luxury casino themes",
+      "inCategory": "in {category}",
+      "tip": "Tip: Click the eye icon for instant preview, or select up to 3 themes to compare side-by-side.",
+      "emptyTitle": "No Casino Designs Found",
+      "emptySubtitle": "No themes matched your current filter or search query.",
+      "resetFilters": "Reset All Filters",
+      "bannerBadge": "Bespoke Casino Branding Included",
+      "bannerHeadingPrefix": "Want a Custom Branded",
+      "bannerHeadingHighlight": "Turnkey Launch?",
+      "bannerBody": "Every theme ships with your own logo, color accents, domain, slots & table games. Reserve now to lock {discount}% off (${discountedPrice} USD) for {days} days.",
+      "chatWhatsapp": "Chat on WhatsApp",
+      "compareLabel": "Compare ({count}/3)",
+      "clear": "Clear",
+      "compareNow": "Compare Now",
+      "themeTagSuffix": "Theme",
+      "starterPackage": "Starter Package",
+      "withHoldLock": "With {discount}% Hold Lock",
+      "includesLabel": "Includes",
+      "includesSummary": "Slots, Tables & Brand",
+      "selectCustomize": "Select & Customize {name}",
+      "openInteractiveDemo": "Open Interactive Demo",
+      "comparisonEyebrow": "Side-by-Side Comparison",
+      "comparisonTitlePrefix": "Compare Your",
+      "comparisonTitleHighlight": "Shortlisted Themes",
+      "starterPriceLabel": "Starter Price",
+      "holdLockDiscount": "Hold Lock ({discount}% Off)",
+      "operatorGgr": "Operator GGR",
+      "yoursPercent": "{share}% Yours",
+      "selectTheme": "Select {name}",
+      "liveDemo": "Live Demo",
+      "defaultSubtitle": "Turnkey Luxury Storefront"
+    },
+    "demo": {
+      "demoPages": "Demo Pages:",
+      "interactiveLobby": "Interactive Lobby",
+      "fullBrowserDemo": "Full Browser Demo",
+      "casinoLabel": "Casino",
+      "turnkeyDemo": "Turnkey Demo",
+      "searchGames": "Search Games",
+      "featuredGames": "Featured Games",
+      "viewAllGames": "View All Games",
+      "instantPlay": "Instant Play",
+      "liveSimulation": "Live Turnkey Game Simulation",
+      "simulationBody": "In production, this launches the licensed Pragmatic Play / Evolution Gaming iframe with real wallet synchronization.",
+      "closeDemo": "Close Demo",
+      "tabs": {
+        "home": "Home",
+        "slots": "Slots",
+        "live": "Live Dealer Casino",
+        "sports": "Sportsbook",
+        "poker": "Poker Platform"
+      },
+      "sidebar": {
+        "title": "Casino Design Demo",
+        "selectedLook": "Selected Demo Look",
+        "basicPackage": "Basic Package",
+        "includedLine": "Casino Table Games & Online Slots Included",
+        "addonModules": "Add-On Modules",
+        "ggrShare": "GGR Share",
+        "ourCompany": "Our Company: {share}%",
+        "yourShare": "Your Share: {share}%",
+        "totalEstimate": "Total Estimate:",
+        "selectThisDesign": "Select This Design",
+        "requestQuote": "Request a Quote",
+        "viewAllDesigns": "View All Designs"
+      },
+      "modal": {
+        "protected": "Protected",
+        "desktopView": "Desktop View",
+        "tabletView": "Tablet View",
+        "mobileView": "Mobile View",
+        "fullscreen": "Fullscreen",
+        "exitFullscreen": "Exit Fullscreen",
+        "liveUiDemo": "Live UI Demo",
+        "pages": "Pages",
+        "viewingOf": "Viewing {page} of {design} — Protected Demo",
+        "nextPage": "Next: {page}",
+        "reserveDesign": "Reserve {design}"
+      }
+    }
+  },
+  "pages": {
+    "packages": {
+      "badge": "Transparent Turnkey Investment",
+      "headingPrefix": "Simple, Transparent",
+      "headingHighlight": "Pricing",
+      "subtitle": "Everything you need to launch a high-converting global online casino. No hidden development fees, certified games, and flexible modular upgrades.",
+      "popularTag": "Most Popular • Turnkey",
+      "oneTimeSetup": "USD One-Time Setup",
+      "refundableHold": "$1,000 Refundable Reservation",
+      "whatsIncluded": "What's Included In Starter Package:",
+      "ggrSplit": "GGR Split: 75% Operator / 25% Platform • 5-Day Price Hold",
+      "reserveCta": "Select Design & Reserve ($1,000)",
+      "addonsHeading": "Optional Expansion Modules",
+      "addonsSubtitle": "Add specialized gaming verticals anytime during or after initial setup.",
+      "oneTimeAddon": "USD One-Time Add-On",
+      "addModule": "Add Module",
+      "starter": {
+        "subtitle": "STARTER PACKAGE",
+        "description": "A complete casino website with your chosen design, including casino slots and game tables.",
+        "includes": {
+          "design": {
+            "title": "Your selected casino design",
+            "sub": ""
+          },
+          "slots": {
+            "title": "Online casino slots",
+            "sub": ""
+          },
+          "tables": {
+            "title": "Casino game tables",
+            "sub": "(e.g. Blackjack, Roulette, Baccarat, etc.)"
+          },
+          "branding": {
+            "title": "Your casino branding",
+            "sub": "(logo, colors, and domain setup)"
+          }
+        }
+      },
+      "addons": {
+        "live-dealer": {
+          "name": "Live Dealer Tables",
+          "description": "Real-time streaming HD dealer tables and multi-seat lobbies"
+        },
+        "sportsbook": {
+          "name": "Sportsbook",
+          "description": "Global sports events, in-play betting, live odds feed"
+        },
+        "poker": {
+          "name": "Poker Platform",
+          "description": "Texas Hold'em, Omaha, cash tables, and tournament systems"
+        },
+        "sweepstakes": {
+          "name": "Sweepstakes",
+          "description": "Dual-currency social gaming compliant sweepstakes engine"
+        }
+      }
+    },
+    "modules": {
+      "badge": "Modular Ecosystem",
+      "headingPrefix": "Expansion",
+      "headingHighlight": "Add-On Modules",
+      "subtitle": "Scale your gaming empire with turnkey vertical integrations. Add modules during initial configuration or seamlessly deploy them as your player base expands.",
+      "addToPackage": "Add Module To Package",
+      "customInquiry": "Custom Inquiry",
+      "items": {
+        "live-dealer": {
+          "title": "Live Dealer Casino",
+          "description": "Real human croupiers broadcasting 24/7 in 4K resolution. Support for Live Roulette, Blackjack, Baccarat, and interactive game shows.",
+          "features": [
+            "Low-latency ultra HD video streaming",
+            "Multi-angle high roller VIP tables",
+            "Multi-language native dealing staff",
+            "Evolution & Pragmatic Live game integrations"
+          ]
+        },
+        "sportsbook": {
+          "title": "Global Sportsbook Engine",
+          "description": "Complete turnkey sportsbook covering 60+ sports, 50,000+ live monthly events, automated odds management, and instant bet settlement.",
+          "features": [
+            "Football, Basketball, Tennis, Cricket & Esports",
+            "Pre-match and in-play live betting feeds",
+            "Cash-out feature & accumulator bonus system",
+            "Automated risk management & margin controls"
+          ]
+        },
+        "poker": {
+          "title": "Multiplayer Poker Platform",
+          "description": "Global network liquidity or private branded poker rooms supporting Texas Hold'em, Omaha, Sit & Go, and multi-table tournaments.",
+          "features": [
+            "Desktop, mobile web & native playable clients",
+            "Anti-collusion AI & real-time bot detection",
+            "Customizable rakeback & VIP tournament lobbies",
+            "Private club tables & automated chip transfers"
+          ]
+        },
+        "sweepstakes": {
+          "title": "Sweepstakes & Social Casino",
+          "description": "Dual-currency promotional gaming architecture engineered for North American and emerging regulated social casino markets.",
+          "features": [
+            "Gold Coins (Entertainment) & Sweeps Coins (Prize)",
+            "Automated prize redemption & KYC verification",
+            "Daily login bonuses & social referral engines",
+            "US/Canada sweepstakes compliance workflows"
+          ]
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Turnkey Launch Framework",
+      "headingPrefix": "From Concept to Live Players in",
+      "headingHighlight": "3 Steps",
+      "subtitle": "We handle the heavy lifting: certified game licensing, frontend customization, server architecture, and payment gateways.",
+      "ctaTitle": "Ready to Lock Your Casino Design?",
+      "ctaSubtitle": "Place a 100% refundable $1,000 holding deposit to lock in 5% savings and 5-day design exclusivity.",
+      "ctaButton": "Start Selection Now",
+      "steps": {
+        "step1": {
+          "title": "Choose Your Casino Design",
+          "subtitle": "Frontend Theme & Aesthetic",
+          "turnaround": "1–2 days",
+          "description": "Browse our catalog of 12 luxury online casino themes (Royal Prestige, Neon Vegas, Emerald Club, etc.). Each design comes with responsive desktop and mobile layouts.",
+          "deliverables": [
+            "Full responsive Next.js frontend source code",
+            "Tailored color palette and custom branding",
+            "Dynamic banner animations and slot lobby interface"
+          ]
+        },
+        "step2": {
+          "title": "Customize Your Package",
+          "subtitle": "Modules & Payment Integrations",
+          "turnaround": "3–5 days",
+          "description": "Start with our $15,000 USD core package (table games & slots) and add expansion modules anytime (Live Dealer, Sportsbook, Poker, or Sweepstakes).",
+          "deliverables": [
+            "Custom domain and cloud hosting deployment",
+            "Multi-currency fiat & crypto payment gateway setup",
+            "Certified RNG slots library with single-wallet sync"
+          ]
+        },
+        "step3": {
+          "title": "Launch & Operate",
+          "subtitle": "21–30 Days Turnkey Handover",
+          "turnaround": "21–30 days",
+          "description": "Our engineering team deploys your casino cluster on private high-availability servers. We provide full admin backoffice training and ongoing 24/7 technical support.",
+          "deliverables": [
+            "Comprehensive player management backoffice",
+            "Automated affiliate & bonus tracking engines",
+            "Dedicated 24/7 VIP enterprise technical desk"
+          ]
+        }
+      }
+    },
+    "about": {
+      "badge": "Royal Casino Club Enterprise",
+      "headingPrefix": "Powering Global",
+      "headingHighlight": "Gaming Operators",
+      "subtitle": "We architect, design, and deploy turnkey white-label online casino infrastructures. Our turnkey frameworks eliminate years of engineering overhead, allowing brands to launch globally in weeks.",
+      "ctaDesigns": "Browse Casino Designs",
+      "ctaQuote": "Request Custom Quote",
+      "stats": {
+        "uptime": { "label": "Uptime SLA", "value": "99.99%", "desc": "Enterprise cloud hosting" },
+        "themes": { "label": "Turnkey Themes", "value": "12+", "desc": "Customizable high-converting UI" },
+        "delivery": { "label": "Delivery Time", "value": "21-30 Days", "desc": "Turnkey launch schedule" },
+        "reach": { "label": "Global Reach", "value": "40+ Countries", "desc": "Multi-currency & crypto ready" }
+      },
+      "pillars": {
+        "games": {
+          "title": "Licensed Game Aggregation",
+          "desc": "Seamless single-wallet integration with over 5,000+ certified slots, live dealer tables, and sports feeds from top tier gaming studios."
+        },
+        "infra": {
+          "title": "High-Availability Infrastructure",
+          "desc": "Distributed microservices deployed across low-latency edge servers with automated DDoS mitigation and multi-datacenter redundancy."
+        },
+        "wallets": {
+          "title": "Global Fiat & Crypto Wallets",
+          "desc": "Built-in support for Visa, Mastercard, instant bank transfers, Apple Pay, and leading cryptocurrencies (BTC, ETH, USDT, TRX)."
+        },
+        "partnership": {
+          "title": "Dedicated B2B Partnership",
+          "desc": "We don't operate consumer casinos; our entire focus is empowering B2B operators with software reliability, backoffice tools, and scale."
+        }
+      }
+    },
+    "contact": {
+      "badge": "24/7 B2B Inquiries",
+      "headingPrefix": "Request a",
+      "headingHighlight": "Quotation",
+      "subtitle": "Ready to deploy your branded casino? Fill out the project brief below, or connect directly with our technical advisors on WhatsApp or Telegram.",
+      "directChannels": "Direct Channels",
+      "emailInquiries": "Email Inquiries",
+      "whatsappBusiness": "WhatsApp Business",
+      "telegramOfficial": "Telegram Official",
+      "supportAvailability": "Support Availability",
+      "supportHours": "24 Hours / 7 Days a Week",
+      "depositTitle": "Refundable Deposit",
+      "depositBody": "All platform reservations include a $1,000 USD refundable holding deposit to lock in your exclusive territory and theme.",
+      "form": {
+        "successTitle": "Inquiry Received Successfully!",
+        "reference": "Reference: {ref}",
+        "successBody": "Thank you for reaching out. A Royal Casino Club enterprise technical coordinator will contact you via Email and WhatsApp within 4 business hours.",
+        "viewReceipt": "View Official Submission Receipt",
+        "fullName": "Full Name *",
+        "fullNamePlaceholder": "John Doe",
+        "businessEmail": "Business Email *",
+        "businessEmailPlaceholder": "john@company.com",
+        "phoneNumber": "Phone Number *",
+        "phonePlaceholder": "+1 (555) 000-0000",
+        "whatsappNumber": "WhatsApp Number (Optional)",
+        "company": "Company / Organization",
+        "companyPlaceholder": "Gaming Ventures Ltd.",
+        "targetDesign": "Target Casino Design",
+        "whenToStart": "When Looking to Start?",
+        "timeline": {
+          "immediately": "Immediately",
+          "within_30_days": "Within 30 Days",
+          "within_1_3_months": "Within 1–3 Months",
+          "within_3_6_months": "Within 3–6 Months",
+          "just_exploring": "Just Exploring"
+        },
+        "requirements": "Project Requirements / Notes",
+        "requirementsPlaceholder": "Describe your target market, target languages, crypto/fiat requirements...",
+        "submitting": "Submitting Request...",
+        "submit": "Submit Quotation Request"
+      }
+    }
+  },
+  "reservation": {
+    "flow": {
+      "badge": "VIP Operator Reservation Desk",
+      "headingPrefix": "Configure & Reserve",
+      "headingHighlight": "Your Casino",
+      "subtitle": "Pick your luxury storefront, customize modular gaming verticals, and lock {discount}% off your entire package for {days} days with a 100% refundable ${fee} USD holding deposit.",
+      "steps": {
+        "step1Title": "Theme & Modules",
+        "step2Title": "Operator Details",
+        "readyToSubmit": "Ready to submit",
+        "profileComplete": "{percent}% profile complete",
+        "step3Title": "Lock {discount}% Hold",
+        "refundableDeposit": "${fee} refundable deposit",
+        "addonsCount": "{count, plural, one {# Add-On} other {# Add-Ons}}"
+      },
+      "card1": {
+        "eyebrow": "Step 01 • Visual Theme Selection",
+        "headingPrefix": "Choose Your",
+        "headingHighlight": "Casino Design",
+        "searchPlaceholder": "Search themes...",
+        "selected": "Selected",
+        "defaultThemeSub": "Turnkey VIP Theme",
+        "noMatch": "No themes matched \"{query}\".",
+        "clearFilter": "Clear filter",
+        "showFewer": "Show Fewer Designs",
+        "exploreAll": "Explore All {count} Casino Designs"
+      },
+      "card2": {
+        "eyebrow": "Step 02 • Optional Expansion Modules",
+        "headingPrefix": "Customize Your",
+        "headingHighlight": "Package",
+        "starterOnly": "Starter Package Only",
+        "activeModules": "{count, plural, one {# Module} other {# Modules}} Active (+${total})"
+      },
+      "card3": {
+        "eyebrow": "Step 03 • Operator Onboarding Profile",
+        "headingPrefix": "Operator &",
+        "headingHighlight": "Brand Details",
+        "percentComplete": "{percent}% Complete",
+        "brandName": "Casino Brand Name",
+        "brandPlaceholder": "e.g. Royal VIP Casino",
+        "targetDomain": "Target Domain",
+        "domainPlaceholder": "e.g. royalvip.com",
+        "fullName": "Operator Full Name",
+        "fullNamePlaceholder": "John Smith",
+        "company": "Business / Company",
+        "companyPlaceholder": "Gaming Holdings Ltd.",
+        "email": "Email Address",
+        "emailPlaceholder": "john@example.com",
+        "phone": "Phone Number",
+        "phonePlaceholder": "+1 (416) 555-0199",
+        "whatsapp": "WhatsApp Number",
+        "sameAsPhone": "Same as phone number",
+        "whatsappPlaceholder": "Enter separate WhatsApp number",
+        "launchTimeline": "When Are You Looking to Launch?",
+        "requirements": "Project Requirements",
+        "tapTags": "Tap tags to quick-add",
+        "requirementsPlaceholder": "Mention target geography, preferred game providers, crypto/fiat payment preferences, or compliance needs...",
+        "initializing": "Initializing Your Reservation Desk...",
+        "continueWith": "Continue With {design}",
+        "nextStepNote": "Next step lets you either lock {discount}% off with a refundable ${fee} hold or continue as a free standard inquiry."
+      },
+      "timelines": {
+        "immediately": { "label": "Immediately", "badge": "Priority" },
+        "within_30_days": { "label": "Within 30 Days", "badge": "Fast Track" },
+        "within_1_3_months": { "label": "1–3 Months", "badge": "Planned" },
+        "within_3_6_months": { "label": "3–6 Months", "badge": "Roadmap" },
+        "just_exploring": { "label": "Just Exploring", "badge": "Discovery" }
+      },
+      "chips": {
+        "crypto": "Crypto & USDT",
+        "fiat": "Fiat Cards",
+        "multilang": "Multi-Language",
+        "vip": "VIP Loyalty",
+        "affiliates": "Affiliate System",
+        "curacao": "Curacao Ready"
+      },
+      "errors": {
+        "requiredFields": "Please fill in your full name, email, and phone number.",
+        "initFailed": "Failed to initialize reservation.",
+        "submitFailed": "Failed to submit inquiry."
+      }
+    },
+    "offerModal": {
+      "skipTitle": "Skip Reservation",
+      "badge": "Exclusive Operator Incentive",
+      "headingPrefix": "Lock In",
+      "headingHighlight": "{discount}% Off",
+      "headingSuffix": "& Hold Your Design",
+      "subtitle": "Reserve {design} for {days} days with a ${fee} USD refundable deposit.",
+      "standardPrice": "Standard Package Price:",
+      "discountLine": "{discount}% Instant Reservation Discount:",
+      "lockedTotal": "Locked Package Total:",
+      "depositToday": "Holding Deposit Today:",
+      "refundable100": "100% Refundable",
+      "balanceHandover": "Balance on Handover:",
+      "depositCredited": "Deposit Credited",
+      "lockHighlightTitle": "{days}-Day Price Lock:",
+      "lockHighlightBody": "Protected against price changes for {hours} hours.",
+      "refundHighlightTitle": "100% Refundable:",
+      "refundHighlightBody": "Full refund if you choose not to proceed within {days} days.",
+      "securing": "Securing Reservation...",
+      "optionA": "Option A: Reserve Now (${fee} USD)",
+      "optionB": "Option B: Continue Without Reserving (Standard Inquiry)"
+    },
+    "checkoutModal": {
+      "closeTitle": "Close Checkout",
+      "badge": "Secure {days}-Day Holding Checkout",
+      "headingPrefix": "Reserve",
+      "bookingRef": "Booking Reference:",
+      "standardTotal": "Standard Package Total:",
+      "discountLine": "Exclusive {discount}% Reservation Discount:",
+      "discountedPrice": "Discounted Locked Price:",
+      "holdingFeeToday": "Holding Fee Today:",
+      "refundable100": "100% Refundable",
+      "balanceHandover": "Balance on Handover:",
+      "depositCredited": "Deposit Credited",
+      "tabCrypto": "Crypto (USDT / BTC)",
+      "tabCard": "Card Payment",
+      "tabDemo": "Demo",
+      "selectNetwork": "Select Network:",
+      "transferExact": "Transfer Exactly ${fee} USD To Address:",
+      "copied": "Copied!",
+      "addressNotConfigured": "Address not configured in Admin",
+      "copyAddress": "Copy Address",
+      "txHashLabel": "Transaction Hash / TxID (Proof of Transfer) *",
+      "txHashPlaceholder": "e.g. 8f6b1e32d5c4...",
+      "cardTitle": "Credit / Debit Card Checkout",
+      "cardBody": "Pay the 100% refundable ${fee} USD holding deposit with Visa, Mastercard, or American Express.",
+      "cardDisabled": "Card processing is currently in setup mode. Use Crypto or Demo Simulation.",
+      "demoTitle": "Test & Onboarding Simulation",
+      "demoBody": "Simulate an immediate ${fee} reservation confirmation without sending live funds to verify the {hours}-hour hold timer and receipt.",
+      "termsText": "I explicitly accept the {days}-Day Refundable Reservation Holding Terms. The ${fee} USD deposit locks my package price and {discount}% discount for {hours} hours, is credited 100% toward my invoice upon agreement execution, or refunded in full.",
+      "termsError": "Please accept the {days}-day refundable reservation holding terms before continuing.",
+      "txError": "Please enter your transaction hash (TxID) for verification.",
+      "recording": "Recording Transfer...",
+      "confirmCrypto": "Confirm ${fee} Crypto Deposit & Lock",
+      "redirecting": "Redirecting...",
+      "payCard": "Pay ${fee} USD with Card",
+      "simulateBtn": "Simulate ${fee} Reservation (Demo Mode)"
+    },
+    "confirmed": {
+      "badge": "{discount}% Discount Locked • {days}-Day Hold Active",
+      "headingPrefix": "Design",
+      "headingHighlight": "Reserved",
+      "headingSuffix": "Successfully!",
+      "bookingId": "Booking ID: {id}",
+      "priceLockActive": "Price Lock Active ({hours} Hours)",
+      "remaining": "Remaining: {time}",
+      "selectedDesign": "Selected Design:",
+      "originalPrice": "Original Price:",
+      "discountedTotal": "{discount}% Discounted Total:",
+      "holdingFee": "Refundable Holding Fee:",
+      "credited": "Credited",
+      "balanceDelivery": "Balance on Project Delivery:",
+      "outreach": "Your selected design has been placed on exclusive {days}-day hold. Our technical deployment manager will reach out via Email ({email}) and WhatsApp ({phone}) within 2 business hours.",
+      "viewReceipt": "View Official Reservation Receipt",
+      "browseCatalog": "Browse Catalog"
+    },
+    "inquiryConfirmed": {
+      "badge": "Royal Casino Club VIP Desk",
+      "headingPrefix": "Inquiry",
+      "headingHighlight": "Received",
+      "refNumber": "Reference Number: {ref}",
+      "body": "Your design inquiry for {design} has been logged in our enterprise portal. A launch coordinator will contact you shortly to finalize your quote.",
+      "withModules": "with {modules}",
+      "estimatedTotal": "Estimated package total: ${total} USD.",
+      "viewReceipt": "View Official Inquiry Receipt",
+      "exploreThemes": "Explore Themes"
+    },
+    "standalone": {
+      "notFoundTitle": "Reservation Not Found",
+      "notFoundBody": "The reservation identifier {id} could not be found or has been archived.",
+      "browseCatalog": "Browse Casino Catalog",
+      "dossierBadge": "Turnkey Holding Dossier",
+      "headingPrefix": "Secure 5-Day",
+      "headingHighlight": "Reservation Hold",
+      "referenceClient": "Reference: {id} • Client: {name}",
+      "alreadyPaidTitle": "Holding Deposit Already Secured!",
+      "alreadyPaidBody": "Your 5-day price lock and {discount}% discount for {design} are active.",
+      "viewOfficialReceipt": "View Official Reservation Receipt",
+      "expiredTitle": "120-Hour Holding Period Expired",
+      "expiredBody": "This reservation hold has concluded and the discount incentive has been released. The $1,000 deposit was initiated for refund.",
+      "startNew": "Start New Platform Selection",
+      "targetSolution": "Target Casino Solution",
+      "includes": "Includes: {addons}",
+      "standardPrice": "Standard Package Price:",
+      "discountLabel": "{discount}% Exclusive Reservation Discount:",
+      "lockedTotal": "Locked Turnkey Total:",
+      "holdingDueNow": "Holding Deposit (Due Now):",
+      "remainingBalance": "Remaining Handover Balance:",
+      "term1": "Guarantees 5-day (120h) exclusivity and pricing hold.",
+      "term2": "$1,000 is 100% refundable if no agreement is finalized.",
+      "term3": "Deposit is fully credited toward final package invoice.",
+      "payTermsError": "Please accept the 5-day refundable reservation terms.",
+      "payTxError": "Please enter your Transaction Hash / ID.",
+      "payTermsText": "I understand this $1,000 USD holding deposit locks my selected casino theme and exclusive 10% package discount for exactly 120 hours. If no turnkey agreement is executed, the deposit is 100% refundable back to my original payment method.",
+      "tabCrypto": "Crypto (USDT / BTC)",
+      "tabCard": "Credit Card",
+      "sendExactly": "Send Exactly: $1,000.00 USD ({label})",
+      "network": "Network: {network}",
+      "txHashLabel": "Your Payment Transaction Hash / TxID *",
+      "txHashPlaceholder": "Paste the transfer transaction hash / ID",
+      "verifying": "Verifying Transfer...",
+      "confirmDeposit": "Confirm $1,000 Crypto Deposit",
+      "cardTitle": "256-bit Encrypted Card Checkout",
+      "cardBody": "Securely reserve your casino theme with Visa, Mastercard, or American Express. The $1,000 deposit is fully refundable.",
+      "redirectingCard": "Redirecting to Checkout...",
+      "proceedCard": "Proceed to Card Checkout ($1,000)",
+      "simulateDemo": "Demo / Testing? Click here to simulate instant $1,000 reservation lock"
+    },
+    "confirmation": {
+      "reservationNotFoundTitle": "Reservation Receipt Not Found",
+      "reservationNotFoundBody": "We could not locate a reservation record for reference {ref}.",
+      "inquiryNotFoundTitle": "Inquiry Receipt Not Found",
+      "inquiryNotFoundBody": "We could not locate an inquiry for reference {ref}.",
+      "exploreThemes": "Explore Casino Themes",
+      "resBadge": "Deposit Secured • {discount}% Discount Locked",
+      "resHeadingPrefix": "Your Casino Design",
+      "resHeadingHighlight": "Is Reserved!",
+      "resSubtitle": "Your selected casino design and discounted package price have been reserved for five days (120 hours). An enterprise solution director will contact you directly to guide your onboarding.",
+      "certificateTitle": "ROYAL CASINO CLUB TURNKEY CERTIFICATE",
+      "certificateSub": "Official Proof of 5-Day Exclusive Platform Reservation",
+      "reservationIdLabel": "Reservation ID",
+      "clientInfo": "Reserved Client Information",
+      "expiryWindow": "Holding Expiration Window",
+      "exactExpiry": "Exact Expiry: {date}",
+      "platformConfig": "Selected Platform Configuration",
+      "modulesLabel": "Modules: {modules}",
+      "originalTotal": "Original Package Total:",
+      "exclusiveDiscount": "{discount}% Exclusive Reservation Discount:",
+      "discountedTotal": "Discounted Package Total:",
+      "depositPaid": "Reservation Holding Deposit Paid:",
+      "refundableTag": "100% Refundable",
+      "remainingBalance": "Remaining Project Handover Balance:",
+      "printReceipt": "Print Certificate",
+      "chatWhatsapp": "Chat on WhatsApp",
+      "clientPortal": "Open Client Portal",
+      "inqBadge": "Inquiry Dossier Logged",
+      "inqHeadingPrefix": "Inquiry",
+      "inqHeadingHighlight": "Received",
+      "inqSubtitle": "Thank you, {name}. Your turnkey online casino project specifications have been dispatched to our enterprise solutions team.",
+      "inqRefLabel": "Inquiry Reference Number",
+      "submissionDate": "Submission Date",
+      "justNow": "Just now",
+      "customerDetails": "Customer Details",
+      "companyLabel": "Company: {company}",
+      "emailLabel": "Email: {email}",
+      "phoneLabel": "Phone: {phone}",
+      "whatsappLabel": "WhatsApp: {wa}",
+      "intendedLaunch": "Intended Launch:",
+      "requestedSetup": "Requested Platform Setup",
+      "selectedAddons": "Selected Add-ons:",
+      "starterPackageDefault": "Starter Casino Package ($15,000 USD)",
+      "estimatedTotal": "Estimated Total:",
+      "specifiedRequirements": "Specified Requirements / Scope",
+      "upsellTitle": "Optional 5-Day Reservation & 10% Price Guarantee",
+      "upsellBody": "Want to lock in exclusive rights to {design} and secure a guaranteed 10% discount (saving ${savings} USD)? Place a 100% refundable $1,000 holding deposit valid for 120 hours.",
+      "upsellCta": "Lock 5-Day Hold for $1,000 (Refundable)",
+      "upsellCredited": "Credited to final balance upon agreement.",
+      "whatNext": "What Happens Next?",
+      "step1Tag": "Step 1 • Review",
+      "step1Title": "Technical Dossier",
+      "step1Desc": "Our team prepares your modular turnkey architecture breakdown.",
+      "step2Tag": "Step 2 • Outreach",
+      "step2Title": "Consultation Call",
+      "step2Desc": "An advisor reaches out via WhatsApp and Email within 4 hours.",
+      "step3Tag": "Step 3 • Launch",
+      "step3Title": "Brand & Go Live",
+      "step3Desc": "Your custom casino brand deploys in 21–30 days.",
+      "browseMore": "Browse More Designs"
+    }
+  }
+}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ExternalLink, Eye, Scale, Check, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { CasinoDesign } from "@/types";
 
 interface CasinoDesignCardProps {
@@ -53,6 +54,7 @@ export default function CasinoDesignCard({
   onQuickPreview,
   onOpenDemo,
 }: CasinoDesignCardProps) {
+  const tCommon = useTranslations("common");
   const cardRef = useRef<HTMLDivElement>(null);
   const showcaseImage = resolveShowcaseImage(design);
 
@@ -198,7 +200,7 @@ export default function CasinoDesignCard({
               title={`View live interactive demo of ${design.name}`}
               className="btn btn-neon btn-sm !px-3.5 xl:!px-4 text-xs xl:text-sm font-semibold flex-1 cursor-pointer"
             >
-              <span>View Demo</span>
+              <span>{tCommon("viewDemo")}</span>
               <ExternalLink className="h-3.5 w-3.5 shrink-0" />
             </button>
           ) : (
@@ -207,7 +209,7 @@ export default function CasinoDesignCard({
               title={`View live interactive demo of ${design.name}`}
               className="btn btn-neon btn-sm !px-3.5 xl:!px-4 text-xs xl:text-sm font-semibold flex-1"
             >
-              <span>View Demo</span>
+              <span>{tCommon("viewDemo")}</span>
               <ExternalLink className="h-3.5 w-3.5 shrink-0" />
             </Link>
           )}
@@ -217,7 +219,7 @@ export default function CasinoDesignCard({
             title={`Select and reserve ${design.name}`}
             className="btn btn-gold btn-sm !px-3.5 xl:!px-4 text-xs xl:text-sm font-bold flex-1"
           >
-            <span>Select Design</span>
+            <span>{tCommon("selectDesign")}</span>
           </Link>
         </div>
       </div>
